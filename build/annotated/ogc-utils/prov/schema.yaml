@@ -47,7 +47,7 @@ $defs:
         x-jsonld-id: '@type'
       provenance:
         $ref: '#/$defs/Prov'
-        x-jsonld-id: prov-x:provenance
+        x-jsonld-id: http://www.w3.org/ns/prov-x#provenance
         x-jsonld-type: '@id'
         x-jsonld-container: '@set'
       wasGeneratedBy:
@@ -121,7 +121,11 @@ $defs:
   Agent:
     type: object
     properties:
-      registeredName:
+      type:
+        type: string
+        const: Agent
+        x-jsonld-id: '@type'
+      name:
         type: string
         x-jsonld-id: http://xmlns.com/foaf/0.1/name
       id:
@@ -132,7 +136,7 @@ $defs:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#actedOnBehalfOf
     required:
-    - registeredName
+    - name
   Prov:
     description: An list of provenance objects linked together to form a provenance
       chain for the current object. Objects may have nested objects as well, with
@@ -156,4 +160,5 @@ x-jsonld-extra-terms:
       href: '@id'
       title: rdfs:label
 x-jsonld-prefixes:
+  prov-x: http://www.w3.org/ns/prov-x#
   foaf: http://xmlns.com/foaf/0.1/

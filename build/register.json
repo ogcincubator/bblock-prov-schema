@@ -2,7 +2,7 @@
   {
     "name": "Provenance Chain",
     "abstract": "Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way.",
-    "status": "invalid",
+    "status": "under-development",
     "dateTimeAddition": "2023-07-10T00:00:00Z",
     "itemClass": "schema",
     "register": "icsm-csdm",
@@ -23,7 +23,7 @@
     },
     "ldContext": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld",
     "sourceFiles": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/_sources/",
-    "validationPassed": false,
+    "validationPassed": true,
     "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/",
     "documentation": {
       "json-full": {

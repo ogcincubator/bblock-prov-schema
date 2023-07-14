@@ -18,7 +18,7 @@ This schema implements the PROV vocabulary semantics.
 
 ## Examples
 
-### Example Topology object
+### Example Entities with Provenance Chains
 See panel to right - note that a more user friendly "collapsable" version is in development. 
 #### json
 ```json
@@ -30,10 +30,13 @@ See panel to right - note that a more user friendly "collapsable" version is in 
   "wasGeneratedBy": [
     "surveyreg-nz:DP-1-S1",
     {
+      "type": "Activity",
       "id": "surveyreg-nz:DP-1-S2",
       "endedAtTime": "2029-01-01",
       "wasAssociatedWith": "linz-registered-surveyors:bc-3",
       "used": {
+        "type": "Entity",
+        "id": "Act3",
         "wasAttributedTo": "icsm-jurisdictions:nz",
         "link": {
           "href": "https://some.gov/linktoact/",
@@ -47,7 +50,9 @@ See panel to right - note that a more user friendly "collapsable" version is in 
     {
       "id": "DP-2223",
       "type": "Entity",
-      "wasGeneratedBy": {
+      "wasGeneratedBy": "surveyreg-nz:DP-1-S1"
+    },
+    {
         "type": "Activity",
         "id": "surveyreg-nz:DP-1-S1",
         "endedAtTime": "2023-10-05",
@@ -62,12 +67,6 @@ See panel to right - note that a more user friendly "collapsable" version is in 
           }
         }
       }
-    },
-    {
-      "id": "survprov-nz:survey",
-      "type": "Activity",
-      "endedAtTime": "2023-10-05"
-    }
   ]
 }
 
@@ -128,7 +127,7 @@ $defs:
         x-jsonld-id: '@type'
       provenance:
         $ref: '#/$defs/Prov'
-        x-jsonld-id: prov-x:provenance
+        x-jsonld-id: http://www.w3.org/ns/prov-x#provenance
         x-jsonld-type: '@id'
         x-jsonld-container: '@set'
       wasGeneratedBy:
@@ -202,7 +201,11 @@ $defs:
   Agent:
     type: object
     properties:
-      registeredName:
+      type:
+        type: string
+        const: Agent
+        x-jsonld-id: '@type'
+      name:
         type: string
         x-jsonld-id: http://xmlns.com/foaf/0.1/name
       id:
@@ -213,7 +216,7 @@ $defs:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#actedOnBehalfOf
     required:
-    - registeredName
+    - name
   Prov:
     description: An list of provenance objects linked together to form a provenance
       chain for the current object. Objects may have nested objects as well, with
@@ -237,6 +240,7 @@ x-jsonld-extra-terms:
       href: '@id'
       title: rdfs:label
 x-jsonld-prefixes:
+  prov-x: http://www.w3.org/ns/prov-x#
   foaf: http://xmlns.com/foaf/0.1/
 
 ```
@@ -263,7 +267,7 @@ Links to the schema:
           "@type": "@id",
           "@id": "http://www.w3.org/ns/prov#used"
         },
-        "registeredName": "foaf:name",
+        "name": "foaf:name",
         "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
       }
     },
@@ -280,7 +284,7 @@ Links to the schema:
     "wasAttributedTo": {
       "@id": "http://www.w3.org/ns/prov#wasAttributedTo",
       "@context": {
-        "registeredName": "foaf:name",
+        "name": "foaf:name",
         "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
       }
     },
@@ -294,7 +298,7 @@ Links to the schema:
       "@type": "@id",
       "@id": "http://www.w3.org/ns/prov#wasAssociatedWith",
       "@context": {
-        "registeredName": "foaf:name",
+        "name": "foaf:name",
         "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
       }
     },
@@ -308,7 +312,7 @@ Links to the schema:
           "@type": "@id",
           "@container": "@set",
           "@context": {
-            "registeredName": "foaf:name",
+            "name": "foaf:name",
             "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
           }
         },
@@ -328,6 +332,7 @@ Links to the schema:
         "title": "rdfs:label"
       }
     },
+    "prov-x": "http://www.w3.org/ns/prov-x#",
     "foaf": "http://xmlns.com/foaf/0.1/"
   }
 }

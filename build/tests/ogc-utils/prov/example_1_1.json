@@ -7,10 +7,13 @@
   "wasGeneratedBy": [
     "surveyreg-nz:DP-1-S1",
     {
+      "type": "Activity",
       "id": "surveyreg-nz:DP-1-S2",
       "endedAtTime": "2029-01-01",
       "wasAssociatedWith": "linz-registered-surveyors:bc-3",
       "used": {
+        "type": "Entity",
+        "id": "Act3",
         "wasAttributedTo": "icsm-jurisdictions:nz",
         "link": {
           "href": "https://some.gov/linktoact/",
@@ -23,26 +26,22 @@
     {
       "id": "DP-2223",
       "type": "Entity",
-      "wasGeneratedBy": {
-        "type": "Activity",
-        "id": "surveyreg-nz:DP-1-S1",
-        "endedAtTime": "2023-10-05",
-        "wasAssociatedWith": "linz-registered-surveyors:ah-2344503",
-        "used": {
-          "id": "Act3",
-          "type": "Entity",
-          "wasAttributedTo": "icsm-jurisdictions:nz",
-          "link": {
-            "href": "https://some.gov/linktoact/",
-            "rel": "related"
-          }
-        }
-      }
+      "wasGeneratedBy": "surveyreg-nz:DP-1-S1"
     },
     {
-      "id": "survprov-nz:survey",
       "type": "Activity",
-      "endedAtTime": "2023-10-05"
+      "id": "surveyreg-nz:DP-1-S1",
+      "endedAtTime": "2023-10-05",
+      "wasAssociatedWith": "linz-registered-surveyors:ah-2344503",
+      "used": {
+        "id": "Act3",
+        "type": "Entity",
+        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "link": {
+          "href": "https://some.gov/linktoact/",
+          "rel": "related"
+        }
+      }
     }
   ]
 }
