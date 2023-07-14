@@ -2,6 +2,8 @@
 
 This repository defines a "building block" for use of [PROV-O Vocabulary](https://www.w3.org/TR/prov-o/) in a JSON or JSON-LD implementation.
 
+The "ready-to-use" form is generated [here:](https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/slate-build/ogc-utils/prov/index.html)
+
 The **JSON schema** allows for either nested instances of PROV classes, or for arrays of objects linked by identifiers, and the use of external URI identifiers for PROV objects.
 
 Such a schema is complex, and the purpose of this building block is to provide a canonical implementation supported by validation and examples.
@@ -9,6 +11,7 @@ Such a schema is complex, and the purpose of this building block is to provide a
 The **JSON-LD** context binds these structures to the PROV-O vocabulary.
 
 The **SHACL** rules perform consistency checking above and beyond schema validation.
+
 
 [OGC Building Blocks](https://opengeospatial.github.io/bblocks) are defined by the Open Geospatial Consortium to support implementation of customised applications consistent with OGC specifications.
 
