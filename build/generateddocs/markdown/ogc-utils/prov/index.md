@@ -75,6 +75,30 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 
 ```
 
+#### json
+```json
+{
+  "type": "Activity",
+  "id": "surveyreg-nz:DP-1-S2",
+  "endedAtTime": "2029-01-01",
+  "wasAssociatedWith": "linz-registered-surveyors:bc-3",
+  "used": {
+    "type": "Entity",
+    "id": "Act3",
+    "wasAttributedTo": "icsm-jurisdictions:nz",
+    "link": {
+      "href": "https://some.gov/linktoact/",
+      "rel": "related"
+    }
+  }
+}
+
+
+
+
+
+```
+
 ## Schema
 
 ```yaml
