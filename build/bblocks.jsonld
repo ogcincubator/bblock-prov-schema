@@ -73,5 +73,51 @@
   "@id": "https://www.opengis.net/def/bblocks",
   "@type": "skos:ConceptScheme",
   "skos:prefLabel": "OGC Building Blocks Register",
-  "hasConcepts": []
+  "hasConcepts": [
+    {
+      "name": "Provenance Chain",
+      "abstract": "Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way.",
+      "status": "invalid",
+      "dateTimeAddition": "2023-07-10T00:00:00Z",
+      "itemClass": "schema",
+      "register": "icsm-csdm",
+      "version": "0.1",
+      "dateOfLastChange": "2023-07-10",
+      "link": "https://github.com/icsm-au/3d-csdm-schema",
+      "sources": [],
+      "maturity": "development",
+      "scope": "unstable",
+      "tags": [
+        "prov",
+        "utils"
+      ],
+      "itemIdentifier": "ogc.ogc-utils.prov",
+      "schema": {
+        "application/yaml": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/schema.yaml",
+        "application/json": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/schema.json"
+      },
+      "ldContext": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld",
+      "sourceFiles": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/_sources/",
+      "validationPassed": false,
+      "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/",
+      "documentation": {
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/json-full/ogc-utils/prov/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/markdown/ogc-utils/prov/index.md"
+        },
+        "slate": {
+          "mediatype": "text/html",
+          "url": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/slate-build/ogc-utils/prov/"
+        }
+      },
+      "@type": [
+        "bblocks:Schema",
+        "skos:Concept"
+      ]
+    }
+  ]
 }

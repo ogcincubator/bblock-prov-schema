@@ -1,0 +1,284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "provenance chain",
+  "$defs": {
+    "oneOrMoreActivitiesOrRefIds": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "#/$defs/Activity"
+        },
+        {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/Activity"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "oneOrMoreEntitiesOrRefIds": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "#/$defs/Entity"
+        },
+        {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/Entity"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "oneOrMoreAgentsOrRefIds": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "$ref": "#/$defs/externalLink"
+        },
+        {
+          "$ref": "#/$defs/Agent"
+        },
+        {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/$defs/Agent"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "externalLink": {
+      "$ref": "https://beta.schemas.opengis.net/json-fg/link.json"
+    },
+    "Entity": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "@context": {
+          "description": "allow a local context to set URI bases for object Ids",
+          "type": "object",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#@context"
+        },
+        "id": {
+          "type": "string",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#@id"
+        },
+        "type": {
+          "type": "string",
+          "const": "Entity",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#@type"
+        },
+        "provenance": {
+          "$ref": "#/$defs/Prov",
+          "x-jsonld-id": "prov-x:provenance",
+          "x-jsonld-type": "http://www.w3.org/ns/prov#@id",
+          "x-jsonld-container": "@set"
+        },
+        "wasGeneratedBy": {
+          "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds",
+          "x-jsonld-type": "http://www.w3.org/ns/prov#@id",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#wasGeneratedBy"
+        },
+        "wasAttributedTo": {
+          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#wasAttributedTo"
+        },
+        "wasDerivedFrom": {
+          "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds",
+          "x-jsonld-type": "http://www.w3.org/ns/prov#@id",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#wasDerivedFrom"
+        },
+        "link": {
+          "$ref": "#/$defs/externalLink",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#link"
+        }
+      },
+      "required": [
+        "id",
+        "type"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "wasGeneratedBy"
+          ]
+        },
+        {
+          "required": [
+            "wasAttributedTo"
+          ]
+        },
+        {
+          "required": [
+            "wasDerivedFrom"
+          ]
+        },
+        {
+          "required": [
+            "provenance"
+          ]
+        }
+      ]
+    },
+    "dateOrTime": {
+      "oneOf": [
+        {
+          "type": "string",
+          "format": "date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?$"
+        }
+      ]
+    },
+    "Activity": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "const": "Activity",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#@type"
+        },
+        "endedAtTime": {
+          "$ref": "#/$defs/dateOrTime",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#endedAtTime"
+        },
+        "wasAssociatedWith": {
+          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",
+          "x-jsonld-type": "http://www.w3.org/ns/prov#@id",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#wasAssociatedWith"
+        },
+        "wasInformedBy": {
+          "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#wasInformedBy"
+        },
+        "used": {
+          "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds",
+          "x-jsonld-type": "http://www.w3.org/ns/prov#@id",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#used"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "used"
+          ]
+        },
+        {
+          "required": [
+            "wasInformedBy"
+          ]
+        },
+        {
+          "required": [
+            "endedAtTime"
+          ]
+        },
+        {
+          "required": [
+            "startedAtTime"
+          ]
+        },
+        {
+          "required": [
+            "wasAssociatedWith"
+          ]
+        }
+      ]
+    },
+    "Agent": {
+      "type": "object",
+      "properties": {
+        "registeredName": {
+          "type": "string",
+          "x-jsonld-id": "http://xmlns.com/foaf/0.1/name"
+        },
+        "id": {
+          "type": "string",
+          "format": "uri",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#@id"
+        },
+        "actedOnBehalfOf": {
+          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+        }
+      },
+      "required": [
+        "registeredName"
+      ]
+    },
+    "Prov": {
+      "description": "An list of provenance objects linked together to form a provenance chain for the current object. Objects may have nested objects as well, with or without referencable ids",
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/$defs/Entity"
+          },
+          {
+            "$ref": "#/$defs/Activity"
+          },
+          {
+            "$ref": "#/$defs/Agent"
+          }
+        ]
+      }
+    }
+  },
+  "anyOf": [
+    {
+      "$ref": "#/$defs/Entity"
+    },
+    {
+      "$ref": "#/$defs/Activity"
+    }
+  ],
+  "x-jsonld-extra-terms": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "survtypes-nz": "https://surveytypes-nz/",
+    "surveyreg-nz": "https://surveys-nz/",
+    "links": {
+      "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "x-jsonld-context": {
+        "href": "http://www.w3.org/ns/prov#@id",
+        "title": "rdfs:label"
+      }
+    }
+  },
+  "x-jsonld-prefixes": {
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  }
+}

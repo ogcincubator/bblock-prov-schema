@@ -1,0 +1,680 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <meta
+            name="Provenance Chain (Schema)"
+        >
+    <title>Provenance Chain (Schema)</title>
+
+    <style media="screen">
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cpf {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s, .highlight .sa, .highlight .dl {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf, .highlight .fm {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv, .highlight .vm {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #f92672;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <style media="print">
+      * {
+        -webkit-transition:none!important;
+        transition:none!important;
+      }
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #586e75;
+}
+.highlight .err {
+  color: #002b36;
+  background-color: #dc322f;
+}
+.highlight .c, .highlight .ch, .highlight .cd, .highlight .cm, .highlight .cpf, .highlight .c1, .highlight .cs {
+  color: #657b83;
+}
+.highlight .cp {
+  color: #b58900;
+}
+.highlight .nt {
+  color: #b58900;
+}
+.highlight .o, .highlight .ow {
+  color: #93a1a1;
+}
+.highlight .p, .highlight .pi {
+  color: #93a1a1;
+}
+.highlight .gi {
+  color: #859900;
+}
+.highlight .gd {
+  color: #dc322f;
+}
+.highlight .gh {
+  color: #268bd2;
+  background-color: #002b36;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #6c71c4;
+}
+.highlight .kc {
+  color: #cb4b16;
+}
+.highlight .kt {
+  color: #cb4b16;
+}
+.highlight .kd {
+  color: #cb4b16;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .dl, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #859900;
+}
+.highlight .sa {
+  color: #6c71c4;
+}
+.highlight .sr {
+  color: #2aa198;
+}
+.highlight .si {
+  color: #d33682;
+}
+.highlight .se {
+  color: #d33682;
+}
+.highlight .nn {
+  color: #b58900;
+}
+.highlight .nc {
+  color: #b58900;
+}
+.highlight .no {
+  color: #b58900;
+}
+.highlight .na {
+  color: #268bd2;
+}
+.highlight .m, .highlight .mb, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mx {
+  color: #859900;
+}
+.highlight .ss {
+  color: #859900;
+}
+    </style>
+    <link href="../../stylesheets/screen-e762ca82.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
+      <script src="../../javascripts/all-fea9e21b.js"></script>
+
+    <script>
+      $(function() { setupCodeCopy(); });
+    </script>
+  </head>
+
+  <body class="ogc-utils ogc-utils_prov ogc-utils_prov_index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="../../images/navbar-cad8cdcb.png" alt="" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="../../images/logo-4d9dfd05.svg" class="logo" alt="" />
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <ul id="toc" class="toc-list-h1">
+          <li>
+            <a href="#provenance-chain-ogc-ogc-utils-prov" class="toc-h1 toc-link" data-title="Provenance Chain ogc.ogc-utils.prov">Provenance Chain <code>ogc.ogc-utils.prov</code></a>
+          </li>
+          <li>
+            <a href="#description" class="toc-h1 toc-link" data-title="Description">Description</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#provenance-chain" class="toc-h2 toc-link" data-title="Provenance chain">Provenance chain</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#examples" class="toc-h1 toc-link" data-title="Examples">Examples</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#example-topology-object" class="toc-h2 toc-link" data-title="Example Topology object">Example Topology object</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#json-schema" class="toc-h1 toc-link" data-title="JSON Schema">JSON Schema</a>
+          </li>
+          <li>
+            <a href="#json-ld-context" class="toc-h1 toc-link" data-title="JSON-LD Context">JSON-LD Context</a>
+          </li>
+          <li>
+            <a href="#for-developers" class="toc-h1 toc-link" data-title="For developers">For developers</a>
+          </li>
+      </ul>
+        <ul class="toc-footer">
+            <li>Version 0.1</li>
+            <li><a href='#'>Provenance Chain</a></li>
+            <li><a href='https://blocks.ogc.org/register.html'>Building Blocks register</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='provenance-chain-ogc-ogc-utils-prov'>Provenance Chain <code>ogc.ogc-utils.prov</code></h1>
+<p>Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way.</p>
+
+<p><a href="https://github.com/cportele/ogcapi-building-blocks#building-block-maturity">Maturity</a>: Development</p>
+
+<aside class="warning">
+Validation for this building block has <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">failed</a></strong>
+</aside>
+<h1 id='description'>Description</h1><h2 id='provenance-chain'>Provenance chain</h2>
+<p>A schema defining objects that may be referenced or nested as a chain of activities.</p>
+
+<p>This schema implements the PROV vocabulary semantics.</p>
+<h1 id='examples'>Examples</h1><h2 id='example-topology-object'>Example Topology object</h2>
+<p>See panel to right - note that a more user friendly &quot;collapsable&quot; version is in development. </p>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w"> </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/"</span><span class="p">},</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DP-1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
+
+  </span><span class="nl">"wasGeneratedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"surveyreg-nz:DP-1-S1"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surveyreg-nz:DP-1-S2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2029-01-01"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linz-registered-surveyors:bc-3"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icsm-jurisdictions:nz"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://some.gov/linktoact/"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"related"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"provenance"</span><span class="p">:</span><span class="w">
+  </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DP-2223"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"wasGeneratedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surveyreg-nz:DP-1-S1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-05"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linz-registered-surveyors:ah-2344503"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Act3"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icsm-jurisdictions:nz"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"link"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://some.gov/linktoact/"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"related"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"survprov-nz:survey"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-05"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+
+
+</span></code></pre></div><h1 id='json-schema'>JSON Schema</h1><div class="highlight"><pre class="highlight yaml tab-yaml--schema"><code><span class="na">$schema</span><span class="pi">:</span> <span class="s">https://json-schema.org/draft/2020-12/schema</span>
+<span class="na">description</span><span class="pi">:</span> <span class="s">provenance chain</span>
+<span class="na">$defs</span><span class="pi">:</span>
+  <span class="na">oneOrMoreActivitiesOrRefIds</span><span class="pi">:</span>
+    <span class="na">oneOf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+    <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Activity'</span>
+    <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">array</span>
+      <span class="na">items</span><span class="pi">:</span>
+        <span class="na">anyOf</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Activity'</span>
+  <span class="na">oneOrMoreEntitiesOrRefIds</span><span class="pi">:</span>
+    <span class="na">oneOf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+    <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Entity'</span>
+    <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">array</span>
+      <span class="na">items</span><span class="pi">:</span>
+        <span class="na">anyOf</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Entity'</span>
+  <span class="na">oneOrMoreAgentsOrRefIds</span><span class="pi">:</span>
+    <span class="na">oneOf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+    <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/externalLink'</span>
+    <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Agent'</span>
+    <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">array</span>
+      <span class="na">items</span><span class="pi">:</span>
+        <span class="na">anyOf</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Agent'</span>
+  <span class="na">externalLink</span><span class="pi">:</span>
+    <span class="na">$ref</span><span class="pi">:</span> <span class="s">https://beta.schemas.opengis.net/json-fg/link.json</span>
+  <span class="na">Entity</span><span class="pi">:</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
+    <span class="na">additionalProperties</span><span class="pi">:</span> <span class="no">false</span>
+    <span class="na">properties</span><span class="pi">:</span>
+      <span class="s1">'</span><span class="s">@context'</span><span class="err">:</span>
+        <span class="na">description</span><span class="pi">:</span> <span class="s">allow a local context to set URI bases for object Ids</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#@context</span>
+      <span class="na">id</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#@id</span>
+      <span class="na">type</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="na">const</span><span class="pi">:</span> <span class="s">Entity</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#@type</span>
+      <span class="na">provenance</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Prov'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">prov-x:provenance</span>
+        <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#@id</span>
+        <span class="na">x-jsonld-container</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@set'</span>
+      <span class="na">wasGeneratedBy</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreActivitiesOrRefIds'</span>
+        <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#@id</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#wasGeneratedBy</span>
+      <span class="na">wasAttributedTo</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreAgentsOrRefIds'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#wasAttributedTo</span>
+      <span class="na">wasDerivedFrom</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreEntitiesOrRefIds'</span>
+        <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#@id</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#wasDerivedFrom</span>
+      <span class="na">link</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/externalLink'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#link</span>
+    <span class="na">required</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">id</span>
+    <span class="pi">-</span> <span class="s">type</span>
+    <span class="na">anyOf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">wasGeneratedBy</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">wasAttributedTo</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">wasDerivedFrom</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">provenance</span>
+  <span class="na">dateOrTime</span><span class="pi">:</span>
+    <span class="na">oneOf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+      <span class="na">format</span><span class="pi">:</span> <span class="s">date</span>
+      <span class="na">pattern</span><span class="pi">:</span> <span class="s">^\d{4}-\d{2}-\d{2}$</span>
+    <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+      <span class="na">format</span><span class="pi">:</span> <span class="s">date-time</span>
+      <span class="na">pattern</span><span class="pi">:</span> <span class="s">^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?$</span>
+  <span class="na">Activity</span><span class="pi">:</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
+    <span class="na">properties</span><span class="pi">:</span>
+      <span class="na">type</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="na">const</span><span class="pi">:</span> <span class="s">Activity</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#@type</span>
+      <span class="na">endedAtTime</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/dateOrTime'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#endedAtTime</span>
+      <span class="na">wasAssociatedWith</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreAgentsOrRefIds'</span>
+        <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#@id</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#wasAssociatedWith</span>
+      <span class="na">wasInformedBy</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreActivitiesOrRefIds'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#wasInformedBy</span>
+      <span class="na">used</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreEntitiesOrRefIds'</span>
+        <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#@id</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#used</span>
+    <span class="na">required</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">type</span>
+    <span class="na">anyOf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">used</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">wasInformedBy</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">endedAtTime</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">startedAtTime</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">wasAssociatedWith</span>
+  <span class="na">Agent</span><span class="pi">:</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
+    <span class="na">properties</span><span class="pi">:</span>
+      <span class="na">registeredName</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://xmlns.com/foaf/0.1/name</span>
+      <span class="na">id</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="na">format</span><span class="pi">:</span> <span class="s">uri</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#@id</span>
+      <span class="na">actedOnBehalfOf</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreAgentsOrRefIds'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#actedOnBehalfOf</span>
+    <span class="na">required</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">registeredName</span>
+  <span class="na">Prov</span><span class="pi">:</span>
+    <span class="na">description</span><span class="pi">:</span> <span class="s">An list of provenance objects linked together to form a provenance</span>
+      <span class="s">chain for the current object. Objects may have nested objects as well, with</span>
+      <span class="s">or without referencable ids</span>
+    <span class="na">type</span><span class="pi">:</span> <span class="s">array</span>
+    <span class="na">items</span><span class="pi">:</span>
+      <span class="na">oneOf</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Entity'</span>
+      <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Activity'</span>
+      <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Agent'</span>
+<span class="na">anyOf</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Entity'</span>
+<span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Activity'</span>
+<span class="na">x-jsonld-extra-terms</span><span class="pi">:</span>
+  <span class="na">prov</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#</span>
+  <span class="na">survtypes-nz</span><span class="pi">:</span> <span class="s">https://surveytypes-nz/</span>
+  <span class="na">surveyreg-nz</span><span class="pi">:</span> <span class="s">https://surveys-nz/</span>
+  <span class="na">links</span><span class="pi">:</span>
+    <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/2000/01/rdf-schema#seeAlso</span>
+    <span class="na">x-jsonld-context</span><span class="pi">:</span>
+      <span class="na">href</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#@id</span>
+      <span class="na">title</span><span class="pi">:</span> <span class="s">rdfs:label</span>
+<span class="na">x-jsonld-prefixes</span><span class="pi">:</span>
+  <span class="na">foaf</span><span class="pi">:</span> <span class="s">http://xmlns.com/foaf/0.1/</span>
+
+</code></pre></div>
+<p>Links to the schema:</p>
+
+<ul>
+<li>YAML version: <a href="https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/schema.yaml" target="_blank">https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/schema.yaml</a></li>
+<li>JSON version: <a href="https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/schema.json" target="_blank">https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/schema.json</a></li>
+</ul>
+<h1 id='json-ld-context'>JSON-LD Context</h1><div class="highlight"><pre class="highlight json tab-json--ldContext"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#@id"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#@type"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"provenance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov-x:provenance"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#@id"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@container"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@set"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#@id"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#used"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"registeredName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#actedOnBehalfOf"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"wasGeneratedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#@id"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#wasGeneratedBy"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#@id"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#used"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#wasAttributedTo"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"registeredName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#actedOnBehalfOf"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"wasDerivedFrom"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#@id"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#wasDerivedFrom"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"link"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#link"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#endedAtTime"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#@id"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#wasAssociatedWith"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"registeredName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#actedOnBehalfOf"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"wasInformedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#wasInformedBy"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#@id"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#used"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"provenance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov-x:provenance"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#@id"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@container"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@set"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"registeredName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#actedOnBehalfOf"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"wasGeneratedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#@id"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#wasGeneratedBy"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"prov"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"survtypes-nz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://surveytypes-nz/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"surveyreg-nz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://surveys-nz/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2000/01/rdf-schema#seeAlso"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#@id"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"foaf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xmlns.com/foaf/0.1/"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<p>You can find the full JSON-LD context here:
+<a href="https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld" target="_blank">https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld</a></p>
+<h1 id='for-developers'>For developers</h1>
+<p>The source code for this Building Block can be found in the following repository:</p>
+
+<ul>
+<li>URL: <a href="https://github.com/ogcincubator/bblock-prov-schema" target="_blank">https://github.com/ogcincubator/bblock-prov-schema</a></li>
+<li>Path: <code>_sources</code></li>
+</ul>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>

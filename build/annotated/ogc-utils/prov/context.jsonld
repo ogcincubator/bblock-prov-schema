@@ -1,0 +1,81 @@
+{
+  "@context": {
+    "id": "http://www.w3.org/ns/prov#@id",
+    "type": "http://www.w3.org/ns/prov#@type",
+    "provenance": {
+      "@id": "prov-x:provenance",
+      "@type": "http://www.w3.org/ns/prov#@id",
+      "@container": "@set",
+      "@context": {
+        "used": {
+          "@type": "http://www.w3.org/ns/prov#@id",
+          "@id": "http://www.w3.org/ns/prov#used"
+        },
+        "registeredName": "foaf:name",
+        "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+      }
+    },
+    "wasGeneratedBy": {
+      "@type": "http://www.w3.org/ns/prov#@id",
+      "@id": "http://www.w3.org/ns/prov#wasGeneratedBy",
+      "@context": {
+        "used": {
+          "@type": "http://www.w3.org/ns/prov#@id",
+          "@id": "http://www.w3.org/ns/prov#used"
+        }
+      }
+    },
+    "wasAttributedTo": {
+      "@id": "http://www.w3.org/ns/prov#wasAttributedTo",
+      "@context": {
+        "registeredName": "foaf:name",
+        "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+      }
+    },
+    "wasDerivedFrom": {
+      "@type": "http://www.w3.org/ns/prov#@id",
+      "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
+    },
+    "link": "http://www.w3.org/ns/prov#link",
+    "endedAtTime": "http://www.w3.org/ns/prov#endedAtTime",
+    "wasAssociatedWith": {
+      "@type": "http://www.w3.org/ns/prov#@id",
+      "@id": "http://www.w3.org/ns/prov#wasAssociatedWith",
+      "@context": {
+        "registeredName": "foaf:name",
+        "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+      }
+    },
+    "wasInformedBy": "http://www.w3.org/ns/prov#wasInformedBy",
+    "used": {
+      "@type": "http://www.w3.org/ns/prov#@id",
+      "@id": "http://www.w3.org/ns/prov#used",
+      "@context": {
+        "provenance": {
+          "@id": "prov-x:provenance",
+          "@type": "http://www.w3.org/ns/prov#@id",
+          "@container": "@set",
+          "@context": {
+            "registeredName": "foaf:name",
+            "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+          }
+        },
+        "wasGeneratedBy": {
+          "@type": "http://www.w3.org/ns/prov#@id",
+          "@id": "http://www.w3.org/ns/prov#wasGeneratedBy"
+        }
+      }
+    },
+    "prov": "http://www.w3.org/ns/prov#",
+    "survtypes-nz": "https://surveytypes-nz/",
+    "surveyreg-nz": "https://surveys-nz/",
+    "links": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@context": {
+        "href": "http://www.w3.org/ns/prov#@id",
+        "title": "rdfs:label"
+      }
+    },
+    "foaf": "http://xmlns.com/foaf/0.1/"
+  }
+}
