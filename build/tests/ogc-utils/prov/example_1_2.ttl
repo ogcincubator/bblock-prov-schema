@@ -1,0 +1,11 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<https://surveys-nz/DP-1-S2> a <http://www.example.com/prov/Activity> ;
+    prov:endedAtTime "2029-01-01" ;
+    prov:used <http://www.example.com/prov/Act3> ;
+    prov:wasAssociatedWith "linz-registered-surveyors:bc-3" .
+
+<http://www.example.com/prov/Act3> a <http://www.example.com/prov/Entity> ;
+    prov:link [ ] ;
+    prov:wasAttributedTo "icsm-jurisdictions:nz" .
+
