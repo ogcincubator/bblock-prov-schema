@@ -203,7 +203,11 @@
     "Agent": {
       "type": "object",
       "properties": {
-        "registeredName": {
+        "type": {
+          "type": "string",
+          "const": "Agent"
+        },
+        "name": {
           "type": "string"
         },
         "id": {
@@ -215,7 +219,7 @@
         }
       },
       "required": [
-        "registeredName"
+        "name"
       ]
     },
     "Prov": {
