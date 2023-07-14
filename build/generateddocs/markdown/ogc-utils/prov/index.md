@@ -119,29 +119,28 @@ $defs:
       '@context':
         description: allow a local context to set URI bases for object Ids
         type: object
-        x-jsonld-id: http://www.w3.org/ns/prov#@context
       id:
         type: string
-        x-jsonld-id: http://www.w3.org/ns/prov#@id
+        x-jsonld-id: '@id'
       type:
         type: string
         const: Entity
-        x-jsonld-id: http://www.w3.org/ns/prov#@type
+        x-jsonld-id: '@type'
       provenance:
         $ref: '#/$defs/Prov'
         x-jsonld-id: prov-x:provenance
-        x-jsonld-type: http://www.w3.org/ns/prov#@id
+        x-jsonld-type: '@id'
         x-jsonld-container: '@set'
       wasGeneratedBy:
         $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
-        x-jsonld-type: http://www.w3.org/ns/prov#@id
+        x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
       wasAttributedTo:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#wasAttributedTo
       wasDerivedFrom:
         $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
-        x-jsonld-type: http://www.w3.org/ns/prov#@id
+        x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#wasDerivedFrom
       link:
         $ref: '#/$defs/externalLink'
@@ -172,20 +171,20 @@ $defs:
       type:
         type: string
         const: Activity
-        x-jsonld-id: http://www.w3.org/ns/prov#@type
+        x-jsonld-id: '@type'
       endedAtTime:
         $ref: '#/$defs/dateOrTime'
         x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
       wasAssociatedWith:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
-        x-jsonld-type: http://www.w3.org/ns/prov#@id
+        x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#wasAssociatedWith
       wasInformedBy:
         $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#wasInformedBy
       used:
         $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
-        x-jsonld-type: http://www.w3.org/ns/prov#@id
+        x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#used
     required:
     - type
@@ -209,7 +208,7 @@ $defs:
       id:
         type: string
         format: uri
-        x-jsonld-id: http://www.w3.org/ns/prov#@id
+        x-jsonld-id: '@id'
       actedOnBehalfOf:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#actedOnBehalfOf
@@ -235,7 +234,7 @@ x-jsonld-extra-terms:
   links:
     x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#seeAlso
     x-jsonld-context:
-      href: http://www.w3.org/ns/prov#@id
+      href: '@id'
       title: rdfs:label
 x-jsonld-prefixes:
   foaf: http://xmlns.com/foaf/0.1/
@@ -253,15 +252,15 @@ Links to the schema:
 ```jsonld
 {
   "@context": {
-    "id": "http://www.w3.org/ns/prov#@id",
-    "type": "http://www.w3.org/ns/prov#@type",
+    "id": "@id",
+    "type": "@type",
     "provenance": {
       "@id": "prov-x:provenance",
-      "@type": "http://www.w3.org/ns/prov#@id",
+      "@type": "@id",
       "@container": "@set",
       "@context": {
         "used": {
-          "@type": "http://www.w3.org/ns/prov#@id",
+          "@type": "@id",
           "@id": "http://www.w3.org/ns/prov#used"
         },
         "registeredName": "foaf:name",
@@ -269,11 +268,11 @@ Links to the schema:
       }
     },
     "wasGeneratedBy": {
-      "@type": "http://www.w3.org/ns/prov#@id",
+      "@type": "@id",
       "@id": "http://www.w3.org/ns/prov#wasGeneratedBy",
       "@context": {
         "used": {
-          "@type": "http://www.w3.org/ns/prov#@id",
+          "@type": "@id",
           "@id": "http://www.w3.org/ns/prov#used"
         }
       }
@@ -286,13 +285,13 @@ Links to the schema:
       }
     },
     "wasDerivedFrom": {
-      "@type": "http://www.w3.org/ns/prov#@id",
+      "@type": "@id",
       "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
     },
     "link": "http://www.w3.org/ns/prov#link",
     "endedAtTime": "http://www.w3.org/ns/prov#endedAtTime",
     "wasAssociatedWith": {
-      "@type": "http://www.w3.org/ns/prov#@id",
+      "@type": "@id",
       "@id": "http://www.w3.org/ns/prov#wasAssociatedWith",
       "@context": {
         "registeredName": "foaf:name",
@@ -301,12 +300,12 @@ Links to the schema:
     },
     "wasInformedBy": "http://www.w3.org/ns/prov#wasInformedBy",
     "used": {
-      "@type": "http://www.w3.org/ns/prov#@id",
+      "@type": "@id",
       "@id": "http://www.w3.org/ns/prov#used",
       "@context": {
         "provenance": {
           "@id": "prov-x:provenance",
-          "@type": "http://www.w3.org/ns/prov#@id",
+          "@type": "@id",
           "@container": "@set",
           "@context": {
             "registeredName": "foaf:name",
@@ -314,7 +313,7 @@ Links to the schema:
           }
         },
         "wasGeneratedBy": {
-          "@type": "http://www.w3.org/ns/prov#@id",
+          "@type": "@id",
           "@id": "http://www.w3.org/ns/prov#wasGeneratedBy"
         }
       }
@@ -325,7 +324,7 @@ Links to the schema:
     "links": {
       "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
       "@context": {
-        "href": "http://www.w3.org/ns/prov#@id",
+        "href": "@id",
         "title": "rdfs:label"
       }
     },

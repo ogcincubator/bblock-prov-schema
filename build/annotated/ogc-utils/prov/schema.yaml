@@ -38,29 +38,28 @@ $defs:
       '@context':
         description: allow a local context to set URI bases for object Ids
         type: object
-        x-jsonld-id: http://www.w3.org/ns/prov#@context
       id:
         type: string
-        x-jsonld-id: http://www.w3.org/ns/prov#@id
+        x-jsonld-id: '@id'
       type:
         type: string
         const: Entity
-        x-jsonld-id: http://www.w3.org/ns/prov#@type
+        x-jsonld-id: '@type'
       provenance:
         $ref: '#/$defs/Prov'
         x-jsonld-id: prov-x:provenance
-        x-jsonld-type: http://www.w3.org/ns/prov#@id
+        x-jsonld-type: '@id'
         x-jsonld-container: '@set'
       wasGeneratedBy:
         $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
-        x-jsonld-type: http://www.w3.org/ns/prov#@id
+        x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
       wasAttributedTo:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#wasAttributedTo
       wasDerivedFrom:
         $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
-        x-jsonld-type: http://www.w3.org/ns/prov#@id
+        x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#wasDerivedFrom
       link:
         $ref: '#/$defs/externalLink'
@@ -91,20 +90,20 @@ $defs:
       type:
         type: string
         const: Activity
-        x-jsonld-id: http://www.w3.org/ns/prov#@type
+        x-jsonld-id: '@type'
       endedAtTime:
         $ref: '#/$defs/dateOrTime'
         x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
       wasAssociatedWith:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
-        x-jsonld-type: http://www.w3.org/ns/prov#@id
+        x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#wasAssociatedWith
       wasInformedBy:
         $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#wasInformedBy
       used:
         $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
-        x-jsonld-type: http://www.w3.org/ns/prov#@id
+        x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#used
     required:
     - type
@@ -128,7 +127,7 @@ $defs:
       id:
         type: string
         format: uri
-        x-jsonld-id: http://www.w3.org/ns/prov#@id
+        x-jsonld-id: '@id'
       actedOnBehalfOf:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#actedOnBehalfOf
@@ -154,7 +153,7 @@ x-jsonld-extra-terms:
   links:
     x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#seeAlso
     x-jsonld-context:
-      href: http://www.w3.org/ns/prov#@id
+      href: '@id'
       title: rdfs:label
 x-jsonld-prefixes:
   foaf: http://xmlns.com/foaf/0.1/
