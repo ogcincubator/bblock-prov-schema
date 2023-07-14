@@ -6,3 +6,9 @@
     - language: json
       ref: example.json
       base-uri: http://www.example.com/prov/
+    - language: json
+      # this is referenced from complete examples using a $ref pattern following JSON schema approach
+      ref: examples/example-activity.json
+      base-uri: http://www.example.com/prov/
+      # how to reference a schema from a different bblock?
+      schema-ref: "#/$defs/Activity"
