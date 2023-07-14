@@ -385,6 +385,10 @@ Links to the schema:
 You can find the full JSON-LD context here:
 <a href="https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld" target="_blank">https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld</a>
 
+# References
+
+* [The PROV-O vocabulary](https://www.w3.org/TR/prov-o/)
+
 # For developers
 
 The source code for this Building Block can be found in the following repository:

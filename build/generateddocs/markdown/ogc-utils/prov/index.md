@@ -365,6 +365,9 @@ Links to the schema:
 You can find the full JSON-LD context here:
 [context.jsonld](https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld)
 
+## Sources
+
+* [The PROV-O vocabulary](https://www.w3.org/TR/prov-o/)
 
 # For developers
 
