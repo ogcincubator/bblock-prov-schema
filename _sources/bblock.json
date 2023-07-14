@@ -1,0 +1,15 @@
+{
+  "name": "Provenance Chain",
+  "abstract": "Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way.",
+  "status": "under-development",
+  "dateTimeAddition": "2023-07-10T00:00:00Z",
+  "itemClass": "schema",
+  "register": "icsm-csdm",
+  "version": "0.1",
+  "dateOfLastChange": "2023-07-10",
+  "link": "https://github.com/icsm-au/3d-csdm-schema",
+  "sources": [],
+  "maturity": "development",
+  "scope": "unstable",
+  "tags": ["prov", "utils"]
+}

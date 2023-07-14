@@ -1,0 +1,51 @@
+{ "@context": {
+    "@base": "https://example.org/"},
+  "id": "DP-1",
+  "type": "Entity",
+
+  "wasGeneratedBy": [
+    "surveyreg-nz:DP-1-S1",
+    {
+      "id": "surveyreg-nz:DP-1-S2",
+      "endedAtTime": "2029-01-01",
+      "wasAssociatedWith": "linz-registered-surveyors:bc-3",
+      "used": {
+        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "link": {
+          "href": "https://some.gov/linktoact/",
+          "rel": "related"
+        }
+      }
+    }
+  ],
+  "provenance":
+  [
+    {
+      "id": "DP-2223",
+      "type": "Entity",
+      "wasGeneratedBy": {
+        "type": "Activity",
+        "id": "surveyreg-nz:DP-1-S1",
+        "endedAtTime": "2023-10-05",
+        "wasAssociatedWith": "linz-registered-surveyors:ah-2344503",
+        "used": {
+          "id": "Act3",
+          "type": "Entity",
+          "wasAttributedTo": "icsm-jurisdictions:nz",
+          "link": {
+            "href": "https://some.gov/linktoact/",
+            "rel": "related"
+          }
+        }
+      }
+    },
+    {
+      "id": "survprov-nz:survey",
+      "type": "Activity",
+      "endedAtTime": "2023-10-05"
+    }
+  ]
+}
+
+
+

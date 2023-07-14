@@ -1,0 +1,38 @@
+{
+  "@context":
+    {
+      "@vocab": "http://www.w3.org/ns/prov#",
+      "prov": "http://www.w3.org/ns/prov#",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "survtypes-nz": "https://surveytypes-nz/",
+      "surveyreg-nz": "https://surveys-nz/",
+      "id": "@id",
+      "type": "@type",
+      "provenance": {
+        "@id": "prov-x:provenance",
+        "@type": "@id",
+        "@container": "@set"
+      },
+      "wasAssociatedWith": {
+        "@type": "@id"
+      },
+      "wasDerivedFrom": {
+        "@type": "@id"
+      },
+      "wasGeneratedBy": {
+        "@type": "@id"
+      },
+      "used": {
+        "@type": "@id"
+      },
+      "registeredName": "foaf:name",
+       "links": {
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+      "@context": {
+        "href": "@id",
+        "title": "rdfs:label"
+      }
+    }
+    }
+
+}
