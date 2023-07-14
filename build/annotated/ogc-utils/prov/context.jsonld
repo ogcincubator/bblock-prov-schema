@@ -1,14 +1,14 @@
 {
   "@context": {
-    "id": "http://www.w3.org/ns/prov#@id",
-    "type": "http://www.w3.org/ns/prov#@type",
+    "id": "@id",
+    "type": "@type",
     "provenance": {
       "@id": "prov-x:provenance",
-      "@type": "http://www.w3.org/ns/prov#@id",
+      "@type": "@id",
       "@container": "@set",
       "@context": {
         "used": {
-          "@type": "http://www.w3.org/ns/prov#@id",
+          "@type": "@id",
           "@id": "http://www.w3.org/ns/prov#used"
         },
         "registeredName": "foaf:name",
@@ -16,11 +16,11 @@
       }
     },
     "wasGeneratedBy": {
-      "@type": "http://www.w3.org/ns/prov#@id",
+      "@type": "@id",
       "@id": "http://www.w3.org/ns/prov#wasGeneratedBy",
       "@context": {
         "used": {
-          "@type": "http://www.w3.org/ns/prov#@id",
+          "@type": "@id",
           "@id": "http://www.w3.org/ns/prov#used"
         }
       }
@@ -33,13 +33,13 @@
       }
     },
     "wasDerivedFrom": {
-      "@type": "http://www.w3.org/ns/prov#@id",
+      "@type": "@id",
       "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
     },
     "link": "http://www.w3.org/ns/prov#link",
     "endedAtTime": "http://www.w3.org/ns/prov#endedAtTime",
     "wasAssociatedWith": {
-      "@type": "http://www.w3.org/ns/prov#@id",
+      "@type": "@id",
       "@id": "http://www.w3.org/ns/prov#wasAssociatedWith",
       "@context": {
         "registeredName": "foaf:name",
@@ -48,12 +48,12 @@
     },
     "wasInformedBy": "http://www.w3.org/ns/prov#wasInformedBy",
     "used": {
-      "@type": "http://www.w3.org/ns/prov#@id",
+      "@type": "@id",
       "@id": "http://www.w3.org/ns/prov#used",
       "@context": {
         "provenance": {
           "@id": "prov-x:provenance",
-          "@type": "http://www.w3.org/ns/prov#@id",
+          "@type": "@id",
           "@container": "@set",
           "@context": {
             "registeredName": "foaf:name",
@@ -61,7 +61,7 @@
           }
         },
         "wasGeneratedBy": {
-          "@type": "http://www.w3.org/ns/prov#@id",
+          "@type": "@id",
           "@id": "http://www.w3.org/ns/prov#wasGeneratedBy"
         }
       }
@@ -72,7 +72,7 @@
     "links": {
       "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
       "@context": {
-        "href": "http://www.w3.org/ns/prov#@id",
+        "href": "@id",
         "title": "rdfs:label"
       }
     },

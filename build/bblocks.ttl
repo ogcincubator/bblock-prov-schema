@@ -11,15 +11,15 @@ bblocks:ogc.ogc-utils.prov a skos:Concept,
     rdfs:label "Provenance Chain" ;
     dct:abstract "Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way." ;
     dct:created "2023-07-10T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            dct:identifier "json-full" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/json-full/ogc-utils/prov/index.json" ],
+    dct:description [ dct:format "text/markdown" ;
+            dct:identifier "markdown" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/markdown/ogc-utils/prov/index.md" ],
         [ dct:format "text/html" ;
             dct:identifier "slate" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/slate-build/ogc-utils/prov/" ],
-        [ dct:format "text/markdown" ;
-            dct:identifier "markdown" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/markdown/ogc-utils/prov/index.md" ] ;
+        [ dct:format "application/json" ;
+            dct:identifier "json-full" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/json-full/ogc-utils/prov/index.json" ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2023-07-10"^^xsd:date ;
     skos:inScheme <https://www.opengis.net/def/bblocks> ;
@@ -38,17 +38,17 @@ bblocks:ogc.ogc-utils.prov a skos:Concept,
     skos:prefLabel "OGC Building Blocks Register" .
 
 [] a prov:Activity ;
-    prov:endedAtTime "2023-07-14T01:21:51.505750"^^xsd:dateTime ;
-    prov:startedAtTime "2023-07-14T01:21:51.266769"^^xsd:dateTime ;
+    prov:endedAtTime "2023-07-14T06:55:44.590769"^^xsd:dateTime ;
+    prov:startedAtTime "2023-07-14T06:55:44.313056"^^xsd:dateTime ;
     prov:used [ a prov:Entity ;
-            dct:format "application/yaml" ;
-            rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
-        [ a prov:Entity ;
             dct:format "application/json" ;
-            rdfs:seeAlso <file:///github/workspace/build/register.json> ] ;
+            rdfs:seeAlso <file:///github/workspace/build/register.json> ],
+        [ a prov:Entity ;
+            dct:format "application/yaml" ;
+            rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ] ;
     prov:wasAssociatedWith [ a prov:Agent,
                 schema:SoftwareApplication ;
             rdfs:label "OGC-NA tools" ;
-            dct:hasVersion "0.3.2" ;
+            dct:hasVersion "0.3.3" ;
             rdfs:seeAlso <https://github.com/opengeospatial/ogc-na-tools> ] .
 
