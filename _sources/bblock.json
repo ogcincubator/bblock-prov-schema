@@ -4,11 +4,15 @@
   "status": "under-development",
   "dateTimeAddition": "2023-07-10T00:00:00Z",
   "itemClass": "schema",
-  "register": "icsm-csdm",
+  "register": "ogc-utils",
   "version": "0.1",
   "dateOfLastChange": "2023-07-10",
-  "link": "https://github.com/icsm-au/3d-csdm-schema",
-  "sources": [],
+  "sources": [
+    {
+      "link": "https://www.w3.org/TR/prov-o/",
+      "title": "The PROV-O vocabulary"
+    }
+  ],
   "maturity": "development",
   "scope": "unstable",
   "tags": ["prov", "utils"]
