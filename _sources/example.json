@@ -1,8 +1,9 @@
-{ "@context": {
-    "@base": "https://example.org/"},
+{
+  "@context": {
+    "@base": "https://example.org/"
+  },
   "id": "DP-1",
   "type": "Entity",
-
   "wasGeneratedBy": [
     "surveyreg-nz:DP-1-S1",
     {
@@ -14,35 +15,38 @@
         "type": "Entity",
         "id": "Act3",
         "wasAttributedTo": "icsm-jurisdictions:nz",
-        "link": {
-          "href": "https://some.gov/linktoact/",
-          "rel": "related"
-        }
+        "links": [
+          {
+            "href": "https://some.gov/linktoact/",
+            "rel": "related"
+          }
+        ]
       }
     }
   ],
-  "provenance":
-  [
+  "provenance": [
     {
       "id": "DP-2223",
       "type": "Entity",
       "wasGeneratedBy": "surveyreg-nz:DP-1-S1"
     },
     {
-        "type": "Activity",
-        "id": "surveyreg-nz:DP-1-S1",
-        "endedAtTime": "2023-10-05",
-        "wasAssociatedWith": "linz-registered-surveyors:ah-2344503",
-        "used": {
-          "id": "Act3",
-          "type": "Entity",
-          "wasAttributedTo": "icsm-jurisdictions:nz",
-          "link": {
+      "type": "Activity",
+      "id": "surveyreg-nz:DP-1-S1",
+      "endedAtTime": "2023-10-05",
+      "wasAssociatedWith": "linz-registered-surveyors:ah-2344503",
+      "used": {
+        "id": "Act3",
+        "type": "Entity",
+        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "links": [
+          {
             "href": "https://some.gov/linktoact/",
             "rel": "related"
           }
-        }
+        ]
       }
+    }
   ]
 }
 

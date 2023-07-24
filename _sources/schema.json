@@ -75,7 +75,7 @@
       ]
     },
     "externalLink": {
-      "$ref": "https://beta.schemas.opengis.net/json-fg/link.json"
+      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json"
     },
     "Entity": {
       "type": "object",
@@ -104,8 +104,11 @@
         "wasDerivedFrom": {
           "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
         },
-        "link": {
-          "$ref": "#/$defs/externalLink"
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/externalLink"
+          }
         }
       },
       "required": [
