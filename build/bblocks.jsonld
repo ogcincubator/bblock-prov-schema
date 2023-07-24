@@ -96,6 +96,7 @@
         "utils"
       ],
       "itemIdentifier": "ogc.ogc-utils.prov",
+      "shaclRules": [],
       "schema": {
         "application/yaml": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/schema.yaml",
         "application/json": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/schema.json"

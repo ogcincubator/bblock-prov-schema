@@ -13,10 +13,12 @@
         "type": "Entity",
         "id": "Act3",
         "wasAttributedTo": "icsm-jurisdictions:nz",
-        "link": {
-          "href": "https://some.gov/linktoact/",
-          "rel": "related"
-        }
+        "links": [
+          {
+            "href": "https://some.gov/linktoact/",
+            "rel": "related"
+          }
+        ]
       }
     }
   ],
@@ -35,10 +37,12 @@
         "id": "Act3",
         "type": "Entity",
         "wasAttributedTo": "icsm-jurisdictions:nz",
-        "link": {
-          "href": "https://some.gov/linktoact/",
-          "rel": "related"
-        }
+        "links": [
+          {
+            "href": "https://some.gov/linktoact/",
+            "rel": "related"
+          }
+        ]
       }
     }
   ]

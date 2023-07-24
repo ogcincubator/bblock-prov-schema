@@ -11,15 +11,15 @@ bblocks:ogc.ogc-utils.prov a skos:Concept,
     rdfs:label "Provenance Chain" ;
     dct:abstract "Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way." ;
     dct:created "2023-07-10T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            dct:identifier "json-full" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/json-full/ogc-utils/prov/index.json" ],
-        [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/markdown" ;
             dct:identifier "markdown" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/markdown/ogc-utils/prov/index.md" ],
         [ dct:format "text/html" ;
             dct:identifier "slate" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/slate-build/ogc-utils/prov/" ] ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/slate-build/ogc-utils/prov/" ],
+        [ dct:format "application/json" ;
+            dct:identifier "json-full" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/json-full/ogc-utils/prov/index.json" ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2023-07-10"^^xsd:date ;
     dct:source <https://www.w3.org/TR/prov-o/> ;
@@ -41,8 +41,8 @@ bblocks:ogc.ogc-utils.prov a skos:Concept,
 <https://www.w3.org/TR/prov-o/> rdfs:label "The PROV-O vocabulary" .
 
 [] a prov:Activity ;
-    prov:endedAtTime "2023-07-14T07:44:36.689949"^^xsd:dateTime ;
-    prov:startedAtTime "2023-07-14T07:44:36.368326"^^xsd:dateTime ;
+    prov:endedAtTime "2023-07-24T11:09:52.138270"^^xsd:dateTime ;
+    prov:startedAtTime "2023-07-24T11:09:51.927960"^^xsd:dateTime ;
     prov:used [ a prov:Entity ;
             dct:format "application/yaml" ;
             rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],

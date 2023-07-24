@@ -36,7 +36,7 @@
       "@type": "@id",
       "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
     },
-    "link": "http://www.w3.org/ns/prov#link",
+    "links": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
     "endedAtTime": "http://www.w3.org/ns/prov#endedAtTime",
     "wasAssociatedWith": {
       "@type": "@id",
@@ -69,13 +69,6 @@
     "prov": "http://www.w3.org/ns/prov#",
     "survtypes-nz": "https://surveytypes-nz/",
     "surveyreg-nz": "https://surveys-nz/",
-    "links": {
-      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-      "@context": {
-        "href": "@id",
-        "title": "rdfs:label"
-      }
-    },
     "prov-x": "http://www.w3.org/ns/prov-x#",
     "foaf": "http://xmlns.com/foaf/0.1/"
   }
