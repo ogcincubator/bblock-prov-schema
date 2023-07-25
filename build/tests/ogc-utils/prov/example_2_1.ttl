@@ -1,7 +1,7 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<https://surveys-nz/DP-1-S2> a <http://www.example.com/prov/Activity> ;
+<https://surveys-nz/DP-1-S2> a prov:Activity ;
     prov:endedAtTime "2029-01-01" ;
     prov:used <http://www.example.com/prov/Act3> ;
     prov:wasAssociatedWith "linz-registered-surveyors:bc-3" .

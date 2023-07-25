@@ -165,25 +165,25 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<https://example.org/DP-1> a <https://example.org/Entity> ;
+<https://example.org/DP-1> a prov:Entity ;
     prov:wasGeneratedBy <https://surveys-nz/DP-1-S1>,
         <https://surveys-nz/DP-1-S2> ;
     ns1:provenance <https://example.org/DP-2223>,
         <https://surveys-nz/DP-1-S1> .
 
-<https://example.org/DP-2223> a <https://example.org/Entity> ;
+<https://example.org/DP-2223> a prov:Entity ;
     prov:wasGeneratedBy <https://surveys-nz/DP-1-S1> .
 
-<https://surveys-nz/DP-1-S2> a <https://example.org/Activity> ;
+<https://surveys-nz/DP-1-S2> a prov:Activity ;
     prov:endedAtTime "2029-01-01" ;
     prov:used <https://example.org/Act3> ;
     prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
 
-<https://example.org/Act3> a <https://example.org/Entity> ;
+<https://example.org/Act3> a prov:Entity ;
     rdfs:seeAlso <https://some.gov/linktoact/> ;
     prov:wasAttributedTo "icsm-jurisdictions:nz" .
 
-<https://surveys-nz/DP-1-S1> a <https://example.org/Activity> ;
+<https://surveys-nz/DP-1-S1> a prov:Activity ;
     prov:endedAtTime "2023-10-05" ;
     prov:used <https://example.org/Act3> ;
     prov:wasAssociatedWith <linz-registered-surveyors:ah-2344503> .
@@ -244,7 +244,7 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
-<https://surveys-nz/DP-1-S2> a <http://www.example.com/prov/Activity> ;
+<https://surveys-nz/DP-1-S2> a prov:Activity ;
     prov:endedAtTime "2029-01-01" ;
     prov:used <http://www.example.com/prov/Act3> ;
     prov:wasAssociatedWith "linz-registered-surveyors:bc-3" .
@@ -415,10 +415,16 @@ anyOf:
 - $ref: '#/$defs/Entity'
 - $ref: '#/$defs/Activity'
 x-jsonld-extra-terms:
-  prov: http://www.w3.org/ns/prov#
   survtypes-nz: https://surveytypes-nz/
   surveyreg-nz: https://surveys-nz/
+  Entity:
+    x-jsonld-id: http://www.w3.org/ns/prov#Entity
+  Activity:
+    x-jsonld-id: http://www.w3.org/ns/prov#Activity
+  Agent:
+    x-jsonld-id: http://www.w3.org/ns/prov#Agent
 x-jsonld-prefixes:
+  prov: http://www.w3.org/ns/prov#
   prov-x: http://www.w3.org/ns/prov-x#
   foaf: http://xmlns.com/foaf/0.1/
 
@@ -444,11 +450,11 @@ Links to the schema:
       "@context": {
         "used": {
           "@type": "@id",
-          "@id": "http://www.w3.org/ns/prov#used"
+          "@id": "prov:used"
         },
         "name": "foaf:name",
         "actedOnBehalfOf": {
-          "@id": "http://www.w3.org/ns/prov#actedOnBehalfOf",
+          "@id": "prov:actedOnBehalfOf",
           "@context": {
             "href": "@id",
             "title": "rdfs:label"
@@ -458,26 +464,26 @@ Links to the schema:
     },
     "wasGeneratedBy": {
       "@type": "@id",
-      "@id": "http://www.w3.org/ns/prov#wasGeneratedBy",
+      "@id": "prov:wasGeneratedBy",
       "@context": {
         "used": {
           "@type": "@id",
-          "@id": "http://www.w3.org/ns/prov#used"
+          "@id": "prov:used"
         }
       }
     },
     "wasAttributedTo": {
-      "@id": "http://www.w3.org/ns/prov#wasAttributedTo",
+      "@id": "prov:wasAttributedTo",
       "@context": {
         "href": "@id",
         "title": "rdfs:label",
         "name": "foaf:name",
-        "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+        "actedOnBehalfOf": "prov:actedOnBehalfOf"
       }
     },
     "wasDerivedFrom": {
       "@type": "@id",
-      "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
+      "@id": "prov:wasDerivedFrom"
     },
     "links": {
       "@id": "rdfs:seeAlso",
@@ -486,21 +492,21 @@ Links to the schema:
         "title": "rdfs:label"
       }
     },
-    "endedAtTime": "http://www.w3.org/ns/prov#endedAtTime",
+    "endedAtTime": "prov:endedAtTime",
     "wasAssociatedWith": {
       "@type": "@id",
-      "@id": "http://www.w3.org/ns/prov#wasAssociatedWith",
+      "@id": "prov:wasAssociatedWith",
       "@context": {
         "href": "@id",
         "title": "rdfs:label",
         "name": "foaf:name",
-        "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+        "actedOnBehalfOf": "prov:actedOnBehalfOf"
       }
     },
-    "wasInformedBy": "http://www.w3.org/ns/prov#wasInformedBy",
+    "wasInformedBy": "prov:wasInformedBy",
     "used": {
       "@type": "@id",
-      "@id": "http://www.w3.org/ns/prov#used",
+      "@id": "prov:used",
       "@context": {
         "provenance": {
           "@id": "prov-x:provenance",
@@ -509,7 +515,7 @@ Links to the schema:
           "@context": {
             "name": "foaf:name",
             "actedOnBehalfOf": {
-              "@id": "http://www.w3.org/ns/prov#actedOnBehalfOf",
+              "@id": "prov:actedOnBehalfOf",
               "@context": {
                 "href": "@id",
                 "title": "rdfs:label"
@@ -519,14 +525,17 @@ Links to the schema:
         },
         "wasGeneratedBy": {
           "@type": "@id",
-          "@id": "http://www.w3.org/ns/prov#wasGeneratedBy"
+          "@id": "prov:wasGeneratedBy"
         }
       }
     },
-    "prov": "http://www.w3.org/ns/prov#",
     "survtypes-nz": "https://surveytypes-nz/",
     "surveyreg-nz": "https://surveys-nz/",
+    "Entity": "prov:Entity",
+    "Activity": "prov:Activity",
+    "Agent": "prov:Agent",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
     "prov-x": "http://www.w3.org/ns/prov-x#",
     "foaf": "http://xmlns.com/foaf/0.1/"
   }

@@ -153,9 +153,15 @@ anyOf:
 - $ref: '#/$defs/Entity'
 - $ref: '#/$defs/Activity'
 x-jsonld-extra-terms:
-  prov: http://www.w3.org/ns/prov#
   survtypes-nz: https://surveytypes-nz/
   surveyreg-nz: https://surveys-nz/
+  Entity:
+    x-jsonld-id: http://www.w3.org/ns/prov#Entity
+  Activity:
+    x-jsonld-id: http://www.w3.org/ns/prov#Activity
+  Agent:
+    x-jsonld-id: http://www.w3.org/ns/prov#Agent
 x-jsonld-prefixes:
+  prov: http://www.w3.org/ns/prov#
   prov-x: http://www.w3.org/ns/prov-x#
   foaf: http://xmlns.com/foaf/0.1/

@@ -9,11 +9,11 @@
       "@context": {
         "used": {
           "@type": "@id",
-          "@id": "http://www.w3.org/ns/prov#used"
+          "@id": "prov:used"
         },
         "name": "foaf:name",
         "actedOnBehalfOf": {
-          "@id": "http://www.w3.org/ns/prov#actedOnBehalfOf",
+          "@id": "prov:actedOnBehalfOf",
           "@context": {
             "href": "@id",
             "title": "rdfs:label"
@@ -23,26 +23,26 @@
     },
     "wasGeneratedBy": {
       "@type": "@id",
-      "@id": "http://www.w3.org/ns/prov#wasGeneratedBy",
+      "@id": "prov:wasGeneratedBy",
       "@context": {
         "used": {
           "@type": "@id",
-          "@id": "http://www.w3.org/ns/prov#used"
+          "@id": "prov:used"
         }
       }
     },
     "wasAttributedTo": {
-      "@id": "http://www.w3.org/ns/prov#wasAttributedTo",
+      "@id": "prov:wasAttributedTo",
       "@context": {
         "href": "@id",
         "title": "rdfs:label",
         "name": "foaf:name",
-        "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+        "actedOnBehalfOf": "prov:actedOnBehalfOf"
       }
     },
     "wasDerivedFrom": {
       "@type": "@id",
-      "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
+      "@id": "prov:wasDerivedFrom"
     },
     "links": {
       "@id": "rdfs:seeAlso",
@@ -51,21 +51,21 @@
         "title": "rdfs:label"
       }
     },
-    "endedAtTime": "http://www.w3.org/ns/prov#endedAtTime",
+    "endedAtTime": "prov:endedAtTime",
     "wasAssociatedWith": {
       "@type": "@id",
-      "@id": "http://www.w3.org/ns/prov#wasAssociatedWith",
+      "@id": "prov:wasAssociatedWith",
       "@context": {
         "href": "@id",
         "title": "rdfs:label",
         "name": "foaf:name",
-        "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+        "actedOnBehalfOf": "prov:actedOnBehalfOf"
       }
     },
-    "wasInformedBy": "http://www.w3.org/ns/prov#wasInformedBy",
+    "wasInformedBy": "prov:wasInformedBy",
     "used": {
       "@type": "@id",
-      "@id": "http://www.w3.org/ns/prov#used",
+      "@id": "prov:used",
       "@context": {
         "provenance": {
           "@id": "prov-x:provenance",
@@ -74,7 +74,7 @@
           "@context": {
             "name": "foaf:name",
             "actedOnBehalfOf": {
-              "@id": "http://www.w3.org/ns/prov#actedOnBehalfOf",
+              "@id": "prov:actedOnBehalfOf",
               "@context": {
                 "href": "@id",
                 "title": "rdfs:label"
@@ -84,14 +84,17 @@
         },
         "wasGeneratedBy": {
           "@type": "@id",
-          "@id": "http://www.w3.org/ns/prov#wasGeneratedBy"
+          "@id": "prov:wasGeneratedBy"
         }
       }
     },
-    "prov": "http://www.w3.org/ns/prov#",
     "survtypes-nz": "https://surveytypes-nz/",
     "surveyreg-nz": "https://surveys-nz/",
+    "Entity": "prov:Entity",
+    "Activity": "prov:Activity",
+    "Agent": "prov:Agent",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "prov": "http://www.w3.org/ns/prov#",
     "prov-x": "http://www.w3.org/ns/prov-x#",
     "foaf": "http://xmlns.com/foaf/0.1/"
   }
