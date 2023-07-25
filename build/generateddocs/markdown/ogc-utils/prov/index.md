@@ -22,11 +22,12 @@ This schema implements the PROV vocabulary semantics.
 See panel to right - note that a more user friendly "collapsable" version is in development. 
 #### json
 ```json
-{ "@context": {
-    "@base": "https://example.org/"},
+{
+  "@context": {
+    "@base": "https://example.org/"
+  },
   "id": "DP-1",
   "type": "Entity",
-
   "wasGeneratedBy": [
     "surveyreg-nz:DP-1-S1",
     {
@@ -38,35 +39,38 @@ See panel to right - note that a more user friendly "collapsable" version is in 
         "type": "Entity",
         "id": "Act3",
         "wasAttributedTo": "icsm-jurisdictions:nz",
-        "link": {
-          "href": "https://some.gov/linktoact/",
-          "rel": "related"
-        }
+        "links": [
+          {
+            "href": "https://some.gov/linktoact/",
+            "rel": "related"
+          }
+        ]
       }
     }
   ],
-  "provenance":
-  [
+  "provenance": [
     {
       "id": "DP-2223",
       "type": "Entity",
       "wasGeneratedBy": "surveyreg-nz:DP-1-S1"
     },
     {
-        "type": "Activity",
-        "id": "surveyreg-nz:DP-1-S1",
-        "endedAtTime": "2023-10-05",
-        "wasAssociatedWith": "linz-registered-surveyors:ah-2344503",
-        "used": {
-          "id": "Act3",
-          "type": "Entity",
-          "wasAttributedTo": "icsm-jurisdictions:nz",
-          "link": {
+      "type": "Activity",
+      "id": "surveyreg-nz:DP-1-S1",
+      "endedAtTime": "2023-10-05",
+      "wasAssociatedWith": "linz-registered-surveyors:ah-2344503",
+      "used": {
+        "id": "Act3",
+        "type": "Entity",
+        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "links": [
+          {
             "href": "https://some.gov/linktoact/",
             "rel": "related"
           }
-        }
+        ]
       }
+    }
   ]
 }
 
@@ -75,6 +79,98 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 
 ```
 
+#### jsonld
+```jsonld
+{
+  "@context": [
+    "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld",
+    {
+      "@base": "https://example.org/"
+    }
+  ],
+  "id": "DP-1",
+  "type": "Entity",
+  "wasGeneratedBy": [
+    "surveyreg-nz:DP-1-S1",
+    {
+      "type": "Activity",
+      "id": "surveyreg-nz:DP-1-S2",
+      "endedAtTime": "2029-01-01",
+      "wasAssociatedWith": "linz-registered-surveyors:bc-3",
+      "used": {
+        "type": "Entity",
+        "id": "Act3",
+        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "links": [
+          {
+            "href": "https://some.gov/linktoact/",
+            "rel": "related"
+          }
+        ]
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "id": "DP-2223",
+      "type": "Entity",
+      "wasGeneratedBy": "surveyreg-nz:DP-1-S1"
+    },
+    {
+      "type": "Activity",
+      "id": "surveyreg-nz:DP-1-S1",
+      "endedAtTime": "2023-10-05",
+      "wasAssociatedWith": "linz-registered-surveyors:ah-2344503",
+      "used": {
+        "id": "Act3",
+        "type": "Entity",
+        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "links": [
+          {
+            "href": "https://some.gov/linktoact/",
+            "rel": "related"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix ns1: <http://www.w3.org/ns/prov-x#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://example.org/DP-1> a <https://example.org/Entity> ;
+    prov:wasGeneratedBy <https://surveys-nz/DP-1-S1>,
+        <https://surveys-nz/DP-1-S2> ;
+    ns1:provenance <https://example.org/DP-2223>,
+        <https://surveys-nz/DP-1-S1> .
+
+<https://example.org/DP-2223> a <https://example.org/Entity> ;
+    prov:wasGeneratedBy <https://surveys-nz/DP-1-S1> .
+
+<https://surveys-nz/DP-1-S2> a <https://example.org/Activity> ;
+    prov:endedAtTime "2029-01-01" ;
+    prov:used <https://example.org/Act3> ;
+    prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
+
+<https://example.org/Act3> a <https://example.org/Entity> ;
+    rdfs:seeAlso <https://some.gov/linktoact/> ;
+    prov:wasAttributedTo "icsm-jurisdictions:nz" .
+
+<https://surveys-nz/DP-1-S1> a <https://example.org/Activity> ;
+    prov:endedAtTime "2023-10-05" ;
+    prov:used <https://example.org/Act3> ;
+    prov:wasAssociatedWith <linz-registered-surveyors:ah-2344503> .
+
+
+```
+
+
+### Example Activity
 #### json
 ```json
 {
@@ -86,15 +182,56 @@ See panel to right - note that a more user friendly "collapsable" version is in 
     "type": "Entity",
     "id": "Act3",
     "wasAttributedTo": "icsm-jurisdictions:nz",
-    "link": {
-      "href": "https://some.gov/linktoact/",
-      "rel": "related"
-    }
+    "links": [
+      {
+        "href": "https://some.gov/linktoact/",
+        "rel": "related"
+      }
+    ]
   }
 }
 
 
 
+
+
+```
+
+#### jsonld
+```jsonld
+{
+  "type": "Activity",
+  "id": "surveyreg-nz:DP-1-S2",
+  "endedAtTime": "2029-01-01",
+  "wasAssociatedWith": "linz-registered-surveyors:bc-3",
+  "used": {
+    "type": "Entity",
+    "id": "Act3",
+    "wasAttributedTo": "icsm-jurisdictions:nz",
+    "links": [
+      {
+        "href": "https://some.gov/linktoact/",
+        "rel": "related"
+      }
+    ]
+  },
+  "@context": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld"
+}
+```
+
+#### ttl
+```ttl
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://surveys-nz/DP-1-S2> a <http://www.example.com/prov/Activity> ;
+    prov:endedAtTime "2029-01-01" ;
+    prov:used <http://www.example.com/prov/Act3> ;
+    prov:wasAssociatedWith "linz-registered-surveyors:bc-3" .
+
+<http://www.example.com/prov/Act3> a <http://www.example.com/prov/Entity> ;
+    rdfs:seeAlso <https://some.gov/linktoact/> ;
+    prov:wasAttributedTo "icsm-jurisdictions:nz" .
 
 
 ```
@@ -134,7 +271,7 @@ $defs:
         - type: string
         - $ref: '#/$defs/Agent'
   externalLink:
-    $ref: https://beta.schemas.opengis.net/json-fg/link.json
+    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json
   Entity:
     type: object
     additionalProperties: false
@@ -165,9 +302,11 @@ $defs:
         $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
         x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#wasDerivedFrom
-      link:
-        $ref: '#/$defs/externalLink'
-        x-jsonld-id: http://www.w3.org/ns/prov#link
+      links:
+        type: array
+        items:
+          $ref: '#/$defs/externalLink'
+        x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#seeAlso
     required:
     - id
     - type
@@ -258,11 +397,6 @@ x-jsonld-extra-terms:
   prov: http://www.w3.org/ns/prov#
   survtypes-nz: https://surveytypes-nz/
   surveyreg-nz: https://surveys-nz/
-  links:
-    x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#seeAlso
-    x-jsonld-context:
-      href: '@id'
-      title: rdfs:label
 x-jsonld-prefixes:
   prov-x: http://www.w3.org/ns/prov-x#
   foaf: http://xmlns.com/foaf/0.1/
@@ -292,7 +426,13 @@ Links to the schema:
           "@id": "http://www.w3.org/ns/prov#used"
         },
         "name": "foaf:name",
-        "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+        "actedOnBehalfOf": {
+          "@id": "http://www.w3.org/ns/prov#actedOnBehalfOf",
+          "@context": {
+            "href": "@id",
+            "title": "rdfs:label"
+          }
+        }
       }
     },
     "wasGeneratedBy": {
@@ -308,6 +448,8 @@ Links to the schema:
     "wasAttributedTo": {
       "@id": "http://www.w3.org/ns/prov#wasAttributedTo",
       "@context": {
+        "href": "@id",
+        "title": "rdfs:label",
         "name": "foaf:name",
         "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
       }
@@ -316,12 +458,20 @@ Links to the schema:
       "@type": "@id",
       "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
     },
-    "link": "http://www.w3.org/ns/prov#link",
+    "links": {
+      "@id": "rdfs:seeAlso",
+      "@context": {
+        "href": "@id",
+        "title": "rdfs:label"
+      }
+    },
     "endedAtTime": "http://www.w3.org/ns/prov#endedAtTime",
     "wasAssociatedWith": {
       "@type": "@id",
       "@id": "http://www.w3.org/ns/prov#wasAssociatedWith",
       "@context": {
+        "href": "@id",
+        "title": "rdfs:label",
         "name": "foaf:name",
         "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
       }
@@ -337,7 +487,13 @@ Links to the schema:
           "@container": "@set",
           "@context": {
             "name": "foaf:name",
-            "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+            "actedOnBehalfOf": {
+              "@id": "http://www.w3.org/ns/prov#actedOnBehalfOf",
+              "@context": {
+                "href": "@id",
+                "title": "rdfs:label"
+              }
+            }
           }
         },
         "wasGeneratedBy": {
@@ -349,13 +505,7 @@ Links to the schema:
     "prov": "http://www.w3.org/ns/prov#",
     "survtypes-nz": "https://surveytypes-nz/",
     "surveyreg-nz": "https://surveys-nz/",
-    "links": {
-      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-      "@context": {
-        "href": "@id",
-        "title": "rdfs:label"
-      }
-    },
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "prov-x": "http://www.w3.org/ns/prov-x#",
     "foaf": "http://xmlns.com/foaf/0.1/"
   }

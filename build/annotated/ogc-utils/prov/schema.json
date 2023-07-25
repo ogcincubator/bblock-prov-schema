@@ -75,7 +75,7 @@
       ]
     },
     "externalLink": {
-      "$ref": "https://beta.schemas.opengis.net/json-fg/link.json"
+      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json"
     },
     "Entity": {
       "type": "object",
@@ -114,9 +114,12 @@
           "x-jsonld-type": "@id",
           "x-jsonld-id": "http://www.w3.org/ns/prov#wasDerivedFrom"
         },
-        "link": {
-          "$ref": "#/$defs/externalLink",
-          "x-jsonld-id": "http://www.w3.org/ns/prov#link"
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/externalLink"
+          },
+          "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         }
       },
       "required": [
@@ -273,14 +276,7 @@
   "x-jsonld-extra-terms": {
     "prov": "http://www.w3.org/ns/prov#",
     "survtypes-nz": "https://surveytypes-nz/",
-    "surveyreg-nz": "https://surveys-nz/",
-    "links": {
-      "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-      "x-jsonld-context": {
-        "href": "@id",
-        "title": "rdfs:label"
-      }
-    }
+    "surveyreg-nz": "https://surveys-nz/"
   },
   "x-jsonld-prefixes": {
     "prov-x": "http://www.w3.org/ns/prov-x#",
