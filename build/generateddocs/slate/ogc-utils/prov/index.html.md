@@ -61,11 +61,11 @@ See panel to right - note that a more user friendly "collapsable" version is in 
       "wasAssociatedWith": "linz-registered-surveyors:bc-3",
       "used": {
         "type": "Entity",
-        "id": "Act3",
+        "id": "Example-Act",
         "wasAttributedTo": "icsm-jurisdictions:nz",
         "links": [
           {
-            "href": "https://some.gov/linktoact/",
+            "href": "https://some.gov/linktoact/Example1",
             "rel": "related"
           }
         ]
@@ -122,11 +122,11 @@ See panel to right - note that a more user friendly "collapsable" version is in 
       "wasAssociatedWith": "linz-registered-surveyors:bc-3",
       "used": {
         "type": "Entity",
-        "id": "Act3",
+        "id": "Example-Act",
         "wasAttributedTo": "icsm-jurisdictions:nz",
         "links": [
           {
-            "href": "https://some.gov/linktoact/",
+            "href": "https://some.gov/linktoact/Example1",
             "rel": "related"
           }
         ]
@@ -171,17 +171,21 @@ See panel to right - note that a more user friendly "collapsable" version is in 
     ns1:provenance <https://example.org/DP-2223>,
         <https://surveys-nz/DP-1-S1> .
 
-<https://example.org/DP-2223> a prov:Entity ;
-    prov:wasGeneratedBy <https://surveys-nz/DP-1-S1> .
-
-<https://surveys-nz/DP-1-S2> a prov:Activity ;
-    prov:endedAtTime "2029-01-01" ;
-    prov:used <https://example.org/Act3> ;
-    prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
-
 <https://example.org/Act3> a prov:Entity ;
     rdfs:seeAlso <https://some.gov/linktoact/> ;
     prov:wasAttributedTo "icsm-jurisdictions:nz" .
+
+<https://example.org/DP-2223> a prov:Entity ;
+    prov:wasGeneratedBy <https://surveys-nz/DP-1-S1> .
+
+<https://example.org/Example-Act> a prov:Entity ;
+    rdfs:seeAlso <https://some.gov/linktoact/Example1> ;
+    prov:wasAttributedTo "icsm-jurisdictions:nz" .
+
+<https://surveys-nz/DP-1-S2> a prov:Activity ;
+    prov:endedAtTime "2029-01-01" ;
+    prov:used <https://example.org/Example-Act> ;
+    prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
 
 <https://surveys-nz/DP-1-S1> a prov:Activity ;
     prov:endedAtTime "2023-10-05" ;
@@ -246,10 +250,10 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 
 <https://surveys-nz/DP-1-S2> a prov:Activity ;
     prov:endedAtTime "2029-01-01" ;
-    prov:used <http://www.example.com/prov/Act3> ;
+    prov:used <http://www.example.com/exampleActivity/Act3> ;
     prov:wasAssociatedWith "linz-registered-surveyors:bc-3" .
 
-<http://www.example.com/prov/Act3> a <http://www.example.com/prov/Entity> ;
+<http://www.example.com/exampleActivity/Act3> a <http://www.example.com/exampleActivity/Entity> ;
     rdfs:seeAlso <https://some.gov/linktoact/> ;
     prov:wasAttributedTo "icsm-jurisdictions:nz" .
 

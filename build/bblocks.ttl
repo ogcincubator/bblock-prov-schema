@@ -14,12 +14,12 @@ bblocks:ogc.ogc-utils.prov a skos:Concept,
     dct:description [ dct:format "text/html" ;
             dct:identifier "slate" ;
             rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/slate-build/ogc-utils/prov/" ],
-        [ dct:format "text/markdown" ;
-            dct:identifier "markdown" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/markdown/ogc-utils/prov/index.md" ],
         [ dct:format "application/json" ;
             dct:identifier "json-full" ;
-            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/json-full/ogc-utils/prov/index.json" ] ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/json-full/ogc-utils/prov/index.json" ],
+        [ dct:format "text/markdown" ;
+            dct:identifier "markdown" ;
+            rdfs:isDefinedBy "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/markdown/ogc-utils/prov/index.md" ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2023-07-10"^^xsd:date ;
     dct:source <https://www.w3.org/TR/prov-o/> ;
@@ -41,14 +41,14 @@ bblocks:ogc.ogc-utils.prov a skos:Concept,
 <https://www.w3.org/TR/prov-o/> rdfs:label "The PROV-O vocabulary" .
 
 [] a prov:Activity ;
-    prov:endedAtTime "2023-07-25T23:09:42.004819"^^xsd:dateTime ;
-    prov:startedAtTime "2023-07-25T23:09:41.766827"^^xsd:dateTime ;
+    prov:endedAtTime "2023-07-25T23:23:02.020552"^^xsd:dateTime ;
+    prov:startedAtTime "2023-07-25T23:23:01.703706"^^xsd:dateTime ;
     prov:used [ a prov:Entity ;
-            dct:format "application/json" ;
-            rdfs:seeAlso <file:///github/workspace/build/register.json> ],
-        [ a prov:Entity ;
             dct:format "application/yaml" ;
-            rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ] ;
+            rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
+        [ a prov:Entity ;
+            dct:format "application/json" ;
+            rdfs:seeAlso <file:///github/workspace/build/register.json> ] ;
     prov:wasAssociatedWith [ a prov:Agent,
                 schema:SoftwareApplication ;
             rdfs:label "OGC-NA tools" ;
