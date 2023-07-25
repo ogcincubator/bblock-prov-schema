@@ -1,5 +1,10 @@
 {
-  "@context": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld",
+  "@context": [
+    "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld",
+    {
+      "@base": "https://example.org/"
+    }
+  ],
   "id": "DP-1",
   "type": "Entity",
   "wasGeneratedBy": [

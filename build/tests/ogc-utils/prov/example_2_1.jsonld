@@ -1,5 +1,4 @@
 {
-  "@context": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld",
   "type": "Activity",
   "id": "surveyreg-nz:DP-1-S2",
   "endedAtTime": "2029-01-01",
@@ -14,5 +13,6 @@
         "rel": "related"
       }
     ]
-  }
+  },
+  "@context": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld"
 }

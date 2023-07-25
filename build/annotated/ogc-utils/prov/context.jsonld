@@ -12,7 +12,13 @@
           "@id": "http://www.w3.org/ns/prov#used"
         },
         "name": "foaf:name",
-        "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+        "actedOnBehalfOf": {
+          "@id": "http://www.w3.org/ns/prov#actedOnBehalfOf",
+          "@context": {
+            "href": "@id",
+            "title": "rdfs:label"
+          }
+        }
       }
     },
     "wasGeneratedBy": {
@@ -28,6 +34,8 @@
     "wasAttributedTo": {
       "@id": "http://www.w3.org/ns/prov#wasAttributedTo",
       "@context": {
+        "href": "@id",
+        "title": "rdfs:label",
         "name": "foaf:name",
         "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
       }
@@ -36,12 +44,20 @@
       "@type": "@id",
       "@id": "http://www.w3.org/ns/prov#wasDerivedFrom"
     },
-    "links": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
+    "links": {
+      "@id": "rdfs:seeAlso",
+      "@context": {
+        "href": "@id",
+        "title": "rdfs:label"
+      }
+    },
     "endedAtTime": "http://www.w3.org/ns/prov#endedAtTime",
     "wasAssociatedWith": {
       "@type": "@id",
       "@id": "http://www.w3.org/ns/prov#wasAssociatedWith",
       "@context": {
+        "href": "@id",
+        "title": "rdfs:label",
         "name": "foaf:name",
         "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
       }
@@ -57,7 +73,13 @@
           "@container": "@set",
           "@context": {
             "name": "foaf:name",
-            "actedOnBehalfOf": "http://www.w3.org/ns/prov#actedOnBehalfOf"
+            "actedOnBehalfOf": {
+              "@id": "http://www.w3.org/ns/prov#actedOnBehalfOf",
+              "@context": {
+                "href": "@id",
+                "title": "rdfs:label"
+              }
+            }
           }
         },
         "wasGeneratedBy": {
@@ -69,6 +91,7 @@
     "prov": "http://www.w3.org/ns/prov#",
     "survtypes-nz": "https://surveytypes-nz/",
     "surveyreg-nz": "https://surveys-nz/",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "prov-x": "http://www.w3.org/ns/prov-x#",
     "foaf": "http://xmlns.com/foaf/0.1/"
   }

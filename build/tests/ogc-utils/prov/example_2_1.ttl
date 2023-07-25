@@ -7,6 +7,6 @@
     prov:wasAssociatedWith "linz-registered-surveyors:bc-3" .
 
 <http://www.example.com/prov/Act3> a <http://www.example.com/prov/Entity> ;
-    rdfs:seeAlso [ ] ;
+    rdfs:seeAlso <https://some.gov/linktoact/> ;
     prov:wasAttributedTo "icsm-jurisdictions:nz" .
 

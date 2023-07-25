@@ -294,7 +294,7 @@
     </script>
   </head>
 
-  <body class="ogc-utils ogc-utils_prov ogc-utils_prov_index" data-languages="[]">
+  <body class="ogc-utils ogc-utils_prov ogc-utils_prov_index" data-languages="[&quot;json&quot;,&quot;jsonld&quot;,&quot;ttl&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -303,6 +303,11 @@
     </a>
     <div class="toc-wrapper">
       <img src="../../images/logo-4d9dfd05.svg" class="logo" alt="" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="json">JSON</a>
+              <a href="#" data-language-name="jsonld">JSON-LD</a>
+              <a href="#" data-language-name="ttl">RDF/Turtle</a>
+        </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
         </div>
@@ -324,6 +329,9 @@
               <ul class="toc-list-h2">
                   <li>
                     <a href="#example-entities-with-provenance-chains" class="toc-h2 toc-link" data-title="Example Entities with Provenance Chains">Example Entities with Provenance Chains</a>
+                  </li>
+                  <li>
+                    <a href="#example-activity" class="toc-h2 toc-link" data-title="Example Activity">Example Activity</a>
                   </li>
               </ul>
           </li>
@@ -418,7 +426,89 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 
 
 
-</span></code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span></code></pre></div><div class="highlight"><pre class="highlight jsonld tab-jsonld"><code>{
+  "@context": [
+    "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld",
+    {
+      "@base": "https://example.org/"
+    }
+  ],
+  "id": "DP-1",
+  "type": "Entity",
+  "wasGeneratedBy": [
+    "surveyreg-nz:DP-1-S1",
+    {
+      "type": "Activity",
+      "id": "surveyreg-nz:DP-1-S2",
+      "endedAtTime": "2029-01-01",
+      "wasAssociatedWith": "linz-registered-surveyors:bc-3",
+      "used": {
+        "type": "Entity",
+        "id": "Act3",
+        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "links": [
+          {
+            "href": "https://some.gov/linktoact/",
+            "rel": "related"
+          }
+        ]
+      }
+    }
+  ],
+  "provenance": [
+    {
+      "id": "DP-2223",
+      "type": "Entity",
+      "wasGeneratedBy": "surveyreg-nz:DP-1-S1"
+    },
+    {
+      "type": "Activity",
+      "id": "surveyreg-nz:DP-1-S1",
+      "endedAtTime": "2023-10-05",
+      "wasAssociatedWith": "linz-registered-surveyors:ah-2344503",
+      "used": {
+        "id": "Act3",
+        "type": "Entity",
+        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "links": [
+          {
+            "href": "https://some.gov/linktoact/",
+            "rel": "related"
+          }
+        ]
+      }
+    }
+  ]
+}
+</code></pre></div><div class="highlight"><pre class="highlight ttl tab-ttl"><code>@prefix ns1: &lt;http://www.w3.org/ns/prov-x#&gt; .
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://example.org/DP-1&gt; a &lt;https://example.org/Entity&gt; ;
+    prov:wasGeneratedBy &lt;https://surveys-nz/DP-1-S1&gt;,
+        &lt;https://surveys-nz/DP-1-S2&gt; ;
+    ns1:provenance &lt;https://example.org/DP-2223&gt;,
+        &lt;https://surveys-nz/DP-1-S1&gt; .
+
+&lt;https://example.org/DP-2223&gt; a &lt;https://example.org/Entity&gt; ;
+    prov:wasGeneratedBy &lt;https://surveys-nz/DP-1-S1&gt; .
+
+&lt;https://surveys-nz/DP-1-S2&gt; a &lt;https://example.org/Activity&gt; ;
+    prov:endedAtTime "2029-01-01" ;
+    prov:used &lt;https://example.org/Act3&gt; ;
+    prov:wasAssociatedWith &lt;linz-registered-surveyors:bc-3&gt; .
+
+&lt;https://example.org/Act3&gt; a &lt;https://example.org/Entity&gt; ;
+    rdfs:seeAlso &lt;https://some.gov/linktoact/&gt; ;
+    prov:wasAttributedTo "icsm-jurisdictions:nz" .
+
+&lt;https://surveys-nz/DP-1-S1&gt; a &lt;https://example.org/Activity&gt; ;
+    prov:endedAtTime "2023-10-05" ;
+    prov:used &lt;https://example.org/Act3&gt; ;
+    prov:wasAssociatedWith &lt;linz-registered-surveyors:ah-2344503&gt; .
+
+
+</code></pre></div><h2 id='example-activity'>Example Activity</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surveyreg-nz:DP-1-S2"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2029-01-01"</span><span class="p">,</span><span class="w">
@@ -440,7 +530,38 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 
 
 
-</span></code></pre></div><h1 id='json-schema'>JSON Schema</h1><div class="highlight"><pre class="highlight yaml tab-yaml--schema"><code><span class="na">$schema</span><span class="pi">:</span> <span class="s">https://json-schema.org/draft/2020-12/schema</span>
+</span></code></pre></div><div class="highlight"><pre class="highlight jsonld tab-jsonld"><code>{
+  "type": "Activity",
+  "id": "surveyreg-nz:DP-1-S2",
+  "endedAtTime": "2029-01-01",
+  "wasAssociatedWith": "linz-registered-surveyors:bc-3",
+  "used": {
+    "type": "Entity",
+    "id": "Act3",
+    "wasAttributedTo": "icsm-jurisdictions:nz",
+    "links": [
+      {
+        "href": "https://some.gov/linktoact/",
+        "rel": "related"
+      }
+    ]
+  },
+  "@context": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld"
+}
+</code></pre></div><div class="highlight"><pre class="highlight ttl tab-ttl"><code>@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+&lt;https://surveys-nz/DP-1-S2&gt; a &lt;http://www.example.com/prov/Activity&gt; ;
+    prov:endedAtTime "2029-01-01" ;
+    prov:used &lt;http://www.example.com/prov/Act3&gt; ;
+    prov:wasAssociatedWith "linz-registered-surveyors:bc-3" .
+
+&lt;http://www.example.com/prov/Act3&gt; a &lt;http://www.example.com/prov/Entity&gt; ;
+    rdfs:seeAlso &lt;https://some.gov/linktoact/&gt; ;
+    prov:wasAttributedTo "icsm-jurisdictions:nz" .
+
+
+</code></pre></div><h1 id='json-schema'>JSON Schema</h1><div class="highlight"><pre class="highlight yaml tab-yaml--schema"><code><span class="na">$schema</span><span class="pi">:</span> <span class="s">https://json-schema.org/draft/2020-12/schema</span>
 <span class="na">description</span><span class="pi">:</span> <span class="s">provenance chain</span>
 <span class="na">$defs</span><span class="pi">:</span>
   <span class="na">oneOrMoreActivitiesOrRefIds</span><span class="pi">:</span>
@@ -623,7 +744,13 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#used"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#actedOnBehalfOf"</span><span class="w">
+        </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#actedOnBehalfOf"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="w">
+          </span><span class="p">}</span><span class="w">
+        </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"wasGeneratedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -639,6 +766,8 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#wasAttributedTo"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#actedOnBehalfOf"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -647,12 +776,20 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#wasDerivedFrom"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2000/01/rdf-schema#seeAlso"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:seeAlso"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
     </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#endedAtTime"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#wasAssociatedWith"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#actedOnBehalfOf"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -668,7 +805,13 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
           </span><span class="nl">"@container"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@set"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#actedOnBehalfOf"</span><span class="w">
+            </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#actedOnBehalfOf"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+            </span><span class="p">}</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"wasGeneratedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -680,6 +823,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="nl">"prov"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"survtypes-nz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://surveytypes-nz/"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"surveyreg-nz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://surveys-nz/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"rdfs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2000/01/rdf-schema#"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"prov-x"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov-x#"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"foaf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xmlns.com/foaf/0.1/"</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -701,6 +845,11 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 
       </div>
       <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="json">JSON</a>
+                <a href="#" data-language-name="jsonld">JSON-LD</a>
+                <a href="#" data-language-name="ttl">RDF/Turtle</a>
+          </div>
       </div>
     </div>
   </body>
