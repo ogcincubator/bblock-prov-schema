@@ -13,11 +13,11 @@
       "wasAssociatedWith": "linz-registered-surveyors:bc-3",
       "used": {
         "type": "Entity",
-        "id": "Act3",
+        "id": "Example-Act",
         "wasAttributedTo": "icsm-jurisdictions:nz",
         "links": [
           {
-            "href": "https://some.gov/linktoact/",
+            "href": "https://some.gov/linktoact/Example1",
             "rel": "related"
           }
         ]

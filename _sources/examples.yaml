@@ -5,13 +5,13 @@
   snippets:
     - language: json
       ref: example.json
-      base-uri: http://www.example.com/prov/
+      base-uri: http://www.example.com/exampleEntity/
 
 - title: Example Activity
   snippets:
     - language: json
       # this is referenced from complete examples using a $ref pattern following JSON schema approach
       ref: examples/example-activity.json
-      base-uri: http://www.example.com/prov/
+      base-uri: http://www.example.com/exampleActivity/
       # how to reference a schema from a different bblock?
       schema-ref: "#/$defs/Activity"
