@@ -285,9 +285,9 @@
   color: #859900;
 }
     </style>
-    <link href="../../stylesheets/screen-e762ca82.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/screen-78476d1b.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
-      <script src="../../javascripts/all-fea9e21b.js"></script>
+      <script src="../../javascripts/all-3fa64aa1.js"></script>
 
     <script>
       $(function() { setupCodeCopy(); });
@@ -360,7 +360,10 @@
         <h1 id='provenance-chain-ogc-ogc-utils-prov'>Provenance Chain <code>ogc.ogc-utils.prov</code></h1>
 <p>Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way.</p>
 
-<p><a href="https://github.com/cportele/ogcapi-building-blocks#building-block-maturity">Maturity</a>: Development</p>
+<p class="status">
+    <span data-rainbow-uri="http://www.opengis.net/def/status">Status</span>:
+    <a href="http://www.opengis.net/def/status/under-development" target="_blank" data-rainbow-uri>Under development</a>
+</p>
 
 <aside class="success">
 This building block is <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">valid</a></strong>
@@ -480,33 +483,34 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     }
   ]
 }
-</code></pre></div><div class="highlight"><pre class="highlight ttl tab-ttl"><code>@prefix ns1: &lt;http://www.w3.org/ns/prov-x#&gt; .
-@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+</code></pre></div><div class="highlight"><pre class="highlight ttl tab-ttl"><code>@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+@prefix prov-x: &lt;http://www.w3.org/ns/prov-x#&gt; .
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix surveyreg-nz: &lt;https://surveys-nz/&gt; .
 
 &lt;https://example.org/DP-1&gt; a prov:Entity ;
-    prov:wasGeneratedBy &lt;https://surveys-nz/DP-1-S1&gt;,
-        &lt;https://surveys-nz/DP-1-S2&gt; ;
-    ns1:provenance &lt;https://example.org/DP-2223&gt;,
-        &lt;https://surveys-nz/DP-1-S1&gt; .
+    prov:wasGeneratedBy surveyreg-nz:DP-1-S1,
+        surveyreg-nz:DP-1-S2 ;
+    prov-x:provenance &lt;https://example.org/DP-2223&gt;,
+        surveyreg-nz:DP-1-S1 .
 
 &lt;https://example.org/Act3&gt; a prov:Entity ;
     rdfs:seeAlso &lt;https://some.gov/linktoact/&gt; ;
     prov:wasAttributedTo "icsm-jurisdictions:nz" .
 
 &lt;https://example.org/DP-2223&gt; a prov:Entity ;
-    prov:wasGeneratedBy &lt;https://surveys-nz/DP-1-S1&gt; .
+    prov:wasGeneratedBy surveyreg-nz:DP-1-S1 .
 
 &lt;https://example.org/Example-Act&gt; a prov:Entity ;
     rdfs:seeAlso &lt;https://some.gov/linktoact/Example1&gt; ;
     prov:wasAttributedTo "icsm-jurisdictions:nz" .
 
-&lt;https://surveys-nz/DP-1-S2&gt; a prov:Activity ;
+surveyreg-nz:DP-1-S2 a prov:Activity ;
     prov:endedAtTime "2029-01-01" ;
     prov:used &lt;https://example.org/Example-Act&gt; ;
     prov:wasAssociatedWith &lt;linz-registered-surveyors:bc-3&gt; .
 
-&lt;https://surveys-nz/DP-1-S1&gt; a prov:Activity ;
+surveyreg-nz:DP-1-S1 a prov:Activity ;
     prov:endedAtTime "2023-10-05" ;
     prov:used &lt;https://example.org/Act3&gt; ;
     prov:wasAssociatedWith &lt;linz-registered-surveyors:ah-2344503&gt; .
@@ -554,13 +558,14 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 }
 </code></pre></div><div class="highlight"><pre class="highlight ttl tab-ttl"><code>@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix surveyreg-nz: &lt;https://surveys-nz/&gt; .
 
-&lt;https://surveys-nz/DP-1-S2&gt; a prov:Activity ;
+surveyreg-nz:DP-1-S2 a prov:Activity ;
     prov:endedAtTime "2029-01-01" ;
     prov:used &lt;http://www.example.com/exampleActivity/Act3&gt; ;
-    prov:wasAssociatedWith "linz-registered-surveyors:bc-3" .
+    prov:wasAssociatedWith &lt;linz-registered-surveyors:bc-3&gt; .
 
-&lt;http://www.example.com/exampleActivity/Act3&gt; a &lt;http://www.example.com/exampleActivity/Entity&gt; ;
+&lt;http://www.example.com/exampleActivity/Act3&gt; a prov:Entity ;
     rdfs:seeAlso &lt;https://some.gov/linktoact/&gt; ;
     prov:wasAttributedTo "icsm-jurisdictions:nz" .
 

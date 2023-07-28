@@ -24,7 +24,10 @@ meta:
 
 Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way.
 
-[Maturity](https://github.com/cportele/ogcapi-building-blocks#building-block-maturity): Development
+<p class="status">
+    <span data-rainbow-uri="http://www.opengis.net/def/status">Status</span>:
+    <a href="http://www.opengis.net/def/status/under-development" target="_blank" data-rainbow-uri>Under development</a>
+</p>
 
 <aside class="success">
 This building block is <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">valid</a></strong>
@@ -161,33 +164,34 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 ```
 
 ```ttl
-@prefix ns1: <http://www.w3.org/ns/prov-x#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix prov-x: <http://www.w3.org/ns/prov-x#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix surveyreg-nz: <https://surveys-nz/> .
 
 <https://example.org/DP-1> a prov:Entity ;
-    prov:wasGeneratedBy <https://surveys-nz/DP-1-S1>,
-        <https://surveys-nz/DP-1-S2> ;
-    ns1:provenance <https://example.org/DP-2223>,
-        <https://surveys-nz/DP-1-S1> .
+    prov:wasGeneratedBy surveyreg-nz:DP-1-S1,
+        surveyreg-nz:DP-1-S2 ;
+    prov-x:provenance <https://example.org/DP-2223>,
+        surveyreg-nz:DP-1-S1 .
 
 <https://example.org/Act3> a prov:Entity ;
     rdfs:seeAlso <https://some.gov/linktoact/> ;
     prov:wasAttributedTo "icsm-jurisdictions:nz" .
 
 <https://example.org/DP-2223> a prov:Entity ;
-    prov:wasGeneratedBy <https://surveys-nz/DP-1-S1> .
+    prov:wasGeneratedBy surveyreg-nz:DP-1-S1 .
 
 <https://example.org/Example-Act> a prov:Entity ;
     rdfs:seeAlso <https://some.gov/linktoact/Example1> ;
     prov:wasAttributedTo "icsm-jurisdictions:nz" .
 
-<https://surveys-nz/DP-1-S2> a prov:Activity ;
+surveyreg-nz:DP-1-S2 a prov:Activity ;
     prov:endedAtTime "2029-01-01" ;
     prov:used <https://example.org/Example-Act> ;
     prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
 
-<https://surveys-nz/DP-1-S1> a prov:Activity ;
+surveyreg-nz:DP-1-S1 a prov:Activity ;
     prov:endedAtTime "2023-10-05" ;
     prov:used <https://example.org/Act3> ;
     prov:wasAssociatedWith <linz-registered-surveyors:ah-2344503> .
@@ -247,13 +251,14 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 ```ttl
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix surveyreg-nz: <https://surveys-nz/> .
 
-<https://surveys-nz/DP-1-S2> a prov:Activity ;
+surveyreg-nz:DP-1-S2 a prov:Activity ;
     prov:endedAtTime "2029-01-01" ;
     prov:used <http://www.example.com/exampleActivity/Act3> ;
-    prov:wasAssociatedWith "linz-registered-surveyors:bc-3" .
+    prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
 
-<http://www.example.com/exampleActivity/Act3> a <http://www.example.com/exampleActivity/Entity> ;
+<http://www.example.com/exampleActivity/Act3> a prov:Entity ;
     rdfs:seeAlso <https://some.gov/linktoact/> ;
     prov:wasAttributedTo "icsm-jurisdictions:nz" .
 

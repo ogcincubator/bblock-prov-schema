@@ -1,12 +1,13 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix surveyreg-nz: <https://surveys-nz/> .
 
-<https://surveys-nz/DP-1-S2> a prov:Activity ;
+surveyreg-nz:DP-1-S2 a prov:Activity ;
     prov:endedAtTime "2029-01-01" ;
     prov:used <http://www.example.com/exampleActivity/Act3> ;
-    prov:wasAssociatedWith "linz-registered-surveyors:bc-3" .
+    prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
 
-<http://www.example.com/exampleActivity/Act3> a <http://www.example.com/exampleActivity/Entity> ;
+<http://www.example.com/exampleActivity/Act3> a prov:Entity ;
     rdfs:seeAlso <https://some.gov/linktoact/> ;
     prov:wasAttributedTo "icsm-jurisdictions:nz" .
 

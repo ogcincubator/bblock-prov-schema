@@ -1,30 +1,31 @@
-@prefix ns1: <http://www.w3.org/ns/prov-x#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix prov-x: <http://www.w3.org/ns/prov-x#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix surveyreg-nz: <https://surveys-nz/> .
 
 <https://example.org/DP-1> a prov:Entity ;
-    prov:wasGeneratedBy <https://surveys-nz/DP-1-S1>,
-        <https://surveys-nz/DP-1-S2> ;
-    ns1:provenance <https://example.org/DP-2223>,
-        <https://surveys-nz/DP-1-S1> .
+    prov:wasGeneratedBy surveyreg-nz:DP-1-S1,
+        surveyreg-nz:DP-1-S2 ;
+    prov-x:provenance <https://example.org/DP-2223>,
+        surveyreg-nz:DP-1-S1 .
 
 <https://example.org/Act3> a prov:Entity ;
     rdfs:seeAlso <https://some.gov/linktoact/> ;
     prov:wasAttributedTo "icsm-jurisdictions:nz" .
 
 <https://example.org/DP-2223> a prov:Entity ;
-    prov:wasGeneratedBy <https://surveys-nz/DP-1-S1> .
+    prov:wasGeneratedBy surveyreg-nz:DP-1-S1 .
 
 <https://example.org/Example-Act> a prov:Entity ;
     rdfs:seeAlso <https://some.gov/linktoact/Example1> ;
     prov:wasAttributedTo "icsm-jurisdictions:nz" .
 
-<https://surveys-nz/DP-1-S2> a prov:Activity ;
+surveyreg-nz:DP-1-S2 a prov:Activity ;
     prov:endedAtTime "2029-01-01" ;
     prov:used <https://example.org/Example-Act> ;
     prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
 
-<https://surveys-nz/DP-1-S1> a prov:Activity ;
+surveyreg-nz:DP-1-S1 a prov:Activity ;
     prov:endedAtTime "2023-10-05" ;
     prov:used <https://example.org/Act3> ;
     prov:wasAssociatedWith <linz-registered-surveyors:ah-2344503> .
