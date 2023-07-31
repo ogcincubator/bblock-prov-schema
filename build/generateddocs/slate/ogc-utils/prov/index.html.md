@@ -109,7 +109,7 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 ```jsonld
 {
   "@context": [
-    "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld",
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
     {
       "@base": "https://example.org/"
     }
@@ -244,7 +244,7 @@ surveyreg-nz:DP-1-S1 a prov:Activity ;
       }
     ]
   },
-  "@context": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld"
+  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"
 }
 ```
 
@@ -441,8 +441,8 @@ x-jsonld-prefixes:
 
 Links to the schema:
 
-* YAML version: <a href="https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/schema.yaml" target="_blank">https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/schema.yaml</a>
-* JSON version: <a href="https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/schema.json" target="_blank">https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/schema.json</a>
+* YAML version: <a href="https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml" target="_blank">https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml</a>
+* JSON version: <a href="https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json" target="_blank">https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json</a>
 
 
 # JSON-LD Context
@@ -552,7 +552,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-<a href="https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld" target="_blank">https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld</a>
+<a href="https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld" target="_blank">https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld</a>
 
 # References
 

@@ -91,25 +91,25 @@
       "itemIdentifier": "ogc.ogc-utils.prov",
       "shaclRules": [],
       "schema": {
-        "application/yaml": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/schema.yaml",
-        "application/json": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/schema.json"
+        "application/yaml": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml",
+        "application/json": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json"
       },
-      "ldContext": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/annotated/ogc-utils/prov/context.jsonld",
-      "sourceFiles": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/_sources/",
+      "ldContext": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
+      "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/",
       "validationPassed": true,
       "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/",
       "documentation": {
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/json-full/ogc-utils/prov/index.json"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov/index.json"
         },
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/markdown/ogc-utils/prov/index.md"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md"
         },
         "slate": {
           "mediatype": "text/html",
-          "url": "https://raw.githubusercontent.com/ogcincubator/bblock-prov-schema/master/build/generateddocs/slate-build/ogc-utils/prov/"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/slate-build/ogc-utils/prov/"
         }
       },
       "@type": [
