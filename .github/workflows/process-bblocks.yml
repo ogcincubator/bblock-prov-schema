@@ -6,6 +6,11 @@ on:
       - master
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   validate-and-process:
     uses: opengeospatial/bblocks-postprocess/.github/workflows/validate-and-process.yml@master
