@@ -8,25 +8,4 @@ on:
 
 jobs:
   validate-and-process:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
-      - name: Update submodules
-        run: git submodule update --recursive --remote
-      - name: OGC BB postprocess
-        uses: opengeospatial/bblocks-postprocess/full@v1
-        with:
-          fail_on_error: 'true'
-      - name: Add & Commit
-        if: ${{ !endsWith(github.repository, '/bblock-template') }}
-        uses: EndBug/add-and-commit@v9
-        with:
-          message: Building blocks postprocessing
-
-  deploy-gh-pages:
-    needs: validate-and-process
-    uses: ./.github/workflows/deploy-gh-pages.yml
+    uses: opengeospatial/bblocks-postprocess/.github/workflows/validate-and-process.yml@master
