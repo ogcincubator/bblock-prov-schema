@@ -28,6 +28,9 @@
     "wasAssociatedWith": {
       "@type": "@id"
     },
+    "wasAttributedTo": {
+      "@type": "@id"
+    },
     "wasDerivedFrom": {
       "@type": "@id"
     },
