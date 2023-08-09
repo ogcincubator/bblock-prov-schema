@@ -1,43 +1,41 @@
 $schema: https://json-schema.org/draft/2020-12/schema
 description: provenance chain
 $defs:
+  objectref:
+    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json
   oneOrMoreActivitiesOrRefIds:
     oneOf:
-    - type: string
+    - $ref: '#/$defs/objectref'
     - $ref: '#/$defs/Activity'
     - type: array
       items:
         anyOf:
-        - type: string
+        - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Activity'
   oneOrMoreEntitiesOrRefIds:
     oneOf:
-    - type: string
+    - $ref: '#/$defs/objectref'
     - $ref: '#/$defs/Entity'
     - type: array
       items:
         anyOf:
-        - type: string
+        - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Entity'
   oneOrMoreAgentsOrRefIds:
     oneOf:
-    - type: string
+    - $ref: '#/$defs/objectref'
     - $ref: '#/$defs/externalLink'
     - $ref: '#/$defs/Agent'
     - type: array
       items:
         anyOf:
-        - type: string
+        - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Agent'
   externalLink:
     $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json
   Entity:
     type: object
-    additionalProperties: false
     properties:
-      '@context':
-        description: allow a local context to set URI bases for object Ids
-        type: object
       id:
         type: string
         x-jsonld-id: '@id'
@@ -45,6 +43,9 @@ $defs:
         type: string
         const: Entity
         x-jsonld-id: '@type'
+      featureType:
+        $ref: '#/$defs/objectref'
+        x-jsonld-id: http://www.w3.org/ns/prov#featureType
       provenance:
         $ref: '#/$defs/Prov'
         x-jsonld-id: http://www.w3.org/ns/prov-x#provenance
@@ -56,6 +57,7 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
       wasAttributedTo:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
+        x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#wasAttributedTo
       wasDerivedFrom:
         $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
@@ -68,8 +70,11 @@ $defs:
         x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#seeAlso
     required:
     - id
-    - type
     anyOf:
+    - required:
+      - type
+    - required:
+      - featureType
     - required:
       - wasGeneratedBy
     - required:
@@ -107,9 +112,9 @@ $defs:
         $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
         x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#used
-    required:
-    - type
     anyOf:
+    - required:
+      - type
     - required:
       - used
     - required:
@@ -139,6 +144,11 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#actedOnBehalfOf
     required:
     - name
+    anyOf:
+    - required:
+      - type
+    - required:
+      - actedOnBehalfOf
   Prov:
     description: An list of provenance objects linked together to form a provenance
       chain for the current object. Objects may have nested objects as well, with

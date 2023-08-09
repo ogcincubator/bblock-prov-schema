@@ -2,7 +2,9 @@
   "@context": [
     "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
     {
-      "@base": "https://example.org/"
+      "@base": "https://example.org/",
+      "agents": "https://someagentregister.eg/",
+      "thing": "https://example.org/entities/"
     }
   ],
   "id": "DP-1",
@@ -13,14 +15,14 @@
       "type": "Activity",
       "id": "surveyreg-nz:DP-1-S2",
       "endedAtTime": "2029-01-01",
-      "wasAssociatedWith": "linz-registered-surveyors:bc-3",
+      "wasAssociatedWith": "agents:bc-3",
       "used": {
         "type": "Entity",
         "id": "Example-Act",
-        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "wasAttributedTo": "agents:nz",
         "links": [
           {
-            "href": "https://some.gov/linktoact/Example1",
+            "href": "https://nze.gov/linktoact/Example1",
             "rel": "related"
           }
         ]
@@ -31,17 +33,17 @@
     {
       "id": "DP-2223",
       "type": "Entity",
-      "wasGeneratedBy": "surveyreg-nz:DP-1-S1"
+      "wasGeneratedBy": "thing:DP-1-S1"
     },
     {
       "type": "Activity",
-      "id": "surveyreg-nz:DP-1-S1",
+      "id": "thing:DP-1-S1",
       "endedAtTime": "2023-10-05",
-      "wasAssociatedWith": "linz-registered-surveyors:ah-2344503",
+      "wasAssociatedWith": "agents:ah-2344503",
       "used": {
         "id": "Act3",
         "type": "Entity",
-        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "wasAttributedTo": "agents:nz",
         "links": [
           {
             "href": "https://some.gov/linktoact/",

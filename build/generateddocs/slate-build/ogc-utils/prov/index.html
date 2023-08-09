@@ -285,7 +285,7 @@
   color: #859900;
 }
     </style>
-    <link href="../../stylesheets/screen-78476d1b.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/screen-c95bb399.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
       <script src="../../javascripts/all-0c8314cb.js"></script>
 
@@ -376,7 +376,9 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 <p>See panel to right - note that a more user friendly &quot;collapsable&quot; version is in development. </p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/"</span><span class="w">
+    </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"agents"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://someagentregister.eg/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"thing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/entities/"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DP-1"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
@@ -386,14 +388,14 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surveyreg-nz:DP-1-S2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2029-01-01"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linz-registered-surveyors:bc-3"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agents:bc-3"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example-Act"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icsm-jurisdictions:nz"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agents:nz"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://some.gov/linktoact/Example1"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://nze.gov/linktoact/Example1"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"related"</span><span class="w">
           </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
@@ -404,17 +406,17 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DP-2223"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"wasGeneratedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surveyreg-nz:DP-1-S1"</span><span class="w">
+      </span><span class="nl">"wasGeneratedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thing:DP-1-S1"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surveyreg-nz:DP-1-S1"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thing:DP-1-S1"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-05"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linz-registered-surveyors:ah-2344503"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agents:ah-2344503"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Act3"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icsm-jurisdictions:nz"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agents:nz"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
             </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://some.gov/linktoact/"</span><span class="p">,</span><span class="w">
@@ -433,7 +435,9 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
   "@context": [
     "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
     {
-      "@base": "https://example.org/"
+      "@base": "https://example.org/",
+      "agents": "https://someagentregister.eg/",
+      "thing": "https://example.org/entities/"
     }
   ],
   "id": "DP-1",
@@ -444,14 +448,14 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
       "type": "Activity",
       "id": "surveyreg-nz:DP-1-S2",
       "endedAtTime": "2029-01-01",
-      "wasAssociatedWith": "linz-registered-surveyors:bc-3",
+      "wasAssociatedWith": "agents:bc-3",
       "used": {
         "type": "Entity",
         "id": "Example-Act",
-        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "wasAttributedTo": "agents:nz",
         "links": [
           {
-            "href": "https://some.gov/linktoact/Example1",
+            "href": "https://nze.gov/linktoact/Example1",
             "rel": "related"
           }
         ]
@@ -462,17 +466,17 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     {
       "id": "DP-2223",
       "type": "Entity",
-      "wasGeneratedBy": "surveyreg-nz:DP-1-S1"
+      "wasGeneratedBy": "thing:DP-1-S1"
     },
     {
       "type": "Activity",
-      "id": "surveyreg-nz:DP-1-S1",
+      "id": "thing:DP-1-S1",
       "endedAtTime": "2023-10-05",
-      "wasAssociatedWith": "linz-registered-surveyors:ah-2344503",
+      "wasAssociatedWith": "agents:ah-2344503",
       "used": {
         "id": "Act3",
         "type": "Entity",
-        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "wasAttributedTo": "agents:nz",
         "links": [
           {
             "href": "https://some.gov/linktoact/",
@@ -483,37 +487,39 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     }
   ]
 }
-</code></pre></div><div class="highlight"><pre class="highlight ttl tab-ttl"><code>@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
+</code></pre></div><div class="highlight"><pre class="highlight ttl tab-ttl"><code>@prefix agents: &lt;https://someagentregister.eg/&gt; .
+@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
 @prefix prov-x: &lt;http://www.w3.org/ns/prov-x#&gt; .
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix surveyreg-nz: &lt;https://surveys-nz/&gt; .
+@prefix thing: &lt;https://example.org/entities/&gt; .
 
 &lt;https://example.org/DP-1&gt; a prov:Entity ;
     prov:wasGeneratedBy surveyreg-nz:DP-1-S1,
         surveyreg-nz:DP-1-S2 ;
     prov-x:provenance &lt;https://example.org/DP-2223&gt;,
-        surveyreg-nz:DP-1-S1 .
+        thing:DP-1-S1 .
 
 &lt;https://example.org/Act3&gt; a prov:Entity ;
     rdfs:seeAlso &lt;https://some.gov/linktoact/&gt; ;
-    prov:wasAttributedTo "icsm-jurisdictions:nz" .
+    prov:wasAttributedTo agents:nz .
 
 &lt;https://example.org/DP-2223&gt; a prov:Entity ;
-    prov:wasGeneratedBy surveyreg-nz:DP-1-S1 .
+    prov:wasGeneratedBy thing:DP-1-S1 .
 
 &lt;https://example.org/Example-Act&gt; a prov:Entity ;
-    rdfs:seeAlso &lt;https://some.gov/linktoact/Example1&gt; ;
-    prov:wasAttributedTo "icsm-jurisdictions:nz" .
+    rdfs:seeAlso &lt;https://nze.gov/linktoact/Example1&gt; ;
+    prov:wasAttributedTo agents:nz .
 
 surveyreg-nz:DP-1-S2 a prov:Activity ;
     prov:endedAtTime "2029-01-01" ;
     prov:used &lt;https://example.org/Example-Act&gt; ;
-    prov:wasAssociatedWith &lt;linz-registered-surveyors:bc-3&gt; .
+    prov:wasAssociatedWith agents:bc-3 .
 
-surveyreg-nz:DP-1-S1 a prov:Activity ;
+thing:DP-1-S1 a prov:Activity ;
     prov:endedAtTime "2023-10-05" ;
     prov:used &lt;https://example.org/Act3&gt; ;
-    prov:wasAssociatedWith &lt;linz-registered-surveyors:ah-2344503&gt; .
+    prov:wasAssociatedWith agents:ah-2344503 .
 
 
 </code></pre></div><h2 id='example-activity'>Example Activity</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -567,49 +573,47 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
 
 &lt;http://www.example.com/exampleActivity/Act3&gt; a prov:Entity ;
     rdfs:seeAlso &lt;https://some.gov/linktoact/&gt; ;
-    prov:wasAttributedTo "icsm-jurisdictions:nz" .
+    prov:wasAttributedTo &lt;icsm-jurisdictions:nz&gt; .
 
 
 </code></pre></div><h1 id='json-schema'>JSON Schema</h1><div class="highlight"><pre class="highlight yaml tab-yaml--schema"><code><span class="na">$schema</span><span class="pi">:</span> <span class="s">https://json-schema.org/draft/2020-12/schema</span>
 <span class="na">description</span><span class="pi">:</span> <span class="s">provenance chain</span>
 <span class="na">$defs</span><span class="pi">:</span>
+  <span class="na">objectref</span><span class="pi">:</span>
+    <span class="na">$ref</span><span class="pi">:</span> <span class="s">https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json</span>
   <span class="na">oneOrMoreActivitiesOrRefIds</span><span class="pi">:</span>
     <span class="na">oneOf</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+    <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
     <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Activity'</span>
     <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">array</span>
       <span class="na">items</span><span class="pi">:</span>
         <span class="na">anyOf</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Activity'</span>
   <span class="na">oneOrMoreEntitiesOrRefIds</span><span class="pi">:</span>
     <span class="na">oneOf</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+    <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
     <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Entity'</span>
     <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">array</span>
       <span class="na">items</span><span class="pi">:</span>
         <span class="na">anyOf</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Entity'</span>
   <span class="na">oneOrMoreAgentsOrRefIds</span><span class="pi">:</span>
     <span class="na">oneOf</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+    <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
     <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/externalLink'</span>
     <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Agent'</span>
     <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">array</span>
       <span class="na">items</span><span class="pi">:</span>
         <span class="na">anyOf</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+        <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Agent'</span>
   <span class="na">externalLink</span><span class="pi">:</span>
     <span class="na">$ref</span><span class="pi">:</span> <span class="s">https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json</span>
   <span class="na">Entity</span><span class="pi">:</span>
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
-    <span class="na">additionalProperties</span><span class="pi">:</span> <span class="no">false</span>
     <span class="na">properties</span><span class="pi">:</span>
-      <span class="s1">'</span><span class="s">@context'</span><span class="err">:</span>
-        <span class="na">description</span><span class="pi">:</span> <span class="s">allow a local context to set URI bases for object Ids</span>
-        <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
       <span class="na">id</span><span class="pi">:</span>
         <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
@@ -617,6 +621,9 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
         <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
         <span class="na">const</span><span class="pi">:</span> <span class="s">Entity</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
+      <span class="na">featureType</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#featureType</span>
       <span class="na">provenance</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Prov'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov-x#provenance</span>
@@ -628,6 +635,7 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#wasGeneratedBy</span>
       <span class="na">wasAttributedTo</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreAgentsOrRefIds'</span>
+        <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#wasAttributedTo</span>
       <span class="na">wasDerivedFrom</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreEntitiesOrRefIds'</span>
@@ -640,8 +648,11 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/2000/01/rdf-schema#seeAlso</span>
     <span class="na">required</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">id</span>
-    <span class="pi">-</span> <span class="s">type</span>
     <span class="na">anyOf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">type</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">featureType</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">wasGeneratedBy</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
@@ -679,9 +690,9 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreEntitiesOrRefIds'</span>
         <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#used</span>
-    <span class="na">required</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="s">type</span>
     <span class="na">anyOf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">type</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">used</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
@@ -711,6 +722,11 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#actedOnBehalfOf</span>
     <span class="na">required</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">name</span>
+    <span class="na">anyOf</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">type</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">actedOnBehalfOf</span>
   <span class="na">Prov</span><span class="pi">:</span>
     <span class="na">description</span><span class="pi">:</span> <span class="s">An list of provenance objects linked together to form a provenance</span>
       <span class="s">chain for the current object. Objects may have nested objects as well, with</span>
@@ -749,6 +765,7 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
   </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:featureType"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"provenance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov-x:provenance"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
@@ -779,6 +796,7 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:wasAttributedTo"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">

@@ -2,6 +2,7 @@
   "@context": {
     "id": "@id",
     "type": "@type",
+    "featureType": "prov:featureType",
     "provenance": {
       "@id": "prov-x:provenance",
       "@type": "@id",
@@ -32,6 +33,7 @@
       }
     },
     "wasAttributedTo": {
+      "@type": "@id",
       "@id": "prov:wasAttributedTo",
       "@context": {
         "href": "@id",

@@ -51,7 +51,9 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 ```json
 {
   "@context": {
-    "@base": "https://example.org/"
+    "@base": "https://example.org/",
+    "agents": "https://someagentregister.eg/",
+    "thing": "https://example.org/entities/"
   },
   "id": "DP-1",
   "type": "Entity",
@@ -61,14 +63,14 @@ See panel to right - note that a more user friendly "collapsable" version is in 
       "type": "Activity",
       "id": "surveyreg-nz:DP-1-S2",
       "endedAtTime": "2029-01-01",
-      "wasAssociatedWith": "linz-registered-surveyors:bc-3",
+      "wasAssociatedWith": "agents:bc-3",
       "used": {
         "type": "Entity",
         "id": "Example-Act",
-        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "wasAttributedTo": "agents:nz",
         "links": [
           {
-            "href": "https://some.gov/linktoact/Example1",
+            "href": "https://nze.gov/linktoact/Example1",
             "rel": "related"
           }
         ]
@@ -79,17 +81,17 @@ See panel to right - note that a more user friendly "collapsable" version is in 
     {
       "id": "DP-2223",
       "type": "Entity",
-      "wasGeneratedBy": "surveyreg-nz:DP-1-S1"
+      "wasGeneratedBy": "thing:DP-1-S1"
     },
     {
       "type": "Activity",
-      "id": "surveyreg-nz:DP-1-S1",
+      "id": "thing:DP-1-S1",
       "endedAtTime": "2023-10-05",
-      "wasAssociatedWith": "linz-registered-surveyors:ah-2344503",
+      "wasAssociatedWith": "agents:ah-2344503",
       "used": {
         "id": "Act3",
         "type": "Entity",
-        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "wasAttributedTo": "agents:nz",
         "links": [
           {
             "href": "https://some.gov/linktoact/",
@@ -111,7 +113,9 @@ See panel to right - note that a more user friendly "collapsable" version is in 
   "@context": [
     "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
     {
-      "@base": "https://example.org/"
+      "@base": "https://example.org/",
+      "agents": "https://someagentregister.eg/",
+      "thing": "https://example.org/entities/"
     }
   ],
   "id": "DP-1",
@@ -122,14 +126,14 @@ See panel to right - note that a more user friendly "collapsable" version is in 
       "type": "Activity",
       "id": "surveyreg-nz:DP-1-S2",
       "endedAtTime": "2029-01-01",
-      "wasAssociatedWith": "linz-registered-surveyors:bc-3",
+      "wasAssociatedWith": "agents:bc-3",
       "used": {
         "type": "Entity",
         "id": "Example-Act",
-        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "wasAttributedTo": "agents:nz",
         "links": [
           {
-            "href": "https://some.gov/linktoact/Example1",
+            "href": "https://nze.gov/linktoact/Example1",
             "rel": "related"
           }
         ]
@@ -140,17 +144,17 @@ See panel to right - note that a more user friendly "collapsable" version is in 
     {
       "id": "DP-2223",
       "type": "Entity",
-      "wasGeneratedBy": "surveyreg-nz:DP-1-S1"
+      "wasGeneratedBy": "thing:DP-1-S1"
     },
     {
       "type": "Activity",
-      "id": "surveyreg-nz:DP-1-S1",
+      "id": "thing:DP-1-S1",
       "endedAtTime": "2023-10-05",
-      "wasAssociatedWith": "linz-registered-surveyors:ah-2344503",
+      "wasAssociatedWith": "agents:ah-2344503",
       "used": {
         "id": "Act3",
         "type": "Entity",
-        "wasAttributedTo": "icsm-jurisdictions:nz",
+        "wasAttributedTo": "agents:nz",
         "links": [
           {
             "href": "https://some.gov/linktoact/",
@@ -164,37 +168,39 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 ```
 
 ```ttl
+@prefix agents: <https://someagentregister.eg/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix prov-x: <http://www.w3.org/ns/prov-x#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix surveyreg-nz: <https://surveys-nz/> .
+@prefix thing: <https://example.org/entities/> .
 
 <https://example.org/DP-1> a prov:Entity ;
     prov:wasGeneratedBy surveyreg-nz:DP-1-S1,
         surveyreg-nz:DP-1-S2 ;
     prov-x:provenance <https://example.org/DP-2223>,
-        surveyreg-nz:DP-1-S1 .
+        thing:DP-1-S1 .
 
 <https://example.org/Act3> a prov:Entity ;
     rdfs:seeAlso <https://some.gov/linktoact/> ;
-    prov:wasAttributedTo "icsm-jurisdictions:nz" .
+    prov:wasAttributedTo agents:nz .
 
 <https://example.org/DP-2223> a prov:Entity ;
-    prov:wasGeneratedBy surveyreg-nz:DP-1-S1 .
+    prov:wasGeneratedBy thing:DP-1-S1 .
 
 <https://example.org/Example-Act> a prov:Entity ;
-    rdfs:seeAlso <https://some.gov/linktoact/Example1> ;
-    prov:wasAttributedTo "icsm-jurisdictions:nz" .
+    rdfs:seeAlso <https://nze.gov/linktoact/Example1> ;
+    prov:wasAttributedTo agents:nz .
 
 surveyreg-nz:DP-1-S2 a prov:Activity ;
     prov:endedAtTime "2029-01-01" ;
     prov:used <https://example.org/Example-Act> ;
-    prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
+    prov:wasAssociatedWith agents:bc-3 .
 
-surveyreg-nz:DP-1-S1 a prov:Activity ;
+thing:DP-1-S1 a prov:Activity ;
     prov:endedAtTime "2023-10-05" ;
     prov:used <https://example.org/Act3> ;
-    prov:wasAssociatedWith <linz-registered-surveyors:ah-2344503> .
+    prov:wasAssociatedWith agents:ah-2344503 .
 
 
 ```
@@ -260,7 +266,7 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
 
 <http://www.example.com/exampleActivity/Act3> a prov:Entity ;
     rdfs:seeAlso <https://some.gov/linktoact/> ;
-    prov:wasAttributedTo "icsm-jurisdictions:nz" .
+    prov:wasAttributedTo <icsm-jurisdictions:nz> .
 
 
 ```
@@ -272,43 +278,41 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
 $schema: https://json-schema.org/draft/2020-12/schema
 description: provenance chain
 $defs:
+  objectref:
+    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json
   oneOrMoreActivitiesOrRefIds:
     oneOf:
-    - type: string
+    - $ref: '#/$defs/objectref'
     - $ref: '#/$defs/Activity'
     - type: array
       items:
         anyOf:
-        - type: string
+        - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Activity'
   oneOrMoreEntitiesOrRefIds:
     oneOf:
-    - type: string
+    - $ref: '#/$defs/objectref'
     - $ref: '#/$defs/Entity'
     - type: array
       items:
         anyOf:
-        - type: string
+        - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Entity'
   oneOrMoreAgentsOrRefIds:
     oneOf:
-    - type: string
+    - $ref: '#/$defs/objectref'
     - $ref: '#/$defs/externalLink'
     - $ref: '#/$defs/Agent'
     - type: array
       items:
         anyOf:
-        - type: string
+        - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Agent'
   externalLink:
     $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json
   Entity:
     type: object
-    additionalProperties: false
     properties:
-      '@context':
-        description: allow a local context to set URI bases for object Ids
-        type: object
       id:
         type: string
         x-jsonld-id: '@id'
@@ -316,6 +320,9 @@ $defs:
         type: string
         const: Entity
         x-jsonld-id: '@type'
+      featureType:
+        $ref: '#/$defs/objectref'
+        x-jsonld-id: http://www.w3.org/ns/prov#featureType
       provenance:
         $ref: '#/$defs/Prov'
         x-jsonld-id: http://www.w3.org/ns/prov-x#provenance
@@ -327,6 +334,7 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
       wasAttributedTo:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
+        x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#wasAttributedTo
       wasDerivedFrom:
         $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
@@ -339,8 +347,11 @@ $defs:
         x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#seeAlso
     required:
     - id
-    - type
     anyOf:
+    - required:
+      - type
+    - required:
+      - featureType
     - required:
       - wasGeneratedBy
     - required:
@@ -378,9 +389,9 @@ $defs:
         $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
         x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#used
-    required:
-    - type
     anyOf:
+    - required:
+      - type
     - required:
       - used
     - required:
@@ -410,6 +421,11 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#actedOnBehalfOf
     required:
     - name
+    anyOf:
+    - required:
+      - type
+    - required:
+      - actedOnBehalfOf
   Prov:
     description: An list of provenance objects linked together to form a provenance
       chain for the current object. Objects may have nested objects as well, with
@@ -452,6 +468,7 @@ Links to the schema:
   "@context": {
     "id": "@id",
     "type": "@type",
+    "featureType": "prov:featureType",
     "provenance": {
       "@id": "prov-x:provenance",
       "@type": "@id",
@@ -482,6 +499,7 @@ Links to the schema:
       }
     },
     "wasAttributedTo": {
+      "@type": "@id",
       "@id": "prov:wasAttributedTo",
       "@context": {
         "href": "@id",

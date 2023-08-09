@@ -9,5 +9,5 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
 
 <http://www.example.com/exampleActivity/Act3> a prov:Entity ;
     rdfs:seeAlso <https://some.gov/linktoact/> ;
-    prov:wasAttributedTo "icsm-jurisdictions:nz" .
+    prov:wasAttributedTo <icsm-jurisdictions:nz> .
 

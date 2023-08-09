@@ -2,10 +2,13 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "provenance chain",
   "$defs": {
+    "objectref": {
+      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
+    },
     "oneOrMoreActivitiesOrRefIds": {
       "oneOf": [
         {
-          "type": "string"
+          "$ref": "#/$defs/objectref"
         },
         {
           "$ref": "#/$defs/Activity"
@@ -15,7 +18,7 @@
           "items": {
             "anyOf": [
               {
-                "type": "string"
+                "$ref": "#/$defs/objectref"
               },
               {
                 "$ref": "#/$defs/Activity"
@@ -28,7 +31,7 @@
     "oneOrMoreEntitiesOrRefIds": {
       "oneOf": [
         {
-          "type": "string"
+          "$ref": "#/$defs/objectref"
         },
         {
           "$ref": "#/$defs/Entity"
@@ -38,7 +41,7 @@
           "items": {
             "anyOf": [
               {
-                "type": "string"
+                "$ref": "#/$defs/objectref"
               },
               {
                 "$ref": "#/$defs/Entity"
@@ -51,7 +54,7 @@
     "oneOrMoreAgentsOrRefIds": {
       "oneOf": [
         {
-          "type": "string"
+          "$ref": "#/$defs/objectref"
         },
         {
           "$ref": "#/$defs/externalLink"
@@ -64,7 +67,7 @@
           "items": {
             "anyOf": [
               {
-                "type": "string"
+                "$ref": "#/$defs/objectref"
               },
               {
                 "$ref": "#/$defs/Agent"
@@ -79,12 +82,7 @@
     },
     "Entity": {
       "type": "object",
-      "additionalProperties": false,
       "properties": {
-        "@context": {
-          "description": "allow a local context to set URI bases for object Ids",
-          "type": "object"
-        },
         "id": {
           "type": "string",
           "x-jsonld-id": "@id"
@@ -93,6 +91,10 @@
           "type": "string",
           "const": "Entity",
           "x-jsonld-id": "@type"
+        },
+        "featureType": {
+          "$ref": "#/$defs/objectref",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#featureType"
         },
         "provenance": {
           "$ref": "#/$defs/Prov",
@@ -107,6 +109,7 @@
         },
         "wasAttributedTo": {
           "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",
+          "x-jsonld-type": "@id",
           "x-jsonld-id": "http://www.w3.org/ns/prov#wasAttributedTo"
         },
         "wasDerivedFrom": {
@@ -123,10 +126,19 @@
         }
       },
       "required": [
-        "id",
-        "type"
+        "id"
       ],
       "anyOf": [
+        {
+          "required": [
+            "type"
+          ]
+        },
+        {
+          "required": [
+            "featureType"
+          ]
+        },
         {
           "required": [
             "wasGeneratedBy"
@@ -190,10 +202,12 @@
           "x-jsonld-id": "http://www.w3.org/ns/prov#used"
         }
       },
-      "required": [
-        "type"
-      ],
       "anyOf": [
+        {
+          "required": [
+            "type"
+          ]
+        },
         {
           "required": [
             "used"
@@ -245,6 +259,18 @@
       },
       "required": [
         "name"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "type"
+          ]
+        },
+        {
+          "required": [
+            "actedOnBehalfOf"
+          ]
+        }
       ]
     },
     "Prov": {
