@@ -5,8 +5,8 @@
 @prefix surveyreg: <https://example.org/surveys/> .
 @prefix thing: <https://example.org/entities/> .
 
-<https://example.org/DP-1> a <https://example.org/Feature> ;
-    prov:featureType "Survey" ;
+<https://example.org/DP-1> a <https://example.org/Feature>,
+        <https://example.org/Survey> ;
     prov:wasGeneratedBy surveyreg:DP-1-S1,
         surveyreg:DP-1-S2 ;
     prov-x:provenance <https://example.org/DP-2223>,
@@ -22,7 +22,7 @@
 <https://example.org/Example-Act> rdfs:seeAlso <https://nze.gov/linktoact/Example1> ;
     prov:wasAttributedTo agents:nz .
 
-surveyreg:DP-1-S2 prov:activity "Registration" ;
+surveyreg:DP-1-S2 a <https://example.org/Registration> ;
     prov:endedAtTime "2029-01-01" ;
     prov:used <https://example.org/Example-Act> ;
     prov:wasAssociatedWith agents:bc-3 .

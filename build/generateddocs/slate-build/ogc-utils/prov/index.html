@@ -500,8 +500,8 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 @prefix surveyreg: &lt;https://example.org/surveys/&gt; .
 @prefix thing: &lt;https://example.org/entities/&gt; .
 
-&lt;https://example.org/DP-1&gt; a &lt;https://example.org/Feature&gt; ;
-    prov:featureType "Survey" ;
+&lt;https://example.org/DP-1&gt; a &lt;https://example.org/Feature&gt;,
+        &lt;https://example.org/Survey&gt; ;
     prov:wasGeneratedBy surveyreg:DP-1-S1,
         surveyreg:DP-1-S2 ;
     prov-x:provenance &lt;https://example.org/DP-2223&gt;,
@@ -517,7 +517,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 &lt;https://example.org/Example-Act&gt; rdfs:seeAlso &lt;https://nze.gov/linktoact/Example1&gt; ;
     prov:wasAttributedTo agents:nz .
 
-surveyreg:DP-1-S2 prov:activity "Registration" ;
+surveyreg:DP-1-S2 a &lt;https://example.org/Registration&gt; ;
     prov:endedAtTime "2029-01-01" ;
     prov:used &lt;https://example.org/Example-Act&gt; ;
     prov:wasAssociatedWith agents:bc-3 .
@@ -625,7 +625,7 @@ thing:DP-1-S1 a prov:Activity ;
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">featureType</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
-        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#featureType</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
       <span class="na">provenance</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Prov'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov-x#provenance</span>
@@ -681,7 +681,7 @@ thing:DP-1-S1 a prov:Activity ;
     <span class="na">properties</span><span class="pi">:</span>
       <span class="na">activity</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
-        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#activity</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
       <span class="na">endedAtTime</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/dateOrTime'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#endedAtTime</span>
@@ -721,7 +721,7 @@ thing:DP-1-S1 a prov:Activity ;
     <span class="na">properties</span><span class="pi">:</span>
       <span class="na">agentType</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
-        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#agentType</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
       <span class="na">name</span><span class="pi">:</span>
         <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">foaf:name</span>
@@ -780,7 +780,7 @@ thing:DP-1-S1 a prov:Activity ;
 <h1 id='json-ld-context'>JSON-LD Context</h1><div class="highlight"><pre class="highlight json tab-json--ldContext"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:featureType"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"provenance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov-x:provenance"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
@@ -790,7 +790,7 @@ thing:DP-1-S1 a prov:Activity ;
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:used"</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agentType"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
@@ -817,7 +817,7 @@ thing:DP-1-S1 a prov:Activity ;
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agentType"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -834,7 +834,7 @@ thing:DP-1-S1 a prov:Activity ;
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:activity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:endedAtTime"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
@@ -842,7 +842,7 @@ thing:DP-1-S1 a prov:Activity ;
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agentType"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -857,7 +857,7 @@ thing:DP-1-S1 a prov:Activity ;
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@container"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@set"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agentType"</span><span class="p">,</span><span class="w">
+            </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">

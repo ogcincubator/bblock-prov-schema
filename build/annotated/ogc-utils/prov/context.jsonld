@@ -1,7 +1,7 @@
 {
   "@context": {
     "id": "@id",
-    "featureType": "prov:featureType",
+    "featureType": "@type",
     "provenance": {
       "@id": "prov-x:provenance",
       "@type": "@id",
@@ -11,7 +11,7 @@
           "@type": "@id",
           "@id": "prov:used"
         },
-        "agentType": "prov:agentType",
+        "agentType": "@type",
         "name": "foaf:name",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -38,7 +38,7 @@
       "@context": {
         "href": "@id",
         "title": "rdfs:label",
-        "agentType": "prov:agentType",
+        "agentType": "@type",
         "name": "foaf:name",
         "actedOnBehalfOf": "prov:actedOnBehalfOf"
       }
@@ -55,7 +55,7 @@
       }
     },
     "type": "@type",
-    "activity": "prov:activity",
+    "activity": "@type",
     "endedAtTime": "prov:endedAtTime",
     "wasAssociatedWith": {
       "@type": "@id",
@@ -63,7 +63,7 @@
       "@context": {
         "href": "@id",
         "title": "rdfs:label",
-        "agentType": "prov:agentType",
+        "agentType": "@type",
         "name": "foaf:name",
         "actedOnBehalfOf": "prov:actedOnBehalfOf"
       }
@@ -78,7 +78,7 @@
           "@type": "@id",
           "@container": "@set",
           "@context": {
-            "agentType": "prov:agentType",
+            "agentType": "@type",
             "name": "foaf:name",
             "actedOnBehalfOf": {
               "@id": "prov:actedOnBehalfOf",

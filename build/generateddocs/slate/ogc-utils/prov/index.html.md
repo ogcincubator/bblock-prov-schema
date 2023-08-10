@@ -181,8 +181,8 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 @prefix surveyreg: <https://example.org/surveys/> .
 @prefix thing: <https://example.org/entities/> .
 
-<https://example.org/DP-1> a <https://example.org/Feature> ;
-    prov:featureType "Survey" ;
+<https://example.org/DP-1> a <https://example.org/Feature>,
+        <https://example.org/Survey> ;
     prov:wasGeneratedBy surveyreg:DP-1-S1,
         surveyreg:DP-1-S2 ;
     prov-x:provenance <https://example.org/DP-2223>,
@@ -198,7 +198,7 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 <https://example.org/Example-Act> rdfs:seeAlso <https://nze.gov/linktoact/Example1> ;
     prov:wasAttributedTo agents:nz .
 
-surveyreg:DP-1-S2 prov:activity "Registration" ;
+surveyreg:DP-1-S2 a <https://example.org/Registration> ;
     prov:endedAtTime "2029-01-01" ;
     prov:used <https://example.org/Example-Act> ;
     prov:wasAssociatedWith agents:bc-3 .
@@ -324,7 +324,7 @@ $defs:
         x-jsonld-id: '@id'
       featureType:
         $ref: '#/$defs/objectref'
-        x-jsonld-id: http://www.w3.org/ns/prov#featureType
+        x-jsonld-id: '@type'
       provenance:
         $ref: '#/$defs/Prov'
         x-jsonld-id: http://www.w3.org/ns/prov-x#provenance
@@ -380,7 +380,7 @@ $defs:
     properties:
       activity:
         $ref: '#/$defs/objectref'
-        x-jsonld-id: http://www.w3.org/ns/prov#activity
+        x-jsonld-id: '@type'
       endedAtTime:
         $ref: '#/$defs/dateOrTime'
         x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
@@ -420,7 +420,7 @@ $defs:
     properties:
       agentType:
         $ref: '#/$defs/objectref'
-        x-jsonld-id: http://www.w3.org/ns/prov#agentType
+        x-jsonld-id: '@type'
       name:
         type: string
         x-jsonld-id: foaf:name
@@ -483,7 +483,7 @@ Links to the schema:
 {
   "@context": {
     "id": "@id",
-    "featureType": "prov:featureType",
+    "featureType": "@type",
     "provenance": {
       "@id": "prov-x:provenance",
       "@type": "@id",
@@ -493,7 +493,7 @@ Links to the schema:
           "@type": "@id",
           "@id": "prov:used"
         },
-        "agentType": "prov:agentType",
+        "agentType": "@type",
         "name": "foaf:name",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -520,7 +520,7 @@ Links to the schema:
       "@context": {
         "href": "@id",
         "title": "rdfs:label",
-        "agentType": "prov:agentType",
+        "agentType": "@type",
         "name": "foaf:name",
         "actedOnBehalfOf": "prov:actedOnBehalfOf"
       }
@@ -537,7 +537,7 @@ Links to the schema:
       }
     },
     "type": "@type",
-    "activity": "prov:activity",
+    "activity": "@type",
     "endedAtTime": "prov:endedAtTime",
     "wasAssociatedWith": {
       "@type": "@id",
@@ -545,7 +545,7 @@ Links to the schema:
       "@context": {
         "href": "@id",
         "title": "rdfs:label",
-        "agentType": "prov:agentType",
+        "agentType": "@type",
         "name": "foaf:name",
         "actedOnBehalfOf": "prov:actedOnBehalfOf"
       }
@@ -560,7 +560,7 @@ Links to the schema:
           "@type": "@id",
           "@container": "@set",
           "@context": {
-            "agentType": "prov:agentType",
+            "agentType": "@type",
             "name": "foaf:name",
             "actedOnBehalfOf": {
               "@id": "prov:actedOnBehalfOf",

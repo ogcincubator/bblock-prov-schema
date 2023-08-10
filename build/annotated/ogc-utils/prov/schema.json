@@ -90,7 +90,7 @@
         },
         "featureType": {
           "$ref": "#/$defs/objectref",
-          "x-jsonld-id": "http://www.w3.org/ns/prov#featureType"
+          "x-jsonld-id": "@type"
         },
         "provenance": {
           "$ref": "#/$defs/Prov",
@@ -183,7 +183,7 @@
       "properties": {
         "activity": {
           "$ref": "#/$defs/objectref",
-          "x-jsonld-id": "http://www.w3.org/ns/prov#activity"
+          "x-jsonld-id": "@type"
         },
         "endedAtTime": {
           "$ref": "#/$defs/dateOrTime",
@@ -254,7 +254,7 @@
       "properties": {
         "agentType": {
           "$ref": "#/$defs/objectref",
-          "x-jsonld-id": "http://www.w3.org/ns/prov#agentType"
+          "x-jsonld-id": "@type"
         },
         "name": {
           "type": "string",
