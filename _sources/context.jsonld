@@ -5,6 +5,9 @@
     "prov-x": "http://www.w3.org/ns/prov-x#",
     "id": "@id",
     "type": "@type",
+    "featureType": "@type",
+    "activity": "@type",
+    "agentType": "@type",
     "Entity": {
       "type": "@id",
       "@id": "prov:Entity"
