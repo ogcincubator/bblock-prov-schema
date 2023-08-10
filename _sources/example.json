@@ -2,19 +2,22 @@
   "@context": {
     "@base": "https://example.org/",
     "agents": "https://someagentregister.eg/",
-    "thing": "https://example.org/entities/"
+    "thing": "https://example.org/entities/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "survtypes": "https://example.org/surveytypes/",
+    "surveyreg": "https://example.org/surveys/"
   },
   "id": "DP-1",
-  "type": "Entity",
+  "type": "Feature",
+  "featureType": "Survey",
   "wasGeneratedBy": [
-    "surveyreg-nz:DP-1-S1",
+    "surveyreg:DP-1-S1",
     {
-      "type": "Activity",
-      "id": "surveyreg-nz:DP-1-S2",
+      "activity": "Registration",
+      "id": "surveyreg:DP-1-S2",
       "endedAtTime": "2029-01-01",
       "wasAssociatedWith": "agents:bc-3",
       "used": {
-        "type": "Entity",
         "id": "Example-Act",
         "wasAttributedTo": "agents:nz",
         "links": [

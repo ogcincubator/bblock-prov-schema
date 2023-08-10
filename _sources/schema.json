@@ -3,6 +3,7 @@
   "description": "provenance chain",
   "$defs": {
     "objectref": {
+      "$anchor": "objectref",
       "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
     },
     "oneOrMoreActivitiesOrRefIds": {
@@ -86,10 +87,6 @@
         "id": {
           "type": "string"
         },
-        "type": {
-          "type": "string",
-          "const": "Entity"
-        },
         "featureType": {
           "$ref": "#/$defs/objectref"
         },
@@ -117,6 +114,12 @@
       ],
       "anyOf": [
         {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Entity"
+            }
+          },
           "required": [
             "type"
           ]
@@ -165,9 +168,8 @@
     "Activity": {
       "type": "object",
       "properties": {
-        "type": {
-          "type": "string",
-          "const": "Activity"
+        "activity": {
+          "$ref": "#/$defs/objectref"
         },
         "endedAtTime": {
           "$ref": "#/$defs/dateOrTime"
@@ -184,8 +186,19 @@
       },
       "anyOf": [
         {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Activity"
+            }
+          },
           "required": [
             "type"
+          ]
+        },
+        {
+          "required": [
+            "activity"
           ]
         },
         {
@@ -218,9 +231,8 @@
     "Agent": {
       "type": "object",
       "properties": {
-        "type": {
-          "type": "string",
-          "const": "Agent"
+        "agentType": {
+          "$ref": "#/$defs/objectref"
         },
         "name": {
           "type": "string"
@@ -238,8 +250,19 @@
       ],
       "anyOf": [
         {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Agent"
+            }
+          },
           "required": [
             "type"
+          ]
+        },
+        {
+          "required": [
+            "agentType"
           ]
         },
         {

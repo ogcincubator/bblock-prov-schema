@@ -3,9 +3,6 @@
     "@vocab": "http://www.w3.org/ns/prov#",
     "prov": "http://www.w3.org/ns/prov#",
     "prov-x": "http://www.w3.org/ns/prov-x#",
-    "foaf": "http://xmlns.com/foaf/0.1/",
-    "survtypes-nz": "https://surveytypes-nz/",
-    "surveyreg-nz": "https://surveys-nz/",
     "id": "@id",
     "type": "@type",
     "Entity": {
@@ -42,11 +39,7 @@
     },
     "name": "foaf:name",
     "links": {
-      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso",
-      "@context": {
-        "href": "@id",
-        "title": "rdfs:label"
-      }
+      "@id": "http://www.w3.org/2000/01/rdf-schema#seeAlso"
     }
   }
 }
