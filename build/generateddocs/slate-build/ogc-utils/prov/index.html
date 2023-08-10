@@ -378,19 +378,22 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
   </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"agents"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://someagentregister.eg/"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"thing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/entities/"</span><span class="w">
+    </span><span class="nl">"thing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/entities/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"foaf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xmlns.com/foaf/0.1/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"survtypes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/surveytypes/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"surveyreg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/surveys/"</span><span class="w">
   </span><span class="p">},</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DP-1"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feature"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Survey"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"wasGeneratedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="s2">"surveyreg-nz:DP-1-S1"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"surveyreg:DP-1-S1"</span><span class="p">,</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surveyreg-nz:DP-1-S2"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Registration"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surveyreg:DP-1-S2"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2029-01-01"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agents:bc-3"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Example-Act"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agents:nz"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -437,20 +440,23 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     {
       "@base": "https://example.org/",
       "agents": "https://someagentregister.eg/",
-      "thing": "https://example.org/entities/"
+      "thing": "https://example.org/entities/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "survtypes": "https://example.org/surveytypes/",
+      "surveyreg": "https://example.org/surveys/"
     }
   ],
   "id": "DP-1",
-  "type": "Entity",
+  "type": "Feature",
+  "featureType": "Survey",
   "wasGeneratedBy": [
-    "surveyreg-nz:DP-1-S1",
+    "surveyreg:DP-1-S1",
     {
-      "type": "Activity",
-      "id": "surveyreg-nz:DP-1-S2",
+      "activity": "Registration",
+      "id": "surveyreg:DP-1-S2",
       "endedAtTime": "2029-01-01",
       "wasAssociatedWith": "agents:bc-3",
       "used": {
-        "type": "Entity",
         "id": "Example-Act",
         "wasAttributedTo": "agents:nz",
         "links": [
@@ -491,12 +497,13 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 @prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
 @prefix prov-x: &lt;http://www.w3.org/ns/prov-x#&gt; .
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
-@prefix surveyreg-nz: &lt;https://surveys-nz/&gt; .
+@prefix surveyreg: &lt;https://example.org/surveys/&gt; .
 @prefix thing: &lt;https://example.org/entities/&gt; .
 
-&lt;https://example.org/DP-1&gt; a prov:Entity ;
-    prov:wasGeneratedBy surveyreg-nz:DP-1-S1,
-        surveyreg-nz:DP-1-S2 ;
+&lt;https://example.org/DP-1&gt; a &lt;https://example.org/Feature&gt; ;
+    prov:featureType "Survey" ;
+    prov:wasGeneratedBy surveyreg:DP-1-S1,
+        surveyreg:DP-1-S2 ;
     prov-x:provenance &lt;https://example.org/DP-2223&gt;,
         thing:DP-1-S1 .
 
@@ -507,11 +514,10 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 &lt;https://example.org/DP-2223&gt; a prov:Entity ;
     prov:wasGeneratedBy thing:DP-1-S1 .
 
-&lt;https://example.org/Example-Act&gt; a prov:Entity ;
-    rdfs:seeAlso &lt;https://nze.gov/linktoact/Example1&gt; ;
+&lt;https://example.org/Example-Act&gt; rdfs:seeAlso &lt;https://nze.gov/linktoact/Example1&gt; ;
     prov:wasAttributedTo agents:nz .
 
-surveyreg-nz:DP-1-S2 a prov:Activity ;
+surveyreg:DP-1-S2 prov:activity "Registration" ;
     prov:endedAtTime "2029-01-01" ;
     prov:used &lt;https://example.org/Example-Act&gt; ;
     prov:wasAssociatedWith agents:bc-3 .
@@ -564,9 +570,8 @@ thing:DP-1-S1 a prov:Activity ;
 }
 </code></pre></div><div class="highlight"><pre class="highlight ttl tab-ttl"><code>@prefix prov: &lt;http://www.w3.org/ns/prov#&gt; .
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
-@prefix surveyreg-nz: &lt;https://surveys-nz/&gt; .
 
-surveyreg-nz:DP-1-S2 a prov:Activity ;
+&lt;surveyreg-nz:DP-1-S2&gt; a prov:Activity ;
     prov:endedAtTime "2029-01-01" ;
     prov:used &lt;http://www.example.com/exampleActivity/Act3&gt; ;
     prov:wasAssociatedWith &lt;linz-registered-surveyors:bc-3&gt; .
@@ -580,6 +585,7 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
 <span class="na">description</span><span class="pi">:</span> <span class="s">provenance chain</span>
 <span class="na">$defs</span><span class="pi">:</span>
   <span class="na">objectref</span><span class="pi">:</span>
+    <span class="na">$anchor</span><span class="pi">:</span> <span class="s">objectref</span>
     <span class="na">$ref</span><span class="pi">:</span> <span class="s">https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json</span>
   <span class="na">oneOrMoreActivitiesOrRefIds</span><span class="pi">:</span>
     <span class="na">oneOf</span><span class="pi">:</span>
@@ -617,10 +623,6 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
       <span class="na">id</span><span class="pi">:</span>
         <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
-      <span class="na">type</span><span class="pi">:</span>
-        <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
-        <span class="na">const</span><span class="pi">:</span> <span class="s">Entity</span>
-        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
       <span class="na">featureType</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#featureType</span>
@@ -649,7 +651,12 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
     <span class="na">required</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">id</span>
     <span class="na">anyOf</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">properties</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+          <span class="na">const</span><span class="pi">:</span> <span class="s">Entity</span>
+          <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
+      <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">type</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">featureType</span>
@@ -672,10 +679,9 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
   <span class="na">Activity</span><span class="pi">:</span>
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span>
-        <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
-        <span class="na">const</span><span class="pi">:</span> <span class="s">Activity</span>
-        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
+      <span class="na">activity</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#activity</span>
       <span class="na">endedAtTime</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/dateOrTime'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#endedAtTime</span>
@@ -691,8 +697,15 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
         <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#used</span>
     <span class="na">anyOf</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">properties</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+          <span class="na">const</span><span class="pi">:</span> <span class="s">Activity</span>
+          <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
+      <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">type</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">activity</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">used</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
@@ -706,13 +719,12 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
   <span class="na">Agent</span><span class="pi">:</span>
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span>
-        <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
-        <span class="na">const</span><span class="pi">:</span> <span class="s">Agent</span>
-        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
+      <span class="na">agentType</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#agentType</span>
       <span class="na">name</span><span class="pi">:</span>
         <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
-        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://xmlns.com/foaf/0.1/name</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">foaf:name</span>
       <span class="na">id</span><span class="pi">:</span>
         <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
         <span class="na">format</span><span class="pi">:</span> <span class="s">uri</span>
@@ -723,8 +735,15 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
     <span class="na">required</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">name</span>
     <span class="na">anyOf</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">properties</span><span class="pi">:</span>
+        <span class="na">type</span><span class="pi">:</span>
+          <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+          <span class="na">const</span><span class="pi">:</span> <span class="s">Agent</span>
+          <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
+      <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">type</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">agentType</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">actedOnBehalfOf</span>
   <span class="na">Prov</span><span class="pi">:</span>
@@ -741,8 +760,6 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
 <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Entity'</span>
 <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Activity'</span>
 <span class="na">x-jsonld-extra-terms</span><span class="pi">:</span>
-  <span class="na">survtypes-nz</span><span class="pi">:</span> <span class="s">https://surveytypes-nz/</span>
-  <span class="na">surveyreg-nz</span><span class="pi">:</span> <span class="s">https://surveys-nz/</span>
   <span class="na">Entity</span><span class="pi">:</span>
     <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#Entity</span>
   <span class="na">Activity</span><span class="pi">:</span>
@@ -752,7 +769,6 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
 <span class="na">x-jsonld-prefixes</span><span class="pi">:</span>
   <span class="na">prov</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#</span>
   <span class="na">prov-x</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov-x#</span>
-  <span class="na">foaf</span><span class="pi">:</span> <span class="s">http://xmlns.com/foaf/0.1/</span>
 
 </code></pre></div>
 <p>Links to the schema:</p>
@@ -764,7 +780,6 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
 <h1 id='json-ld-context'>JSON-LD Context</h1><div class="highlight"><pre class="highlight json tab-json--ldContext"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:featureType"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"provenance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov-x:provenance"</span><span class="p">,</span><span class="w">
@@ -775,6 +790,7 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:used"</span><span class="w">
         </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agentType"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
@@ -801,6 +817,7 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agentType"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -816,6 +833,8 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:activity"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:endedAtTime"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
@@ -823,6 +842,7 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agentType"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -837,6 +857,7 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@container"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@set"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agentType"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"foaf:name"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
@@ -853,15 +874,13 @@ surveyreg-nz:DP-1-S2 a prov:Activity ;
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="nl">"survtypes-nz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://surveytypes-nz/"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"surveyreg-nz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://surveys-nz/"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:Entity"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Activity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:Activity"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"Agent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:Agent"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"rdfs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2000/01/rdf-schema#"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"prov"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"prov-x"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov-x#"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"foaf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xmlns.com/foaf/0.1/"</span><span class="w">
+    </span><span class="nl">"@version"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre></div>

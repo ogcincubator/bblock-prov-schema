@@ -1,7 +1,6 @@
 {
   "@context": {
     "id": "@id",
-    "type": "@type",
     "featureType": "prov:featureType",
     "provenance": {
       "@id": "prov-x:provenance",
@@ -12,6 +11,7 @@
           "@type": "@id",
           "@id": "prov:used"
         },
+        "agentType": "prov:agentType",
         "name": "foaf:name",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -38,6 +38,7 @@
       "@context": {
         "href": "@id",
         "title": "rdfs:label",
+        "agentType": "prov:agentType",
         "name": "foaf:name",
         "actedOnBehalfOf": "prov:actedOnBehalfOf"
       }
@@ -53,6 +54,8 @@
         "title": "rdfs:label"
       }
     },
+    "type": "@type",
+    "activity": "prov:activity",
     "endedAtTime": "prov:endedAtTime",
     "wasAssociatedWith": {
       "@type": "@id",
@@ -60,6 +63,7 @@
       "@context": {
         "href": "@id",
         "title": "rdfs:label",
+        "agentType": "prov:agentType",
         "name": "foaf:name",
         "actedOnBehalfOf": "prov:actedOnBehalfOf"
       }
@@ -74,6 +78,7 @@
           "@type": "@id",
           "@container": "@set",
           "@context": {
+            "agentType": "prov:agentType",
             "name": "foaf:name",
             "actedOnBehalfOf": {
               "@id": "prov:actedOnBehalfOf",
@@ -90,14 +95,12 @@
         }
       }
     },
-    "survtypes-nz": "https://surveytypes-nz/",
-    "surveyreg-nz": "https://surveys-nz/",
     "Entity": "prov:Entity",
     "Activity": "prov:Activity",
     "Agent": "prov:Agent",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "prov": "http://www.w3.org/ns/prov#",
     "prov-x": "http://www.w3.org/ns/prov-x#",
-    "foaf": "http://xmlns.com/foaf/0.1/"
+    "@version": 1.1
   }
 }

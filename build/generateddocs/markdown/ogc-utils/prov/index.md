@@ -26,19 +26,22 @@ See panel to right - note that a more user friendly "collapsable" version is in 
   "@context": {
     "@base": "https://example.org/",
     "agents": "https://someagentregister.eg/",
-    "thing": "https://example.org/entities/"
+    "thing": "https://example.org/entities/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "survtypes": "https://example.org/surveytypes/",
+    "surveyreg": "https://example.org/surveys/"
   },
   "id": "DP-1",
-  "type": "Entity",
+  "type": "Feature",
+  "featureType": "Survey",
   "wasGeneratedBy": [
-    "surveyreg-nz:DP-1-S1",
+    "surveyreg:DP-1-S1",
     {
-      "type": "Activity",
-      "id": "surveyreg-nz:DP-1-S2",
+      "activity": "Registration",
+      "id": "surveyreg:DP-1-S2",
       "endedAtTime": "2029-01-01",
       "wasAssociatedWith": "agents:bc-3",
       "used": {
-        "type": "Entity",
         "id": "Example-Act",
         "wasAttributedTo": "agents:nz",
         "links": [
@@ -89,20 +92,23 @@ See panel to right - note that a more user friendly "collapsable" version is in 
     {
       "@base": "https://example.org/",
       "agents": "https://someagentregister.eg/",
-      "thing": "https://example.org/entities/"
+      "thing": "https://example.org/entities/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "survtypes": "https://example.org/surveytypes/",
+      "surveyreg": "https://example.org/surveys/"
     }
   ],
   "id": "DP-1",
-  "type": "Entity",
+  "type": "Feature",
+  "featureType": "Survey",
   "wasGeneratedBy": [
-    "surveyreg-nz:DP-1-S1",
+    "surveyreg:DP-1-S1",
     {
-      "type": "Activity",
-      "id": "surveyreg-nz:DP-1-S2",
+      "activity": "Registration",
+      "id": "surveyreg:DP-1-S2",
       "endedAtTime": "2029-01-01",
       "wasAssociatedWith": "agents:bc-3",
       "used": {
-        "type": "Entity",
         "id": "Example-Act",
         "wasAttributedTo": "agents:nz",
         "links": [
@@ -147,12 +153,13 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix prov-x: <http://www.w3.org/ns/prov-x#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix surveyreg-nz: <https://surveys-nz/> .
+@prefix surveyreg: <https://example.org/surveys/> .
 @prefix thing: <https://example.org/entities/> .
 
-<https://example.org/DP-1> a prov:Entity ;
-    prov:wasGeneratedBy surveyreg-nz:DP-1-S1,
-        surveyreg-nz:DP-1-S2 ;
+<https://example.org/DP-1> a <https://example.org/Feature> ;
+    prov:featureType "Survey" ;
+    prov:wasGeneratedBy surveyreg:DP-1-S1,
+        surveyreg:DP-1-S2 ;
     prov-x:provenance <https://example.org/DP-2223>,
         thing:DP-1-S1 .
 
@@ -163,11 +170,10 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 <https://example.org/DP-2223> a prov:Entity ;
     prov:wasGeneratedBy thing:DP-1-S1 .
 
-<https://example.org/Example-Act> a prov:Entity ;
-    rdfs:seeAlso <https://nze.gov/linktoact/Example1> ;
+<https://example.org/Example-Act> rdfs:seeAlso <https://nze.gov/linktoact/Example1> ;
     prov:wasAttributedTo agents:nz .
 
-surveyreg-nz:DP-1-S2 a prov:Activity ;
+surveyreg:DP-1-S2 prov:activity "Registration" ;
     prov:endedAtTime "2029-01-01" ;
     prov:used <https://example.org/Example-Act> ;
     prov:wasAssociatedWith agents:bc-3 .
@@ -234,9 +240,8 @@ thing:DP-1-S1 a prov:Activity ;
 ```ttl
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix surveyreg-nz: <https://surveys-nz/> .
 
-surveyreg-nz:DP-1-S2 a prov:Activity ;
+<surveyreg-nz:DP-1-S2> a prov:Activity ;
     prov:endedAtTime "2029-01-01" ;
     prov:used <http://www.example.com/exampleActivity/Act3> ;
     prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
@@ -255,6 +260,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 description: provenance chain
 $defs:
   objectref:
+    $anchor: objectref
     $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json
   oneOrMoreActivitiesOrRefIds:
     oneOf:
@@ -292,10 +298,6 @@ $defs:
       id:
         type: string
         x-jsonld-id: '@id'
-      type:
-        type: string
-        const: Entity
-        x-jsonld-id: '@type'
       featureType:
         $ref: '#/$defs/objectref'
         x-jsonld-id: http://www.w3.org/ns/prov#featureType
@@ -324,7 +326,12 @@ $defs:
     required:
     - id
     anyOf:
-    - required:
+    - properties:
+        type:
+          type: string
+          const: Entity
+          x-jsonld-id: '@type'
+      required:
       - type
     - required:
       - featureType
@@ -347,10 +354,9 @@ $defs:
   Activity:
     type: object
     properties:
-      type:
-        type: string
-        const: Activity
-        x-jsonld-id: '@type'
+      activity:
+        $ref: '#/$defs/objectref'
+        x-jsonld-id: http://www.w3.org/ns/prov#activity
       endedAtTime:
         $ref: '#/$defs/dateOrTime'
         x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
@@ -366,8 +372,15 @@ $defs:
         x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#used
     anyOf:
-    - required:
+    - properties:
+        type:
+          type: string
+          const: Activity
+          x-jsonld-id: '@type'
+      required:
       - type
+    - required:
+      - activity
     - required:
       - used
     - required:
@@ -381,13 +394,12 @@ $defs:
   Agent:
     type: object
     properties:
-      type:
-        type: string
-        const: Agent
-        x-jsonld-id: '@type'
+      agentType:
+        $ref: '#/$defs/objectref'
+        x-jsonld-id: http://www.w3.org/ns/prov#agentType
       name:
         type: string
-        x-jsonld-id: http://xmlns.com/foaf/0.1/name
+        x-jsonld-id: foaf:name
       id:
         type: string
         format: uri
@@ -398,8 +410,15 @@ $defs:
     required:
     - name
     anyOf:
-    - required:
+    - properties:
+        type:
+          type: string
+          const: Agent
+          x-jsonld-id: '@type'
+      required:
       - type
+    - required:
+      - agentType
     - required:
       - actedOnBehalfOf
   Prov:
@@ -416,8 +435,6 @@ anyOf:
 - $ref: '#/$defs/Entity'
 - $ref: '#/$defs/Activity'
 x-jsonld-extra-terms:
-  survtypes-nz: https://surveytypes-nz/
-  surveyreg-nz: https://surveys-nz/
   Entity:
     x-jsonld-id: http://www.w3.org/ns/prov#Entity
   Activity:
@@ -427,7 +444,6 @@ x-jsonld-extra-terms:
 x-jsonld-prefixes:
   prov: http://www.w3.org/ns/prov#
   prov-x: http://www.w3.org/ns/prov-x#
-  foaf: http://xmlns.com/foaf/0.1/
 
 ```
 
@@ -443,7 +459,6 @@ Links to the schema:
 {
   "@context": {
     "id": "@id",
-    "type": "@type",
     "featureType": "prov:featureType",
     "provenance": {
       "@id": "prov-x:provenance",
@@ -454,6 +469,7 @@ Links to the schema:
           "@type": "@id",
           "@id": "prov:used"
         },
+        "agentType": "prov:agentType",
         "name": "foaf:name",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -480,6 +496,7 @@ Links to the schema:
       "@context": {
         "href": "@id",
         "title": "rdfs:label",
+        "agentType": "prov:agentType",
         "name": "foaf:name",
         "actedOnBehalfOf": "prov:actedOnBehalfOf"
       }
@@ -495,6 +512,8 @@ Links to the schema:
         "title": "rdfs:label"
       }
     },
+    "type": "@type",
+    "activity": "prov:activity",
     "endedAtTime": "prov:endedAtTime",
     "wasAssociatedWith": {
       "@type": "@id",
@@ -502,6 +521,7 @@ Links to the schema:
       "@context": {
         "href": "@id",
         "title": "rdfs:label",
+        "agentType": "prov:agentType",
         "name": "foaf:name",
         "actedOnBehalfOf": "prov:actedOnBehalfOf"
       }
@@ -516,6 +536,7 @@ Links to the schema:
           "@type": "@id",
           "@container": "@set",
           "@context": {
+            "agentType": "prov:agentType",
             "name": "foaf:name",
             "actedOnBehalfOf": {
               "@id": "prov:actedOnBehalfOf",
@@ -532,15 +553,13 @@ Links to the schema:
         }
       }
     },
-    "survtypes-nz": "https://surveytypes-nz/",
-    "surveyreg-nz": "https://surveys-nz/",
     "Entity": "prov:Entity",
     "Activity": "prov:Activity",
     "Agent": "prov:Agent",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "prov": "http://www.w3.org/ns/prov#",
     "prov-x": "http://www.w3.org/ns/prov-x#",
-    "foaf": "http://xmlns.com/foaf/0.1/"
+    "@version": 1.1
   }
 }
 ```

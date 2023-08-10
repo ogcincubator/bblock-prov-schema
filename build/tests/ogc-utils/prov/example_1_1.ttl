@@ -2,12 +2,13 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix prov-x: <http://www.w3.org/ns/prov-x#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix surveyreg-nz: <https://surveys-nz/> .
+@prefix surveyreg: <https://example.org/surveys/> .
 @prefix thing: <https://example.org/entities/> .
 
-<https://example.org/DP-1> a prov:Entity ;
-    prov:wasGeneratedBy surveyreg-nz:DP-1-S1,
-        surveyreg-nz:DP-1-S2 ;
+<https://example.org/DP-1> a <https://example.org/Feature> ;
+    prov:featureType "Survey" ;
+    prov:wasGeneratedBy surveyreg:DP-1-S1,
+        surveyreg:DP-1-S2 ;
     prov-x:provenance <https://example.org/DP-2223>,
         thing:DP-1-S1 .
 
@@ -18,11 +19,10 @@
 <https://example.org/DP-2223> a prov:Entity ;
     prov:wasGeneratedBy thing:DP-1-S1 .
 
-<https://example.org/Example-Act> a prov:Entity ;
-    rdfs:seeAlso <https://nze.gov/linktoact/Example1> ;
+<https://example.org/Example-Act> rdfs:seeAlso <https://nze.gov/linktoact/Example1> ;
     prov:wasAttributedTo agents:nz .
 
-surveyreg-nz:DP-1-S2 a prov:Activity ;
+surveyreg:DP-1-S2 prov:activity "Registration" ;
     prov:endedAtTime "2029-01-01" ;
     prov:used <https://example.org/Example-Act> ;
     prov:wasAssociatedWith agents:bc-3 .

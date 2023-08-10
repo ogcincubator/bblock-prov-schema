@@ -2,6 +2,7 @@ $schema: https://json-schema.org/draft/2020-12/schema
 description: provenance chain
 $defs:
   objectref:
+    $anchor: objectref
     $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json
   oneOrMoreActivitiesOrRefIds:
     oneOf:
@@ -39,10 +40,6 @@ $defs:
       id:
         type: string
         x-jsonld-id: '@id'
-      type:
-        type: string
-        const: Entity
-        x-jsonld-id: '@type'
       featureType:
         $ref: '#/$defs/objectref'
         x-jsonld-id: http://www.w3.org/ns/prov#featureType
@@ -71,7 +68,12 @@ $defs:
     required:
     - id
     anyOf:
-    - required:
+    - properties:
+        type:
+          type: string
+          const: Entity
+          x-jsonld-id: '@type'
+      required:
       - type
     - required:
       - featureType
@@ -94,10 +96,9 @@ $defs:
   Activity:
     type: object
     properties:
-      type:
-        type: string
-        const: Activity
-        x-jsonld-id: '@type'
+      activity:
+        $ref: '#/$defs/objectref'
+        x-jsonld-id: http://www.w3.org/ns/prov#activity
       endedAtTime:
         $ref: '#/$defs/dateOrTime'
         x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
@@ -113,8 +114,15 @@ $defs:
         x-jsonld-type: '@id'
         x-jsonld-id: http://www.w3.org/ns/prov#used
     anyOf:
-    - required:
+    - properties:
+        type:
+          type: string
+          const: Activity
+          x-jsonld-id: '@type'
+      required:
       - type
+    - required:
+      - activity
     - required:
       - used
     - required:
@@ -128,13 +136,12 @@ $defs:
   Agent:
     type: object
     properties:
-      type:
-        type: string
-        const: Agent
-        x-jsonld-id: '@type'
+      agentType:
+        $ref: '#/$defs/objectref'
+        x-jsonld-id: http://www.w3.org/ns/prov#agentType
       name:
         type: string
-        x-jsonld-id: http://xmlns.com/foaf/0.1/name
+        x-jsonld-id: foaf:name
       id:
         type: string
         format: uri
@@ -145,8 +152,15 @@ $defs:
     required:
     - name
     anyOf:
-    - required:
+    - properties:
+        type:
+          type: string
+          const: Agent
+          x-jsonld-id: '@type'
+      required:
       - type
+    - required:
+      - agentType
     - required:
       - actedOnBehalfOf
   Prov:
@@ -163,8 +177,6 @@ anyOf:
 - $ref: '#/$defs/Entity'
 - $ref: '#/$defs/Activity'
 x-jsonld-extra-terms:
-  survtypes-nz: https://surveytypes-nz/
-  surveyreg-nz: https://surveys-nz/
   Entity:
     x-jsonld-id: http://www.w3.org/ns/prov#Entity
   Activity:
@@ -174,4 +186,3 @@ x-jsonld-extra-terms:
 x-jsonld-prefixes:
   prov: http://www.w3.org/ns/prov#
   prov-x: http://www.w3.org/ns/prov-x#
-  foaf: http://xmlns.com/foaf/0.1/

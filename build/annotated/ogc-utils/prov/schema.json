@@ -3,6 +3,7 @@
   "description": "provenance chain",
   "$defs": {
     "objectref": {
+      "$anchor": "objectref",
       "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
     },
     "oneOrMoreActivitiesOrRefIds": {
@@ -87,11 +88,6 @@
           "type": "string",
           "x-jsonld-id": "@id"
         },
-        "type": {
-          "type": "string",
-          "const": "Entity",
-          "x-jsonld-id": "@type"
-        },
         "featureType": {
           "$ref": "#/$defs/objectref",
           "x-jsonld-id": "http://www.w3.org/ns/prov#featureType"
@@ -130,6 +126,13 @@
       ],
       "anyOf": [
         {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Entity",
+              "x-jsonld-id": "@type"
+            }
+          },
           "required": [
             "type"
           ]
@@ -178,10 +181,9 @@
     "Activity": {
       "type": "object",
       "properties": {
-        "type": {
-          "type": "string",
-          "const": "Activity",
-          "x-jsonld-id": "@type"
+        "activity": {
+          "$ref": "#/$defs/objectref",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#activity"
         },
         "endedAtTime": {
           "$ref": "#/$defs/dateOrTime",
@@ -204,8 +206,20 @@
       },
       "anyOf": [
         {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Activity",
+              "x-jsonld-id": "@type"
+            }
+          },
           "required": [
             "type"
+          ]
+        },
+        {
+          "required": [
+            "activity"
           ]
         },
         {
@@ -238,14 +252,13 @@
     "Agent": {
       "type": "object",
       "properties": {
-        "type": {
-          "type": "string",
-          "const": "Agent",
-          "x-jsonld-id": "@type"
+        "agentType": {
+          "$ref": "#/$defs/objectref",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#agentType"
         },
         "name": {
           "type": "string",
-          "x-jsonld-id": "http://xmlns.com/foaf/0.1/name"
+          "x-jsonld-id": "foaf:name"
         },
         "id": {
           "type": "string",
@@ -262,8 +275,20 @@
       ],
       "anyOf": [
         {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Agent",
+              "x-jsonld-id": "@type"
+            }
+          },
           "required": [
             "type"
+          ]
+        },
+        {
+          "required": [
+            "agentType"
           ]
         },
         {
@@ -300,8 +325,6 @@
     }
   ],
   "x-jsonld-extra-terms": {
-    "survtypes-nz": "https://surveytypes-nz/",
-    "surveyreg-nz": "https://surveys-nz/",
     "Entity": {
       "x-jsonld-id": "http://www.w3.org/ns/prov#Entity"
     },
@@ -314,7 +337,6 @@
   },
   "x-jsonld-prefixes": {
     "prov": "http://www.w3.org/ns/prov#",
-    "prov-x": "http://www.w3.org/ns/prov-x#",
-    "foaf": "http://xmlns.com/foaf/0.1/"
+    "prov-x": "http://www.w3.org/ns/prov-x#"
   }
 }
