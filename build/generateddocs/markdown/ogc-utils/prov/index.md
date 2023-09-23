@@ -150,6 +150,8 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 #### ttl
 ```ttl
 @prefix agents: <https://someagentregister.eg/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix prov-x: <http://www.w3.org/ns/prov-x#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -164,13 +166,15 @@ See panel to right - note that a more user friendly "collapsable" version is in 
         thing:DP-1-S1 .
 
 <https://example.org/Act3> a prov:Entity ;
-    rdfs:seeAlso <https://some.gov/linktoact/> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget "https://some.gov/linktoact/" ] ;
     prov:wasAttributedTo agents:nz .
 
 <https://example.org/DP-2223> a prov:Entity ;
     prov:wasGeneratedBy thing:DP-1-S1 .
 
-<https://example.org/Example-Act> rdfs:seeAlso <https://nze.gov/linktoact/Example1> ;
+<https://example.org/Example-Act> rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget "https://nze.gov/linktoact/Example1" ] ;
     prov:wasAttributedTo agents:nz .
 
 surveyreg:DP-1-S2 a <https://example.org/Registration> ;
@@ -238,6 +242,8 @@ thing:DP-1-S1 a prov:Activity ;
 
 #### ttl
 ```ttl
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -247,7 +253,8 @@ thing:DP-1-S1 a prov:Activity ;
     prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
 
 <http://www.example.com/exampleActivity/Act3> a prov:Entity ;
-    rdfs:seeAlso <https://some.gov/linktoact/> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget "https://some.gov/linktoact/" ] ;
     prov:wasAttributedTo <icsm-jurisdictions:nz> .
 
 
@@ -474,8 +481,18 @@ Links to the schema:
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
           "@context": {
-            "href": "@id",
-            "title": "rdfs:label"
+            "href": "oa:hasTarget",
+            "rel": {
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id",
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              }
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
           }
         }
       }
@@ -494,8 +511,17 @@ Links to the schema:
       "@type": "@id",
       "@id": "prov:wasAttributedTo",
       "@context": {
-        "href": "@id",
+        "href": "oa:hasTarget",
+        "rel": {
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id",
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          }
+        },
+        "hreflang": "dct:language",
         "title": "rdfs:label",
+        "length": "dct:extent",
         "agentType": "@type",
         "name": "foaf:name",
         "actedOnBehalfOf": "prov:actedOnBehalfOf"
@@ -508,8 +534,18 @@ Links to the schema:
     "links": {
       "@id": "rdfs:seeAlso",
       "@context": {
-        "href": "@id",
-        "title": "rdfs:label"
+        "href": "oa:hasTarget",
+        "rel": {
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id",
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          }
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
       }
     },
     "type": "@type",
@@ -519,8 +555,17 @@ Links to the schema:
       "@type": "@id",
       "@id": "prov:wasAssociatedWith",
       "@context": {
-        "href": "@id",
+        "href": "oa:hasTarget",
+        "rel": {
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id",
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          }
+        },
+        "hreflang": "dct:language",
         "title": "rdfs:label",
+        "length": "dct:extent",
         "agentType": "@type",
         "name": "foaf:name",
         "actedOnBehalfOf": "prov:actedOnBehalfOf"
@@ -541,8 +586,18 @@ Links to the schema:
             "actedOnBehalfOf": {
               "@id": "prov:actedOnBehalfOf",
               "@context": {
-                "href": "@id",
-                "title": "rdfs:label"
+                "href": "oa:hasTarget",
+                "rel": {
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id",
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  }
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
               }
             }
           }
@@ -556,9 +611,11 @@ Links to the schema:
     "Entity": "prov:Entity",
     "Activity": "prov:Activity",
     "Agent": "prov:Agent",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "prov": "http://www.w3.org/ns/prov#",
     "prov-x": "http://www.w3.org/ns/prov-x#",
+    "oa": "http://www.w3.org/ns/oa#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dct": "http://purl.org/dc/terms/",
     "@version": 1.1
   }
 }

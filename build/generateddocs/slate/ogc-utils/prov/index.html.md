@@ -4,7 +4,7 @@ title: Provenance Chain (Schema)
 language_tabs:
   - json: JSON
   - jsonld: JSON-LD
-  - ttl: RDF/Turtle
+  - turtle: RDF/Turtle
 
 toc_footers:
   - Version 0.1
@@ -47,6 +47,8 @@ This schema implements the PROV vocabulary semantics.
 ## Example Entities with Provenance Chains
 
 See panel to right - note that a more user friendly "collapsable" version is in development. 
+
+
 
 ```json
 {
@@ -111,6 +113,15 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 
 ```
 
+<blockquote class="lang-specific json">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.json">Open in new window</a>
+    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_1_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
+</blockquote>
+
+
+
+
 ```jsonld
 {
   "@context": [
@@ -173,8 +184,19 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 }
 ```
 
-```ttl
+<blockquote class="lang-specific jsonld">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.jsonld">Open in new window</a>
+    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_1_1.jsonld">View on JSON-LD Playground</a>
+</blockquote>
+
+
+
+
+```turtle
 @prefix agents: <https://someagentregister.eg/> .
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix prov-x: <http://www.w3.org/ns/prov-x#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -189,13 +211,15 @@ See panel to right - note that a more user friendly "collapsable" version is in 
         thing:DP-1-S1 .
 
 <https://example.org/Act3> a prov:Entity ;
-    rdfs:seeAlso <https://some.gov/linktoact/> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget "https://some.gov/linktoact/" ] ;
     prov:wasAttributedTo agents:nz .
 
 <https://example.org/DP-2223> a prov:Entity ;
     prov:wasGeneratedBy thing:DP-1-S1 .
 
-<https://example.org/Example-Act> rdfs:seeAlso <https://nze.gov/linktoact/Example1> ;
+<https://example.org/Example-Act> rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget "https://nze.gov/linktoact/Example1" ] ;
     prov:wasAttributedTo agents:nz .
 
 surveyreg:DP-1-S2 a <https://example.org/Registration> ;
@@ -211,8 +235,16 @@ thing:DP-1-S1 a prov:Activity ;
 
 ```
 
+<blockquote class="lang-specific turtle">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.ttl">Open in new window</a>
+</blockquote>
+
+
 
 ## Example Activity
+
+
 
 ```json
 {
@@ -239,6 +271,15 @@ thing:DP-1-S1 a prov:Activity ;
 
 ```
 
+<blockquote class="lang-specific json">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.json">Open in new window</a>
+    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_2_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
+</blockquote>
+
+
+
+
 ```jsonld
 {
   "type": "Activity",
@@ -260,7 +301,18 @@ thing:DP-1-S1 a prov:Activity ;
 }
 ```
 
-```ttl
+<blockquote class="lang-specific jsonld">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.jsonld">Open in new window</a>
+    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_2_1.jsonld">View on JSON-LD Playground</a>
+</blockquote>
+
+
+
+
+```turtle
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 
@@ -270,11 +322,18 @@ thing:DP-1-S1 a prov:Activity ;
     prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
 
 <http://www.example.com/exampleActivity/Act3> a prov:Entity ;
-    rdfs:seeAlso <https://some.gov/linktoact/> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget "https://some.gov/linktoact/" ] ;
     prov:wasAttributedTo <icsm-jurisdictions:nz> .
 
 
 ```
+
+<blockquote class="lang-specific turtle">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.ttl">Open in new window</a>
+</blockquote>
+
 
 
 # JSON Schema
@@ -471,6 +530,8 @@ x-jsonld-prefixes:
 
 ```
 
+> <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=yaml&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Fannotated%2Fogc-utils%2Fprov%2Fschema.yaml&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on YAML Viewer</a>
+
 Links to the schema:
 
 * YAML version: <a href="https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml" target="_blank">https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml</a>
@@ -498,8 +559,18 @@ Links to the schema:
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
           "@context": {
-            "href": "@id",
-            "title": "rdfs:label"
+            "href": "oa:hasTarget",
+            "rel": {
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id",
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              }
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
           }
         }
       }
@@ -518,8 +589,17 @@ Links to the schema:
       "@type": "@id",
       "@id": "prov:wasAttributedTo",
       "@context": {
-        "href": "@id",
+        "href": "oa:hasTarget",
+        "rel": {
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id",
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          }
+        },
+        "hreflang": "dct:language",
         "title": "rdfs:label",
+        "length": "dct:extent",
         "agentType": "@type",
         "name": "foaf:name",
         "actedOnBehalfOf": "prov:actedOnBehalfOf"
@@ -532,8 +612,18 @@ Links to the schema:
     "links": {
       "@id": "rdfs:seeAlso",
       "@context": {
-        "href": "@id",
-        "title": "rdfs:label"
+        "href": "oa:hasTarget",
+        "rel": {
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id",
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          }
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
       }
     },
     "type": "@type",
@@ -543,8 +633,17 @@ Links to the schema:
       "@type": "@id",
       "@id": "prov:wasAssociatedWith",
       "@context": {
-        "href": "@id",
+        "href": "oa:hasTarget",
+        "rel": {
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id",
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          }
+        },
+        "hreflang": "dct:language",
         "title": "rdfs:label",
+        "length": "dct:extent",
         "agentType": "@type",
         "name": "foaf:name",
         "actedOnBehalfOf": "prov:actedOnBehalfOf"
@@ -565,8 +664,18 @@ Links to the schema:
             "actedOnBehalfOf": {
               "@id": "prov:actedOnBehalfOf",
               "@context": {
-                "href": "@id",
-                "title": "rdfs:label"
+                "href": "oa:hasTarget",
+                "rel": {
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id",
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  }
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
               }
             }
           }
@@ -580,13 +689,17 @@ Links to the schema:
     "Entity": "prov:Entity",
     "Activity": "prov:Activity",
     "Agent": "prov:Agent",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "prov": "http://www.w3.org/ns/prov#",
     "prov-x": "http://www.w3.org/ns/prov-x#",
+    "oa": "http://www.w3.org/ns/oa#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dct": "http://purl.org/dc/terms/",
     "@version": 1.1
   }
 }
 ```
+
+> <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Fannotated%2Fogc-utils%2Fprov%2Fcontext.jsonld">View on JSON-LD Playground</a>
 
 You can find the full JSON-LD context here:
 <a href="https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld" target="_blank">https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld</a>
@@ -600,5 +713,6 @@ You can find the full JSON-LD context here:
 The source code for this Building Block can be found in the following repository:
 
 * URL: <a href="https://github.com/ogcincubator/bblock-prov-schema" target="_blank">https://github.com/ogcincubator/bblock-prov-schema</a>
-* Path: `_sources`
+* Path:
+<code><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/HEAD/_sources" target="_blank">_sources</a></code>
 

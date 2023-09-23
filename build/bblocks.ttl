@@ -33,8 +33,8 @@ bblocks:ogc.ogc-utils.prov a skos:Concept,
 <https://www.w3.org/TR/prov-o/> rdfs:label "The PROV-O vocabulary" .
 
 [] a prov:Activity ;
-    prov:endedAtTime "2023-08-10T12:56:55.421664"^^xsd:dateTime ;
-    prov:startedAtTime "2023-08-10T12:56:55.184990"^^xsd:dateTime ;
+    prov:endedAtTime "2023-09-23T22:35:59.007237"^^xsd:dateTime ;
+    prov:startedAtTime "2023-09-23T22:35:58.930812"^^xsd:dateTime ;
     prov:used [ a prov:Entity ;
             dct:format "application/json" ;
             rdfs:seeAlso <https://ogcincubator.github.io/bblock-prov-schema/build/register.json> ],
@@ -44,6 +44,6 @@ bblocks:ogc.ogc-utils.prov a skos:Concept,
     prov:wasAssociatedWith [ a prov:Agent,
                 schema:SoftwareApplication ;
             rdfs:label "OGC-NA tools" ;
-            dct:hasVersion "0.3.8.dev2+g1854a9b" ;
+            dct:hasVersion "0.3.14" ;
             rdfs:seeAlso <https://github.com/opengeospatial/ogc-na-tools> ] .
 
