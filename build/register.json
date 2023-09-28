@@ -31,13 +31,13 @@
     "validationPassed": true,
     "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/",
     "documentation": {
-      "json-full": {
-        "mediatype": "application/json",
-        "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov/index.json"
-      },
       "markdown": {
         "mediatype": "text/markdown",
         "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md"
+      },
+      "json-full": {
+        "mediatype": "application/json",
+        "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov/index.json"
       },
       "slate": {
         "mediatype": "text/html",
