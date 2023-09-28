@@ -1,4 +1,4 @@
-# OGC Building Block template
+# OGC Provenance Building Block
 
 This repository defines a "building block" for use of [PROV-O Vocabulary](https://www.w3.org/TR/prov-o/) in a JSON or JSON-LD implementation.
 
