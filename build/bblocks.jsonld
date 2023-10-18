@@ -72,6 +72,7 @@
   "skos:prefLabel": "OGC Building Blocks Register",
   "hasConcepts": [
     {
+      "itemIdentifier": "ogc.ogc-utils.prov",
       "name": "Provenance Chain",
       "abstract": "Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way.",
       "status": "under-development",
@@ -92,8 +93,11 @@
         "prov",
         "utils"
       ],
-      "itemIdentifier": "ogc.ogc-utils.prov",
       "shaclRules": [],
+      "dependsOn": [
+        "ogc.ogc-utils.json-link",
+        "ogc.ogc-utils.iri-or-curie"
+      ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml",
         "application/json": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json"

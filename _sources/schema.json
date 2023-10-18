@@ -6,6 +6,12 @@
       "$anchor": "objectref",
       "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
     },
+    "oneOrMoreObjectref": {
+      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json#/$defs/MultipleOrObject"
+    },
+    "curie": {
+      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
+    },
     "oneOrMoreActivitiesOrRefIds": {
       "oneOf": [
         {
@@ -81,11 +87,52 @@
     "externalLink": {
       "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json"
     },
+    "influenced": {
+      "type": "object",
+      "properties": {
+        "wasInfluencedBy": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds"
+            },
+            {
+              "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
+            },
+            {
+              "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
+            }
+          ]
+        },
+        "qualifiedInfluence": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Influence"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/objectref"
+                  },
+                  {
+                    "$ref": "#/$defs/Influence"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
     "Entity": {
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "$ref": "#/$defs/curie"
         },
         "featureType": {
           "$ref": "#/$defs/objectref"
@@ -102,11 +149,127 @@
         "wasDerivedFrom": {
           "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
         },
+        "alternateOf": {
+          "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
+        },
+        "hadPrimarySource": {
+          "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
+        },
+        "specializationOf": {
+          "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
+        },
+        "wasInvalidatedBy": {
+          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
+        },
+        "wasQuotedFrom": {
+          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
+        },
+        "wasRevisionOf": {
+          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
+        },
+        "mentionOf": {
+          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
+        },
+        "atLocation": {
+          "$ref": "#/$defs/objectref"
+        },
         "links": {
           "type": "array",
           "items": {
             "$ref": "#/$defs/externalLink"
           }
+        },
+        "qualifiedGeneration": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Generation"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/objectref"
+                  },
+                  {
+                    "$ref": "#/$defs/Generation"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "qualifiedInvalidation": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Invalidation"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/objectref"
+                  },
+                  {
+                    "$ref": "#/$defs/Invalidation"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "qualifiedDerivation": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Derivation"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/objectref"
+                  },
+                  {
+                    "$ref": "#/$defs/Derivation"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "qualifiedAttribution": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Attribution"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/objectref"
+                  },
+                  {
+                    "$ref": "#/$defs/Attribution"
+                  }
+                ]
+              }
+            }
+          ]
         }
       },
       "required": [
@@ -116,8 +279,27 @@
         {
           "properties": {
             "type": {
-              "type": "string",
-              "const": "Entity"
+              "oneOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "Entity",
+                    "Bundle",
+                    "Plan"
+                  ]
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "enum": [
+                      "Entity",
+                      "Bundle",
+                      "Plan"
+                    ]
+                  }
+                }
+              ]
             }
           },
           "required": [
@@ -148,31 +330,64 @@
           "required": [
             "provenance"
           ]
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "Collection"
+            },
+            "hadMember": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/Entity"
+              }
+            }
+          },
+          "required": [
+            "hadMember",
+            "type"
+          ]
+        },
+        {
+          "properties": {
+            "type": {
+              "type": "string",
+              "const": "EmptyCollection"
+            },
+            "hadMember": {
+              "type": "array",
+              "maxItems": 0
+            }
+          },
+          "required": [
+            "hadMember",
+            "type"
+          ]
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "#/$defs/influenced"
         }
       ]
     },
-    "dateOrTime": {
-      "oneOf": [
-        {
-          "type": "string",
-          "format": "date",
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
-        },
-        {
-          "type": "string",
-          "format": "date-time",
-          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?$"
-        }
-      ]
+    "dateTime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?$"
     },
     "Activity": {
       "type": "object",
       "properties": {
-        "activity": {
-          "$ref": "#/$defs/objectref"
+        "id": {
+          "$ref": "#/$defs/curie"
+        },
+        "type": {
+          "$ref": "#/$defs/oneOrMoreObjectref"
         },
         "endedAtTime": {
-          "$ref": "#/$defs/dateOrTime"
+          "$ref": "#/$defs/dateTime"
         },
         "wasAssociatedWith": {
           "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
@@ -182,14 +397,132 @@
         },
         "used": {
           "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
+        },
+        "wasStartedBy": {
+          "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
+        },
+        "wasEndedBy": {
+          "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
+        },
+        "invalidated": {
+          "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
+        },
+        "generated": {
+          "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
+        },
+        "atLocation": {
+          "$ref": "#/$defs/objectref"
+        },
+        "qualifiedUsage": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Usage"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/objectref"
+                  },
+                  {
+                    "$ref": "#/$defs/Usage"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "qualifiedCommunication": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Communication"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/objectref"
+                  },
+                  {
+                    "$ref": "#/$defs/Generation"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "qualifiedStart": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Start"
+            }
+          ]
+        },
+        "qualifiedEnd": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/End"
+            }
+          ]
+        },
+        "qualifiedAssociation": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Association"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/objectref"
+                  },
+                  {
+                    "$ref": "#/$defs/Association"
+                  }
+                ]
+              }
+            }
+          ]
         }
       },
       "anyOf": [
         {
           "properties": {
             "type": {
-              "type": "string",
-              "const": "Activity"
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Activity"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Activity"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
             }
           },
           "required": [
@@ -226,23 +559,53 @@
             "wasAssociatedWith"
           ]
         }
+      ],
+      "allOf": [
+        {
+          "$ref": "#/$defs/influenced"
+        }
       ]
     },
     "Agent": {
       "type": "object",
       "properties": {
-        "agentType": {
-          "$ref": "#/$defs/objectref"
+        "type": {
+          "$ref": "#/$defs/oneOrMoreObjectref"
         },
         "name": {
           "type": "string"
         },
         "id": {
-          "type": "string",
-          "format": "uri"
+          "$ref": "#/$defs/curie"
         },
         "actedOnBehalfOf": {
           "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
+        },
+        "atLocation": {
+          "$ref": "#/$defs/objectref"
+        },
+        "qualifiedDelegation": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Delegation"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/objectref"
+                  },
+                  {
+                    "$ref": "#/$defs/Delegation"
+                  }
+                ]
+              }
+            }
+          ]
         }
       },
       "required": [
@@ -252,8 +615,36 @@
         {
           "properties": {
             "type": {
-              "type": "string",
-              "const": "Agent"
+              "oneOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "Agent",
+                    "Organization",
+                    "Person",
+                    "SoftwareAgent",
+                    "SoftwareDescription",
+                    "DirectQueryService"
+                  ]
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "enum": [
+                      "Agent",
+                      "Organization",
+                      "Person",
+                      "SoftwareAgent",
+                      "SoftwareDescription",
+                      "DirectQueryService"
+                    ]
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
             }
           },
           "required": [
@@ -268,6 +659,518 @@
         {
           "required": [
             "actedOnBehalfOf"
+          ]
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "#/$defs/influenced"
+        }
+      ]
+    },
+    "Usage": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/curie"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "const": "Usage"
+            },
+            {
+              "type": "array",
+              "contains": {
+                "type": "string",
+                "const": "Usage"
+              },
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "atTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "entity": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Entity"
+            }
+          ]
+        }
+      },
+      "required": [
+        "atTime",
+        "entity"
+      ]
+    },
+    "Generation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/curie"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "const": "Generation"
+            },
+            {
+              "type": "array",
+              "contains": {
+                "type": "string",
+                "const": "Generation"
+              },
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "atTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "activity": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Activity"
+            }
+          ]
+        }
+      },
+      "required": [
+        "atTime",
+        "activity"
+      ]
+    },
+    "Invalidation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/curie"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "const": "Invalidation"
+            },
+            {
+              "type": "array",
+              "contains": {
+                "type": "string",
+                "const": "Invalidation"
+              },
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "atTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "activity": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Activity"
+            }
+          ]
+        }
+      },
+      "required": [
+        "atTime",
+        "activity"
+      ]
+    },
+    "Communication": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/curie"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "const": "Communication"
+            },
+            {
+              "type": "array",
+              "contains": {
+                "type": "string",
+                "const": "Communication"
+              },
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "activity": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Activity"
+            }
+          ]
+        }
+      },
+      "required": [
+        "activity"
+      ]
+    },
+    "StartOrEnd": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/curie"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "atTime": {
+          "$ref": "#/$defs/dateTime"
+        },
+        "entity": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Entity"
+            }
+          ]
+        },
+        "hadActivity": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Activity"
+            }
+          ]
+        }
+      },
+      "required": [
+        "atTime"
+      ]
+    },
+    "Start": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/StartOrEnd"
+        },
+        {
+          "properties": {
+            "type": {
+              "anyOf": [
+                {
+                  "const": "Start"
+                },
+                {
+                  "contains": {
+                    "const": "Start"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "End": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/StartOrEnd"
+        },
+        {
+          "properties": {
+            "type": {
+              "anyOf": [
+                {
+                  "const": "End"
+                },
+                {
+                  "contains": {
+                    "const": "End"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Derivation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/curie"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "const": "Derivation"
+            },
+            {
+              "type": "array",
+              "contains": {
+                "type": "string",
+                "const": "Derivation"
+              },
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "hadGeneration": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Generation"
+            }
+          ]
+        },
+        "hadActivity": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Activity"
+            }
+          ]
+        },
+        "hadUsage": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Usage"
+            }
+          ]
+        },
+        "entity": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Entity"
+            }
+          ]
+        }
+      },
+      "required": [
+        "atTime",
+        "entity"
+      ]
+    },
+    "Delegation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/curie"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "const": "Delegation"
+            },
+            {
+              "type": "array",
+              "contains": {
+                "type": "string",
+                "const": "Delegation"
+              },
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "agent": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Agent"
+            }
+          ]
+        },
+        "hadActivity": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Activity"
+            }
+          ]
+        }
+      }
+    },
+    "Attribution": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/curie"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "const": "Attribution"
+            },
+            {
+              "type": "array",
+              "contains": {
+                "type": "string",
+                "const": "Attribution"
+              },
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "agent": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Agent"
+            }
+          ]
+        }
+      }
+    },
+    "Association": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/curie"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "const": "Association"
+            },
+            {
+              "type": "array",
+              "contains": {
+                "type": "string",
+                "const": "Association"
+              },
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "agent": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/objectref"
+            },
+            {
+              "$ref": "#/$defs/Agent"
+            }
+          ]
+        },
+        "hadRole": {
+          "$ref": "#/$defs/oneOrMoreObjectref"
+        },
+        "hadPlan": {
+          "$ref": "#/$defs/oneOrMoreObjectref"
+        }
+      }
+    },
+    "Influence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/curie"
+        },
+        "influencer": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds"
+            },
+            {
+              "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
+            },
+            {
+              "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
+            }
+          ]
+        },
+        "entity": {
+          "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
+        },
+        "activity": {
+          "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds"
+        },
+        "agent": {
+          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "influencer"
+          ]
+        },
+        {
+          "required": [
+            "entity"
+          ]
+        },
+        {
+          "required": [
+            "activity"
+          ]
+        },
+        {
+          "required": [
+            "agent"
           ]
         }
       ]
