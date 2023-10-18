@@ -320,7 +320,8 @@ surveyreg:DP-1-S2 prov:endedAtTime "2019-01-01T19:03:15+01:00"^^xsd:dateTime ;
 
 ```yaml--schema
 $schema: https://json-schema.org/draft/2020-12/schema
-description: provenance chain
+description: Provenance Chain using PROV-O core model supporting both an ID based
+  object graph and nesting
 $defs:
   objectref:
     $anchor: objectref
