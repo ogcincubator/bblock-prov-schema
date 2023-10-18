@@ -15,7 +15,7 @@
     {
       "activity": "Registration",
       "id": "surveyreg:DP-1-S2",
-      "endedAtTime": "2029-01-01",
+      "endedAtTime": "2019-01-01T19:03:15+01:00",
       "wasAssociatedWith": "agents:bc-3",
       "used": {
         "id": "Example-Act",
@@ -38,7 +38,7 @@
     {
       "type": "Activity",
       "id": "thing:DP-1-S1",
-      "endedAtTime": "2023-10-05",
+      "endedAtTime": "2023-10-05T05:03:15+01:00",
       "wasAssociatedWith": "agents:ah-2344503",
       "used": {
         "id": "Act3",

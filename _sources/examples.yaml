@@ -4,7 +4,7 @@
 
   snippets:
     - language: json
-      ref: example.json
+      ref: examples/example.json
       base-uri: http://www.example.com/exampleEntity/
 
 - title: Example Activity
