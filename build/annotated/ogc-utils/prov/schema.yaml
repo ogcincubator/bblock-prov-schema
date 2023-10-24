@@ -68,8 +68,10 @@ $defs:
         x-jsonld-id: '@id'
       featureType:
         $ref: '#/$defs/objectref'
-      provenance:
+      has_provenance:
         $ref: '#/$defs/Prov'
+        x-jsonld-id: http://www.w3.org/ns/prov#has_provenance
+        x-jsonld-type: '@id'
       wasGeneratedBy:
         $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
@@ -192,7 +194,7 @@ $defs:
     - required:
       - wasDerivedFrom
     - required:
-      - provenance
+      - has_provenance
     - properties:
         type:
           type: string
@@ -454,7 +456,7 @@ $defs:
         $ref: '#/$defs/dateTime'
         x-jsonld-id: http://www.w3.org/ns/prov#atTime
         x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
-      activity:
+      activityType:
         oneOf:
         - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Activity'
@@ -483,7 +485,7 @@ $defs:
         $ref: '#/$defs/dateTime'
         x-jsonld-id: http://www.w3.org/ns/prov#atTime
         x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
-      activity:
+      activityType:
         oneOf:
         - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Activity'
@@ -508,7 +510,7 @@ $defs:
             const: Communication
           items:
             type: string
-      activity:
+      activityType:
         oneOf:
         - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Activity'
@@ -704,7 +706,7 @@ $defs:
         $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#entity
         x-jsonld-type: '@id'
-      activity:
+      activityType:
         $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#activity
         x-jsonld-type: '@id'
@@ -816,9 +818,6 @@ x-jsonld-extra-terms:
     x-jsonld-type: '@id'
   has_anchor:
     x-jsonld-id: http://www.w3.org/ns/prov#has_anchor
-    x-jsonld-type: '@id'
-  has_provenance:
-    x-jsonld-id: http://www.w3.org/ns/prov#has_provenance
     x-jsonld-type: '@id'
   has_query_service:
     x-jsonld-id: http://www.w3.org/ns/prov#has_query_service

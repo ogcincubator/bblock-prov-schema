@@ -142,8 +142,10 @@
         "featureType": {
           "$ref": "#/$defs/objectref"
         },
-        "provenance": {
-          "$ref": "#/$defs/Prov"
+        "has_provenance": {
+          "$ref": "#/$defs/Prov",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#has_provenance",
+          "x-jsonld-type": "@id"
         },
         "wasGeneratedBy": {
           "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds",
@@ -364,7 +366,7 @@
         },
         {
           "required": [
-            "provenance"
+            "has_provenance"
           ]
         },
         {
@@ -823,7 +825,7 @@
           "x-jsonld-id": "http://www.w3.org/ns/prov#atTime",
           "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
         },
-        "activity": {
+        "activityType": {
           "oneOf": [
             {
               "$ref": "#/$defs/objectref"
@@ -871,7 +873,7 @@
           "x-jsonld-id": "http://www.w3.org/ns/prov#atTime",
           "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
         },
-        "activity": {
+        "activityType": {
           "oneOf": [
             {
               "$ref": "#/$defs/objectref"
@@ -914,7 +916,7 @@
             }
           ]
         },
-        "activity": {
+        "activityType": {
           "oneOf": [
             {
               "$ref": "#/$defs/objectref"
@@ -1276,7 +1278,7 @@
           "x-jsonld-id": "http://www.w3.org/ns/prov#entity",
           "x-jsonld-type": "@id"
         },
-        "activity": {
+        "activityType": {
           "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds",
           "x-jsonld-id": "http://www.w3.org/ns/prov#activity",
           "x-jsonld-type": "@id"
@@ -1427,10 +1429,6 @@
     },
     "has_anchor": {
       "x-jsonld-id": "http://www.w3.org/ns/prov#has_anchor",
-      "x-jsonld-type": "@id"
-    },
-    "has_provenance": {
-      "x-jsonld-id": "http://www.w3.org/ns/prov#has_provenance",
       "x-jsonld-type": "@id"
     },
     "has_query_service": {

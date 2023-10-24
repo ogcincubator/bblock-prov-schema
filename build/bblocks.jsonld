@@ -95,8 +95,8 @@
       ],
       "shaclRules": [],
       "dependsOn": [
-        "ogc.ogc-utils.json-link",
-        "ogc.ogc-utils.iri-or-curie"
+        "ogc.ogc-utils.iri-or-curie",
+        "ogc.ogc-utils.json-link"
       ],
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml",
@@ -107,13 +107,13 @@
       "validationPassed": true,
       "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/",
       "documentation": {
-        "markdown": {
-          "mediatype": "text/markdown",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md"
-        },
         "json-full": {
           "mediatype": "application/json",
           "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov/index.json"
+        },
+        "markdown": {
+          "mediatype": "text/markdown",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md"
         },
         "slate": {
           "mediatype": "text/html",

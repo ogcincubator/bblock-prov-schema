@@ -4,16 +4,29 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix surveyreg: <https://example.org/surveys/> .
+@prefix thing: <https://example.org/entities/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/DP-1> prov:wasGeneratedBy surveyreg:DP-1-S1,
+<https://example.org/DP-1> prov:has_provenance <https://example.org/DP-2223>,
+        surveyreg:DP-1-S1 ;
+    prov:wasGeneratedBy surveyreg:DP-1-S1,
         surveyreg:DP-1-S2 .
+
+<https://example.org/DP-2223> prov:wasGeneratedBy <https://example.org/DP-1-S1> .
 
 <https://example.org/Example-Act> rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget "https://nze.gov/linktoact/Example1" ] ;
     prov:wasAttributedTo agents:nz .
 
+thing:Act3 rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget "https://some.gov/linktoact/" ] ;
+    prov:wasAttributedTo agents:nz .
+
 surveyreg:DP-1-S2 prov:endedAtTime "2019-01-01T19:03:15+01:00"^^xsd:dateTime ;
     prov:used <https://example.org/Example-Act> ;
     prov:wasAssociatedWith agents:bc-3 .
+
+surveyreg:DP-1-S1 prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
+    prov:used thing:Act3 ;
+    prov:wasAssociatedWith agents:ah-2344503 .
 
