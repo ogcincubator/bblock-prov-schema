@@ -5,7 +5,17 @@
     "thing": "https://example.org/entities/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "survtypes": "https://example.org/surveytypes/",
-    "surveyreg": "https://example.org/surveys/"
+    "surveyreg": "https://example.org/surveys/",
+    "featureType": {
+      "@context": {
+        "@base": "http://example.org/myFeatureTypes/"
+      }
+    },
+    "activityType": {
+      "@context": {
+        "@base": "http://example.org/myActivityTypes"
+      }
+    }
   },
   "id": "DP-1",
   "type": "Feature",
@@ -13,7 +23,7 @@
   "wasGeneratedBy": [
     "surveyreg:DP-1-S1",
     {
-      "activity": "Registration",
+      "activityType": "Registration",
       "id": "surveyreg:DP-1-S2",
       "endedAtTime": "2019-01-01T19:03:15+01:00",
       "wasAssociatedWith": "agents:bc-3",
@@ -29,19 +39,20 @@
       }
     }
   ],
-  "provenance": [
+  "has_provenance": [
     {
       "id": "DP-2223",
       "type": "Entity",
-      "wasGeneratedBy": "thing:DP-1-S1"
+      "wasGeneratedBy": "DP-1-S1"
     },
     {
       "type": "Activity",
-      "id": "thing:DP-1-S1",
+      "id": "surveyreg:DP-1-S1",
+      "activityType": "InitialSurvey",
       "endedAtTime": "2023-10-05T05:03:15+01:00",
       "wasAssociatedWith": "agents:ah-2344503",
       "used": {
-        "id": "Act3",
+        "id": "thing:Act3",
         "type": "Entity",
         "wasAttributedTo": "agents:nz",
         "links": [

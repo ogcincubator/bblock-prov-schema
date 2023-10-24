@@ -137,7 +137,7 @@
         "featureType": {
           "$ref": "#/$defs/objectref"
         },
-        "provenance": {
+        "has_provenance": {
           "$ref": "#/$defs/Prov"
         },
         "wasGeneratedBy": {
@@ -328,7 +328,7 @@
         },
         {
           "required": [
-            "provenance"
+            "has_provenance"
           ]
         },
         {
@@ -738,7 +738,7 @@
         "atTime": {
           "$ref": "#/$defs/dateTime"
         },
-        "activity": {
+        "activityType": {
           "oneOf": [
             {
               "$ref": "#/$defs/objectref"
@@ -781,7 +781,7 @@
         "atTime": {
           "$ref": "#/$defs/dateTime"
         },
-        "activity": {
+        "activityType": {
           "oneOf": [
             {
               "$ref": "#/$defs/objectref"
@@ -821,7 +821,7 @@
             }
           ]
         },
-        "activity": {
+        "activityType": {
           "oneOf": [
             {
               "$ref": "#/$defs/objectref"
@@ -1145,7 +1145,7 @@
         "entity": {
           "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
         },
-        "activity": {
+        "activityType": {
           "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds"
         },
         "agent": {

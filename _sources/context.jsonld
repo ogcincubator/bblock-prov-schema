@@ -88,7 +88,7 @@
       "@id": "prov:actedOnBehalfOf",
       "@type": "@id"
     },
-    "activity": {
+    "activityType": {
       "@id": "prov:activity",
       "@type": "@id"
     },

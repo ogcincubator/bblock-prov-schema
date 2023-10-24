@@ -9,7 +9,7 @@
       "$ref": "examples/example-activity.json"
     }
   ],
-  "provenance":
+  "has_provenance":
   [
     {
       "id": "DP-2223",
