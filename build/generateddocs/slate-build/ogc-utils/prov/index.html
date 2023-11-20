@@ -285,7 +285,7 @@
   color: #859900;
 }
     </style>
-    <link href="../../stylesheets/screen-fe6ad1f7.css" rel="stylesheet" media="screen" />
+    <link href="../../stylesheets/screen-39090b13.css" rel="stylesheet" media="screen" />
     <link href="../../stylesheets/print-966d6edc.css" rel="stylesheet" media="print" />
       <script src="../../javascripts/all-84f5a356.js"></script>
 
@@ -376,20 +376,22 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 <p>See panel to right - note that a more user friendly &quot;collapsable&quot; version is in development. </p>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/aThing/"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"agents"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://someagentregister.eg/"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"thing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/entities/"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"foaf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xmlns.com/foaf/0.1/"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"survtypes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/surveytypes/"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"surveyreg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/surveys/"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/myFeatureTypes/"</span><span class="w">
+        </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/myEntities/"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"activityType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/myActivityTypes"</span><span class="w">
+        </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/myActivityTypes/"</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">},</span><span class="w">
@@ -418,18 +420,19 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
   </span><span class="nl">"has_provenance"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DP-2223"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Survey"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"wasGeneratedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DP-1-S1"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surveyreg:DP-1-S1"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"activityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InitialSurvey"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-05T05:03:15+01:00"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agents:ah-2344503"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thing:Act3"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"entityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Legislation"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agents:nz"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
@@ -455,20 +458,22 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
   </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="s2">"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"</span><span class="p">,</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/aThing/"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"agents"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://someagentregister.eg/"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"thing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/entities/"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"foaf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xmlns.com/foaf/0.1/"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"survtypes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/surveytypes/"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"surveyreg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/surveys/"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/myFeatureTypes/"</span><span class="w">
+          </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/myEntities/"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"activityType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/myActivityTypes"</span><span class="w">
+          </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/myActivityTypes/"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -498,18 +503,19 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
   </span><span class="nl">"has_provenance"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DP-2223"</span><span class="p">,</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Survey"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"wasGeneratedBy"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DP-1-S1"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surveyreg:DP-1-S1"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"activityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"InitialSurvey"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2023-10-05T05:03:15+01:00"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agents:ah-2344503"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"thing:Act3"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"entityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Legislation"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"agents:nz"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
           </span><span class="p">{</span><span class="w">
@@ -536,26 +542,33 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 </span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">thing:</span><span class="w"> </span><span class="nl">&lt;https://example.org/entities/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
 </span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">xsd:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
 
-</span><span class="nl">&lt;https://example.org/DP-1&gt;</span><span class="w"> </span><span class="nn">prov:</span><span class="n">has_provenance</span><span class="w"> </span><span class="nl">&lt;https://example.org/DP-2223&gt;</span><span class="p">,</span><span class="w">
+</span><span class="nl">&lt;https://example.org/aThing/DP-1&gt;</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nl">&lt;http://example.org/myEntities/Survey&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
+    </span><span class="nn">prov:</span><span class="n">has_provenance</span><span class="w"> </span><span class="nl">&lt;https://example.org/aThing/DP-2223&gt;</span><span class="p">,</span><span class="w">
         </span><span class="nn">surveyreg:</span><span class="n">DP-1-S1</span><span class="w"> </span><span class="p">;</span><span class="w">
     </span><span class="nn">prov:</span><span class="n">wasGeneratedBy</span><span class="w"> </span><span class="nn">surveyreg:</span><span class="n">DP-1-S1,
 </span><span class="w">        </span><span class="nn">surveyreg:</span><span class="n">DP-1-S2</span><span class="w"> </span><span class="p">.</span><span class="w">
 
-</span><span class="nl">&lt;https://example.org/DP-2223&gt;</span><span class="w"> </span><span class="nn">prov:</span><span class="n">wasGeneratedBy</span><span class="w"> </span><span class="nl">&lt;https://example.org/DP-1-S1&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
+</span><span class="nl">&lt;https://example.org/aThing/DP-2223&gt;</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nl">&lt;http://example.org/myEntities/Survey&gt;</span><span class="p">,</span><span class="w">
+        </span><span class="nn">prov:</span><span class="n">Entity</span><span class="w"> </span><span class="p">;</span><span class="w">
+    </span><span class="nn">prov:</span><span class="n">wasGeneratedBy</span><span class="w"> </span><span class="nl">&lt;https://example.org/aThing/DP-1-S1&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
 
-</span><span class="nl">&lt;https://example.org/Example-Act&gt;</span><span class="w"> </span><span class="nn">rdfs:</span><span class="n">seeAlso</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">ns1:</span><span class="n">relation</span><span class="w"> </span><span class="nl">&lt;http://www.iana.org/assignments/relation/related&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span><span class="nl">&lt;https://example.org/aThing/Example-Act&gt;</span><span class="w"> </span><span class="nn">rdfs:</span><span class="n">seeAlso</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">ns1:</span><span class="n">relation</span><span class="w"> </span><span class="nl">&lt;http://www.iana.org/assignments/relation/related&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
             </span><span class="nn">oa:</span><span class="n">hasTarget</span><span class="w"> </span><span class="s">"https://nze.gov/linktoact/Example1"</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w">
     </span><span class="nn">prov:</span><span class="n">wasAttributedTo</span><span class="w"> </span><span class="nn">agents:</span><span class="n">nz</span><span class="w"> </span><span class="p">.</span><span class="w">
 
-</span><span class="nn">thing:</span><span class="n">Act3</span><span class="w"> </span><span class="nn">rdfs:</span><span class="n">seeAlso</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">ns1:</span><span class="n">relation</span><span class="w"> </span><span class="nl">&lt;http://www.iana.org/assignments/relation/related&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span><span class="nn">thing:</span><span class="n">Act3</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nl">&lt;https://example.org/aThing/Legislation&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
+    </span><span class="nn">rdfs:</span><span class="n">seeAlso</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">ns1:</span><span class="n">relation</span><span class="w"> </span><span class="nl">&lt;http://www.iana.org/assignments/relation/related&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
             </span><span class="nn">oa:</span><span class="n">hasTarget</span><span class="w"> </span><span class="s">"https://some.gov/linktoact/"</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w">
     </span><span class="nn">prov:</span><span class="n">wasAttributedTo</span><span class="w"> </span><span class="nn">agents:</span><span class="n">nz</span><span class="w"> </span><span class="p">.</span><span class="w">
 
-</span><span class="nn">surveyreg:</span><span class="n">DP-1-S2</span><span class="w"> </span><span class="nn">prov:</span><span class="n">endedAtTime</span><span class="w"> </span><span class="s">"2019-01-01T19:03:15+01:00"</span><span class="p">^^</span><span class="nn">xsd:</span><span class="n">dateTime</span><span class="w"> </span><span class="p">;</span><span class="w">
-    </span><span class="nn">prov:</span><span class="n">used</span><span class="w"> </span><span class="nl">&lt;https://example.org/Example-Act&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span><span class="nn">surveyreg:</span><span class="n">DP-1-S2</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nl">&lt;http://example.org/myActivityTypes/Registration&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
+    </span><span class="nn">prov:</span><span class="n">endedAtTime</span><span class="w"> </span><span class="s">"2019-01-01T19:03:15+01:00"</span><span class="p">^^</span><span class="nn">xsd:</span><span class="n">dateTime</span><span class="w"> </span><span class="p">;</span><span class="w">
+    </span><span class="nn">prov:</span><span class="n">used</span><span class="w"> </span><span class="nl">&lt;https://example.org/aThing/Example-Act&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
     </span><span class="nn">prov:</span><span class="n">wasAssociatedWith</span><span class="w"> </span><span class="nn">agents:</span><span class="n">bc-3</span><span class="w"> </span><span class="p">.</span><span class="w">
 
-</span><span class="nn">surveyreg:</span><span class="n">DP-1-S1</span><span class="w"> </span><span class="nn">prov:</span><span class="n">endedAtTime</span><span class="w"> </span><span class="s">"2023-10-05T05:03:15+01:00"</span><span class="p">^^</span><span class="nn">xsd:</span><span class="n">dateTime</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span><span class="nn">surveyreg:</span><span class="n">DP-1-S1</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nl">&lt;http://example.org/myActivityTypes/InitialSurvey&gt;</span><span class="p">,</span><span class="w">
+        </span><span class="nn">prov:</span><span class="n">Activity</span><span class="w"> </span><span class="p">;</span><span class="w">
+    </span><span class="nn">prov:</span><span class="n">endedAtTime</span><span class="w"> </span><span class="s">"2023-10-05T05:03:15+01:00"</span><span class="p">^^</span><span class="nn">xsd:</span><span class="n">dateTime</span><span class="w"> </span><span class="p">;</span><span class="w">
     </span><span class="nn">prov:</span><span class="n">used</span><span class="w"> </span><span class="nn">thing:</span><span class="n">Act3</span><span class="w"> </span><span class="p">;</span><span class="w">
     </span><span class="nn">prov:</span><span class="n">wasAssociatedWith</span><span class="w"> </span><span class="nn">agents:</span><span class="n">ah-2344503</span><span class="w"> </span><span class="p">.</span><span class="w">
 
@@ -566,12 +579,12 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.ttl">Open in new window</a>
 </blockquote>
 <h2 id='example-activity'>Example Activity</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surveyreg-nz:DP-1-S2"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2029-01-01T22:05:19+02:00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linz-registered-surveyors:bc-3"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Act3"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icsm-jurisdictions:nz"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -594,12 +607,12 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_2_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-jsonld"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surveyreg-nz:DP-1-S2"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2029-01-01T22:05:19+02:00"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linz-registered-surveyors:bc-3"</span><span class="p">,</span><span class="w">
   </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Act3"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icsm-jurisdictions:nz"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -623,11 +636,13 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 </span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">rdfs:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
 </span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">xsd:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
 
-</span><span class="nl">&lt;surveyreg-nz:DP-1-S2&gt;</span><span class="w"> </span><span class="nn">prov:</span><span class="n">endedAtTime</span><span class="w"> </span><span class="s">"2029-01-01T22:05:19+02:00"</span><span class="p">^^</span><span class="nn">xsd:</span><span class="n">dateTime</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span><span class="nl">&lt;surveyreg-nz:DP-1-S2&gt;</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">prov:</span><span class="n">Activity</span><span class="w"> </span><span class="p">;</span><span class="w">
+    </span><span class="nn">prov:</span><span class="n">endedAtTime</span><span class="w"> </span><span class="s">"2029-01-01T22:05:19+02:00"</span><span class="p">^^</span><span class="nn">xsd:</span><span class="n">dateTime</span><span class="w"> </span><span class="p">;</span><span class="w">
     </span><span class="nn">prov:</span><span class="n">used</span><span class="w"> </span><span class="nl">&lt;http://www.example.com/exampleActivity/Act3&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
     </span><span class="nn">prov:</span><span class="n">wasAssociatedWith</span><span class="w"> </span><span class="nl">&lt;linz-registered-surveyors:bc-3&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
 
-</span><span class="nl">&lt;http://www.example.com/exampleActivity/Act3&gt;</span><span class="w"> </span><span class="nn">rdfs:</span><span class="n">seeAlso</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">ns1:</span><span class="n">relation</span><span class="w"> </span><span class="nl">&lt;http://www.iana.org/assignments/relation/related&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
+</span><span class="nl">&lt;http://www.example.com/exampleActivity/Act3&gt;</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">prov:</span><span class="n">Entity</span><span class="w"> </span><span class="p">;</span><span class="w">
+    </span><span class="nn">rdfs:</span><span class="n">seeAlso</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">ns1:</span><span class="n">relation</span><span class="w"> </span><span class="nl">&lt;http://www.iana.org/assignments/relation/related&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
             </span><span class="nn">oa:</span><span class="n">hasTarget</span><span class="w"> </span><span class="s">"https://some.gov/linktoact/"</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w">
     </span><span class="nn">prov:</span><span class="n">wasAttributedTo</span><span class="w"> </span><span class="nl">&lt;icsm-jurisdictions:nz&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
 
@@ -707,6 +722,10 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">featureType</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
+      <span class="na">entityType</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
       <span class="na">has_provenance</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Prov'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#has_provenance</span>
@@ -808,7 +827,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <span class="pi">-</span> <span class="s">id</span>
     <span class="na">anyOf</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">properties</span><span class="pi">:</span>
-        <span class="na">type</span><span class="pi">:</span>
+        <span class="na">provType</span><span class="pi">:</span>
           <span class="na">oneOf</span><span class="pi">:</span>
           <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
             <span class="na">enum</span><span class="pi">:</span>
@@ -822,10 +841,13 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
               <span class="pi">-</span> <span class="s">Entity</span>
               <span class="pi">-</span> <span class="s">Bundle</span>
               <span class="pi">-</span> <span class="s">Plan</span>
+          <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
       <span class="na">required</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">type</span>
+      <span class="pi">-</span> <span class="s">provType</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">featureType</span>
+    <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">entityType</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">wasGeneratedBy</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
@@ -871,8 +893,9 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
       <span class="na">id</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/curie'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
-      <span class="na">type</span><span class="pi">:</span>
+      <span class="na">activityType</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreObjectref'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
       <span class="na">endedAtTime</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/dateTime'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#endedAtTime</span>
@@ -955,21 +978,8 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#qualifiedAssociation</span>
         <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
     <span class="na">anyOf</span><span class="pi">:</span>
-    <span class="pi">-</span> <span class="na">properties</span><span class="pi">:</span>
-        <span class="na">type</span><span class="pi">:</span>
-          <span class="na">oneOf</span><span class="pi">:</span>
-          <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
-            <span class="na">const</span><span class="pi">:</span> <span class="s">Activity</span>
-          <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">array</span>
-            <span class="na">contains</span><span class="pi">:</span>
-              <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
-              <span class="na">const</span><span class="pi">:</span> <span class="s">Activity</span>
-            <span class="na">items</span><span class="pi">:</span>
-              <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
-      <span class="na">required</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">type</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">activity</span>
+      <span class="pi">-</span> <span class="s">activityType</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">used</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
@@ -985,8 +995,9 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
   <span class="na">Agent</span><span class="pi">:</span>
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
-      <span class="na">type</span><span class="pi">:</span>
+      <span class="na">agentType</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreObjectref'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
       <span class="na">name</span><span class="pi">:</span>
         <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/2000/01/rdf-schema#label</span>
@@ -1016,7 +1027,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <span class="pi">-</span> <span class="s">name</span>
     <span class="na">anyOf</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">properties</span><span class="pi">:</span>
-        <span class="na">type</span><span class="pi">:</span>
+        <span class="na">provType</span><span class="pi">:</span>
           <span class="na">oneOf</span><span class="pi">:</span>
           <span class="pi">-</span> <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
             <span class="na">enum</span><span class="pi">:</span>
@@ -1038,8 +1049,9 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
               <span class="pi">-</span> <span class="s">DirectQueryService</span>
             <span class="na">items</span><span class="pi">:</span>
               <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
+          <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
       <span class="na">required</span><span class="pi">:</span>
-      <span class="pi">-</span> <span class="s">type</span>
+      <span class="pi">-</span> <span class="s">provType</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">agentType</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
@@ -1095,15 +1107,8 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/dateTime'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#atTime</span>
         <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s">http://www.w3.org/2001/XMLSchema#dateTime</span>
-      <span class="na">activityType</span><span class="pi">:</span>
-        <span class="na">oneOf</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
-        <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Activity'</span>
-        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#activity</span>
-        <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
     <span class="na">required</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">atTime</span>
-    <span class="pi">-</span> <span class="s">activity</span>
   <span class="na">Invalidation</span><span class="pi">:</span>
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
@@ -1124,15 +1129,8 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/dateTime'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#atTime</span>
         <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s">http://www.w3.org/2001/XMLSchema#dateTime</span>
-      <span class="na">activityType</span><span class="pi">:</span>
-        <span class="na">oneOf</span><span class="pi">:</span>
-        <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
-        <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Activity'</span>
-        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#activity</span>
-        <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
     <span class="na">required</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">atTime</span>
-    <span class="pi">-</span> <span class="s">activity</span>
   <span class="na">Communication</span><span class="pi">:</span>
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
@@ -1149,12 +1147,10 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
             <span class="na">const</span><span class="pi">:</span> <span class="s">Communication</span>
           <span class="na">items</span><span class="pi">:</span>
             <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
-      <span class="na">activityType</span><span class="pi">:</span>
+      <span class="na">activity</span><span class="pi">:</span>
         <span class="na">oneOf</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Activity'</span>
-        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#activity</span>
-        <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
     <span class="na">required</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">activity</span>
   <span class="na">StartOrEnd</span><span class="pi">:</span>
@@ -1345,10 +1341,8 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreEntitiesOrRefIds'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#entity</span>
         <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
-      <span class="na">activityType</span><span class="pi">:</span>
+      <span class="na">activity</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreActivitiesOrRefIds'</span>
-        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#activity</span>
-        <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">agent</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreAgentsOrRefIds'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#agent</span>
@@ -1654,8 +1648,11 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"entityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"has_provenance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1700,6 +1697,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
@@ -1753,6 +1751,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"wasInvalidatedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
@@ -1790,6 +1789,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"wasQuotedFrom"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
@@ -1827,6 +1827,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"wasRevisionOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
@@ -1864,6 +1865,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"mentionOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
@@ -1925,10 +1927,6 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         </span><span class="nl">"atTime"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:atTime"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2001/XMLSchema#dateTime"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"activityType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:activity"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedGeneration"</span><span class="p">,</span><span class="w">
@@ -1939,10 +1937,6 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         </span><span class="nl">"atTime"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:atTime"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2001/XMLSchema#dateTime"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"activityType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:activity"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedInvalidation"</span><span class="p">,</span><span class="w">
@@ -1955,10 +1949,6 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
             </span><span class="nl">"atTime"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:atTime"</span><span class="p">,</span><span class="w">
               </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2001/XMLSchema#dateTime"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"activityType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:activity"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadGeneration"</span><span class="p">,</span><span class="w">
@@ -1990,6 +1980,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2027,12 +2018,14 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedAttribution"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"activityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:endedAtTime"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2001/XMLSchema#dateTime"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
@@ -2113,10 +2106,6 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"qualifiedCommunication"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"activityType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:activity"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
         </span><span class="nl">"atTime"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:atTime"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2001/XMLSchema#dateTime"</span><span class="w">
@@ -2165,6 +2154,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2210,6 +2200,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedAssociation"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
     </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"hadMember"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadMember"</span><span class="p">,</span><span class="w">
@@ -2217,6 +2208,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"wasInfluencedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
@@ -2256,6 +2248,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"influencer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
@@ -2291,12 +2284,9 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:entity"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
         </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"activityType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:activity"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
         </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">

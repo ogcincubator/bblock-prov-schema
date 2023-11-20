@@ -24,20 +24,22 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 ```json
 {
   "@context": {
-    "@base": "https://example.org/",
+    "@base": "https://example.org/aThing/",
     "agents": "https://someagentregister.eg/",
     "thing": "https://example.org/entities/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "survtypes": "https://example.org/surveytypes/",
     "surveyreg": "https://example.org/surveys/",
     "featureType": {
+      "@id": "@type",
       "@context": {
-        "@base": "http://example.org/myFeatureTypes/"
+        "@base": "http://example.org/myEntities/"
       }
     },
     "activityType": {
+      "@id": "@type",
       "@context": {
-        "@base": "http://example.org/myActivityTypes"
+        "@base": "http://example.org/myActivityTypes/"
       }
     }
   },
@@ -66,18 +68,19 @@ See panel to right - note that a more user friendly "collapsable" version is in 
   "has_provenance": [
     {
       "id": "DP-2223",
-      "type": "Entity",
+      "provType": "Entity",
+      "featureType": "Survey",
       "wasGeneratedBy": "DP-1-S1"
     },
     {
-      "type": "Activity",
+      "provType": "Activity",
       "id": "surveyreg:DP-1-S1",
       "activityType": "InitialSurvey",
       "endedAtTime": "2023-10-05T05:03:15+01:00",
       "wasAssociatedWith": "agents:ah-2344503",
       "used": {
         "id": "thing:Act3",
-        "type": "Entity",
+        "entityType": "Legislation",
         "wasAttributedTo": "agents:nz",
         "links": [
           {
@@ -101,20 +104,22 @@ See panel to right - note that a more user friendly "collapsable" version is in 
   "@context": [
     "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
     {
-      "@base": "https://example.org/",
+      "@base": "https://example.org/aThing/",
       "agents": "https://someagentregister.eg/",
       "thing": "https://example.org/entities/",
       "foaf": "http://xmlns.com/foaf/0.1/",
       "survtypes": "https://example.org/surveytypes/",
       "surveyreg": "https://example.org/surveys/",
       "featureType": {
+        "@id": "@type",
         "@context": {
-          "@base": "http://example.org/myFeatureTypes/"
+          "@base": "http://example.org/myEntities/"
         }
       },
       "activityType": {
+        "@id": "@type",
         "@context": {
-          "@base": "http://example.org/myActivityTypes"
+          "@base": "http://example.org/myActivityTypes/"
         }
       }
     }
@@ -144,18 +149,19 @@ See panel to right - note that a more user friendly "collapsable" version is in 
   "has_provenance": [
     {
       "id": "DP-2223",
-      "type": "Entity",
+      "provType": "Entity",
+      "featureType": "Survey",
       "wasGeneratedBy": "DP-1-S1"
     },
     {
-      "type": "Activity",
+      "provType": "Activity",
       "id": "surveyreg:DP-1-S1",
       "activityType": "InitialSurvey",
       "endedAtTime": "2023-10-05T05:03:15+01:00",
       "wasAssociatedWith": "agents:ah-2344503",
       "used": {
         "id": "thing:Act3",
-        "type": "Entity",
+        "entityType": "Legislation",
         "wasAttributedTo": "agents:nz",
         "links": [
           {
@@ -180,26 +186,33 @@ See panel to right - note that a more user friendly "collapsable" version is in 
 @prefix thing: <https://example.org/entities/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/DP-1> prov:has_provenance <https://example.org/DP-2223>,
+<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
+    prov:has_provenance <https://example.org/aThing/DP-2223>,
         surveyreg:DP-1-S1 ;
     prov:wasGeneratedBy surveyreg:DP-1-S1,
         surveyreg:DP-1-S2 .
 
-<https://example.org/DP-2223> prov:wasGeneratedBy <https://example.org/DP-1-S1> .
+<https://example.org/aThing/DP-2223> a <http://example.org/myEntities/Survey>,
+        prov:Entity ;
+    prov:wasGeneratedBy <https://example.org/aThing/DP-1-S1> .
 
-<https://example.org/Example-Act> rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+<https://example.org/aThing/Example-Act> rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget "https://nze.gov/linktoact/Example1" ] ;
     prov:wasAttributedTo agents:nz .
 
-thing:Act3 rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+thing:Act3 a <https://example.org/aThing/Legislation> ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget "https://some.gov/linktoact/" ] ;
     prov:wasAttributedTo agents:nz .
 
-surveyreg:DP-1-S2 prov:endedAtTime "2019-01-01T19:03:15+01:00"^^xsd:dateTime ;
-    prov:used <https://example.org/Example-Act> ;
+surveyreg:DP-1-S2 a <http://example.org/myActivityTypes/Registration> ;
+    prov:endedAtTime "2019-01-01T19:03:15+01:00"^^xsd:dateTime ;
+    prov:used <https://example.org/aThing/Example-Act> ;
     prov:wasAssociatedWith agents:bc-3 .
 
-surveyreg:DP-1-S1 prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
+surveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,
+        prov:Activity ;
+    prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
     prov:used thing:Act3 ;
     prov:wasAssociatedWith agents:ah-2344503 .
 
@@ -211,12 +224,12 @@ surveyreg:DP-1-S1 prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
 #### json
 ```json
 {
-  "type": "Activity",
+  "provType": "Activity",
   "id": "surveyreg-nz:DP-1-S2",
   "endedAtTime": "2029-01-01T22:05:19+02:00",
   "wasAssociatedWith": "linz-registered-surveyors:bc-3",
   "used": {
-    "type": "Entity",
+    "provType": "Entity",
     "id": "Act3",
     "wasAttributedTo": "icsm-jurisdictions:nz",
     "links": [
@@ -237,12 +250,12 @@ surveyreg:DP-1-S1 prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
 #### jsonld
 ```jsonld
 {
-  "type": "Activity",
+  "provType": "Activity",
   "id": "surveyreg-nz:DP-1-S2",
   "endedAtTime": "2029-01-01T22:05:19+02:00",
   "wasAssociatedWith": "linz-registered-surveyors:bc-3",
   "used": {
-    "type": "Entity",
+    "provType": "Entity",
     "id": "Act3",
     "wasAttributedTo": "icsm-jurisdictions:nz",
     "links": [
@@ -264,11 +277,13 @@ surveyreg:DP-1-S1 prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<surveyreg-nz:DP-1-S2> prov:endedAtTime "2029-01-01T22:05:19+02:00"^^xsd:dateTime ;
+<surveyreg-nz:DP-1-S2> a prov:Activity ;
+    prov:endedAtTime "2029-01-01T22:05:19+02:00"^^xsd:dateTime ;
     prov:used <http://www.example.com/exampleActivity/Act3> ;
     prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
 
-<http://www.example.com/exampleActivity/Act3> rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+<http://www.example.com/exampleActivity/Act3> a prov:Entity ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget "https://some.gov/linktoact/" ] ;
     prov:wasAttributedTo <icsm-jurisdictions:nz> .
 
@@ -348,6 +363,10 @@ $defs:
         x-jsonld-id: '@id'
       featureType:
         $ref: '#/$defs/objectref'
+        x-jsonld-id: '@type'
+      entityType:
+        $ref: '#/$defs/objectref'
+        x-jsonld-id: '@type'
       has_provenance:
         $ref: '#/$defs/Prov'
         x-jsonld-id: http://www.w3.org/ns/prov#has_provenance
@@ -449,7 +468,7 @@ $defs:
     - id
     anyOf:
     - properties:
-        type:
+        provType:
           oneOf:
           - type: string
             enum:
@@ -463,10 +482,13 @@ $defs:
               - Entity
               - Bundle
               - Plan
+          x-jsonld-id: '@type'
       required:
-      - type
+      - provType
     - required:
       - featureType
+    - required:
+      - entityType
     - required:
       - wasGeneratedBy
     - required:
@@ -512,8 +534,9 @@ $defs:
       id:
         $ref: '#/$defs/curie'
         x-jsonld-id: '@id'
-      type:
+      activityType:
         $ref: '#/$defs/oneOrMoreObjectref'
+        x-jsonld-id: '@type'
       endedAtTime:
         $ref: '#/$defs/dateTime'
         x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
@@ -596,21 +619,8 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedAssociation
         x-jsonld-type: '@id'
     anyOf:
-    - properties:
-        type:
-          oneOf:
-          - type: string
-            const: Activity
-          - type: array
-            contains:
-              type: string
-              const: Activity
-            items:
-              type: string
-      required:
-      - type
     - required:
-      - activity
+      - activityType
     - required:
       - used
     - required:
@@ -626,8 +636,9 @@ $defs:
   Agent:
     type: object
     properties:
-      type:
+      agentType:
         $ref: '#/$defs/oneOrMoreObjectref'
+        x-jsonld-id: '@type'
       name:
         type: string
         x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label
@@ -657,7 +668,7 @@ $defs:
     - name
     anyOf:
     - properties:
-        type:
+        provType:
           oneOf:
           - type: string
             enum:
@@ -679,8 +690,9 @@ $defs:
               - DirectQueryService
             items:
               type: string
+          x-jsonld-id: '@type'
       required:
-      - type
+      - provType
     - required:
       - agentType
     - required:
@@ -736,15 +748,8 @@ $defs:
         $ref: '#/$defs/dateTime'
         x-jsonld-id: http://www.w3.org/ns/prov#atTime
         x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
-      activityType:
-        oneOf:
-        - $ref: '#/$defs/objectref'
-        - $ref: '#/$defs/Activity'
-        x-jsonld-id: http://www.w3.org/ns/prov#activity
-        x-jsonld-type: '@id'
     required:
     - atTime
-    - activity
   Invalidation:
     type: object
     properties:
@@ -765,15 +770,8 @@ $defs:
         $ref: '#/$defs/dateTime'
         x-jsonld-id: http://www.w3.org/ns/prov#atTime
         x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
-      activityType:
-        oneOf:
-        - $ref: '#/$defs/objectref'
-        - $ref: '#/$defs/Activity'
-        x-jsonld-id: http://www.w3.org/ns/prov#activity
-        x-jsonld-type: '@id'
     required:
     - atTime
-    - activity
   Communication:
     type: object
     properties:
@@ -790,12 +788,10 @@ $defs:
             const: Communication
           items:
             type: string
-      activityType:
+      activity:
         oneOf:
         - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Activity'
-        x-jsonld-id: http://www.w3.org/ns/prov#activity
-        x-jsonld-type: '@id'
     required:
     - activity
   StartOrEnd:
@@ -986,10 +982,8 @@ $defs:
         $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#entity
         x-jsonld-type: '@id'
-      activityType:
+      activity:
         $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
-        x-jsonld-id: http://www.w3.org/ns/prov#activity
-        x-jsonld-type: '@id'
       agent:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#agent
@@ -1295,8 +1289,11 @@ Links to the schema:
       "@type": "@id"
     },
     "id": "@id",
+    "featureType": "@type",
+    "entityType": "@type",
     "has_provenance": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@context": {
@@ -1341,6 +1338,7 @@ Links to the schema:
     },
     "wasAttributedTo": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -1394,6 +1392,7 @@ Links to the schema:
     },
     "wasInvalidatedBy": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -1431,6 +1430,7 @@ Links to the schema:
     },
     "wasQuotedFrom": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -1468,6 +1468,7 @@ Links to the schema:
     },
     "wasRevisionOf": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -1505,6 +1506,7 @@ Links to the schema:
     },
     "mentionOf": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -1566,10 +1568,6 @@ Links to the schema:
         "atTime": {
           "@id": "prov:atTime",
           "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        },
-        "activityType": {
-          "@id": "prov:activity",
-          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedGeneration",
@@ -1580,10 +1578,6 @@ Links to the schema:
         "atTime": {
           "@id": "prov:atTime",
           "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        },
-        "activityType": {
-          "@id": "prov:activity",
-          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedInvalidation",
@@ -1596,10 +1590,6 @@ Links to the schema:
             "atTime": {
               "@id": "prov:atTime",
               "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-            },
-            "activityType": {
-              "@id": "prov:activity",
-              "@type": "@id"
             }
           },
           "@id": "prov:hadGeneration",
@@ -1631,6 +1621,7 @@ Links to the schema:
       "@context": {
         "agent": {
           "@context": {
+            "agentType": "@type",
             "name": "rdfs:label",
             "actedOnBehalfOf": {
               "@context": {
@@ -1668,12 +1659,14 @@ Links to the schema:
       "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },
+    "activityType": "@type",
     "endedAtTime": {
       "@id": "prov:endedAtTime",
       "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
     },
     "wasAssociatedWith": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -1754,10 +1747,6 @@ Links to the schema:
     },
     "qualifiedCommunication": {
       "@context": {
-        "activityType": {
-          "@id": "prov:activity",
-          "@type": "@id"
-        },
         "atTime": {
           "@id": "prov:atTime",
           "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
@@ -1806,6 +1795,7 @@ Links to the schema:
       "@context": {
         "agent": {
           "@context": {
+            "agentType": "@type",
             "name": "rdfs:label",
             "actedOnBehalfOf": {
               "@context": {
@@ -1851,6 +1841,7 @@ Links to the schema:
       "@id": "prov:qualifiedAssociation",
       "@type": "@id"
     },
+    "provType": "@type",
     "hadMember": {
       "@context": {},
       "@id": "prov:hadMember",
@@ -1858,6 +1849,7 @@ Links to the schema:
     },
     "wasInfluencedBy": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -1897,6 +1889,7 @@ Links to the schema:
       "@context": {
         "influencer": {
           "@context": {
+            "agentType": "@type",
             "name": "rdfs:label",
             "actedOnBehalfOf": {
               "@id": "prov:actedOnBehalfOf",
@@ -1932,12 +1925,9 @@ Links to the schema:
           "@id": "prov:entity",
           "@type": "@id"
         },
-        "activityType": {
-          "@id": "prov:activity",
-          "@type": "@id"
-        },
         "agent": {
           "@context": {
+            "agentType": "@type",
             "name": "rdfs:label",
             "actedOnBehalfOf": {
               "@id": "prov:actedOnBehalfOf",

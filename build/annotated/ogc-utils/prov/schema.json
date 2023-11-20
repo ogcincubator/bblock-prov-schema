@@ -140,7 +140,12 @@
           "x-jsonld-id": "@id"
         },
         "featureType": {
-          "$ref": "#/$defs/objectref"
+          "$ref": "#/$defs/objectref",
+          "x-jsonld-id": "@type"
+        },
+        "entityType": {
+          "$ref": "#/$defs/objectref",
+          "x-jsonld-id": "@type"
         },
         "has_provenance": {
           "$ref": "#/$defs/Prov",
@@ -316,7 +321,7 @@
       "anyOf": [
         {
           "properties": {
-            "type": {
+            "provType": {
               "oneOf": [
                 {
                   "type": "string",
@@ -337,16 +342,22 @@
                     ]
                   }
                 }
-              ]
+              ],
+              "x-jsonld-id": "@type"
             }
           },
           "required": [
-            "type"
+            "provType"
           ]
         },
         {
           "required": [
             "featureType"
+          ]
+        },
+        {
+          "required": [
+            "entityType"
           ]
         },
         {
@@ -426,8 +437,9 @@
           "$ref": "#/$defs/curie",
           "x-jsonld-id": "@id"
         },
-        "type": {
-          "$ref": "#/$defs/oneOrMoreObjectref"
+        "activityType": {
+          "$ref": "#/$defs/oneOrMoreObjectref",
+          "x-jsonld-id": "@type"
         },
         "endedAtTime": {
           "$ref": "#/$defs/dateTime",
@@ -576,33 +588,8 @@
       },
       "anyOf": [
         {
-          "properties": {
-            "type": {
-              "oneOf": [
-                {
-                  "type": "string",
-                  "const": "Activity"
-                },
-                {
-                  "type": "array",
-                  "contains": {
-                    "type": "string",
-                    "const": "Activity"
-                  },
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              ]
-            }
-          },
           "required": [
-            "type"
-          ]
-        },
-        {
-          "required": [
-            "activity"
+            "activityType"
           ]
         },
         {
@@ -640,8 +627,9 @@
     "Agent": {
       "type": "object",
       "properties": {
-        "type": {
-          "$ref": "#/$defs/oneOrMoreObjectref"
+        "agentType": {
+          "$ref": "#/$defs/oneOrMoreObjectref",
+          "x-jsonld-id": "@type"
         },
         "name": {
           "type": "string",
@@ -693,7 +681,7 @@
       "anyOf": [
         {
           "properties": {
-            "type": {
+            "provType": {
               "oneOf": [
                 {
                   "type": "string",
@@ -723,11 +711,12 @@
                     "type": "string"
                   }
                 }
-              ]
+              ],
+              "x-jsonld-id": "@type"
             }
           },
           "required": [
-            "type"
+            "provType"
           ]
         },
         {
@@ -824,23 +813,10 @@
           "$ref": "#/$defs/dateTime",
           "x-jsonld-id": "http://www.w3.org/ns/prov#atTime",
           "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        },
-        "activityType": {
-          "oneOf": [
-            {
-              "$ref": "#/$defs/objectref"
-            },
-            {
-              "$ref": "#/$defs/Activity"
-            }
-          ],
-          "x-jsonld-id": "http://www.w3.org/ns/prov#activity",
-          "x-jsonld-type": "@id"
         }
       },
       "required": [
-        "atTime",
-        "activity"
+        "atTime"
       ]
     },
     "Invalidation": {
@@ -872,23 +848,10 @@
           "$ref": "#/$defs/dateTime",
           "x-jsonld-id": "http://www.w3.org/ns/prov#atTime",
           "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        },
-        "activityType": {
-          "oneOf": [
-            {
-              "$ref": "#/$defs/objectref"
-            },
-            {
-              "$ref": "#/$defs/Activity"
-            }
-          ],
-          "x-jsonld-id": "http://www.w3.org/ns/prov#activity",
-          "x-jsonld-type": "@id"
         }
       },
       "required": [
-        "atTime",
-        "activity"
+        "atTime"
       ]
     },
     "Communication": {
@@ -916,7 +879,7 @@
             }
           ]
         },
-        "activityType": {
+        "activity": {
           "oneOf": [
             {
               "$ref": "#/$defs/objectref"
@@ -924,9 +887,7 @@
             {
               "$ref": "#/$defs/Activity"
             }
-          ],
-          "x-jsonld-id": "http://www.w3.org/ns/prov#activity",
-          "x-jsonld-type": "@id"
+          ]
         }
       },
       "required": [
@@ -1278,10 +1239,8 @@
           "x-jsonld-id": "http://www.w3.org/ns/prov#entity",
           "x-jsonld-type": "@id"
         },
-        "activityType": {
-          "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds",
-          "x-jsonld-id": "http://www.w3.org/ns/prov#activity",
-          "x-jsonld-type": "@id"
+        "activity": {
+          "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds"
         },
         "agent": {
           "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",

@@ -68,6 +68,10 @@ $defs:
         x-jsonld-id: '@id'
       featureType:
         $ref: '#/$defs/objectref'
+        x-jsonld-id: '@type'
+      entityType:
+        $ref: '#/$defs/objectref'
+        x-jsonld-id: '@type'
       has_provenance:
         $ref: '#/$defs/Prov'
         x-jsonld-id: http://www.w3.org/ns/prov#has_provenance
@@ -169,7 +173,7 @@ $defs:
     - id
     anyOf:
     - properties:
-        type:
+        provType:
           oneOf:
           - type: string
             enum:
@@ -183,10 +187,13 @@ $defs:
               - Entity
               - Bundle
               - Plan
+          x-jsonld-id: '@type'
       required:
-      - type
+      - provType
     - required:
       - featureType
+    - required:
+      - entityType
     - required:
       - wasGeneratedBy
     - required:
@@ -232,8 +239,9 @@ $defs:
       id:
         $ref: '#/$defs/curie'
         x-jsonld-id: '@id'
-      type:
+      activityType:
         $ref: '#/$defs/oneOrMoreObjectref'
+        x-jsonld-id: '@type'
       endedAtTime:
         $ref: '#/$defs/dateTime'
         x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
@@ -316,21 +324,8 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedAssociation
         x-jsonld-type: '@id'
     anyOf:
-    - properties:
-        type:
-          oneOf:
-          - type: string
-            const: Activity
-          - type: array
-            contains:
-              type: string
-              const: Activity
-            items:
-              type: string
-      required:
-      - type
     - required:
-      - activity
+      - activityType
     - required:
       - used
     - required:
@@ -346,8 +341,9 @@ $defs:
   Agent:
     type: object
     properties:
-      type:
+      agentType:
         $ref: '#/$defs/oneOrMoreObjectref'
+        x-jsonld-id: '@type'
       name:
         type: string
         x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label
@@ -377,7 +373,7 @@ $defs:
     - name
     anyOf:
     - properties:
-        type:
+        provType:
           oneOf:
           - type: string
             enum:
@@ -399,8 +395,9 @@ $defs:
               - DirectQueryService
             items:
               type: string
+          x-jsonld-id: '@type'
       required:
-      - type
+      - provType
     - required:
       - agentType
     - required:
@@ -456,15 +453,8 @@ $defs:
         $ref: '#/$defs/dateTime'
         x-jsonld-id: http://www.w3.org/ns/prov#atTime
         x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
-      activityType:
-        oneOf:
-        - $ref: '#/$defs/objectref'
-        - $ref: '#/$defs/Activity'
-        x-jsonld-id: http://www.w3.org/ns/prov#activity
-        x-jsonld-type: '@id'
     required:
     - atTime
-    - activity
   Invalidation:
     type: object
     properties:
@@ -485,15 +475,8 @@ $defs:
         $ref: '#/$defs/dateTime'
         x-jsonld-id: http://www.w3.org/ns/prov#atTime
         x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
-      activityType:
-        oneOf:
-        - $ref: '#/$defs/objectref'
-        - $ref: '#/$defs/Activity'
-        x-jsonld-id: http://www.w3.org/ns/prov#activity
-        x-jsonld-type: '@id'
     required:
     - atTime
-    - activity
   Communication:
     type: object
     properties:
@@ -510,12 +493,10 @@ $defs:
             const: Communication
           items:
             type: string
-      activityType:
+      activity:
         oneOf:
         - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Activity'
-        x-jsonld-id: http://www.w3.org/ns/prov#activity
-        x-jsonld-type: '@id'
     required:
     - activity
   StartOrEnd:
@@ -706,10 +687,8 @@ $defs:
         $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#entity
         x-jsonld-type: '@id'
-      activityType:
+      activity:
         $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
-        x-jsonld-id: http://www.w3.org/ns/prov#activity
-        x-jsonld-type: '@id'
       agent:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#agent

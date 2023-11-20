@@ -25,7 +25,7 @@
         "prov",
         "utils"
       ],
-      "shaclRules": [],
+      "shaclRules": {},
       "dependsOn": [
         "ogc.ogc-utils.iri-or-curie",
         "ogc.ogc-utils.json-link"

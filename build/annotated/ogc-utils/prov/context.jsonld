@@ -141,8 +141,11 @@
       "@type": "@id"
     },
     "id": "@id",
+    "featureType": "@type",
+    "entityType": "@type",
     "has_provenance": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@context": {
@@ -187,6 +190,7 @@
     },
     "wasAttributedTo": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -240,6 +244,7 @@
     },
     "wasInvalidatedBy": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -277,6 +282,7 @@
     },
     "wasQuotedFrom": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -314,6 +320,7 @@
     },
     "wasRevisionOf": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -351,6 +358,7 @@
     },
     "mentionOf": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -412,10 +420,6 @@
         "atTime": {
           "@id": "prov:atTime",
           "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        },
-        "activityType": {
-          "@id": "prov:activity",
-          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedGeneration",
@@ -426,10 +430,6 @@
         "atTime": {
           "@id": "prov:atTime",
           "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        },
-        "activityType": {
-          "@id": "prov:activity",
-          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedInvalidation",
@@ -442,10 +442,6 @@
             "atTime": {
               "@id": "prov:atTime",
               "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-            },
-            "activityType": {
-              "@id": "prov:activity",
-              "@type": "@id"
             }
           },
           "@id": "prov:hadGeneration",
@@ -477,6 +473,7 @@
       "@context": {
         "agent": {
           "@context": {
+            "agentType": "@type",
             "name": "rdfs:label",
             "actedOnBehalfOf": {
               "@context": {
@@ -514,12 +511,14 @@
       "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },
+    "activityType": "@type",
     "endedAtTime": {
       "@id": "prov:endedAtTime",
       "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
     },
     "wasAssociatedWith": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -600,10 +599,6 @@
     },
     "qualifiedCommunication": {
       "@context": {
-        "activityType": {
-          "@id": "prov:activity",
-          "@type": "@id"
-        },
         "atTime": {
           "@id": "prov:atTime",
           "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
@@ -652,6 +647,7 @@
       "@context": {
         "agent": {
           "@context": {
+            "agentType": "@type",
             "name": "rdfs:label",
             "actedOnBehalfOf": {
               "@context": {
@@ -697,6 +693,7 @@
       "@id": "prov:qualifiedAssociation",
       "@type": "@id"
     },
+    "provType": "@type",
     "hadMember": {
       "@context": {},
       "@id": "prov:hadMember",
@@ -704,6 +701,7 @@
     },
     "wasInfluencedBy": {
       "@context": {
+        "agentType": "@type",
         "name": "rdfs:label",
         "actedOnBehalfOf": {
           "@id": "prov:actedOnBehalfOf",
@@ -743,6 +741,7 @@
       "@context": {
         "influencer": {
           "@context": {
+            "agentType": "@type",
             "name": "rdfs:label",
             "actedOnBehalfOf": {
               "@id": "prov:actedOnBehalfOf",
@@ -778,12 +777,9 @@
           "@id": "prov:entity",
           "@type": "@id"
         },
-        "activityType": {
-          "@id": "prov:activity",
-          "@type": "@id"
-        },
         "agent": {
           "@context": {
+            "agentType": "@type",
             "name": "rdfs:label",
             "actedOnBehalfOf": {
               "@id": "prov:actedOnBehalfOf",
