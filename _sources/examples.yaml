@@ -15,3 +15,5 @@
       base-uri: http://www.example.com/exampleActivity/
       # how to reference a schema from a different bblock?
       schema-ref: "#/$defs/Activity"
+
+

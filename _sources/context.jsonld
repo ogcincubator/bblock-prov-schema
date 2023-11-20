@@ -4,6 +4,11 @@
     "prov": "http://www.w3.org/ns/prov#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "activityType": "@type",
+    "agentType": "@type",
+    "entityType": "@type",
+    "featureType": "@type",
+    "provType": "@type",
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -88,10 +93,7 @@
       "@id": "prov:actedOnBehalfOf",
       "@type": "@id"
     },
-    "activityType": {
-      "@id": "prov:activity",
-      "@type": "@id"
-    },
+
     "agent": {
       "@id": "prov:agent",
       "@type": "@id"
