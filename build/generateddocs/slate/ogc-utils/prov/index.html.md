@@ -46,8 +46,6 @@ This schema implements the PROV vocabulary semantics.
 
 ## Example Entities with Provenance Chains
 
-See panel to right - note that a more user friendly "collapsable" version is in development. 
-
 
 
 ```json
@@ -242,12 +240,12 @@ See panel to right - note that a more user friendly "collapsable" version is in 
     prov:wasGeneratedBy <https://example.org/aThing/DP-1-S1> .
 
 <https://example.org/aThing/Example-Act> rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget "https://nze.gov/linktoact/Example1" ] ;
+            oa:hasTarget <https://nze.gov/linktoact/Example1> ] ;
     prov:wasAttributedTo agents:nz .
 
 thing:Act3 a <https://example.org/aThing/Legislation> ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget "https://some.gov/linktoact/" ] ;
+            oa:hasTarget <https://some.gov/linktoact/> ] ;
     prov:wasAttributedTo agents:nz .
 
 surveyreg:DP-1-S2 a <http://example.org/myActivityTypes/Registration> ;
@@ -269,6 +267,8 @@ surveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,
     <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.ttl">Open in new window</a>
 </blockquote>
 
+
+See panel to right - note that a more user friendly "collapsable" version is in development. 
 
 
 ## Example Activity
@@ -353,7 +353,7 @@ surveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,
 
 <http://www.example.com/exampleActivity/Act3> a prov:Entity ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget "https://some.gov/linktoact/" ] ;
+            oa:hasTarget <https://some.gov/linktoact/> ] ;
     prov:wasAttributedTo <icsm-jurisdictions:nz> .
 
 
@@ -1226,6 +1226,720 @@ Links to the schema:
 ```json--ldContext
 {
   "@context": {
+    "id": "@id",
+    "featureType": "@type",
+    "entityType": "@type",
+    "has_provenance": {
+      "@context": {
+        "agentType": "@type",
+        "name": "rdfs:label",
+        "actedOnBehalfOf": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:actedOnBehalfOf",
+          "@type": "@id"
+        },
+        "qualifiedDelegation": {
+          "@context": {
+            "agent": {
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedDelegation",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:has_provenance",
+      "@type": "@id"
+    },
+    "wasGeneratedBy": {
+      "@context": {},
+      "@id": "prov:wasGeneratedBy",
+      "@type": "@id"
+    },
+    "wasAttributedTo": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "agentType": "@type",
+        "name": "rdfs:label",
+        "actedOnBehalfOf": {
+          "@id": "prov:actedOnBehalfOf",
+          "@type": "@id"
+        },
+        "qualifiedDelegation": {
+          "@context": {
+            "agent": {
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedDelegation",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id"
+    },
+    "wasDerivedFrom": {
+      "@id": "prov:wasDerivedFrom",
+      "@type": "@id"
+    },
+    "alternateOf": {
+      "@id": "prov:alternateOf",
+      "@type": "@id"
+    },
+    "hadPrimarySource": {
+      "@id": "prov:hadPrimarySource",
+      "@type": "@id"
+    },
+    "specializationOf": {
+      "@id": "prov:specializationOf",
+      "@type": "@id"
+    },
+    "wasInvalidatedBy": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "agentType": "@type",
+        "name": "rdfs:label",
+        "actedOnBehalfOf": {
+          "@id": "prov:actedOnBehalfOf",
+          "@type": "@id"
+        },
+        "qualifiedDelegation": {
+          "@context": {
+            "agent": {
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedDelegation",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:wasInvalidatedBy",
+      "@type": "@id"
+    },
+    "wasQuotedFrom": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "agentType": "@type",
+        "name": "rdfs:label",
+        "actedOnBehalfOf": {
+          "@id": "prov:actedOnBehalfOf",
+          "@type": "@id"
+        },
+        "qualifiedDelegation": {
+          "@context": {
+            "agent": {
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedDelegation",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:wasQuotedFrom",
+      "@type": "@id"
+    },
+    "wasRevisionOf": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "agentType": "@type",
+        "name": "rdfs:label",
+        "actedOnBehalfOf": {
+          "@id": "prov:actedOnBehalfOf",
+          "@type": "@id"
+        },
+        "qualifiedDelegation": {
+          "@context": {
+            "agent": {
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedDelegation",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:wasRevisionOf",
+      "@type": "@id"
+    },
+    "mentionOf": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "agentType": "@type",
+        "name": "rdfs:label",
+        "actedOnBehalfOf": {
+          "@id": "prov:actedOnBehalfOf",
+          "@type": "@id"
+        },
+        "qualifiedDelegation": {
+          "@context": {
+            "agent": {
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedDelegation",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:mentionOf",
+      "@type": "@id"
+    },
+    "atLocation": {
+      "@id": "prov:atLocation",
+      "@type": "@id"
+    },
+    "links": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "rdfs:seeAlso"
+    },
+    "qualifiedGeneration": {
+      "@context": {
+        "atTime": {
+          "@id": "prov:atTime",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        }
+      },
+      "@id": "prov:qualifiedGeneration",
+      "@type": "@id"
+    },
+    "qualifiedInvalidation": {
+      "@context": {
+        "atTime": {
+          "@id": "prov:atTime",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        }
+      },
+      "@id": "prov:qualifiedInvalidation",
+      "@type": "@id"
+    },
+    "qualifiedDerivation": {
+      "@context": {
+        "hadGeneration": {
+          "@context": {
+            "atTime": {
+              "@id": "prov:atTime",
+              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
+          },
+          "@id": "prov:hadGeneration",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        },
+        "hadUsage": {
+          "@context": {
+            "atTime": {
+              "@id": "prov:atTime",
+              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
+          },
+          "@id": "prov:hadUsage",
+          "@type": "@id"
+        },
+        "entity": {
+          "@id": "prov:entity",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedDerivation",
+      "@type": "@id"
+    },
+    "qualifiedAttribution": {
+      "@context": {
+        "agent": {
+          "@context": {
+            "agentType": "@type",
+            "name": "rdfs:label",
+            "actedOnBehalfOf": {
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              },
+              "@id": "prov:actedOnBehalfOf",
+              "@type": "@id"
+            },
+            "qualifiedDelegation": {
+              "@context": {
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedDelegation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedAttribution",
+      "@type": "@id"
+    },
+    "wasInfluencedBy": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "agentType": "@type",
+        "name": "rdfs:label",
+        "actedOnBehalfOf": {
+          "@id": "prov:actedOnBehalfOf",
+          "@type": "@id"
+        },
+        "qualifiedDelegation": {
+          "@context": {
+            "agent": {
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedDelegation",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:wasInfluencedBy",
+      "@type": "@id"
+    },
+    "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent",
+            "agentType": "@type",
+            "name": "rdfs:label",
+            "actedOnBehalfOf": {
+              "@id": "prov:actedOnBehalfOf",
+              "@type": "@id"
+            },
+            "qualifiedDelegation": {
+              "@context": {
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedDelegation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "entity": {
+          "@id": "prov:entity",
+          "@type": "@id"
+        },
+        "agent": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent",
+            "agentType": "@type",
+            "name": "rdfs:label",
+            "actedOnBehalfOf": {
+              "@id": "prov:actedOnBehalfOf",
+              "@type": "@id"
+            },
+            "qualifiedDelegation": {
+              "@context": {
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedDelegation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedInfluence",
+      "@type": "@id"
+    },
+    "provType": "@type",
+    "hadMember": {
+      "@context": {},
+      "@id": "prov:hadMember",
+      "@type": "@id"
+    },
+    "activityType": "@type",
+    "endedAtTime": {
+      "@id": "prov:endedAtTime",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "wasAssociatedWith": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent",
+        "agentType": "@type",
+        "name": "rdfs:label",
+        "actedOnBehalfOf": {
+          "@id": "prov:actedOnBehalfOf",
+          "@type": "@id"
+        },
+        "qualifiedDelegation": {
+          "@context": {
+            "agent": {
+              "@id": "prov:agent",
+              "@type": "@id"
+            },
+            "hadActivity": {
+              "@id": "prov:hadActivity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:qualifiedDelegation",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
+    },
+    "wasInformedBy": {
+      "@id": "prov:wasInformedBy",
+      "@type": "@id"
+    },
+    "used": {
+      "@context": {},
+      "@id": "prov:used",
+      "@type": "@id"
+    },
+    "wasStartedBy": {
+      "@context": {},
+      "@id": "prov:wasStartedBy",
+      "@type": "@id"
+    },
+    "wasEndedBy": {
+      "@context": {},
+      "@id": "prov:wasEndedBy",
+      "@type": "@id"
+    },
+    "invalidated": {
+      "@context": {},
+      "@id": "prov:invalidated",
+      "@type": "@id"
+    },
+    "generated": {
+      "@context": {},
+      "@id": "prov:generated",
+      "@type": "@id"
+    },
+    "qualifiedUsage": {
+      "@context": {
+        "atTime": {
+          "@id": "prov:atTime",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "entity": {
+          "@id": "prov:entity",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedUsage",
+      "@type": "@id"
+    },
+    "qualifiedCommunication": {
+      "@context": {
+        "atTime": {
+          "@id": "prov:atTime",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        }
+      },
+      "@id": "prov:qualifiedCommunication",
+      "@type": "@id"
+    },
+    "qualifiedStart": {
+      "@context": {
+        "atTime": {
+          "@id": "prov:atTime",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "entity": {
+          "@id": "prov:entity",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedStart",
+      "@type": "@id"
+    },
+    "qualifiedEnd": {
+      "@context": {
+        "atTime": {
+          "@id": "prov:atTime",
+          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "entity": {
+          "@id": "prov:entity",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedEnd",
+      "@type": "@id"
+    },
+    "qualifiedAssociation": {
+      "@context": {
+        "agent": {
+          "@context": {
+            "agentType": "@type",
+            "name": "rdfs:label",
+            "actedOnBehalfOf": {
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              },
+              "@id": "prov:actedOnBehalfOf",
+              "@type": "@id"
+            },
+            "qualifiedDelegation": {
+              "@context": {
+                "hadActivity": {
+                  "@id": "prov:hadActivity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedDelegation",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        },
+        "hadRole": {
+          "@id": "prov:hadRole",
+          "@type": "@id"
+        },
+        "hadPlan": {
+          "@id": "prov:hadPlan",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedAssociation",
+      "@type": "@id"
+    },
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -1364,681 +2078,6 @@ Links to the schema:
     },
     "asInBundle": {
       "@id": "prov:asInBundle",
-      "@type": "@id"
-    },
-    "id": "@id",
-    "featureType": "@type",
-    "entityType": "@type",
-    "has_provenance": {
-      "@context": {
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@context": {
-            "href": "oa:hasTarget",
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          },
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        }
-      },
-      "@id": "prov:has_provenance",
-      "@type": "@id"
-    },
-    "wasGeneratedBy": {
-      "@context": {},
-      "@id": "prov:wasGeneratedBy",
-      "@type": "@id"
-    },
-    "wasAttributedTo": {
-      "@context": {
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        },
-        "href": "oa:hasTarget",
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
-      "@id": "prov:wasAttributedTo",
-      "@type": "@id"
-    },
-    "wasDerivedFrom": {
-      "@id": "prov:wasDerivedFrom",
-      "@type": "@id"
-    },
-    "alternateOf": {
-      "@id": "prov:alternateOf",
-      "@type": "@id"
-    },
-    "hadPrimarySource": {
-      "@id": "prov:hadPrimarySource",
-      "@type": "@id"
-    },
-    "specializationOf": {
-      "@id": "prov:specializationOf",
-      "@type": "@id"
-    },
-    "wasInvalidatedBy": {
-      "@context": {
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        },
-        "href": "oa:hasTarget",
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
-      "@id": "prov:wasInvalidatedBy",
-      "@type": "@id"
-    },
-    "wasQuotedFrom": {
-      "@context": {
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        },
-        "href": "oa:hasTarget",
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
-      "@id": "prov:wasQuotedFrom",
-      "@type": "@id"
-    },
-    "wasRevisionOf": {
-      "@context": {
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        },
-        "href": "oa:hasTarget",
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
-      "@id": "prov:wasRevisionOf",
-      "@type": "@id"
-    },
-    "mentionOf": {
-      "@context": {
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        },
-        "href": "oa:hasTarget",
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
-      "@id": "prov:mentionOf",
-      "@type": "@id"
-    },
-    "atLocation": {
-      "@id": "prov:atLocation",
-      "@type": "@id"
-    },
-    "links": {
-      "@context": {
-        "href": "oa:hasTarget",
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
-      "@id": "rdfs:seeAlso"
-    },
-    "qualifiedGeneration": {
-      "@context": {
-        "atTime": {
-          "@id": "prov:atTime",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        }
-      },
-      "@id": "prov:qualifiedGeneration",
-      "@type": "@id"
-    },
-    "qualifiedInvalidation": {
-      "@context": {
-        "atTime": {
-          "@id": "prov:atTime",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        }
-      },
-      "@id": "prov:qualifiedInvalidation",
-      "@type": "@id"
-    },
-    "qualifiedDerivation": {
-      "@context": {
-        "hadGeneration": {
-          "@context": {
-            "atTime": {
-              "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-            }
-          },
-          "@id": "prov:hadGeneration",
-          "@type": "@id"
-        },
-        "hadActivity": {
-          "@id": "prov:hadActivity",
-          "@type": "@id"
-        },
-        "hadUsage": {
-          "@context": {
-            "atTime": {
-              "@id": "prov:atTime",
-              "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-            }
-          },
-          "@id": "prov:hadUsage",
-          "@type": "@id"
-        },
-        "entity": {
-          "@id": "prov:entity",
-          "@type": "@id"
-        }
-      },
-      "@id": "prov:qualifiedDerivation",
-      "@type": "@id"
-    },
-    "qualifiedAttribution": {
-      "@context": {
-        "agent": {
-          "@context": {
-            "agentType": "@type",
-            "name": "rdfs:label",
-            "actedOnBehalfOf": {
-              "@context": {
-                "href": "oa:hasTarget",
-                "rel": {
-                  "@context": {
-                    "@base": "http://www.iana.org/assignments/relation/"
-                  },
-                  "@id": "http://www.iana.org/assignments/relation",
-                  "@type": "@id"
-                },
-                "type": "dct:type",
-                "hreflang": "dct:language",
-                "title": "rdfs:label",
-                "length": "dct:extent"
-              },
-              "@id": "prov:actedOnBehalfOf",
-              "@type": "@id"
-            },
-            "qualifiedDelegation": {
-              "@context": {
-                "hadActivity": {
-                  "@id": "prov:hadActivity",
-                  "@type": "@id"
-                }
-              },
-              "@id": "prov:qualifiedDelegation",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:agent",
-          "@type": "@id"
-        }
-      },
-      "@id": "prov:qualifiedAttribution",
-      "@type": "@id"
-    },
-    "activityType": "@type",
-    "endedAtTime": {
-      "@id": "prov:endedAtTime",
-      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-    },
-    "wasAssociatedWith": {
-      "@context": {
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        },
-        "href": "oa:hasTarget",
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
-      "@id": "prov:wasAssociatedWith",
-      "@type": "@id"
-    },
-    "wasInformedBy": {
-      "@id": "prov:wasInformedBy",
-      "@type": "@id"
-    },
-    "used": {
-      "@context": {},
-      "@id": "prov:used",
-      "@type": "@id"
-    },
-    "wasStartedBy": {
-      "@context": {},
-      "@id": "prov:wasStartedBy",
-      "@type": "@id"
-    },
-    "wasEndedBy": {
-      "@context": {},
-      "@id": "prov:wasEndedBy",
-      "@type": "@id"
-    },
-    "invalidated": {
-      "@context": {},
-      "@id": "prov:invalidated",
-      "@type": "@id"
-    },
-    "generated": {
-      "@context": {},
-      "@id": "prov:generated",
-      "@type": "@id"
-    },
-    "qualifiedUsage": {
-      "@context": {
-        "atTime": {
-          "@id": "prov:atTime",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        },
-        "entity": {
-          "@id": "prov:entity",
-          "@type": "@id"
-        }
-      },
-      "@id": "prov:qualifiedUsage",
-      "@type": "@id"
-    },
-    "qualifiedCommunication": {
-      "@context": {
-        "atTime": {
-          "@id": "prov:atTime",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        }
-      },
-      "@id": "prov:qualifiedCommunication",
-      "@type": "@id"
-    },
-    "qualifiedStart": {
-      "@context": {
-        "atTime": {
-          "@id": "prov:atTime",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        },
-        "entity": {
-          "@id": "prov:entity",
-          "@type": "@id"
-        },
-        "hadActivity": {
-          "@id": "prov:hadActivity",
-          "@type": "@id"
-        }
-      },
-      "@id": "prov:qualifiedStart",
-      "@type": "@id"
-    },
-    "qualifiedEnd": {
-      "@context": {
-        "atTime": {
-          "@id": "prov:atTime",
-          "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
-        },
-        "entity": {
-          "@id": "prov:entity",
-          "@type": "@id"
-        },
-        "hadActivity": {
-          "@id": "prov:hadActivity",
-          "@type": "@id"
-        }
-      },
-      "@id": "prov:qualifiedEnd",
-      "@type": "@id"
-    },
-    "qualifiedAssociation": {
-      "@context": {
-        "agent": {
-          "@context": {
-            "agentType": "@type",
-            "name": "rdfs:label",
-            "actedOnBehalfOf": {
-              "@context": {
-                "href": "oa:hasTarget",
-                "rel": {
-                  "@context": {
-                    "@base": "http://www.iana.org/assignments/relation/"
-                  },
-                  "@id": "http://www.iana.org/assignments/relation",
-                  "@type": "@id"
-                },
-                "type": "dct:type",
-                "hreflang": "dct:language",
-                "title": "rdfs:label",
-                "length": "dct:extent"
-              },
-              "@id": "prov:actedOnBehalfOf",
-              "@type": "@id"
-            },
-            "qualifiedDelegation": {
-              "@context": {
-                "hadActivity": {
-                  "@id": "prov:hadActivity",
-                  "@type": "@id"
-                }
-              },
-              "@id": "prov:qualifiedDelegation",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:agent",
-          "@type": "@id"
-        },
-        "hadRole": {
-          "@id": "prov:hadRole",
-          "@type": "@id"
-        },
-        "hadPlan": {
-          "@id": "prov:hadPlan",
-          "@type": "@id"
-        }
-      },
-      "@id": "prov:qualifiedAssociation",
-      "@type": "@id"
-    },
-    "provType": "@type",
-    "hadMember": {
-      "@context": {},
-      "@id": "prov:hadMember",
-      "@type": "@id"
-    },
-    "wasInfluencedBy": {
-      "@context": {
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        },
-        "href": "oa:hasTarget",
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
-      "@id": "prov:wasInfluencedBy",
-      "@type": "@id"
-    },
-    "qualifiedInfluence": {
-      "@context": {
-        "influencer": {
-          "@context": {
-            "agentType": "@type",
-            "name": "rdfs:label",
-            "actedOnBehalfOf": {
-              "@id": "prov:actedOnBehalfOf",
-              "@type": "@id"
-            },
-            "qualifiedDelegation": {
-              "@context": {
-                "hadActivity": {
-                  "@id": "prov:hadActivity",
-                  "@type": "@id"
-                }
-              },
-              "@id": "prov:qualifiedDelegation",
-              "@type": "@id"
-            },
-            "href": "oa:hasTarget",
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          },
-          "@id": "prov:influencer",
-          "@type": "@id"
-        },
-        "entity": {
-          "@id": "prov:entity",
-          "@type": "@id"
-        },
-        "agent": {
-          "@context": {
-            "agentType": "@type",
-            "name": "rdfs:label",
-            "actedOnBehalfOf": {
-              "@id": "prov:actedOnBehalfOf",
-              "@type": "@id"
-            },
-            "qualifiedDelegation": {
-              "@context": {
-                "hadActivity": {
-                  "@id": "prov:hadActivity",
-                  "@type": "@id"
-                }
-              },
-              "@id": "prov:qualifiedDelegation",
-              "@type": "@id"
-            },
-            "href": "oa:hasTarget",
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          },
-          "@id": "prov:agent",
-          "@type": "@id"
-        }
-      },
-      "@id": "prov:qualifiedInfluence",
       "@type": "@id"
     },
     "prov": "http://www.w3.org/ns/prov#",

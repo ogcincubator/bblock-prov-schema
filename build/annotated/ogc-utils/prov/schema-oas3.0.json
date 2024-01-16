@@ -3,30 +3,33 @@
     "ogc.ogc-utils.prov": {
       "description": "Provenance Chain using PROV-O core model supporting both an ID based object graph and nesting",
       "$defs": {
-        "objectref": {},
+        "objectref": {
+          "$anchor": "objectref",
+          "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
+        },
         "oneOrMoreObjectref": {
-          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.iri-or-curie/$defs/MultipleOrObject"
+          "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json#/$defs/MultipleOrObject"
         },
         "curie": {
-          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.iri-or-curie"
+          "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
         },
         "oneOrMoreActivitiesOrRefIds": {
           "oneOf": [
             {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+              "$ref": "#/$defs/objectref"
             },
             {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+              "$ref": "#/$defs/Activity"
             },
             {
               "type": "array",
               "items": {
                 "anyOf": [
                   {
-                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                    "$ref": "#/$defs/objectref"
                   },
                   {
-                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+                    "$ref": "#/$defs/Activity"
                   }
                 ]
               }
@@ -36,20 +39,20 @@
         "oneOrMoreEntitiesOrRefIds": {
           "oneOf": [
             {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+              "$ref": "#/$defs/objectref"
             },
             {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+              "$ref": "#/$defs/Entity"
             },
             {
               "type": "array",
               "items": {
                 "anyOf": [
                   {
-                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                    "$ref": "#/$defs/objectref"
                   },
                   {
-                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+                    "$ref": "#/$defs/Entity"
                   }
                 ]
               }
@@ -59,23 +62,23 @@
         "oneOrMoreAgentsOrRefIds": {
           "oneOf": [
             {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+              "$ref": "#/$defs/objectref"
             },
             {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/externalLink"
+              "$ref": "#/$defs/externalLink"
             },
             {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Agent"
+              "$ref": "#/$defs/Agent"
             },
             {
               "type": "array",
               "items": {
                 "anyOf": [
                   {
-                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                    "$ref": "#/$defs/objectref"
                   },
                   {
-                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Agent"
+                    "$ref": "#/$defs/Agent"
                   }
                 ]
               }
@@ -83,7 +86,7 @@
           ]
         },
         "externalLink": {
-          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.json-link"
+          "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json"
         },
         "influenced": {
           "type": "object",
@@ -91,13 +94,13 @@
             "wasInfluencedBy": {
               "anyOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreActivitiesOrRefIds"
+                  "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds"
+                  "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreAgentsOrRefIds"
+                  "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#wasInfluencedBy",
@@ -106,20 +109,20 @@
             "qualifiedInfluence": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Influence"
+                  "$ref": "#/$defs/Influence"
                 },
                 {
                   "type": "array",
                   "items": {
                     "oneOf": [
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                        "$ref": "#/$defs/objectref"
                       },
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Influence"
+                        "$ref": "#/$defs/Influence"
                       }
                     ]
                   }
@@ -133,45 +136,102 @@
         "Entity": {
           "type": "object",
           "properties": {
-            "id": {},
-            "featureType": {},
-            "entityType": {},
-            "has_provenance": {},
-            "wasGeneratedBy": {},
-            "wasAttributedTo": {},
-            "wasDerivedFrom": {},
-            "alternateOf": {},
-            "hadPrimarySource": {},
-            "specializationOf": {},
-            "wasInvalidatedBy": {},
-            "wasQuotedFrom": {},
-            "wasRevisionOf": {},
-            "mentionOf": {},
-            "atLocation": {},
+            "id": {
+              "$ref": "#/$defs/curie",
+              "x-jsonld-id": "@id"
+            },
+            "featureType": {
+              "$ref": "#/$defs/objectref",
+              "x-jsonld-id": "@type"
+            },
+            "entityType": {
+              "$ref": "#/$defs/objectref",
+              "x-jsonld-id": "@type"
+            },
+            "has_provenance": {
+              "$ref": "#/$defs/Prov",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#has_provenance",
+              "x-jsonld-type": "@id"
+            },
+            "wasGeneratedBy": {
+              "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#wasGeneratedBy",
+              "x-jsonld-type": "@id"
+            },
+            "wasAttributedTo": {
+              "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#wasAttributedTo",
+              "x-jsonld-type": "@id"
+            },
+            "wasDerivedFrom": {
+              "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#wasDerivedFrom",
+              "x-jsonld-type": "@id"
+            },
+            "alternateOf": {
+              "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#alternateOf",
+              "x-jsonld-type": "@id"
+            },
+            "hadPrimarySource": {
+              "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#hadPrimarySource",
+              "x-jsonld-type": "@id"
+            },
+            "specializationOf": {
+              "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#specializationOf",
+              "x-jsonld-type": "@id"
+            },
+            "wasInvalidatedBy": {
+              "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#wasInvalidatedBy",
+              "x-jsonld-type": "@id"
+            },
+            "wasQuotedFrom": {
+              "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#wasQuotedFrom",
+              "x-jsonld-type": "@id"
+            },
+            "wasRevisionOf": {
+              "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#wasRevisionOf",
+              "x-jsonld-type": "@id"
+            },
+            "mentionOf": {
+              "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#mentionOf",
+              "x-jsonld-type": "@id"
+            },
+            "atLocation": {
+              "$ref": "#/$defs/objectref",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#atLocation",
+              "x-jsonld-type": "@id"
+            },
             "links": {
               "type": "array",
               "items": {
-                "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/externalLink"
+                "$ref": "#/$defs/externalLink"
               },
               "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#seeAlso"
             },
             "qualifiedGeneration": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Generation"
+                  "$ref": "#/$defs/Generation"
                 },
                 {
                   "type": "array",
                   "items": {
                     "oneOf": [
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                        "$ref": "#/$defs/objectref"
                       },
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Generation"
+                        "$ref": "#/$defs/Generation"
                       }
                     ]
                   }
@@ -183,20 +243,20 @@
             "qualifiedInvalidation": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Invalidation"
+                  "$ref": "#/$defs/Invalidation"
                 },
                 {
                   "type": "array",
                   "items": {
                     "oneOf": [
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                        "$ref": "#/$defs/objectref"
                       },
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Invalidation"
+                        "$ref": "#/$defs/Invalidation"
                       }
                     ]
                   }
@@ -208,20 +268,20 @@
             "qualifiedDerivation": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Derivation"
+                  "$ref": "#/$defs/Derivation"
                 },
                 {
                   "type": "array",
                   "items": {
                     "oneOf": [
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                        "$ref": "#/$defs/objectref"
                       },
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Derivation"
+                        "$ref": "#/$defs/Derivation"
                       }
                     ]
                   }
@@ -233,20 +293,20 @@
             "qualifiedAttribution": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Attribution"
+                  "$ref": "#/$defs/Attribution"
                 },
                 {
                   "type": "array",
                   "items": {
                     "oneOf": [
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                        "$ref": "#/$defs/objectref"
                       },
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Attribution"
+                        "$ref": "#/$defs/Attribution"
                       }
                     ]
                   }
@@ -330,7 +390,7 @@
                 "hadMember": {
                   "type": "array",
                   "items": {
-                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+                    "$ref": "#/$defs/Entity"
                   },
                   "x-jsonld-id": "http://www.w3.org/ns/prov#hadMember",
                   "x-jsonld-type": "@id"
@@ -362,7 +422,7 @@
           ],
           "allOf": [
             {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/influenced"
+              "$ref": "#/$defs/influenced"
             }
           ]
         },
@@ -374,34 +434,76 @@
         "Activity": {
           "type": "object",
           "properties": {
-            "id": {},
-            "activityType": {},
-            "endedAtTime": {},
-            "wasAssociatedWith": {},
-            "wasInformedBy": {},
-            "used": {},
-            "wasStartedBy": {},
-            "wasEndedBy": {},
-            "invalidated": {},
-            "generated": {},
-            "atLocation": {},
+            "id": {
+              "$ref": "#/$defs/curie",
+              "x-jsonld-id": "@id"
+            },
+            "activityType": {
+              "$ref": "#/$defs/oneOrMoreObjectref",
+              "x-jsonld-id": "@type"
+            },
+            "endedAtTime": {
+              "$ref": "#/$defs/dateTime",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#endedAtTime",
+              "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            },
+            "wasAssociatedWith": {
+              "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#wasAssociatedWith",
+              "x-jsonld-type": "@id"
+            },
+            "wasInformedBy": {
+              "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#wasInformedBy",
+              "x-jsonld-type": "@id"
+            },
+            "used": {
+              "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#used",
+              "x-jsonld-type": "@id"
+            },
+            "wasStartedBy": {
+              "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#wasStartedBy",
+              "x-jsonld-type": "@id"
+            },
+            "wasEndedBy": {
+              "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#wasEndedBy",
+              "x-jsonld-type": "@id"
+            },
+            "invalidated": {
+              "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#invalidated",
+              "x-jsonld-type": "@id"
+            },
+            "generated": {
+              "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#generated",
+              "x-jsonld-type": "@id"
+            },
+            "atLocation": {
+              "$ref": "#/$defs/objectref",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#atLocation",
+              "x-jsonld-type": "@id"
+            },
             "qualifiedUsage": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Usage"
+                  "$ref": "#/$defs/Usage"
                 },
                 {
                   "type": "array",
                   "items": {
                     "oneOf": [
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                        "$ref": "#/$defs/objectref"
                       },
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Usage"
+                        "$ref": "#/$defs/Usage"
                       }
                     ]
                   }
@@ -413,20 +515,20 @@
             "qualifiedCommunication": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Communication"
+                  "$ref": "#/$defs/Communication"
                 },
                 {
                   "type": "array",
                   "items": {
                     "oneOf": [
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                        "$ref": "#/$defs/objectref"
                       },
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Generation"
+                        "$ref": "#/$defs/Generation"
                       }
                     ]
                   }
@@ -438,10 +540,10 @@
             "qualifiedStart": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Start"
+                  "$ref": "#/$defs/Start"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedStart",
@@ -450,10 +552,10 @@
             "qualifiedEnd": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/End"
+                  "$ref": "#/$defs/End"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedEnd",
@@ -462,20 +564,20 @@
             "qualifiedAssociation": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Association"
+                  "$ref": "#/$defs/Association"
                 },
                 {
                   "type": "array",
                   "items": {
                     "oneOf": [
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                        "$ref": "#/$defs/objectref"
                       },
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Association"
+                        "$ref": "#/$defs/Association"
                       }
                     ]
                   }
@@ -519,38 +621,52 @@
           ],
           "allOf": [
             {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/influenced"
+              "$ref": "#/$defs/influenced"
             }
           ]
         },
         "Agent": {
           "type": "object",
           "properties": {
-            "agentType": {},
+            "agentType": {
+              "$ref": "#/$defs/oneOrMoreObjectref",
+              "x-jsonld-id": "@type"
+            },
             "name": {
               "type": "string",
               "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#label"
             },
-            "id": {},
-            "actedOnBehalfOf": {},
-            "atLocation": {},
+            "id": {
+              "$ref": "#/$defs/curie",
+              "x-jsonld-id": "@id"
+            },
+            "actedOnBehalfOf": {
+              "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#actedOnBehalfOf",
+              "x-jsonld-type": "@id"
+            },
+            "atLocation": {
+              "$ref": "#/$defs/objectref",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#atLocation",
+              "x-jsonld-type": "@id"
+            },
             "qualifiedDelegation": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Delegation"
+                  "$ref": "#/$defs/Delegation"
                 },
                 {
                   "type": "array",
                   "items": {
                     "oneOf": [
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                        "$ref": "#/$defs/objectref"
                       },
                       {
-                        "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Delegation"
+                        "$ref": "#/$defs/Delegation"
                       }
                     ]
                   }
@@ -617,14 +733,17 @@
           ],
           "allOf": [
             {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/influenced"
+              "$ref": "#/$defs/influenced"
             }
           ]
         },
         "Usage": {
           "type": "object",
           "properties": {
-            "id": {},
+            "id": {
+              "$ref": "#/$defs/curie",
+              "x-jsonld-id": "@id"
+            },
             "type": {
               "oneOf": [
                 {
@@ -643,14 +762,18 @@
                 }
               ]
             },
-            "atTime": {},
+            "atTime": {
+              "$ref": "#/$defs/dateTime",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#atTime",
+              "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            },
             "entity": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+                  "$ref": "#/$defs/Entity"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#entity",
@@ -665,7 +788,10 @@
         "Generation": {
           "type": "object",
           "properties": {
-            "id": {},
+            "id": {
+              "$ref": "#/$defs/curie",
+              "x-jsonld-id": "@id"
+            },
             "type": {
               "oneOf": [
                 {
@@ -684,7 +810,11 @@
                 }
               ]
             },
-            "atTime": {}
+            "atTime": {
+              "$ref": "#/$defs/dateTime",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#atTime",
+              "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
           },
           "required": [
             "atTime"
@@ -693,7 +823,10 @@
         "Invalidation": {
           "type": "object",
           "properties": {
-            "id": {},
+            "id": {
+              "$ref": "#/$defs/curie",
+              "x-jsonld-id": "@id"
+            },
             "type": {
               "oneOf": [
                 {
@@ -712,7 +845,11 @@
                 }
               ]
             },
-            "atTime": {}
+            "atTime": {
+              "$ref": "#/$defs/dateTime",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#atTime",
+              "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            }
           },
           "required": [
             "atTime"
@@ -721,7 +858,10 @@
         "Communication": {
           "type": "object",
           "properties": {
-            "id": {},
+            "id": {
+              "$ref": "#/$defs/curie",
+              "x-jsonld-id": "@id"
+            },
             "type": {
               "oneOf": [
                 {
@@ -743,10 +883,10 @@
             "activity": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+                  "$ref": "#/$defs/Activity"
                 }
               ]
             }
@@ -758,7 +898,10 @@
         "StartOrEnd": {
           "type": "object",
           "properties": {
-            "id": {},
+            "id": {
+              "$ref": "#/$defs/curie",
+              "x-jsonld-id": "@id"
+            },
             "type": {
               "oneOf": [
                 {
@@ -772,14 +915,18 @@
                 }
               ]
             },
-            "atTime": {},
+            "atTime": {
+              "$ref": "#/$defs/dateTime",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#atTime",
+              "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+            },
             "entity": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+                  "$ref": "#/$defs/Entity"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#entity",
@@ -788,10 +935,10 @@
             "hadActivity": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+                  "$ref": "#/$defs/Activity"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#hadActivity",
@@ -805,7 +952,7 @@
         "Start": {
           "allOf": [
             {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/StartOrEnd"
+              "$ref": "#/$defs/StartOrEnd"
             },
             {
               "properties": {
@@ -828,7 +975,7 @@
         "End": {
           "allOf": [
             {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/StartOrEnd"
+              "$ref": "#/$defs/StartOrEnd"
             },
             {
               "properties": {
@@ -851,7 +998,10 @@
         "Derivation": {
           "type": "object",
           "properties": {
-            "id": {},
+            "id": {
+              "$ref": "#/$defs/curie",
+              "x-jsonld-id": "@id"
+            },
             "type": {
               "oneOf": [
                 {
@@ -873,10 +1023,10 @@
             "hadGeneration": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Generation"
+                  "$ref": "#/$defs/Generation"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#hadGeneration",
@@ -885,10 +1035,10 @@
             "hadActivity": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+                  "$ref": "#/$defs/Activity"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#hadActivity",
@@ -897,10 +1047,10 @@
             "hadUsage": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Usage"
+                  "$ref": "#/$defs/Usage"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#hadUsage",
@@ -909,10 +1059,10 @@
             "entity": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+                  "$ref": "#/$defs/Entity"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#entity",
@@ -927,7 +1077,10 @@
         "Delegation": {
           "type": "object",
           "properties": {
-            "id": {},
+            "id": {
+              "$ref": "#/$defs/curie",
+              "x-jsonld-id": "@id"
+            },
             "type": {
               "oneOf": [
                 {
@@ -949,10 +1102,10 @@
             "agent": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Agent"
+                  "$ref": "#/$defs/Agent"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#agent",
@@ -961,10 +1114,10 @@
             "hadActivity": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+                  "$ref": "#/$defs/Activity"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#hadActivity",
@@ -975,7 +1128,10 @@
         "Attribution": {
           "type": "object",
           "properties": {
-            "id": {},
+            "id": {
+              "$ref": "#/$defs/curie",
+              "x-jsonld-id": "@id"
+            },
             "type": {
               "oneOf": [
                 {
@@ -997,10 +1153,10 @@
             "agent": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Agent"
+                  "$ref": "#/$defs/Agent"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#agent",
@@ -1011,7 +1167,10 @@
         "Association": {
           "type": "object",
           "properties": {
-            "id": {},
+            "id": {
+              "$ref": "#/$defs/curie",
+              "x-jsonld-id": "@id"
+            },
             "type": {
               "oneOf": [
                 {
@@ -1033,43 +1192,62 @@
             "agent": {
               "oneOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/objectref"
+                  "$ref": "#/$defs/objectref"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Agent"
+                  "$ref": "#/$defs/Agent"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#agent",
               "x-jsonld-type": "@id"
             },
-            "hadRole": {},
-            "hadPlan": {}
+            "hadRole": {
+              "$ref": "#/$defs/oneOrMoreObjectref",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#hadRole",
+              "x-jsonld-type": "@id"
+            },
+            "hadPlan": {
+              "$ref": "#/$defs/oneOrMoreObjectref",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#hadPlan",
+              "x-jsonld-type": "@id"
+            }
           }
         },
         "Influence": {
           "type": "object",
           "properties": {
-            "id": {},
+            "id": {
+              "$ref": "#/$defs/curie",
+              "x-jsonld-id": "@id"
+            },
             "influencer": {
               "anyOf": [
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreActivitiesOrRefIds"
+                  "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreEntitiesOrRefIds"
+                  "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
                 },
                 {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreAgentsOrRefIds"
+                  "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
                 }
               ],
               "x-jsonld-id": "http://www.w3.org/ns/prov#influencer",
               "x-jsonld-type": "@id"
             },
-            "entity": {},
-            "activity": {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/oneOrMoreActivitiesOrRefIds"
+            "entity": {
+              "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#entity",
+              "x-jsonld-type": "@id"
             },
-            "agent": {}
+            "activity": {
+              "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds"
+            },
+            "agent": {
+              "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#agent",
+              "x-jsonld-type": "@id"
+            }
           },
           "anyOf": [
             {
@@ -1100,13 +1278,13 @@
           "items": {
             "oneOf": [
               {
-                "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+                "$ref": "#/$defs/Entity"
               },
               {
-                "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+                "$ref": "#/$defs/Activity"
               },
               {
-                "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Agent"
+                "$ref": "#/$defs/Agent"
               }
             ]
           }
@@ -1114,10 +1292,10 @@
       },
       "anyOf": [
         {
-          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Entity"
+          "$ref": "#/$defs/Entity"
         },
         {
-          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.prov/$defs/Activity"
+          "$ref": "#/$defs/Activity"
         }
       ],
       "x-jsonld-extra-terms": {
@@ -1270,57 +1448,6 @@
       },
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema",
       "x-schema-source": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json"
-    },
-    "ogc.ogc-utils.iri-or-curie": {
-      "x-schema-version": "https://json-schema.org/draft/2020-12/schema",
-      "x-schema-source": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
-    },
-    "ogc.ogc-utils.json-link": {
-      "description": "JSON Link",
-      "type": "object",
-      "required": [
-        "href",
-        "rel"
-      ],
-      "properties": {
-        "href": {
-          "type": "string",
-          "format": "uri-reference",
-          "x-jsonld-id": "http://www.w3.org/ns/oa#hasTarget"
-        },
-        "rel": {
-          "type": "string",
-          "x-jsonld-id": "http://www.iana.org/assignments/relation",
-          "x-jsonld-type": "@id",
-          "x-jsonld-base": "http://www.iana.org/assignments/relation/"
-        },
-        "anchor": {
-          "type": "string"
-        },
-        "type": {
-          "type": "string",
-          "x-jsonld-id": "http://purl.org/dc/terms/type"
-        },
-        "hreflang": {
-          "type": "string",
-          "x-jsonld-id": "http://purl.org/dc/terms/language"
-        },
-        "title": {
-          "type": "string",
-          "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#label"
-        },
-        "length": {
-          "type": "integer",
-          "x-jsonld-id": "http://purl.org/dc/terms/extent"
-        }
-      },
-      "x-jsonld-prefixes": {
-        "oa": "http://www.w3.org/ns/oa#",
-        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-        "dct": "http://purl.org/dc/terms/"
-      },
-      "x-schema-version": "https://json-schema.org/draft/2020-12/schema",
-      "x-schema-source": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json"
     }
   },
   "allOf": [

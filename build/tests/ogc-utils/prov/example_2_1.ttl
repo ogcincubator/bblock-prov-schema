@@ -11,6 +11,6 @@
 
 <http://www.example.com/exampleActivity/Act3> a prov:Entity ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget "https://some.gov/linktoact/" ] ;
+            oa:hasTarget <https://some.gov/linktoact/> ] ;
     prov:wasAttributedTo <icsm-jurisdictions:nz> .
 

@@ -13,10 +13,12 @@ bblocks:ogc.ogc-utils.prov a skos:Concept,
     dct:created "2023-07-10T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/slate-build/ogc-utils/prov/" ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov/index.json" ],
+        [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov" ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md" ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov/index.json" ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2023-07-10"^^xsd:date ;
     dct:source <https://www.w3.org/TR/prov-o/> ;
@@ -35,8 +37,8 @@ bblocks:ogc.ogc-utils.prov a skos:Concept,
 <https://www.w3.org/TR/prov-o/> rdfs:label "The PROV-O vocabulary" .
 
 [] a prov:Activity ;
-    prov:endedAtTime "2023-11-20T09:50:02.506894"^^xsd:dateTime ;
-    prov:startedAtTime "2023-11-20T09:50:02.449266"^^xsd:dateTime ;
+    prov:endedAtTime "2024-01-16T08:14:37.702471"^^xsd:dateTime ;
+    prov:startedAtTime "2024-01-16T08:14:37.644758"^^xsd:dateTime ;
     prov:used [ a prov:Entity ;
             dct:format "application/yaml" ;
             rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
@@ -46,6 +48,6 @@ bblocks:ogc.ogc-utils.prov a skos:Concept,
     prov:wasAssociatedWith [ a prov:Agent,
                 schema:SoftwareApplication ;
             rdfs:label "OGC-NA tools" ;
-            dct:hasVersion "0.3.26" ;
+            dct:hasVersion "0.3.33" ;
             rdfs:seeAlso <https://github.com/opengeospatial/ogc-na-tools> ] .
 

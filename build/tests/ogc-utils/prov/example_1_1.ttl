@@ -18,12 +18,12 @@
     prov:wasGeneratedBy <https://example.org/aThing/DP-1-S1> .
 
 <https://example.org/aThing/Example-Act> rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget "https://nze.gov/linktoact/Example1" ] ;
+            oa:hasTarget <https://nze.gov/linktoact/Example1> ] ;
     prov:wasAttributedTo agents:nz .
 
 thing:Act3 a <https://example.org/aThing/Legislation> ;
     rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget "https://some.gov/linktoact/" ] ;
+            oa:hasTarget <https://some.gov/linktoact/> ] ;
     prov:wasAttributedTo agents:nz .
 
 surveyreg:DP-1-S2 a <http://example.org/myActivityTypes/Registration> ;

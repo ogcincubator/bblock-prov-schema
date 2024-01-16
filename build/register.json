@@ -30,11 +30,12 @@
         "ogc.ogc-utils.iri-or-curie",
         "ogc.ogc-utils.json-link"
       ],
+      "ldContext": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
       "schema": {
         "application/yaml": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml",
         "application/json": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json"
       },
-      "ldContext": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
+      "sourceLdContext": "https://ogcincubator.github.io/bblock-prov-schema/_sources/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/",
       "validationPassed": true,
       "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/",
@@ -50,8 +51,15 @@
         "slate": {
           "mediatype": "text/html",
           "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/slate-build/ogc-utils/prov/"
+        },
+        "bblocks-viewer": {
+          "mediatype": "text/html",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov"
         }
       }
     }
-  ]
+  ],
+  "baseURL": "https://ogcincubator.github.io/bblock-prov-schema/",
+  "viewerURL": "https://ogcincubator.github.io/bblock-prov-schema/",
+  "validationReport": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/report.html"
 }
