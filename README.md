@@ -2,7 +2,7 @@
 
 This repository defines a "building block" for use of [PROV-O Vocabulary](https://www.w3.org/TR/prov-o/) in a JSON or JSON-LD implementation.
 
-The "ready-to-use" form is generated [here:](https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/slate-build/ogc-utils/prov/index.html)
+The "ready-to-use" form is generated [here:](https://ogcincubator.github.io/bblock-prov-schema/)
 
 The **JSON schema** allows for either nested instances of PROV classes, or for arrays of objects linked by identifiers, and the use of external URI identifiers for PROV objects.
 
