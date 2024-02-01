@@ -1,6 +1,22 @@
 {
+  "name": "JSON schema for W3C PROV model",
+  "abstract": "Defines a graph structure based on an array of objects implementing PROV defined classes with object cross references",
+  "description": "Provenance defined using the [W3C PROV-O model](https://www.w3.org/TR/prov-o/) is a DAG (non-cyclic graph) based on three main object types: Entity, Activity and Agent.\n\nThis repository defines a JSON schema and matching JSON-LD context for this model, using the canonical terminology used in the PROV ontology as element names.\n\nIt also defines a context for an optional schema property \"has_provenance\" that can be used to wrap a provenance graph as an array of such objects, to extend the prov:wasGeneratedBy (whose range is one or more Entity objects) with an explicit schema.\n\n![](https://www.w3.org/TR/prov-o/diagrams/starting-points.svg)\n",
+  "modified": "2024-02-01T07:24:19.743912",
+  "tooling": {
+    "bblocks-postprocess": {
+      "commitId": "\"fd0465021c0dc5467a837bcb68da167e551b7bfd",
+      "shortCommitId": "\"fd0465",
+      "date": "2024-01-31T10:28:24+00:00\""
+    }
+  },
+  "gitRepository": "https://github.com/ogcincubator/bblock-prov-schema",
+  "gitHubRepository": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/",
+  "baseURL": "https://ogcincubator.github.io/bblock-prov-schema/",
+  "viewerURL": "https://ogcincubator.github.io/bblock-prov-schema/",
+  "validationReport": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/report.html",
   "imports": [
-    "https://blocks.ogc.org/register.json"
+    "https://opengeospatial.github.io/bblocks/register.json"
   ],
   "bblocks": [
     {
@@ -12,7 +28,7 @@
       "itemClass": "schema",
       "register": "ogc-utils",
       "version": "0.1",
-      "dateOfLastChange": "2023-07-10",
+      "dateOfLastChange": "2024-02-01",
       "sources": [
         {
           "link": "https://www.w3.org/TR/prov-o/",
@@ -27,8 +43,8 @@
       ],
       "shaclRules": {},
       "dependsOn": [
-        "ogc.ogc-utils.iri-or-curie",
-        "ogc.ogc-utils.json-link"
+        "ogc.ogc-utils.json-link",
+        "ogc.ogc-utils.iri-or-curie"
       ],
       "ldContext": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
       "schema": {
@@ -40,13 +56,13 @@
       "validationPassed": true,
       "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/",
       "documentation": {
-        "json-full": {
-          "mediatype": "application/json",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov/index.json"
-        },
         "markdown": {
           "mediatype": "text/markdown",
           "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md"
+        },
+        "json-full": {
+          "mediatype": "application/json",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov/index.json"
         },
         "slate": {
           "mediatype": "text/html",
@@ -58,8 +74,5 @@
         }
       }
     }
-  ],
-  "baseURL": "https://ogcincubator.github.io/bblock-prov-schema/",
-  "viewerURL": "https://ogcincubator.github.io/bblock-prov-schema/",
-  "validationReport": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/report.html"
+  ]
 }

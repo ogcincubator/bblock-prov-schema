@@ -1367,6 +1367,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
       <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Activity'</span>
       <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Agent'</span>
 <span class="na">anyOf</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Prov'</span>
 <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Entity'</span>
 <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Activity'</span>
 <span class="na">x-jsonld-extra-terms</span><span class="pi">:</span>
@@ -1511,45 +1512,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"entityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"has_provenance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oa:hasTarget"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.iana.org/assignments/relation/"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.iana.org/assignments/relation"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:type"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:language"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"qualifiedDelegation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agent"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedDelegation"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:has_provenance"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -1574,27 +1537,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:language"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"qualifiedDelegation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agent"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedDelegation"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:wasAttributedTo"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
@@ -1631,27 +1574,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:language"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"qualifiedDelegation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agent"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedDelegation"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:wasInvalidatedBy"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
@@ -1672,27 +1595,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:language"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"qualifiedDelegation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agent"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedDelegation"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:wasQuotedFrom"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
@@ -1713,27 +1616,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:language"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"qualifiedDelegation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agent"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedDelegation"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:wasRevisionOf"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
@@ -1754,27 +1637,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:language"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"qualifiedDelegation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agent"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedDelegation"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:mentionOf"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
@@ -1860,41 +1723,6 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="nl">"qualifiedAttribution"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oa:hasTarget"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.iana.org/assignments/relation/"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.iana.org/assignments/relation"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:type"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:language"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"qualifiedDelegation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedDelegation"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agent"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -1918,27 +1746,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:language"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"qualifiedDelegation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agent"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedDelegation"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:wasInfluencedBy"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
@@ -1961,23 +1769,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:type"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:language"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"qualifiedDelegation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedDelegation"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+            </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:influencer"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
@@ -2002,23 +1794,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
             </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:type"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:language"</span><span class="p">,</span><span class="w">
             </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"qualifiedDelegation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedDelegation"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
+            </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agent"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
@@ -2054,27 +1830,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:type"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:language"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="nl">"qualifiedDelegation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agent"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
-          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedDelegation"</span><span class="p">,</span><span class="w">
-          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:wasAssociatedWith"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
@@ -2171,41 +1927,6 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="nl">"qualifiedAssociation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-          </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-            </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-            </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oa:hasTarget"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                    </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.iana.org/assignments/relation/"</span><span class="w">
-                  </span><span class="p">},</span><span class="w">
-                  </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.iana.org/assignments/relation"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-                </span><span class="p">},</span><span class="w">
-                </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:type"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:language"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">},</span><span class="w">
-            </span><span class="nl">"qualifiedDelegation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-              </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-                  </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
-                  </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-                </span><span class="p">}</span><span class="w">
-              </span><span class="p">},</span><span class="w">
-              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedDelegation"</span><span class="p">,</span><span class="w">
-              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-          </span><span class="p">},</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agent"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -2219,6 +1940,43 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedAssociation"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"agentType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"actedOnBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"oa:hasTarget"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.iana.org/assignments/relation/"</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.iana.org/assignments/relation"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:type"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"hreflang"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:language"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rdfs:label"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"length"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:extent"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:actedOnBehalfOf"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"qualifiedDelegation"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:agent"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedDelegation"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"Activity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:Activity"</span><span class="p">,</span><span class="w">

@@ -1291,6 +1291,9 @@
   },
   "anyOf": [
     {
+      "$ref": "#/$defs/Prov"
+    },
+    {
       "$ref": "#/$defs/Entity"
     },
     {

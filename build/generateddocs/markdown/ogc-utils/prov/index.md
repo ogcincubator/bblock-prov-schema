@@ -1008,6 +1008,7 @@ $defs:
       - $ref: '#/$defs/Activity'
       - $ref: '#/$defs/Agent'
 anyOf:
+- $ref: '#/$defs/Prov'
 - $ref: '#/$defs/Entity'
 - $ref: '#/$defs/Activity'
 x-jsonld-extra-terms:
@@ -1152,45 +1153,7 @@ Links to the schema:
     "featureType": "@type",
     "entityType": "@type",
     "has_provenance": {
-      "@context": {
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@context": {
-            "href": {
-              "@type": "@id",
-              "@id": "oa:hasTarget"
-            },
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "type": "dct:type",
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          },
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        }
-      },
+      "@context": {},
       "@id": "prov:has_provenance",
       "@type": "@id"
     },
@@ -1215,27 +1178,7 @@ Links to the schema:
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        }
+        "length": "dct:extent"
       },
       "@id": "prov:wasAttributedTo",
       "@type": "@id"
@@ -1272,27 +1215,7 @@ Links to the schema:
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        }
+        "length": "dct:extent"
       },
       "@id": "prov:wasInvalidatedBy",
       "@type": "@id"
@@ -1313,27 +1236,7 @@ Links to the schema:
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        }
+        "length": "dct:extent"
       },
       "@id": "prov:wasQuotedFrom",
       "@type": "@id"
@@ -1354,27 +1257,7 @@ Links to the schema:
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        }
+        "length": "dct:extent"
       },
       "@id": "prov:wasRevisionOf",
       "@type": "@id"
@@ -1395,27 +1278,7 @@ Links to the schema:
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        }
+        "length": "dct:extent"
       },
       "@id": "prov:mentionOf",
       "@type": "@id"
@@ -1501,41 +1364,6 @@ Links to the schema:
     "qualifiedAttribution": {
       "@context": {
         "agent": {
-          "@context": {
-            "agentType": "@type",
-            "name": "rdfs:label",
-            "actedOnBehalfOf": {
-              "@context": {
-                "href": {
-                  "@type": "@id",
-                  "@id": "oa:hasTarget"
-                },
-                "rel": {
-                  "@context": {
-                    "@base": "http://www.iana.org/assignments/relation/"
-                  },
-                  "@id": "http://www.iana.org/assignments/relation",
-                  "@type": "@id"
-                },
-                "type": "dct:type",
-                "hreflang": "dct:language",
-                "title": "rdfs:label",
-                "length": "dct:extent"
-              },
-              "@id": "prov:actedOnBehalfOf",
-              "@type": "@id"
-            },
-            "qualifiedDelegation": {
-              "@context": {
-                "hadActivity": {
-                  "@id": "prov:hadActivity",
-                  "@type": "@id"
-                }
-              },
-              "@id": "prov:qualifiedDelegation",
-              "@type": "@id"
-            }
-          },
           "@id": "prov:agent",
           "@type": "@id"
         }
@@ -1559,27 +1387,7 @@ Links to the schema:
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        }
+        "length": "dct:extent"
       },
       "@id": "prov:wasInfluencedBy",
       "@type": "@id"
@@ -1602,23 +1410,7 @@ Links to the schema:
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
-            "length": "dct:extent",
-            "agentType": "@type",
-            "name": "rdfs:label",
-            "actedOnBehalfOf": {
-              "@id": "prov:actedOnBehalfOf",
-              "@type": "@id"
-            },
-            "qualifiedDelegation": {
-              "@context": {
-                "hadActivity": {
-                  "@id": "prov:hadActivity",
-                  "@type": "@id"
-                }
-              },
-              "@id": "prov:qualifiedDelegation",
-              "@type": "@id"
-            }
+            "length": "dct:extent"
           },
           "@id": "prov:influencer",
           "@type": "@id"
@@ -1643,23 +1435,7 @@ Links to the schema:
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
-            "length": "dct:extent",
-            "agentType": "@type",
-            "name": "rdfs:label",
-            "actedOnBehalfOf": {
-              "@id": "prov:actedOnBehalfOf",
-              "@type": "@id"
-            },
-            "qualifiedDelegation": {
-              "@context": {
-                "hadActivity": {
-                  "@id": "prov:hadActivity",
-                  "@type": "@id"
-                }
-              },
-              "@id": "prov:qualifiedDelegation",
-              "@type": "@id"
-            }
+            "length": "dct:extent"
           },
           "@id": "prov:agent",
           "@type": "@id"
@@ -1695,27 +1471,7 @@ Links to the schema:
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
-        "length": "dct:extent",
-        "agentType": "@type",
-        "name": "rdfs:label",
-        "actedOnBehalfOf": {
-          "@id": "prov:actedOnBehalfOf",
-          "@type": "@id"
-        },
-        "qualifiedDelegation": {
-          "@context": {
-            "agent": {
-              "@id": "prov:agent",
-              "@type": "@id"
-            },
-            "hadActivity": {
-              "@id": "prov:hadActivity",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:qualifiedDelegation",
-          "@type": "@id"
-        }
+        "length": "dct:extent"
       },
       "@id": "prov:wasAssociatedWith",
       "@type": "@id"
@@ -1812,41 +1568,6 @@ Links to the schema:
     "qualifiedAssociation": {
       "@context": {
         "agent": {
-          "@context": {
-            "agentType": "@type",
-            "name": "rdfs:label",
-            "actedOnBehalfOf": {
-              "@context": {
-                "href": {
-                  "@type": "@id",
-                  "@id": "oa:hasTarget"
-                },
-                "rel": {
-                  "@context": {
-                    "@base": "http://www.iana.org/assignments/relation/"
-                  },
-                  "@id": "http://www.iana.org/assignments/relation",
-                  "@type": "@id"
-                },
-                "type": "dct:type",
-                "hreflang": "dct:language",
-                "title": "rdfs:label",
-                "length": "dct:extent"
-              },
-              "@id": "prov:actedOnBehalfOf",
-              "@type": "@id"
-            },
-            "qualifiedDelegation": {
-              "@context": {
-                "hadActivity": {
-                  "@id": "prov:hadActivity",
-                  "@type": "@id"
-                }
-              },
-              "@id": "prov:qualifiedDelegation",
-              "@type": "@id"
-            }
-          },
           "@id": "prov:agent",
           "@type": "@id"
         },
@@ -1860,6 +1581,43 @@ Links to the schema:
         }
       },
       "@id": "prov:qualifiedAssociation",
+      "@type": "@id"
+    },
+    "agentType": "@type",
+    "name": "rdfs:label",
+    "actedOnBehalfOf": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "prov:actedOnBehalfOf",
+      "@type": "@id"
+    },
+    "qualifiedDelegation": {
+      "@context": {
+        "agent": {
+          "@id": "prov:agent",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        }
+      },
+      "@id": "prov:qualifiedDelegation",
       "@type": "@id"
     },
     "Activity": "prov:Activity",

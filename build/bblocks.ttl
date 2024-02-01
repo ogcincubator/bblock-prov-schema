@@ -1,4 +1,5 @@
 @prefix bblocks: <https://www.opengis.net/def/bblocks/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -6,41 +7,59 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-bblocks:ogc.ogc-utils.prov a skos:Concept,
+<https://ogcincubator.github.io/ogc.ogc-utils.prov> a skos:Concept,
+        dcat:Dataset,
         bblocks:Schema ;
     rdfs:label "Provenance Chain" ;
     dct:abstract "Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way." ;
     dct:created "2023-07-10T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/slate-build/ogc-utils/prov/" ],
+        [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md" ],
         [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov/index.json" ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov" ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/slate-build/ogc-utils/prov/" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2023-07-10"^^xsd:date ;
+    dct:modified "2024-02-01"^^xsd:date ;
     dct:source <https://www.w3.org/TR/prov-o/> ;
-    skos:inScheme <https://www.opengis.net/def/bblocks> ;
-    bblocks:dependsOn bblocks:ogc.ogc-utils.iri-or-curie,
-        bblocks:ogc.ogc-utils.json-link ;
+    skos:inScheme <https://ogcincubator.github.io/bblock-prov-schema/> ;
+    dcat:keyword "prov",
+        "utils" ;
+    bblocks:dependsOn <https://ogcincubator.github.io/ogc.ogc-utils.iri-or-curie>,
+        <https://ogcincubator.github.io/ogc.ogc-utils.json-link> ;
     bblocks:hasJsonLdContext <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld> ;
     bblocks:hasSchema <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json>,
         <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml> ;
+    bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblock-prov-schema/_sources/context.jsonld> ;
     bblocks:scope <http://www.opengis.net/def/bblocks/scope/unstable> ;
     bblocks:status <http://www.opengis.net/def/status/under-development> .
 
-<https://www.opengis.net/def/bblocks> a skos:ConceptScheme ;
-    skos:prefLabel "OGC Building Blocks Register" .
+<https://ogcincubator.github.io/bblock-prov-schema/> a skos:ConceptScheme,
+        dcat:Catalog ;
+    rdfs:label "JSON schema for W3C PROV model" ;
+    dct:abstract "Defines a graph structure based on an array of objects implementing PROV defined classes with object cross references" ;
+    dct:description """Provenance defined using the [W3C PROV-O model](https://www.w3.org/TR/prov-o/) is a DAG (non-cyclic graph) based on three main object types: Entity, Activity and Agent.
+
+This repository defines a JSON schema and matching JSON-LD context for this model, using the canonical terminology used in the PROV ontology as element names.
+
+It also defines a context for an optional schema property "has_provenance" that can be used to wrap a provenance graph as an array of such objects, to extend the prov:wasGeneratedBy (whose range is one or more Entity objects) with an explicit schema.
+
+![](https://www.w3.org/TR/prov-o/diagrams/starting-points.svg)
+""" ;
+    skos:prefLabel "JSON schema for W3C PROV model" ;
+    bblocks:hasValidationReport <https://ogcincubator.github.io/bblock-prov-schema/build/tests/report.html> ;
+    bblocks:imports <https://opengeospatial.github.io/bblocks/register.json> .
 
 <https://www.w3.org/TR/prov-o/> rdfs:label "The PROV-O vocabulary" .
 
 [] a prov:Activity ;
-    prov:endedAtTime "2024-01-16T08:17:31.974893"^^xsd:dateTime ;
-    prov:startedAtTime "2024-01-16T08:17:31.916528"^^xsd:dateTime ;
+    prov:endedAtTime "2024-02-01T07:24:28.308345"^^xsd:dateTime ;
+    prov:startedAtTime "2024-02-01T07:24:28.249669"^^xsd:dateTime ;
     prov:used [ a prov:Entity ;
             dct:format "application/json" ;
+            dct:hasVersion "git:c1030ccdbfac3a74014ba6e96b1ed386f2996400" ;
             rdfs:seeAlso <https://ogcincubator.github.io/bblock-prov-schema/build/register.json> ],
         [ a prov:Entity ;
             dct:format "application/yaml" ;
@@ -48,6 +67,6 @@ bblocks:ogc.ogc-utils.prov a skos:Concept,
     prov:wasAssociatedWith [ a prov:Agent,
                 schema:SoftwareApplication ;
             rdfs:label "OGC-NA tools" ;
-            dct:hasVersion "0.3.33" ;
+            dct:hasVersion "0.3.35" ;
             rdfs:seeAlso <https://github.com/opengeospatial/ogc-na-tools> ] .
 

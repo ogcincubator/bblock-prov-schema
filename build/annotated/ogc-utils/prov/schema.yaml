@@ -713,6 +713,7 @@ $defs:
       - $ref: '#/$defs/Activity'
       - $ref: '#/$defs/Agent'
 anyOf:
+- $ref: '#/$defs/Prov'
 - $ref: '#/$defs/Entity'
 - $ref: '#/$defs/Activity'
 x-jsonld-extra-terms:
