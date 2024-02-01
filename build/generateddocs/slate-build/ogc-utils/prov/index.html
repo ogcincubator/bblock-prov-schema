@@ -532,6 +532,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_1_1.jsonld">View on JSON-LD Playground</a>
 </blockquote>
 <div class="highlight"><pre class="highlight turtle tab-turtle"><code><span class="kd">@prefix</span><span class="w"> </span><span class="nn">agents:</span><span class="w"> </span><span class="nl">&lt;https://someagentregister.eg/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
+</span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">dcterms:</span><span class="w"> </span><span class="nl">&lt;http://purl.org/dc/terms/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
 </span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">ns1:</span><span class="w"> </span><span class="nl">&lt;http://www.iana.org/assignments/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
 </span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">oa:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/ns/oa#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
 </span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">prov:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/ns/prov#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
@@ -541,7 +542,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 </span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">xsd:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
 
 </span><span class="nl">&lt;https://example.org/aThing/DP-1&gt;</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nl">&lt;http://example.org/myEntities/Survey&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
-    </span><span class="nn">prov:</span><span class="n">has_provenance</span><span class="w"> </span><span class="nl">&lt;https://example.org/aThing/DP-2223&gt;</span><span class="p">,</span><span class="w">
+    </span><span class="nn">dcterms:</span><span class="n">provenance</span><span class="w"> </span><span class="nl">&lt;https://example.org/aThing/DP-2223&gt;</span><span class="p">,</span><span class="w">
         </span><span class="nn">surveyreg:</span><span class="n">DP-1-S1</span><span class="w"> </span><span class="p">;</span><span class="w">
     </span><span class="nn">prov:</span><span class="n">wasGeneratedBy</span><span class="w"> </span><span class="nn">surveyreg:</span><span class="n">DP-1-S1,
 </span><span class="w">        </span><span class="nn">surveyreg:</span><span class="n">DP-1-S2</span><span class="w"> </span><span class="p">.</span><span class="w">
@@ -728,7 +729,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
       <span class="na">has_provenance</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Prov'</span>
-        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#has_provenance</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://purl.org/dc/terms/provenance</span>
         <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">wasGeneratedBy</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreActivitiesOrRefIds'</span>
@@ -1493,6 +1494,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
   <span class="na">prov</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#</span>
   <span class="na">xsd</span><span class="pi">:</span> <span class="s">http://www.w3.org/2001/XMLSchema#</span>
   <span class="na">rdfs</span><span class="pi">:</span> <span class="s">http://www.w3.org/2000/01/rdf-schema#</span>
+  <span class="na">dct</span><span class="pi">:</span> <span class="s">http://purl.org/dc/terms/</span>
   <span class="na">rdf</span><span class="pi">:</span> <span class="s">http://www.w3.org/1999/02/22-rdf-syntax-ns#</span>
 
 </code></pre></div>
@@ -1513,7 +1515,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="nl">"entityType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"has_provenance"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span><span class="w">
-      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:has_provenance"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dct:provenance"</span><span class="p">,</span><span class="w">
       </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"wasGeneratedBy"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2122,9 +2124,9 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="nl">"prov"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/prov#"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"xsd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2001/XMLSchema#"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"rdfs"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2000/01/rdf-schema#"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"dct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://purl.org/dc/terms/"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"rdf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/1999/02/22-rdf-syntax-ns#"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"oa"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/ns/oa#"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"dct"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://purl.org/dc/terms/"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"@version"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.1</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">

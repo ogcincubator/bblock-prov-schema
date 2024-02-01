@@ -1,4 +1,5 @@
 @prefix agents: <https://someagentregister.eg/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -8,7 +9,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
-    prov:has_provenance <https://example.org/aThing/DP-2223>,
+    dcterms:provenance <https://example.org/aThing/DP-2223>,
         surveyreg:DP-1-S1 ;
     prov:wasGeneratedBy surveyreg:DP-1-S1,
         surveyreg:DP-1-S2 .

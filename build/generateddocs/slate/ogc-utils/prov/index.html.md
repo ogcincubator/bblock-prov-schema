@@ -221,6 +221,7 @@ This schema implements the PROV vocabulary semantics.
 
 ```turtle
 @prefix agents: <https://someagentregister.eg/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -230,7 +231,7 @@ This schema implements the PROV vocabulary semantics.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
-    prov:has_provenance <https://example.org/aThing/DP-2223>,
+    dcterms:provenance <https://example.org/aThing/DP-2223>,
         surveyreg:DP-1-S1 ;
     prov:wasGeneratedBy surveyreg:DP-1-S1,
         surveyreg:DP-1-S2 .
@@ -445,7 +446,7 @@ $defs:
         x-jsonld-id: '@type'
       has_provenance:
         $ref: '#/$defs/Prov'
-        x-jsonld-id: http://www.w3.org/ns/prov#has_provenance
+        x-jsonld-id: http://purl.org/dc/terms/provenance
         x-jsonld-type: '@id'
       wasGeneratedBy:
         $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
@@ -1210,6 +1211,7 @@ x-jsonld-prefixes:
   prov: http://www.w3.org/ns/prov#
   xsd: http://www.w3.org/2001/XMLSchema#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
+  dct: http://purl.org/dc/terms/
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
 
 ```
@@ -1232,7 +1234,7 @@ Links to the schema:
     "entityType": "@type",
     "has_provenance": {
       "@context": {},
-      "@id": "prov:has_provenance",
+      "@id": "dct:provenance",
       "@type": "@id"
     },
     "wasGeneratedBy": {
@@ -1841,9 +1843,9 @@ Links to the schema:
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dct": "http://purl.org/dc/terms/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
     "oa": "http://www.w3.org/ns/oa#",
-    "dct": "http://purl.org/dc/terms/",
     "@version": 1.1
   }
 }
