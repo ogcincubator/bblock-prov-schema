@@ -1156,10 +1156,14 @@
   },
   "anyOf": [
     {
+      "$ref": "#/$defs/Prov"
+    },
+    {
       "$ref": "#/$defs/Entity"
     },
     {
       "$ref": "#/$defs/Activity"
     }
+
   ]
 }
