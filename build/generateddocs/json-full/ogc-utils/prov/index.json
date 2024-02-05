@@ -33,6 +33,7 @@
     "application/json": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json"
   },
   "sourceLdContext": "https://ogcincubator.github.io/bblock-prov-schema/_sources/context.jsonld",
+  "sourceSchema": "https://ogcincubator.github.io/bblock-prov-schema/_sources/schema.json",
   "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/",
   "validationPassed": true,
   "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/",
