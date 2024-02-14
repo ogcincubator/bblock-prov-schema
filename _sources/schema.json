@@ -135,10 +135,10 @@
           "$ref": "#/$defs/curie"
         },
         "featureType": {
-          "$ref": "#/$defs/objectref"
+          "$ref": "#/$defs/oneOrMoreObjectref"
         },
         "entityType": {
-          "$ref": "#/$defs/objectref"
+          "$ref": "#/$defs/oneOrMoreObjectref"
         },
         "has_provenance": {
           "$ref": "#/$defs/Prov"
