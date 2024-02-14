@@ -439,10 +439,10 @@ $defs:
         $ref: '#/$defs/curie'
         x-jsonld-id: '@id'
       featureType:
-        $ref: '#/$defs/objectref'
+        $ref: '#/$defs/oneOrMoreObjectref'
         x-jsonld-id: '@type'
       entityType:
-        $ref: '#/$defs/objectref'
+        $ref: '#/$defs/oneOrMoreObjectref'
         x-jsonld-id: '@type'
       has_provenance:
         $ref: '#/$defs/Prov'
