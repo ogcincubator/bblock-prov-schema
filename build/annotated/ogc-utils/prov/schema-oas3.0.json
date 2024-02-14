@@ -5,10 +5,7 @@
       "$defs": {
         "objectref": {},
         "oneOrMoreObjectref": {
-          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.iri-or-curie/$defs/MultipleOrObject"
-        },
-        "curie": {
-          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.iri-or-curie"
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/ogc.ogc-utils.iri-or-curie_/$defs/MultipleOrObject"
         },
         "oneOrMoreActivitiesOrRefIds": {
           "oneOf": [
@@ -1278,6 +1275,10 @@
     "ogc.ogc-utils.iri-or-curie": {
       "x-schema-version": "https://json-schema.org/draft/2020-12/schema",
       "x-schema-source": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
+    },
+    "ogc.ogc-utils.iri-or-curie_": {
+      "x-schema-version": "https://json-schema.org/draft/2020-12/schema",
+      "x-schema-source": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml"
     },
     "ogc.ogc-utils.json-link": {
       "description": "JSON Link",

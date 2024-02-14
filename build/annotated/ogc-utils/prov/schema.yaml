@@ -4,11 +4,9 @@ description: Provenance Chain using PROV-O core model supporting both an ID base
 $defs:
   objectref:
     $anchor: objectref
-    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json
+    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml
   oneOrMoreObjectref:
-    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json#/$defs/MultipleOrObject
-  curie:
-    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json
+    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml#/$defs/MultipleOrObject
   oneOrMoreActivitiesOrRefIds:
     oneOf:
     - $ref: '#/$defs/objectref'
@@ -38,7 +36,7 @@ $defs:
         - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Agent'
   externalLink:
-    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json
+    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
   influenced:
     type: object
     properties:
@@ -64,7 +62,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       featureType:
         $ref: '#/$defs/oneOrMoreObjectref'
@@ -237,7 +235,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       activityType:
         $ref: '#/$defs/oneOrMoreObjectref'
@@ -348,7 +346,7 @@ $defs:
         type: string
         x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       actedOnBehalfOf:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
@@ -408,7 +406,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -437,7 +435,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -459,7 +457,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -481,7 +479,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -503,7 +501,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -551,7 +549,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -594,7 +592,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -622,7 +620,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -644,7 +642,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -674,7 +672,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       influencer:
         anyOf:

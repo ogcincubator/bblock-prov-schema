@@ -322,6 +322,9 @@
                   <li>
                     <a href="#provenance-chain" class="toc-h2 toc-link" data-title="Provenance chain">Provenance chain</a>
                   </li>
+                  <li>
+                    <a href="#object-typing" class="toc-h2 toc-link" data-title="Object typing">Object typing</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -365,13 +368,23 @@
     <a href="http://www.opengis.net/def/status/under-development" target="_blank" data-rainbow-uri>Under development</a>
 </p>
 
-<aside class="success">
-This building block is <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">valid</a></strong>
+<aside class="warning">
+Validation for this building block has <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">failed</a></strong>
 </aside>
 <h1 id='description'>Description</h1><h2 id='provenance-chain'>Provenance chain</h2>
-<p>A schema defining objects that may be referenced or nested as a chain of activities.</p>
+<p>A JSON schema defining objects that may be referenced or nested as a chain of Activities, Entities or Agents (or subclasses thereof)</p>
 
-<p>This schema implements the PROV vocabulary semantics.</p>
+<p>This schema implements the PROV vocabulary semantics (through JSON-LD mapping directly to the PROV-O RDF model.)</p>
+<h2 id='object-typing'>Object typing</h2>
+<p>Object typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).</p>
+
+<p><code>provType</code> may be used to map to the subClasses of the Provenance vocabulary.</p>
+
+<p>Custom application object types are explicit (<code>activityType</code>, <code>agentType</code>, <code>entityType</code> to support schema validation clarity).</p>
+
+<p>Note that entityType is optional and may be replaced by <code>featureType</code> for compatibility with the OGC Feature implementation (implicitly always an Entity)</p>
+
+<p>likewise the use of the property <code>type</code> is not specified to allow compatibility with GeoJSON features that must have this property with a constant value (&quot;Feature&quot; or &quot;FeatureCollection&quot;).</p>
 <h1 id='examples'>Examples</h1><h2 id='example-entities-with-provenance-chains'>Example Entities with Provenance Chains</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/aThing/"</span><span class="p">,</span><span class="w">
@@ -659,11 +672,9 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 <span class="na">$defs</span><span class="pi">:</span>
   <span class="na">objectref</span><span class="pi">:</span>
     <span class="na">$anchor</span><span class="pi">:</span> <span class="s">objectref</span>
-    <span class="na">$ref</span><span class="pi">:</span> <span class="s">https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json</span>
+    <span class="na">$ref</span><span class="pi">:</span> <span class="s">https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml</span>
   <span class="na">oneOrMoreObjectref</span><span class="pi">:</span>
-    <span class="na">$ref</span><span class="pi">:</span> <span class="s">https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json#/$defs/MultipleOrObject</span>
-  <span class="na">curie</span><span class="pi">:</span>
-    <span class="na">$ref</span><span class="pi">:</span> <span class="s">https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json</span>
+    <span class="na">$ref</span><span class="pi">:</span> <span class="s">https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml#/$defs/MultipleOrObject</span>
   <span class="na">oneOrMoreActivitiesOrRefIds</span><span class="pi">:</span>
     <span class="na">oneOf</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
@@ -693,7 +704,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Agent'</span>
   <span class="na">externalLink</span><span class="pi">:</span>
-    <span class="na">$ref</span><span class="pi">:</span> <span class="s">https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json</span>
+    <span class="na">$ref</span><span class="pi">:</span> <span class="s">https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml</span>
   <span class="na">influenced</span><span class="pi">:</span>
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
@@ -719,7 +730,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
       <span class="na">id</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/curie'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">featureType</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreObjectref'</span>
@@ -892,7 +903,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
       <span class="na">id</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/curie'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">activityType</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreObjectref'</span>
@@ -1003,7 +1014,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         <span class="na">type</span><span class="pi">:</span> <span class="s">string</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/2000/01/rdf-schema#label</span>
       <span class="na">id</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/curie'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">actedOnBehalfOf</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreAgentsOrRefIds'</span>
@@ -1063,7 +1074,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
       <span class="na">id</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/curie'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">type</span><span class="pi">:</span>
         <span class="na">oneOf</span><span class="pi">:</span>
@@ -1092,7 +1103,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
       <span class="na">id</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/curie'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">type</span><span class="pi">:</span>
         <span class="na">oneOf</span><span class="pi">:</span>
@@ -1114,7 +1125,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
       <span class="na">id</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/curie'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">type</span><span class="pi">:</span>
         <span class="na">oneOf</span><span class="pi">:</span>
@@ -1136,7 +1147,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
       <span class="na">id</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/curie'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">type</span><span class="pi">:</span>
         <span class="na">oneOf</span><span class="pi">:</span>
@@ -1158,7 +1169,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
       <span class="na">id</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/curie'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">type</span><span class="pi">:</span>
         <span class="na">oneOf</span><span class="pi">:</span>
@@ -1206,7 +1217,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
       <span class="na">id</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/curie'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">type</span><span class="pi">:</span>
         <span class="na">oneOf</span><span class="pi">:</span>
@@ -1249,7 +1260,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
       <span class="na">id</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/curie'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">type</span><span class="pi">:</span>
         <span class="na">oneOf</span><span class="pi">:</span>
@@ -1277,7 +1288,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
       <span class="na">id</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/curie'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">type</span><span class="pi">:</span>
         <span class="na">oneOf</span><span class="pi">:</span>
@@ -1299,7 +1310,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
       <span class="na">id</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/curie'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">type</span><span class="pi">:</span>
         <span class="na">oneOf</span><span class="pi">:</span>
@@ -1329,7 +1340,7 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     <span class="na">type</span><span class="pi">:</span> <span class="s">object</span>
     <span class="na">properties</span><span class="pi">:</span>
       <span class="na">id</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/curie'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">influencer</span><span class="pi">:</span>
         <span class="na">anyOf</span><span class="pi">:</span>

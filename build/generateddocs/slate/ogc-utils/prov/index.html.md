@@ -29,17 +29,31 @@ Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activi
     <a href="http://www.opengis.net/def/status/under-development" target="_blank" data-rainbow-uri>Under development</a>
 </p>
 
-<aside class="success">
-This building block is <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">valid</a></strong>
+<aside class="warning">
+Validation for this building block has <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">failed</a></strong>
 </aside>
 
 # Description
 
 ## Provenance chain
 
-A schema defining objects that may be referenced or nested as a chain of activities.
+A JSON schema defining objects that may be referenced or nested as a chain of Activities, Entities or Agents (or subclasses thereof)
 
-This schema implements the PROV vocabulary semantics.
+This schema implements the PROV vocabulary semantics (through JSON-LD mapping directly to the PROV-O RDF model.)
+
+## Object typing
+
+Object typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).
+
+`provType` may be used to map to the subClasses of the Provenance vocabulary.
+
+Custom application object types are explicit (`activityType`, `agentType`, `entityType` to support schema validation clarity).
+
+
+
+Note that entityType is optional and may be replaced by `featureType` for compatibility with the OGC Feature implementation (implicitly always an Entity)
+
+likewise the use of the property `type` is not specified to allow compatibility with GeoJSON features that must have this property with a constant value ("Feature" or "FeatureCollection").
 
 
 # Examples
@@ -376,11 +390,9 @@ description: Provenance Chain using PROV-O core model supporting both an ID base
 $defs:
   objectref:
     $anchor: objectref
-    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json
+    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml
   oneOrMoreObjectref:
-    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json#/$defs/MultipleOrObject
-  curie:
-    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json
+    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml#/$defs/MultipleOrObject
   oneOrMoreActivitiesOrRefIds:
     oneOf:
     - $ref: '#/$defs/objectref'
@@ -410,7 +422,7 @@ $defs:
         - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Agent'
   externalLink:
-    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json
+    $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
   influenced:
     type: object
     properties:
@@ -436,7 +448,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       featureType:
         $ref: '#/$defs/oneOrMoreObjectref'
@@ -609,7 +621,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       activityType:
         $ref: '#/$defs/oneOrMoreObjectref'
@@ -720,7 +732,7 @@ $defs:
         type: string
         x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       actedOnBehalfOf:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
@@ -780,7 +792,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -809,7 +821,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -831,7 +843,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -853,7 +865,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -875,7 +887,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -923,7 +935,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -966,7 +978,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -994,7 +1006,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -1016,7 +1028,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
         oneOf:
@@ -1046,7 +1058,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: '#/$defs/curie'
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       influencer:
         anyOf:

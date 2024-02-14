@@ -7,10 +7,7 @@
       "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
     },
     "oneOrMoreObjectref": {
-      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json#/$defs/MultipleOrObject"
-    },
-    "curie": {
-      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
+      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml#/$defs/MultipleOrObject"
     },
     "oneOrMoreActivitiesOrRefIds": {
       "oneOf": [
@@ -136,7 +133,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie",
+          "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
         "featureType": {
@@ -434,7 +431,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie",
+          "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
         "activityType": {
@@ -636,7 +633,7 @@
           "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#label"
         },
         "id": {
-          "$ref": "#/$defs/curie",
+          "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
         "actedOnBehalfOf": {
@@ -740,7 +737,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie",
+          "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
         "type": {
@@ -788,7 +785,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie",
+          "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
         "type": {
@@ -823,7 +820,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie",
+          "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
         "type": {
@@ -858,7 +855,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie",
+          "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
         "type": {
@@ -898,7 +895,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie",
+          "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
         "type": {
@@ -998,7 +995,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie",
+          "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
         "type": {
@@ -1077,7 +1074,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie",
+          "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
         "type": {
@@ -1128,7 +1125,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie",
+          "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
         "type": {
@@ -1167,7 +1164,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie",
+          "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
         "type": {
@@ -1216,7 +1213,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie",
+          "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
         "influencer": {
