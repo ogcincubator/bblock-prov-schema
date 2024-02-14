@@ -4,13 +4,10 @@
   "$defs": {
     "objectref": {
       "$anchor": "objectref",
-      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
+      "$ref": "bblocks://ogc.ogc-utils.iri-or-curie"
     },
     "oneOrMoreObjectref": {
-      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json#/$defs/MultipleOrObject"
-    },
-    "curie": {
-      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
+      "$ref": "bblocks://ogc.ogc-utils.iri-or-curie#/$defs/MultipleOrObject"
     },
     "oneOrMoreActivitiesOrRefIds": {
       "oneOf": [
@@ -85,7 +82,7 @@
       ]
     },
     "externalLink": {
-      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.json"
+      "$ref": "bblocks://ogc.ogc-utils.json-link"
     },
     "influenced": {
       "type": "object",
@@ -132,7 +129,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie"
+          "$ref": "#/$defs/objectref"
         },
         "featureType": {
           "$ref": "#/$defs/oneOrMoreObjectref"
@@ -389,7 +386,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie"
+          "$ref": "#/$defs/objectref"
         },
         "activityType": {
           "$ref": "#/$defs/oneOrMoreObjectref"
@@ -559,7 +556,7 @@
           "type": "string"
         },
         "id": {
-          "$ref": "#/$defs/curie"
+          "$ref": "#/$defs/objectref"
         },
         "actedOnBehalfOf": {
           "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
@@ -655,7 +652,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie"
+          "$ref": "#/$defs/objectref"
         },
         "type": {
           "oneOf": [
@@ -698,7 +695,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie"
+          "$ref": "#/$defs/objectref"
         },
         "type": {
           "oneOf": [
@@ -730,7 +727,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie"
+          "$ref": "#/$defs/objectref"
         },
         "type": {
           "oneOf": [
@@ -762,7 +759,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie"
+          "$ref": "#/$defs/objectref"
         },
         "type": {
           "oneOf": [
@@ -801,7 +798,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie"
+          "$ref": "#/$defs/objectref"
         },
         "type": {
           "oneOf": [
@@ -894,7 +891,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie"
+          "$ref": "#/$defs/objectref"
         },
         "type": {
           "oneOf": [
@@ -964,7 +961,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie"
+          "$ref": "#/$defs/objectref"
         },
         "type": {
           "oneOf": [
@@ -1010,7 +1007,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie"
+          "$ref": "#/$defs/objectref"
         },
         "type": {
           "oneOf": [
@@ -1046,7 +1043,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie"
+          "$ref": "#/$defs/objectref"
         },
         "type": {
           "oneOf": [
@@ -1088,7 +1085,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "#/$defs/curie"
+          "$ref": "#/$defs/objectref"
         },
         "influencer": {
           "anyOf": [
