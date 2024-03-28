@@ -1,4 +1,5 @@
 
+
 <!doctype html>
 <html>
     <head>
@@ -26,9 +27,9 @@
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2024-02-14T13:13:49.419947+00:00</small>
-                <p class="summary fw-semibold text-danger">
-                    Number of passing building blocks: 0 / 1 (0%)
+            <small class="datetime">Generated at 2024-03-28T09:16:17.160595+00:00</small>
+                <p class="summary fw-semibold text-success">
+                    Number of passing building blocks: 1 / 1 (100%)
                 </p>
             <div class="text-end small" id="expand-collapse">
                 <a href="#" class="expand-all">Expand all</a>
@@ -37,107 +38,23 @@
                 <div class="accordion mt-2" id="bblock-reports">
                         <div class="accordion-item bblock-report" data-bblock-id="ogc.ogc-utils.prov" id="bblock-0">
                             <h2 class="accordion-header bblock-title">
-                                <button class="accordion-button " type="button" data-bs-toggle="collapse" data-bs-target="#bblock-collapse-0">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bblock-collapse-0">
                                     <div class="flex-fill">
                                         Provenance Chain
                                         <small class="ms-2 bblock-id">ogc.ogc-utils.prov</small>
                                     </div>
 
-                                    <span class="badge text-bg-danger me-2">
-                                            Tests Failed
-                                            (50% passed)
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (100% passed)
                                     </span>
                                 </button>
                             </h2>
-                            <div class="accordion-collapse collapse show" id="bblock-collapse-0">
+                            <div class="accordion-collapse collapse " id="bblock-collapse-0">
                                 <div class="accordion-body">
-                                        <p class="summary fw-semibold text-danger">
-                                            Test passed: 1 / 2
+                                        <p class="summary fw-semibold text-success">
+                                            Test passed: 2 / 2
                                         </p>
-                                        <div class="card mb-2 global-validation-item validation-item">
-                                            <div class="card-body">
-                                                <div class="card-title">
-                                                    Building block global validation errors
-                                                    <div class="float-end">
-                                                        <span class="badge text-bg-danger me-2">Failed</span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-text text-danger">
-                                                        <div class="font-monospace entry-message section-unknown">Traceback (most recent call last):
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/validators.py&quot;, line 909, in resolve_from_url
-    document = self.store[url]
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/_utils.py&quot;, line 28, in __getitem__
-    return self.store[self.normalize(uri)]
-,KeyError: &#x27;bblocks://ogc.ogc-utils.iri-or-curie&#x27;
-,
-During handling of the above exception, another exception occurred:
-
-,Traceback (most recent call last):
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/validators.py&quot;, line 912, in resolve_from_url
-    document = self.resolve_remote(url)
-,  File &quot;/src/ogc/bblocks/validate.py&quot;, line 889, in resolve_remote
-    with urlopen(uri) as url:
-,  File &quot;/usr/local/lib/python3.10/urllib/request.py&quot;, line 216, in urlopen
-    return opener.open(url, data, timeout)
-,  File &quot;/usr/local/lib/python3.10/urllib/request.py&quot;, line 519, in open
-    response = self._open(req, data)
-,  File &quot;/usr/local/lib/python3.10/urllib/request.py&quot;, line 541, in _open
-    return self._call_chain(self.handle_open, &#x27;unknown&#x27;,
-,  File &quot;/usr/local/lib/python3.10/urllib/request.py&quot;, line 496, in _call_chain
-    result = func(*args)
-,  File &quot;/usr/local/lib/python3.10/urllib/request.py&quot;, line 1419, in unknown_open
-    raise URLError(&#x27;unknown url type: %s&#x27; % type)
-,urllib.error.URLError: &lt;urlopen error unknown url type: bblocks&gt;
-,
-During handling of the above exception, another exception occurred:
-
-,Traceback (most recent call last):
-,  File &quot;/src/ogc/bblocks/validate.py&quot;, line 517, in validate_inner
-    validate_json(json_doc, schema_validator)
-,  File &quot;/src/ogc/bblocks/validate.py&quot;, line 912, in validate_json
-    error = jsonschema.exceptions.best_match(validator.iter_errors(instance))
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/exceptions.py&quot;, line 384, in best_match
-    best = next(errors, None)
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/validators.py&quot;, line 288, in iter_errors
-    for error in errors:
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/_validators.py&quot;, line 298, in ref
-    yield from validator.descend(instance, resolved)
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/validators.py&quot;, line 305, in descend
-    for error in self.evolve(schema=schema).iter_errors(instance):
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/validators.py&quot;, line 288, in iter_errors
-    for error in errors:
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/_validators.py&quot;, line 332, in properties
-    yield from validator.descend(
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/validators.py&quot;, line 305, in descend
-    for error in self.evolve(schema=schema).iter_errors(instance):
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/validators.py&quot;, line 288, in iter_errors
-    for error in errors:
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/_validators.py&quot;, line 298, in ref
-    yield from validator.descend(instance, resolved)
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/validators.py&quot;, line 305, in descend
-    for error in self.evolve(schema=schema).iter_errors(instance):
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/validators.py&quot;, line 288, in iter_errors
-    for error in errors:
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/_validators.py&quot;, line 294, in ref
-    scope, resolved = validator.resolver.resolve(ref)
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/validators.py&quot;, line 898, in resolve
-    return url, self._remote_cache(url)
-,  File &quot;/venv/lib/python3.10/site-packages/jsonschema/validators.py&quot;, line 914, in resolve_from_url
-    raise exceptions.RefResolutionError(exc)
-,jsonschema.exceptions.RefResolutionError: &lt;urlopen error unknown url type: bblocks&gt;
-,
-During handling of the above exception, another exception occurred:
-
-,Traceback (most recent call last):
-,  File &quot;/src/ogc/bblocks/validate.py&quot;, line 640, in _validate_resource
-    validate_inner()
-,  File &quot;/src/ogc/bblocks/validate.py&quot;, line 537, in validate_inner
-    &#x27;errorMessage&#x27;: e.message,
-,AttributeError: &#x27;RefResolutionError&#x27; object has no attribute &#x27;message&#x27;
-</div>
-                                                </div>
-                                            </div>
-                                        </div>
                                         <div class="card mb-2 validation-item ">
                                             <div class="card-body">
                                                 <div class="card-title mb-0">
@@ -148,7 +65,7 @@ During handling of the above exception, another exception occurred:
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.json" target="_blank">example_1_1.json</a>
+                                                    <a href="ogc-utils/prov/example_1_1.json" target="_blank">example_1_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
@@ -156,7 +73,6 @@ During handling of the above exception, another exception occurred:
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-1">
                                                     <div class="validation-text-inner">
-                                                            <div class="font-monospace entry-message text-danger">Note: Test failed because there are global validation errors.</div>
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
                                                                     <div class="font-monospace entry-message section-files ">Using example_1_1.json from examples</div>
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
@@ -178,15 +94,14 @@ During handling of the above exception, another exception occurred:
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.json" target="_blank">example_2_1.json</a>
+                                                    <a href="ogc-utils/prov/example_2_1.json" target="_blank">example_2_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <div class="float-end">
-                                                            <span class="badge text-bg-danger me-2">Failed</span>
+                                                            <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-2">
                                                     <div class="validation-text-inner">
-                                                            <div class="font-monospace entry-message text-danger">Note: Test failed because there are global validation errors.</div>
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
                                                                     <div class="font-monospace entry-message section-files ">Using example_2_1.json from examples</div>
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
@@ -194,6 +109,7 @@ During handling of the above exception, another exception occurred:
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
                                                                     <div class="font-monospace entry-message section-json_schema ">Using the following JSON Schema: #/$defs/Activity</div>
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
                                             </div>

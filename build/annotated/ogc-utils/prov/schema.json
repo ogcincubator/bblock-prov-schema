@@ -7,7 +7,7 @@
       "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json"
     },
     "oneOrMoreObjectref": {
-      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.yaml#/$defs/MultipleOrObject"
+      "$ref": "https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/iri-or-curie/schema.json#/$defs/MultipleOrObject"
     },
     "oneOrMoreActivitiesOrRefIds": {
       "oneOf": [

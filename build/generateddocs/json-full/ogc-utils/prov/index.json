@@ -24,8 +24,8 @@
   ],
   "shaclRules": {},
   "dependsOn": [
-    "ogc.ogc-utils.iri-or-curie",
-    "ogc.ogc-utils.json-link"
+    "ogc.ogc-utils.json-link",
+    "ogc.ogc-utils.iri-or-curie"
   ],
   "ldContext": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
   "schema": {
@@ -35,7 +35,7 @@
   "sourceLdContext": "https://ogcincubator.github.io/bblock-prov-schema/_sources/context.jsonld",
   "sourceSchema": "https://ogcincubator.github.io/bblock-prov-schema/_sources/schema.json",
   "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/",
   "description": "## Provenance chain\n\nA JSON schema defining objects that may be referenced or nested as a chain of Activities, Entities or Agents (or subclasses thereof)\n\nThis schema implements the PROV vocabulary semantics (through JSON-LD mapping directly to the PROV-O RDF model.)\n\n## Object typing\n\nObject typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).\n\n`provType` may be used to map to the subClasses of the Provenance vocabulary.\n\nCustom application object types are explicit (`activityType`, `agentType`, `entityType` to support schema validation clarity).\n\n\n\nNote that entityType is optional and may be replaced by `featureType` for compatibility with the OGC Feature implementation (implicitly always an Entity)\n\nlikewise the use of the property `type` is not specified to allow compatibility with GeoJSON features that must have this property with a constant value (\"Feature\" or \"FeatureCollection\").\n\n",
   "examples": [
