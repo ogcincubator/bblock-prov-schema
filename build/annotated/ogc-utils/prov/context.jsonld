@@ -175,6 +175,10 @@
         "hadActivity": {
           "@id": "prov:hadActivity",
           "@type": "@id"
+        },
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedGeneration",
@@ -197,6 +201,10 @@
         "hadActivity": {
           "@id": "prov:hadActivity",
           "@type": "@id"
+        },
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedInvalidation",
@@ -216,6 +224,10 @@
             },
             "influencer": {
               "@id": "prov:influencer",
+              "@type": "@id"
+            },
+            "activity": {
+              "@id": "prov:activity",
               "@type": "@id"
             }
           },
@@ -422,6 +434,10 @@
         },
         "hadActivity": {
           "@id": "prov:hadActivity",
+          "@type": "@id"
+        },
+        "activity": {
+          "@id": "prov:activity",
           "@type": "@id"
         }
       },

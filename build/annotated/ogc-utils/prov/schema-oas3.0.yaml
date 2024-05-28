@@ -350,6 +350,7 @@ x-defs:
           hadRole: {}
           influencer: {}
           hadActivity: {}
+          activity: {}
       Generation:
         allOf:
         - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.yaml#/x-defs/_github_workspace_build_annotated_ogc-utils_prov_schema.yaml/$defs/ActivityInfluence

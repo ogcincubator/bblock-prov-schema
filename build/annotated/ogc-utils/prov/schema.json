@@ -804,8 +804,13 @@
           "x-jsonld-type": "@id"
         },
         "hadActivity": {
-          "$ref": "#/$defs/oneOrMoreObjectref",
+          "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds",
           "x-jsonld-id": "http://www.w3.org/ns/prov#hadActivity",
+          "x-jsonld-type": "@id"
+        },
+        "activity": {
+          "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#activity",
           "x-jsonld-type": "@id"
         }
       }

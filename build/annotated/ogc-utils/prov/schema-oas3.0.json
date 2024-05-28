@@ -666,7 +666,8 @@
             "atTime": {},
             "hadRole": {},
             "influencer": {},
-            "hadActivity": {}
+            "hadActivity": {},
+            "activity": {}
           }
         },
         "Generation": {

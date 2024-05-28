@@ -339,6 +339,9 @@
                   <li>
                     <a href="#provenance-chain-2" class="toc-h2 toc-link" data-title="Provenance Chain">Provenance Chain</a>
                   </li>
+                  <li>
+                    <a href="#qualified-generation" class="toc-h2 toc-link" data-title="Qualified Generation">Qualified Generation</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -371,8 +374,8 @@
     <a href="http://www.opengis.net/def/status/under-development" target="_blank" data-rainbow-uri>Under development</a>
 </p>
 
-<aside class="success">
-This building block is <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">valid</a></strong>
+<aside class="warning">
+Validation for this building block has <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">failed</a></strong>
 </aside>
 <h1 id='description'>Description</h1><h2 id='provenance-chain'>Provenance chain</h2>
 <p>A JSON schema defining objects that may be referenced or nested as a chain of Activities, Entities or Agents (or subclasses thereof)</p>
@@ -707,6 +710,124 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 </blockquote>
 
 <p>DAG defined by an object list. </p>
+<h2 id='qualified-generation'>Qualified Generation</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/aThing/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"agents"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://someagentregister.eg/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"thing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/entities/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"foaf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xmlns.com/foaf/0.1/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"survtypes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/surveytypes/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"surveyreg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/surveys/"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/myEntities/"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="nl">"activityType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/myActivityTypes/"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DP-1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feature"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Survey"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"qualifiedGeneration"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Generation"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"wfprov:ProcessRun"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Activity"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run of workflow/packed.cwl#main/sorted"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"atTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-25T15:46:38.058365"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"hadRole"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wf:main/sorted/output"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+
+
+</span></code></pre></div>
+<blockquote class="lang-specific json">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_4_1.json">Open in new window</a>
+    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_4_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-jsonld"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"</span><span class="p">,</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/aThing/"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"agents"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://someagentregister.eg/"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"thing"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/entities/"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"foaf"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://xmlns.com/foaf/0.1/"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"survtypes"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/surveytypes/"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"surveyreg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/surveys/"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/myEntities/"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"activityType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@type"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://example.org/myActivityTypes/"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DP-1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Feature"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"featureType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Survey"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"qualifiedGeneration"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Generation"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+          </span><span class="s2">"wfprov:ProcessRun"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"Activity"</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Run of workflow/packed.cwl#main/sorted"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"atTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-10-25T15:46:38.058365"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"hadRole"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wf:main/sorted/output"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote class="lang-specific jsonld">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_4_1.jsonld">Open in new window</a>
+    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_4_1.jsonld">View on JSON-LD Playground</a>
+</blockquote>
+<div class="highlight"><pre class="highlight turtle tab-turtle"><code><span class="kd">@prefix</span><span class="w"> </span><span class="nn">prov:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/ns/prov#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
+</span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">rdfs:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
+</span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">xsd:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
+
+</span><span class="nl">&lt;https://example.org/aThing/DP-1&gt;</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nl">&lt;http://example.org/myEntities/Survey&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
+    </span><span class="nn">prov:</span><span class="n">qualifiedGeneration</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">prov:</span><span class="n">activity</span><span class="w"> </span><span class="nl">&lt;uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
+            </span><span class="nn">prov:</span><span class="n">atTime</span><span class="w"> </span><span class="s">"2018-10-25T15:46:38.058365"</span><span class="p">^^</span><span class="nn">xsd:</span><span class="n">dateTime</span><span class="w"> </span><span class="p">;</span><span class="w">
+            </span><span class="nn">prov:</span><span class="n">hadRole</span><span class="w"> </span><span class="nl">&lt;wf:main/sorted/output&gt;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">.</span><span class="w">
+
+</span><span class="nl">&lt;uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44&gt;</span><span class="w"> </span><span class="nn">rdfs:</span><span class="n">label</span><span class="w"> </span><span class="s">"Run of workflow/packed.cwl#main/sorted"</span><span class="w"> </span><span class="p">.</span><span class="w">
+
+
+</span></code></pre></div>
+<blockquote class="lang-specific turtle">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_4_1.ttl">Open in new window</a>
+</blockquote>
+
+<p>A <a href="https://www.w3.org/TR/prov-o/#qualifiedGeneration">qualified generation</a> example.</p>
 <h1 id='json-schema'>JSON Schema</h1><div class="highlight"><pre class="highlight yaml tab-yaml--schema"><code><span class="na">$schema</span><span class="pi">:</span> <span class="s">https://json-schema.org/draft/2020-12/schema</span>
 <span class="na">description</span><span class="pi">:</span> <span class="s">Provenance Chain using PROV-O core model supporting both an ID based</span>
   <span class="s">object graph and nesting</span>
@@ -1159,8 +1280,12 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#influencer</span>
         <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">hadActivity</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreObjectref'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreActivitiesOrRefIds'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#hadActivity</span>
+        <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
+      <span class="na">activity</span><span class="pi">:</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreActivitiesOrRefIds'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#activity</span>
         <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
   <span class="na">Generation</span><span class="pi">:</span>
     <span class="na">allOf</span><span class="pi">:</span>
@@ -1746,6 +1871,10 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:activity"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedGeneration"</span><span class="p">,</span><span class="w">
@@ -1768,6 +1897,10 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:activity"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:qualifiedInvalidation"</span><span class="p">,</span><span class="w">
@@ -1787,6 +1920,10 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
             </span><span class="p">},</span><span class="w">
             </span><span class="nl">"influencer"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
               </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:influencer"</span><span class="p">,</span><span class="w">
+              </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+              </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:activity"</span><span class="p">,</span><span class="w">
               </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">},</span><span class="w">
@@ -1993,6 +2130,10 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         </span><span class="p">},</span><span class="w">
         </span><span class="nl">"hadActivity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:hadActivity"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:activity"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">},</span><span class="w">

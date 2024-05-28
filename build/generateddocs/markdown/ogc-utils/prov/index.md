@@ -339,6 +339,120 @@ surveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,
 
 ```
 
+
+### Qualified Generation
+A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) example.
+#### json
+```json
+{
+  "@context": {
+    "@base": "https://example.org/aThing/",
+    "agents": "https://someagentregister.eg/",
+    "thing": "https://example.org/entities/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "survtypes": "https://example.org/surveytypes/",
+    "surveyreg": "https://example.org/surveys/",
+    "featureType": {
+      "@id": "@type",
+      "@context": {
+        "@base": "http://example.org/myEntities/"
+      }
+    },
+    "activityType": {
+      "@id": "@type",
+      "@context": {
+        "@base": "http://example.org/myActivityTypes/"
+      }
+    }
+  },
+  "id": "DP-1",
+  "type": "Feature",
+  "featureType": "Survey",
+  "qualifiedGeneration": [
+    {
+      "type": "Generation",
+      "activity": {
+        "id": "uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44",
+        "type": [
+          "wfprov:ProcessRun",
+          "Activity"
+        ],
+        "name": "Run of workflow/packed.cwl#main/sorted"
+      },
+      "atTime": "2018-10-25T15:46:38.058365",
+      "hadRole": "wf:main/sorted/output"
+    }
+  ]
+}
+
+
+
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
+    {
+      "@base": "https://example.org/aThing/",
+      "agents": "https://someagentregister.eg/",
+      "thing": "https://example.org/entities/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "survtypes": "https://example.org/surveytypes/",
+      "surveyreg": "https://example.org/surveys/",
+      "featureType": {
+        "@id": "@type",
+        "@context": {
+          "@base": "http://example.org/myEntities/"
+        }
+      },
+      "activityType": {
+        "@id": "@type",
+        "@context": {
+          "@base": "http://example.org/myActivityTypes/"
+        }
+      }
+    }
+  ],
+  "id": "DP-1",
+  "type": "Feature",
+  "featureType": "Survey",
+  "qualifiedGeneration": [
+    {
+      "type": "Generation",
+      "activity": {
+        "id": "uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44",
+        "type": [
+          "wfprov:ProcessRun",
+          "Activity"
+        ],
+        "name": "Run of workflow/packed.cwl#main/sorted"
+      },
+      "atTime": "2018-10-25T15:46:38.058365",
+      "hadRole": "wf:main/sorted/output"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
+    prov:qualifiedGeneration [ prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;
+            prov:atTime "2018-10-25T15:46:38.058365"^^xsd:dateTime ;
+            prov:hadRole <wf:main/sorted/output> ] .
+
+<uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> rdfs:label "Run of workflow/packed.cwl#main/sorted" .
+
+
+```
+
 ## Schema
 
 ```yaml
@@ -794,8 +908,12 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#influencer
         x-jsonld-type: '@id'
       hadActivity:
-        $ref: '#/$defs/oneOrMoreObjectref'
+        $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#hadActivity
+        x-jsonld-type: '@id'
+      activity:
+        $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
+        x-jsonld-id: http://www.w3.org/ns/prov#activity
         x-jsonld-type: '@id'
   Generation:
     allOf:
@@ -1381,6 +1499,10 @@ Links to the schema:
         "hadActivity": {
           "@id": "prov:hadActivity",
           "@type": "@id"
+        },
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedGeneration",
@@ -1403,6 +1525,10 @@ Links to the schema:
         "hadActivity": {
           "@id": "prov:hadActivity",
           "@type": "@id"
+        },
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedInvalidation",
@@ -1422,6 +1548,10 @@ Links to the schema:
             },
             "influencer": {
               "@id": "prov:influencer",
+              "@type": "@id"
+            },
+            "activity": {
+              "@id": "prov:activity",
               "@type": "@id"
             }
           },
@@ -1628,6 +1758,10 @@ Links to the schema:
         },
         "hadActivity": {
           "@id": "prov:hadActivity",
+          "@type": "@id"
+        },
+        "activity": {
+          "@id": "prov:activity",
           "@type": "@id"
         }
       },

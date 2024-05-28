@@ -29,8 +29,8 @@ Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activi
     <a href="http://www.opengis.net/def/status/under-development" target="_blank" data-rainbow-uri>Under development</a>
 </p>
 
-<aside class="success">
-This building block is <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">valid</a></strong>
+<aside class="warning">
+Validation for this building block has <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">failed</a></strong>
 </aside>
 
 # Description
@@ -438,6 +438,145 @@ surveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,
 
 
 DAG defined by an object list. 
+
+
+## Qualified Generation
+
+
+
+```json
+{
+  "@context": {
+    "@base": "https://example.org/aThing/",
+    "agents": "https://someagentregister.eg/",
+    "thing": "https://example.org/entities/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "survtypes": "https://example.org/surveytypes/",
+    "surveyreg": "https://example.org/surveys/",
+    "featureType": {
+      "@id": "@type",
+      "@context": {
+        "@base": "http://example.org/myEntities/"
+      }
+    },
+    "activityType": {
+      "@id": "@type",
+      "@context": {
+        "@base": "http://example.org/myActivityTypes/"
+      }
+    }
+  },
+  "id": "DP-1",
+  "type": "Feature",
+  "featureType": "Survey",
+  "qualifiedGeneration": [
+    {
+      "type": "Generation",
+      "activity": {
+        "id": "uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44",
+        "type": [
+          "wfprov:ProcessRun",
+          "Activity"
+        ],
+        "name": "Run of workflow/packed.cwl#main/sorted"
+      },
+      "atTime": "2018-10-25T15:46:38.058365",
+      "hadRole": "wf:main/sorted/output"
+    }
+  ]
+}
+
+
+
+
+```
+
+<blockquote class="lang-specific json">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_4_1.json">Open in new window</a>
+    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_4_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
+</blockquote>
+
+
+
+
+```jsonld
+{
+  "@context": [
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
+    {
+      "@base": "https://example.org/aThing/",
+      "agents": "https://someagentregister.eg/",
+      "thing": "https://example.org/entities/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "survtypes": "https://example.org/surveytypes/",
+      "surveyreg": "https://example.org/surveys/",
+      "featureType": {
+        "@id": "@type",
+        "@context": {
+          "@base": "http://example.org/myEntities/"
+        }
+      },
+      "activityType": {
+        "@id": "@type",
+        "@context": {
+          "@base": "http://example.org/myActivityTypes/"
+        }
+      }
+    }
+  ],
+  "id": "DP-1",
+  "type": "Feature",
+  "featureType": "Survey",
+  "qualifiedGeneration": [
+    {
+      "type": "Generation",
+      "activity": {
+        "id": "uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44",
+        "type": [
+          "wfprov:ProcessRun",
+          "Activity"
+        ],
+        "name": "Run of workflow/packed.cwl#main/sorted"
+      },
+      "atTime": "2018-10-25T15:46:38.058365",
+      "hadRole": "wf:main/sorted/output"
+    }
+  ]
+}
+```
+
+<blockquote class="lang-specific jsonld">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_4_1.jsonld">Open in new window</a>
+    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_4_1.jsonld">View on JSON-LD Playground</a>
+</blockquote>
+
+
+
+
+```turtle
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
+    prov:qualifiedGeneration [ prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;
+            prov:atTime "2018-10-25T15:46:38.058365"^^xsd:dateTime ;
+            prov:hadRole <wf:main/sorted/output> ] .
+
+<uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> rdfs:label "Run of workflow/packed.cwl#main/sorted" .
+
+
+```
+
+<blockquote class="lang-specific turtle">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_4_1.ttl">Open in new window</a>
+</blockquote>
+
+
+A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) example.
 
 
 # JSON Schema
@@ -895,8 +1034,12 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#influencer
         x-jsonld-type: '@id'
       hadActivity:
-        $ref: '#/$defs/oneOrMoreObjectref'
+        $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#hadActivity
+        x-jsonld-type: '@id'
+      activity:
+        $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
+        x-jsonld-id: http://www.w3.org/ns/prov#activity
         x-jsonld-type: '@id'
   Generation:
     allOf:
@@ -1484,6 +1627,10 @@ Links to the schema:
         "hadActivity": {
           "@id": "prov:hadActivity",
           "@type": "@id"
+        },
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedGeneration",
@@ -1506,6 +1653,10 @@ Links to the schema:
         "hadActivity": {
           "@id": "prov:hadActivity",
           "@type": "@id"
+        },
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedInvalidation",
@@ -1525,6 +1676,10 @@ Links to the schema:
             },
             "influencer": {
               "@id": "prov:influencer",
+              "@type": "@id"
+            },
+            "activity": {
+              "@id": "prov:activity",
               "@type": "@id"
             }
           },
@@ -1731,6 +1886,10 @@ Links to the schema:
         },
         "hadActivity": {
           "@id": "prov:hadActivity",
+          "@type": "@id"
+        },
+        "activity": {
+          "@id": "prov:activity",
           "@type": "@id"
         }
       },
