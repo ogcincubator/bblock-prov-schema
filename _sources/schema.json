@@ -388,6 +388,24 @@
         "id": {
           "$ref": "#/$defs/objectref"
         },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "const": "Activity"
+            },
+            {
+              "type": "array",
+              "contains": {
+                "type": "string",
+                "const": "Activity"
+              },
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
         "activityType": {
           "$ref": "#/$defs/oneOrMoreObjectref"
         },
@@ -537,6 +555,11 @@
         {
           "required": [
             "wasAssociatedWith"
+          ]
+        },
+        {
+          "required": [
+            "type"
           ]
         }
       ],
