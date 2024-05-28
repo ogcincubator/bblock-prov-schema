@@ -311,7 +311,7 @@
             "featureType"
           ]
         },
-         {
+        {
           "required": [
             "entityType"
           ]
@@ -691,107 +691,123 @@
         "entity"
       ]
     },
-    "Generation": {
+    "ActivityInfluence": {
       "type": "object",
       "properties": {
         "id": {
           "$ref": "#/$defs/objectref"
         },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "const": "Generation"
-            },
-            {
-              "type": "array",
-              "contains": {
-                "type": "string",
-                "const": "Generation"
-              },
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
         "atTime": {
           "$ref": "#/$defs/dateTime"
+        },
+        "hadRole": {
+          "$ref": "#/$defs/oneOrMoreObjectref"
+        },
+        "influencer": {
+          "$ref": "#/$defs/oneOrMoreObjectref"
+        },
+        "hadActivity": {
+          "$ref": "#/$defs/oneOrMoreObjectref"
         }
-      },
-      "required": [
-        "atTime"
+      }
+    },
+    "Generation": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ActivityInfluence"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Generation"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Generation"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
       ]
     },
     "Invalidation": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "$ref": "#/$defs/objectref"
+      "allOf": [
+        {
+          "$ref": "#/$defs/ActivityInfluence"
         },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "const": "Invalidation"
-            },
-            {
-              "type": "array",
-              "contains": {
-                "type": "string",
-                "const": "Invalidation"
-              },
-              "items": {
-                "type": "string"
-              }
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Invalidation"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Invalidation"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
             }
+          },
+          "required": [
+            "type"
           ]
-        },
-        "atTime": {
-          "$ref": "#/$defs/dateTime"
         }
-      },
-      "required": [
-        "atTime"
       ]
     },
     "Communication": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "$ref": "#/$defs/objectref"
+      "allOf": [
+        {
+          "$ref": "#/$defs/ActivityInfluence"
         },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "const": "Communication"
-            },
-            {
-              "type": "array",
-              "contains": {
-                "type": "string",
-                "const": "Communication"
-              },
-              "items": {
-                "type": "string"
-              }
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Communication"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Communication"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
             }
-          ]
-        },
-        "activity": {
-          "oneOf": [
-            {
-              "$ref": "#/$defs/objectref"
-            },
-            {
-              "$ref": "#/$defs/Activity"
-            }
+          },
+          "required": [
+            "type"
           ]
         }
-      },
-      "required": [
-        "activity"
       ]
     },
     "StartOrEnd": {
@@ -1161,6 +1177,5 @@
     {
       "$ref": "#/$defs/Activity"
     }
-
   ]
 }
