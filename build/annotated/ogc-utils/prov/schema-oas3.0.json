@@ -659,99 +659,113 @@
             "entity"
           ]
         },
-        "Generation": {
+        "ActivityInfluence": {
           "type": "object",
           "properties": {
             "id": {},
-            "type": {
-              "oneOf": [
-                {
-                  "type": "string",
-                  "const": "Generation"
-                },
-                {
-                  "type": "array",
-                  "contains": {
-                    "type": "string",
-                    "const": "Generation"
-                  },
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              ]
+            "atTime": {},
+            "hadRole": {},
+            "influencer": {},
+            "hadActivity": {}
+          }
+        },
+        "Generation": {
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/_github_workspace_build_annotated_ogc-utils_prov_schema.json/$defs/ActivityInfluence"
             },
-            "atTime": {}
-          },
-          "required": [
-            "atTime"
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "const": "Generation"
+                    },
+                    {
+                      "type": "array",
+                      "contains": {
+                        "type": "string",
+                        "const": "Generation"
+                      },
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "type"
+              ]
+            }
           ]
         },
         "Invalidation": {
-          "type": "object",
-          "properties": {
-            "id": {},
-            "type": {
-              "oneOf": [
-                {
-                  "type": "string",
-                  "const": "Invalidation"
-                },
-                {
-                  "type": "array",
-                  "contains": {
-                    "type": "string",
-                    "const": "Invalidation"
-                  },
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              ]
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/_github_workspace_build_annotated_ogc-utils_prov_schema.json/$defs/ActivityInfluence"
             },
-            "atTime": {}
-          },
-          "required": [
-            "atTime"
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "const": "Invalidation"
+                    },
+                    {
+                      "type": "array",
+                      "contains": {
+                        "type": "string",
+                        "const": "Invalidation"
+                      },
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "type"
+              ]
+            }
           ]
         },
         "Communication": {
-          "type": "object",
-          "properties": {
-            "id": {},
-            "type": {
-              "oneOf": [
-                {
-                  "type": "string",
-                  "const": "Communication"
-                },
-                {
-                  "type": "array",
-                  "contains": {
-                    "type": "string",
-                    "const": "Communication"
-                  },
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              ]
+          "allOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/_github_workspace_build_annotated_ogc-utils_prov_schema.json/$defs/ActivityInfluence"
             },
-            "activity": {
-              "oneOf": [
-                {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/_github_workspace_build_annotated_ogc-utils_prov_schema.json/$defs/objectref"
-                },
-                {
-                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/x-defs/_github_workspace_build_annotated_ogc-utils_prov_schema.json/$defs/Activity"
+            {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "oneOf": [
+                    {
+                      "type": "string",
+                      "const": "Communication"
+                    },
+                    {
+                      "type": "array",
+                      "contains": {
+                        "type": "string",
+                        "const": "Communication"
+                      },
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  ]
                 }
-              ],
-              "x-jsonld-id": "http://www.w3.org/ns/prov#activity",
-              "x-jsonld-type": "@id"
+              },
+              "required": [
+                "type"
+              ]
             }
-          },
-          "required": [
-            "activity"
           ]
         },
         "StartOrEnd": {

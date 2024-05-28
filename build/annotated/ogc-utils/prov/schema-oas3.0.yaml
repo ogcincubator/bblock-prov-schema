@@ -342,62 +342,65 @@ x-defs:
         required:
         - atTime
         - entity
+      ActivityInfluence:
+        type: object
+        properties:
+          id: {}
+          atTime: {}
+          hadRole: {}
+          influencer: {}
+          hadActivity: {}
       Generation:
-        type: object
-        properties:
-          id: {}
-          type:
-            oneOf:
-            - type: string
-              const: Generation
-            - type: array
-              contains:
-                type: string
+        allOf:
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.yaml#/x-defs/_github_workspace_build_annotated_ogc-utils_prov_schema.yaml/$defs/ActivityInfluence
+        - type: object
+          properties:
+            type:
+              oneOf:
+              - type: string
                 const: Generation
-              items:
-                type: string
-          atTime: {}
-        required:
-        - atTime
+              - type: array
+                contains:
+                  type: string
+                  const: Generation
+                items:
+                  type: string
+          required:
+          - type
       Invalidation:
-        type: object
-        properties:
-          id: {}
-          type:
-            oneOf:
-            - type: string
-              const: Invalidation
-            - type: array
-              contains:
-                type: string
+        allOf:
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.yaml#/x-defs/_github_workspace_build_annotated_ogc-utils_prov_schema.yaml/$defs/ActivityInfluence
+        - type: object
+          properties:
+            type:
+              oneOf:
+              - type: string
                 const: Invalidation
-              items:
-                type: string
-          atTime: {}
-        required:
-        - atTime
+              - type: array
+                contains:
+                  type: string
+                  const: Invalidation
+                items:
+                  type: string
+          required:
+          - type
       Communication:
-        type: object
-        properties:
-          id: {}
-          type:
-            oneOf:
-            - type: string
-              const: Communication
-            - type: array
-              contains:
-                type: string
+        allOf:
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.yaml#/x-defs/_github_workspace_build_annotated_ogc-utils_prov_schema.yaml/$defs/ActivityInfluence
+        - type: object
+          properties:
+            type:
+              oneOf:
+              - type: string
                 const: Communication
-              items:
-                type: string
-          activity:
-            oneOf:
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.yaml#/x-defs/_github_workspace_build_annotated_ogc-utils_prov_schema.yaml/$defs/objectref
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.yaml#/x-defs/_github_workspace_build_annotated_ogc-utils_prov_schema.yaml/$defs/Activity
-            x-jsonld-id: http://www.w3.org/ns/prov#activity
-            x-jsonld-type: '@id'
-        required:
-        - activity
+              - type: array
+                contains:
+                  type: string
+                  const: Communication
+                items:
+                  type: string
+          required:
+          - type
       StartOrEnd:
         type: object
         properties:

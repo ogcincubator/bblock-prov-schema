@@ -781,116 +781,132 @@
         "entity"
       ]
     },
-    "Generation": {
+    "ActivityInfluence": {
       "type": "object",
       "properties": {
         "id": {
           "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "const": "Generation"
-            },
-            {
-              "type": "array",
-              "contains": {
-                "type": "string",
-                "const": "Generation"
-              },
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
-        },
         "atTime": {
           "$ref": "#/$defs/dateTime",
           "x-jsonld-id": "http://www.w3.org/ns/prov#atTime",
           "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "hadRole": {
+          "$ref": "#/$defs/oneOrMoreObjectref",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#hadRole",
+          "x-jsonld-type": "@id"
+        },
+        "influencer": {
+          "$ref": "#/$defs/oneOrMoreObjectref",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#influencer",
+          "x-jsonld-type": "@id"
+        },
+        "hadActivity": {
+          "$ref": "#/$defs/oneOrMoreObjectref",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#hadActivity",
+          "x-jsonld-type": "@id"
         }
-      },
-      "required": [
-        "atTime"
+      }
+    },
+    "Generation": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/ActivityInfluence"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Generation"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Generation"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
       ]
     },
     "Invalidation": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "$ref": "#/$defs/objectref",
-          "x-jsonld-id": "@id"
+      "allOf": [
+        {
+          "$ref": "#/$defs/ActivityInfluence"
         },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "const": "Invalidation"
-            },
-            {
-              "type": "array",
-              "contains": {
-                "type": "string",
-                "const": "Invalidation"
-              },
-              "items": {
-                "type": "string"
-              }
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Invalidation"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Invalidation"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
             }
+          },
+          "required": [
+            "type"
           ]
-        },
-        "atTime": {
-          "$ref": "#/$defs/dateTime",
-          "x-jsonld-id": "http://www.w3.org/ns/prov#atTime",
-          "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
         }
-      },
-      "required": [
-        "atTime"
       ]
     },
     "Communication": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "$ref": "#/$defs/objectref",
-          "x-jsonld-id": "@id"
+      "allOf": [
+        {
+          "$ref": "#/$defs/ActivityInfluence"
         },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "const": "Communication"
-            },
-            {
-              "type": "array",
-              "contains": {
-                "type": "string",
-                "const": "Communication"
-              },
-              "items": {
-                "type": "string"
-              }
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Communication"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Communication"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
             }
+          },
+          "required": [
+            "type"
           ]
-        },
-        "activity": {
-          "oneOf": [
-            {
-              "$ref": "#/$defs/objectref"
-            },
-            {
-              "$ref": "#/$defs/Activity"
-            }
-          ],
-          "x-jsonld-id": "http://www.w3.org/ns/prov#activity",
-          "x-jsonld-type": "@id"
         }
-      },
-      "required": [
-        "activity"
       ]
     },
     "StartOrEnd": {
