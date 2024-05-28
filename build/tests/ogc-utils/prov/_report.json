@@ -2,8 +2,8 @@
   "title": "Validation report for ogc.ogc-utils.prov - Provenance Chain",
   "bblockName": "Provenance Chain",
   "bblockId": "ogc.ogc-utils.prov",
-  "generated": "2024-05-28T05:45:52.951117+00:00",
-  "result": false,
+  "generated": "2024-05-28T07:45:12.903856+00:00",
+  "result": true,
   "items": [
     {
       "source": {
@@ -260,7 +260,7 @@
         "snippetIndex": 1,
         "language": "json"
       },
-      "result": false,
+      "result": true,
       "sections": [
         {
           "name": "GENERAL",
@@ -302,11 +302,9 @@
           "entries": [
             {
               "op": "validation",
-              "result": false,
-              "exception": "ValidationError",
-              "errorMessage": "{'id': 'uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44', 'type': ['wfprov:ProcessRun', 'Activity'], 'name': 'Run of workflow/packed.cwl#main/sorted'} is not valid under any of the given schemas",
-              "isError": true,
-              "message": "ValidationError: {'id': 'uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44', 'type': ['wfprov:ProcessRun', 'Activity'], 'name': 'Run of workflow/packed.cwl#main/sorted'} is not valid under any of the given schemas\n\nFailed validating 'anyOf' in schema[1]:\n    {'allOf': [{'$ref': '#/$defs/influenced'}],\n     'anyOf': [{'required': ['activityType']},\n               {'required': ['used']},\n               {'required': ['wasInformedBy']},\n               {'required': ['endedAtTime']},\n               {'required': ['startedAtTime']},\n               {'required': ['wasAssociatedWith']}],\n     'properties': {'activityType': {'$ref': '#/$defs/oneOrMoreObjectref',\n                                     'x-jsonld-id': '@type'},\n                    'atLocation': {'$ref': '#/$defs/objectref',\n                                   'x-jsonld-id': 'http://www.w3.org/ns/prov#atLocation',\n                                   'x-jsonld-type': '@id'},\n                    'endedAtTime': {'$ref': '#/$defs/dateTime',\n                                    'x-jsonld-id': 'http://www.w3.org/ns/prov#endedAtTime',\n                                    'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},\n                    'generated': {'$ref': '#/$defs/oneOrMoreEntitiesOrRefIds',\n                                  'x-jsonld-id': 'http://www.w3.org/ns/prov#generated',\n                                  'x-jsonld-type': '@id'},\n                    'id': {'$ref': '#/$defs/objectref',\n                           'x-jsonld-id': '@id'},\n                    'invalidated': {'$ref': '#/$defs/oneOrMoreEntitiesOrRefIds',\n                                    'x-jsonld-id': 'http://www.w3.org/ns/prov#invalidated',\n                                    'x-jsonld-type': '@id'},\n                    'qualifiedAssociation': {'oneOf': [{'$ref': '#/$defs/objectref'},\n                                                       {'$ref': '#/$defs/Association'},\n                                                       {'items': {'oneOf': [{'$ref': '#/$defs/objectref'},\n                                                                            {'$ref': '#/$defs/Association'}]},\n                                                        'type': 'array'}],\n                                             'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedAssociation',\n                                             'x-jsonld-type': '@id'},\n                    'qualifiedCommunication': {'oneOf': [{'$ref': '#/$defs/objectref'},\n                                                         {'$ref': '#/$defs/Communication'},\n                                                         {'items': {'oneOf': [{'$ref': '#/$defs/objectref'},\n                                                                              {'$ref': '#/$defs/Generation'}]},\n                                                          'type': 'array'}],\n                                               'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedCommunication',\n                                               'x-jsonld-type': '@id'},\n                    'qualifiedEnd': {'oneOf': [{'$ref': '#/$defs/objectref'},\n                                               {'$ref': '#/$defs/End'}],\n                                     'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedEnd',\n                                     'x-jsonld-type': '@id'},\n                    'qualifiedStart': {'oneOf': [{'$ref': '#/$defs/objectref'},\n                                                 {'$ref': '#/$defs/Start'}],\n                                       'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedStart',\n                                       'x-jsonld-type': '@id'},\n                    'qualifiedUsage': {'oneOf': [{'$ref': '#/$defs/objectref'},\n                                                 {'$ref': '#/$defs/Usage'},\n                                                 {'items': {'oneOf': [{'$ref': '#/$defs/objectref'},\n                                                                      {'$ref': '#/$defs/Usage'}]},\n                                                  'type': 'array'}],\n                                       'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedUsage',\n                                       'x-jsonld-type': '@id'},\n                    'used': {'$ref': '#/$defs/oneOrMoreEntitiesOrRefIds',\n                             'x-jsonld-id': 'http://www.w3.org/ns/prov#used',\n                             'x-jsonld-type': '@id'},\n                    'wasAssociatedWith': {'$ref': '#/$defs/oneOrMoreAgentsOrRefIds',\n                                          'x-jsonld-id': 'http://www.w3.org/ns/prov#wasAssociatedWith',\n                                          'x-jsonld-type': '@id'},\n                    'wasEndedBy': {'$ref': '#/$defs/oneOrMoreEntitiesOrRefIds',\n                                   'x-jsonld-id': 'http://www.w3.org/ns/prov#wasEndedBy',\n                                   'x-jsonld-type': '@id'},\n                    'wasInformedBy': {'$ref': '#/$defs/oneOrMoreActivitiesOrRefIds',\n                                      'x-jsonld-id': 'http://www.w3.org/ns/prov#wasInformedBy',\n                                      'x-jsonld-type': '@id'},\n                    'wasStartedBy': {'$ref': '#/$defs/oneOrMoreEntitiesOrRefIds',\n                                     'x-jsonld-id': 'http://www.w3.org/ns/prov#wasStartedBy',\n                                     'x-jsonld-type': '@id'}},\n     'type': 'object'}\n\nOn instance:\n    {'id': 'uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44',\n     'name': 'Run of workflow/packed.cwl#main/sorted',\n     'type': ['wfprov:ProcessRun', 'Activity']}"
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         },
@@ -336,7 +334,7 @@
   "globalErrors": {},
   "counts": {
     "total": 4,
-    "passed": 3,
-    "failed": 1
+    "passed": 4,
+    "failed": 0
   }
 }

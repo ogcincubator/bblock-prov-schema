@@ -695,6 +695,16 @@ $defs:
       id:
         $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
+      type:
+        oneOf:
+        - type: string
+          const: Activity
+        - type: array
+          contains:
+            type: string
+            const: Activity
+          items:
+            type: string
       activityType:
         $ref: '#/$defs/oneOrMoreObjectref'
         x-jsonld-id: '@type'
@@ -792,6 +802,8 @@ $defs:
       - startedAtTime
     - required:
       - wasAssociatedWith
+    - required:
+      - type
     allOf:
     - $ref: '#/$defs/influenced'
   Agent:

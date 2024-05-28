@@ -5,6 +5,7 @@ path	@id
 /has_provenance	http://purl.org/dc/terms/provenance
 /wasGeneratedBy	http://www.w3.org/ns/prov#wasGeneratedBy
 /wasGeneratedBy/id	@id
+/wasGeneratedBy/type	
 /wasGeneratedBy/activityType	@type
 /wasGeneratedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasGeneratedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -197,6 +198,7 @@ path	@id
 /wasAttributedTo/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /wasAttributedTo/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /wasAttributedTo/qualifiedDelegation/hadActivity/id	@id
+/wasAttributedTo/qualifiedDelegation/hadActivity/type	
 /wasAttributedTo/qualifiedDelegation/hadActivity/activityType	@type
 /wasAttributedTo/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasAttributedTo/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -247,6 +249,7 @@ path	@id
 /wasAttributedTo/qualifiedDelegation/hadActivity/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
 /wasAttributedTo/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /wasAttributedTo/wasInfluencedBy/id	@id
+/wasAttributedTo/wasInfluencedBy/type	
 /wasAttributedTo/wasInfluencedBy/activityType	@type
 /wasAttributedTo/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasAttributedTo/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -292,6 +295,7 @@ path	@id
 /wasAttributedTo/qualifiedInfluence/id	@id
 /wasAttributedTo/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
 /wasAttributedTo/qualifiedInfluence/influencer/id	@id
+/wasAttributedTo/qualifiedInfluence/influencer/type	
 /wasAttributedTo/qualifiedInfluence/influencer/activityType	@type
 /wasAttributedTo/qualifiedInfluence/influencer/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasAttributedTo/qualifiedInfluence/influencer/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -336,6 +340,7 @@ path	@id
 /wasAttributedTo/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /wasAttributedTo/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /wasAttributedTo/qualifiedInfluence/activity/id	@id
+/wasAttributedTo/qualifiedInfluence/activity/type	
 /wasAttributedTo/qualifiedInfluence/activity/activityType	@type
 /wasAttributedTo/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasAttributedTo/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -402,6 +407,7 @@ path	@id
 /wasInvalidatedBy/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /wasInvalidatedBy/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /wasInvalidatedBy/qualifiedDelegation/hadActivity/id	@id
+/wasInvalidatedBy/qualifiedDelegation/hadActivity/type	
 /wasInvalidatedBy/qualifiedDelegation/hadActivity/activityType	@type
 /wasInvalidatedBy/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInvalidatedBy/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -452,6 +458,7 @@ path	@id
 /wasInvalidatedBy/qualifiedDelegation/hadActivity/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
 /wasInvalidatedBy/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /wasInvalidatedBy/wasInfluencedBy/id	@id
+/wasInvalidatedBy/wasInfluencedBy/type	
 /wasInvalidatedBy/wasInfluencedBy/activityType	@type
 /wasInvalidatedBy/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInvalidatedBy/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -497,6 +504,7 @@ path	@id
 /wasInvalidatedBy/qualifiedInfluence/id	@id
 /wasInvalidatedBy/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
 /wasInvalidatedBy/qualifiedInfluence/influencer/id	@id
+/wasInvalidatedBy/qualifiedInfluence/influencer/type	
 /wasInvalidatedBy/qualifiedInfluence/influencer/activityType	@type
 /wasInvalidatedBy/qualifiedInfluence/influencer/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInvalidatedBy/qualifiedInfluence/influencer/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -541,6 +549,7 @@ path	@id
 /wasInvalidatedBy/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /wasInvalidatedBy/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /wasInvalidatedBy/qualifiedInfluence/activity/id	@id
+/wasInvalidatedBy/qualifiedInfluence/activity/type	
 /wasInvalidatedBy/qualifiedInfluence/activity/activityType	@type
 /wasInvalidatedBy/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInvalidatedBy/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -603,6 +612,7 @@ path	@id
 /wasQuotedFrom/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /wasQuotedFrom/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /wasQuotedFrom/qualifiedDelegation/hadActivity/id	@id
+/wasQuotedFrom/qualifiedDelegation/hadActivity/type	
 /wasQuotedFrom/qualifiedDelegation/hadActivity/activityType	@type
 /wasQuotedFrom/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasQuotedFrom/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -653,6 +663,7 @@ path	@id
 /wasQuotedFrom/qualifiedDelegation/hadActivity/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
 /wasQuotedFrom/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /wasQuotedFrom/wasInfluencedBy/id	@id
+/wasQuotedFrom/wasInfluencedBy/type	
 /wasQuotedFrom/wasInfluencedBy/activityType	@type
 /wasQuotedFrom/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasQuotedFrom/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -698,6 +709,7 @@ path	@id
 /wasQuotedFrom/qualifiedInfluence/id	@id
 /wasQuotedFrom/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
 /wasQuotedFrom/qualifiedInfluence/influencer/id	@id
+/wasQuotedFrom/qualifiedInfluence/influencer/type	
 /wasQuotedFrom/qualifiedInfluence/influencer/activityType	@type
 /wasQuotedFrom/qualifiedInfluence/influencer/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasQuotedFrom/qualifiedInfluence/influencer/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -742,6 +754,7 @@ path	@id
 /wasQuotedFrom/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /wasQuotedFrom/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /wasQuotedFrom/qualifiedInfluence/activity/id	@id
+/wasQuotedFrom/qualifiedInfluence/activity/type	
 /wasQuotedFrom/qualifiedInfluence/activity/activityType	@type
 /wasQuotedFrom/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasQuotedFrom/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -804,6 +817,7 @@ path	@id
 /wasRevisionOf/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /wasRevisionOf/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /wasRevisionOf/qualifiedDelegation/hadActivity/id	@id
+/wasRevisionOf/qualifiedDelegation/hadActivity/type	
 /wasRevisionOf/qualifiedDelegation/hadActivity/activityType	@type
 /wasRevisionOf/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasRevisionOf/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -854,6 +868,7 @@ path	@id
 /wasRevisionOf/qualifiedDelegation/hadActivity/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
 /wasRevisionOf/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /wasRevisionOf/wasInfluencedBy/id	@id
+/wasRevisionOf/wasInfluencedBy/type	
 /wasRevisionOf/wasInfluencedBy/activityType	@type
 /wasRevisionOf/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasRevisionOf/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -899,6 +914,7 @@ path	@id
 /wasRevisionOf/qualifiedInfluence/id	@id
 /wasRevisionOf/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
 /wasRevisionOf/qualifiedInfluence/influencer/id	@id
+/wasRevisionOf/qualifiedInfluence/influencer/type	
 /wasRevisionOf/qualifiedInfluence/influencer/activityType	@type
 /wasRevisionOf/qualifiedInfluence/influencer/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasRevisionOf/qualifiedInfluence/influencer/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -943,6 +959,7 @@ path	@id
 /wasRevisionOf/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /wasRevisionOf/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /wasRevisionOf/qualifiedInfluence/activity/id	@id
+/wasRevisionOf/qualifiedInfluence/activity/type	
 /wasRevisionOf/qualifiedInfluence/activity/activityType	@type
 /wasRevisionOf/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasRevisionOf/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -1005,6 +1022,7 @@ path	@id
 /mentionOf/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /mentionOf/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /mentionOf/qualifiedDelegation/hadActivity/id	@id
+/mentionOf/qualifiedDelegation/hadActivity/type	
 /mentionOf/qualifiedDelegation/hadActivity/activityType	@type
 /mentionOf/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /mentionOf/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -1055,6 +1073,7 @@ path	@id
 /mentionOf/qualifiedDelegation/hadActivity/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
 /mentionOf/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /mentionOf/wasInfluencedBy/id	@id
+/mentionOf/wasInfluencedBy/type	
 /mentionOf/wasInfluencedBy/activityType	@type
 /mentionOf/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /mentionOf/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -1100,6 +1119,7 @@ path	@id
 /mentionOf/qualifiedInfluence/id	@id
 /mentionOf/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
 /mentionOf/qualifiedInfluence/influencer/id	@id
+/mentionOf/qualifiedInfluence/influencer/type	
 /mentionOf/qualifiedInfluence/influencer/activityType	@type
 /mentionOf/qualifiedInfluence/influencer/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /mentionOf/qualifiedInfluence/influencer/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -1144,6 +1164,7 @@ path	@id
 /mentionOf/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /mentionOf/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /mentionOf/qualifiedInfluence/activity/id	@id
+/mentionOf/qualifiedInfluence/activity/type	
 /mentionOf/qualifiedInfluence/activity/activityType	@type
 /mentionOf/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /mentionOf/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -1203,6 +1224,7 @@ path	@id
 /qualifiedGeneration/influencer	http://www.w3.org/ns/prov#influencer
 /qualifiedGeneration/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /qualifiedGeneration/hadActivity/id	@id
+/qualifiedGeneration/hadActivity/type	
 /qualifiedGeneration/hadActivity/activityType	@type
 /qualifiedGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -1372,6 +1394,7 @@ path	@id
 /qualifiedGeneration/hadActivity/qualifiedInfluence/agent/provType	@type
 /qualifiedGeneration/activity	http://www.w3.org/ns/prov#activity
 /qualifiedGeneration/activity/id	@id
+/qualifiedGeneration/activity/type	
 /qualifiedGeneration/activity/activityType	@type
 /qualifiedGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -1547,6 +1570,7 @@ path	@id
 /qualifiedInvalidation/influencer	http://www.w3.org/ns/prov#influencer
 /qualifiedInvalidation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /qualifiedInvalidation/hadActivity/id	@id
+/qualifiedInvalidation/hadActivity/type	
 /qualifiedInvalidation/hadActivity/activityType	@type
 /qualifiedInvalidation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInvalidation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -1716,6 +1740,7 @@ path	@id
 /qualifiedInvalidation/hadActivity/qualifiedInfluence/agent/provType	@type
 /qualifiedInvalidation/activity	http://www.w3.org/ns/prov#activity
 /qualifiedInvalidation/activity/id	@id
+/qualifiedInvalidation/activity/type	
 /qualifiedInvalidation/activity/activityType	@type
 /qualifiedInvalidation/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInvalidation/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -1894,6 +1919,7 @@ path	@id
 /qualifiedDerivation/hadGeneration/influencer	http://www.w3.org/ns/prov#influencer
 /qualifiedDerivation/hadGeneration/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /qualifiedDerivation/hadGeneration/hadActivity/id	@id
+/qualifiedDerivation/hadGeneration/hadActivity/type	
 /qualifiedDerivation/hadGeneration/hadActivity/activityType	@type
 /qualifiedDerivation/hadGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedDerivation/hadGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -2063,6 +2089,7 @@ path	@id
 /qualifiedDerivation/hadGeneration/hadActivity/qualifiedInfluence/agent/provType	@type
 /qualifiedDerivation/hadGeneration/activity	http://www.w3.org/ns/prov#activity
 /qualifiedDerivation/hadGeneration/activity/id	@id
+/qualifiedDerivation/hadGeneration/activity/type	
 /qualifiedDerivation/hadGeneration/activity/activityType	@type
 /qualifiedDerivation/hadGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedDerivation/hadGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -2233,6 +2260,7 @@ path	@id
 /qualifiedDerivation/hadGeneration/type	
 /qualifiedDerivation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /qualifiedDerivation/hadActivity/id	@id
+/qualifiedDerivation/hadActivity/type	
 /qualifiedDerivation/hadActivity/activityType	@type
 /qualifiedDerivation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedDerivation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -2434,6 +2462,7 @@ path	@id
 /qualifiedAttribution/agent/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /qualifiedAttribution/agent/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /qualifiedAttribution/agent/qualifiedDelegation/hadActivity/id	@id
+/qualifiedAttribution/agent/qualifiedDelegation/hadActivity/type	
 /qualifiedAttribution/agent/qualifiedDelegation/hadActivity/activityType	@type
 /qualifiedAttribution/agent/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedAttribution/agent/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -2512,6 +2541,7 @@ path	@id
 /qualifiedAttribution/agent/qualifiedDelegation/hadActivity/qualifiedInfluence/agent/length	http://purl.org/dc/terms/extent
 /qualifiedAttribution/agent/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /qualifiedAttribution/agent/wasInfluencedBy/id	@id
+/qualifiedAttribution/agent/wasInfluencedBy/type	http://purl.org/dc/terms/type
 /qualifiedAttribution/agent/wasInfluencedBy/activityType	@type
 /qualifiedAttribution/agent/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedAttribution/agent/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -2563,7 +2593,6 @@ path	@id
 /qualifiedAttribution/agent/wasInfluencedBy/href	http://www.w3.org/ns/oa#hasTarget
 /qualifiedAttribution/agent/wasInfluencedBy/rel	http://www.iana.org/assignments/relation
 /qualifiedAttribution/agent/wasInfluencedBy/anchor	
-/qualifiedAttribution/agent/wasInfluencedBy/type	http://purl.org/dc/terms/type
 /qualifiedAttribution/agent/wasInfluencedBy/hreflang	http://purl.org/dc/terms/language
 /qualifiedAttribution/agent/wasInfluencedBy/title	http://www.w3.org/2000/01/rdf-schema#label
 /qualifiedAttribution/agent/wasInfluencedBy/length	http://purl.org/dc/terms/extent
@@ -2571,6 +2600,7 @@ path	@id
 /qualifiedAttribution/agent/qualifiedInfluence/id	@id
 /qualifiedAttribution/agent/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
 /qualifiedAttribution/agent/qualifiedInfluence/influencer/id	@id
+/qualifiedAttribution/agent/qualifiedInfluence/influencer/type	http://purl.org/dc/terms/type
 /qualifiedAttribution/agent/qualifiedInfluence/influencer/activityType	@type
 /qualifiedAttribution/agent/qualifiedInfluence/influencer/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedAttribution/agent/qualifiedInfluence/influencer/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -2622,13 +2652,13 @@ path	@id
 /qualifiedAttribution/agent/qualifiedInfluence/influencer/href	http://www.w3.org/ns/oa#hasTarget
 /qualifiedAttribution/agent/qualifiedInfluence/influencer/rel	http://www.iana.org/assignments/relation
 /qualifiedAttribution/agent/qualifiedInfluence/influencer/anchor	
-/qualifiedAttribution/agent/qualifiedInfluence/influencer/type	http://purl.org/dc/terms/type
 /qualifiedAttribution/agent/qualifiedInfluence/influencer/hreflang	http://purl.org/dc/terms/language
 /qualifiedAttribution/agent/qualifiedInfluence/influencer/title	http://www.w3.org/2000/01/rdf-schema#label
 /qualifiedAttribution/agent/qualifiedInfluence/influencer/length	http://purl.org/dc/terms/extent
 /qualifiedAttribution/agent/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /qualifiedAttribution/agent/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /qualifiedAttribution/agent/qualifiedInfluence/activity/id	@id
+/qualifiedAttribution/agent/qualifiedInfluence/activity/type	
 /qualifiedAttribution/agent/qualifiedInfluence/activity/activityType	@type
 /qualifiedAttribution/agent/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedAttribution/agent/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -2688,6 +2718,7 @@ path	@id
 /qualifiedAttribution/agent/provType	@type
 /wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /wasInfluencedBy/id	@id
+/wasInfluencedBy/type	http://purl.org/dc/terms/type
 /wasInfluencedBy/activityType	@type
 /wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -2768,7 +2799,6 @@ path	@id
 /wasInfluencedBy/href	http://www.w3.org/ns/oa#hasTarget
 /wasInfluencedBy/rel	http://www.iana.org/assignments/relation
 /wasInfluencedBy/anchor	
-/wasInfluencedBy/type	http://purl.org/dc/terms/type
 /wasInfluencedBy/hreflang	http://purl.org/dc/terms/language
 /wasInfluencedBy/title	http://www.w3.org/2000/01/rdf-schema#label
 /wasInfluencedBy/length	http://purl.org/dc/terms/extent
@@ -2781,6 +2811,7 @@ path	@id
 /wasInfluencedBy/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /wasInfluencedBy/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /wasInfluencedBy/qualifiedDelegation/hadActivity/id	@id
+/wasInfluencedBy/qualifiedDelegation/hadActivity/type	
 /wasInfluencedBy/qualifiedDelegation/hadActivity/activityType	@type
 /wasInfluencedBy/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -2827,6 +2858,7 @@ path	@id
 /qualifiedInfluence/id	@id
 /qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
 /qualifiedInfluence/influencer/id	@id
+/qualifiedInfluence/influencer/type	http://purl.org/dc/terms/type
 /qualifiedInfluence/influencer/activityType	@type
 /qualifiedInfluence/influencer/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -2907,7 +2939,6 @@ path	@id
 /qualifiedInfluence/influencer/href	http://www.w3.org/ns/oa#hasTarget
 /qualifiedInfluence/influencer/rel	http://www.iana.org/assignments/relation
 /qualifiedInfluence/influencer/anchor	
-/qualifiedInfluence/influencer/type	http://purl.org/dc/terms/type
 /qualifiedInfluence/influencer/hreflang	http://purl.org/dc/terms/language
 /qualifiedInfluence/influencer/title	http://www.w3.org/2000/01/rdf-schema#label
 /qualifiedInfluence/influencer/length	http://purl.org/dc/terms/extent
@@ -2920,6 +2951,7 @@ path	@id
 /qualifiedInfluence/influencer/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /qualifiedInfluence/influencer/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /qualifiedInfluence/influencer/qualifiedDelegation/hadActivity/id	@id
+/qualifiedInfluence/influencer/qualifiedDelegation/hadActivity/type	
 /qualifiedInfluence/influencer/qualifiedDelegation/hadActivity/activityType	@type
 /qualifiedInfluence/influencer/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -2965,6 +2997,7 @@ path	@id
 /qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /qualifiedInfluence/activity/id	@id
+/qualifiedInfluence/activity/type	
 /qualifiedInfluence/activity/activityType	@type
 /qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3061,6 +3094,7 @@ path	@id
 /qualifiedInfluence/agent/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /qualifiedInfluence/agent/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /qualifiedInfluence/agent/qualifiedDelegation/hadActivity/id	@id
+/qualifiedInfluence/agent/qualifiedDelegation/hadActivity/type	
 /qualifiedInfluence/agent/qualifiedDelegation/hadActivity/activityType	@type
 /qualifiedInfluence/agent/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/agent/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3112,6 +3146,7 @@ path	@id
 /hadMember/has_provenance	http://purl.org/dc/terms/provenance
 /hadMember/wasGeneratedBy	http://www.w3.org/ns/prov#wasGeneratedBy
 /hadMember/wasGeneratedBy/id	@id
+/hadMember/wasGeneratedBy/type	
 /hadMember/wasGeneratedBy/activityType	@type
 /hadMember/wasGeneratedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasGeneratedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3304,6 +3339,7 @@ path	@id
 /hadMember/wasAttributedTo/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /hadMember/wasAttributedTo/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /hadMember/wasAttributedTo/qualifiedDelegation/hadActivity/id	@id
+/hadMember/wasAttributedTo/qualifiedDelegation/hadActivity/type	
 /hadMember/wasAttributedTo/qualifiedDelegation/hadActivity/activityType	@type
 /hadMember/wasAttributedTo/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasAttributedTo/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3354,6 +3390,7 @@ path	@id
 /hadMember/wasAttributedTo/qualifiedDelegation/hadActivity/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
 /hadMember/wasAttributedTo/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /hadMember/wasAttributedTo/wasInfluencedBy/id	@id
+/hadMember/wasAttributedTo/wasInfluencedBy/type	
 /hadMember/wasAttributedTo/wasInfluencedBy/activityType	@type
 /hadMember/wasAttributedTo/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasAttributedTo/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3399,6 +3436,7 @@ path	@id
 /hadMember/wasAttributedTo/qualifiedInfluence/id	@id
 /hadMember/wasAttributedTo/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
 /hadMember/wasAttributedTo/qualifiedInfluence/influencer/id	@id
+/hadMember/wasAttributedTo/qualifiedInfluence/influencer/type	
 /hadMember/wasAttributedTo/qualifiedInfluence/influencer/activityType	@type
 /hadMember/wasAttributedTo/qualifiedInfluence/influencer/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasAttributedTo/qualifiedInfluence/influencer/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3443,6 +3481,7 @@ path	@id
 /hadMember/wasAttributedTo/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /hadMember/wasAttributedTo/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /hadMember/wasAttributedTo/qualifiedInfluence/activity/id	@id
+/hadMember/wasAttributedTo/qualifiedInfluence/activity/type	
 /hadMember/wasAttributedTo/qualifiedInfluence/activity/activityType	@type
 /hadMember/wasAttributedTo/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasAttributedTo/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3509,6 +3548,7 @@ path	@id
 /hadMember/wasInvalidatedBy/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /hadMember/wasInvalidatedBy/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /hadMember/wasInvalidatedBy/qualifiedDelegation/hadActivity/id	@id
+/hadMember/wasInvalidatedBy/qualifiedDelegation/hadActivity/type	
 /hadMember/wasInvalidatedBy/qualifiedDelegation/hadActivity/activityType	@type
 /hadMember/wasInvalidatedBy/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasInvalidatedBy/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3559,6 +3599,7 @@ path	@id
 /hadMember/wasInvalidatedBy/qualifiedDelegation/hadActivity/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
 /hadMember/wasInvalidatedBy/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /hadMember/wasInvalidatedBy/wasInfluencedBy/id	@id
+/hadMember/wasInvalidatedBy/wasInfluencedBy/type	
 /hadMember/wasInvalidatedBy/wasInfluencedBy/activityType	@type
 /hadMember/wasInvalidatedBy/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasInvalidatedBy/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3604,6 +3645,7 @@ path	@id
 /hadMember/wasInvalidatedBy/qualifiedInfluence/id	@id
 /hadMember/wasInvalidatedBy/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
 /hadMember/wasInvalidatedBy/qualifiedInfluence/influencer/id	@id
+/hadMember/wasInvalidatedBy/qualifiedInfluence/influencer/type	
 /hadMember/wasInvalidatedBy/qualifiedInfluence/influencer/activityType	@type
 /hadMember/wasInvalidatedBy/qualifiedInfluence/influencer/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasInvalidatedBy/qualifiedInfluence/influencer/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3648,6 +3690,7 @@ path	@id
 /hadMember/wasInvalidatedBy/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /hadMember/wasInvalidatedBy/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /hadMember/wasInvalidatedBy/qualifiedInfluence/activity/id	@id
+/hadMember/wasInvalidatedBy/qualifiedInfluence/activity/type	
 /hadMember/wasInvalidatedBy/qualifiedInfluence/activity/activityType	@type
 /hadMember/wasInvalidatedBy/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasInvalidatedBy/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3710,6 +3753,7 @@ path	@id
 /hadMember/wasQuotedFrom/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /hadMember/wasQuotedFrom/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /hadMember/wasQuotedFrom/qualifiedDelegation/hadActivity/id	@id
+/hadMember/wasQuotedFrom/qualifiedDelegation/hadActivity/type	
 /hadMember/wasQuotedFrom/qualifiedDelegation/hadActivity/activityType	@type
 /hadMember/wasQuotedFrom/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasQuotedFrom/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3760,6 +3804,7 @@ path	@id
 /hadMember/wasQuotedFrom/qualifiedDelegation/hadActivity/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
 /hadMember/wasQuotedFrom/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /hadMember/wasQuotedFrom/wasInfluencedBy/id	@id
+/hadMember/wasQuotedFrom/wasInfluencedBy/type	
 /hadMember/wasQuotedFrom/wasInfluencedBy/activityType	@type
 /hadMember/wasQuotedFrom/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasQuotedFrom/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3805,6 +3850,7 @@ path	@id
 /hadMember/wasQuotedFrom/qualifiedInfluence/id	@id
 /hadMember/wasQuotedFrom/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
 /hadMember/wasQuotedFrom/qualifiedInfluence/influencer/id	@id
+/hadMember/wasQuotedFrom/qualifiedInfluence/influencer/type	
 /hadMember/wasQuotedFrom/qualifiedInfluence/influencer/activityType	@type
 /hadMember/wasQuotedFrom/qualifiedInfluence/influencer/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasQuotedFrom/qualifiedInfluence/influencer/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3849,6 +3895,7 @@ path	@id
 /hadMember/wasQuotedFrom/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /hadMember/wasQuotedFrom/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /hadMember/wasQuotedFrom/qualifiedInfluence/activity/id	@id
+/hadMember/wasQuotedFrom/qualifiedInfluence/activity/type	
 /hadMember/wasQuotedFrom/qualifiedInfluence/activity/activityType	@type
 /hadMember/wasQuotedFrom/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasQuotedFrom/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3911,6 +3958,7 @@ path	@id
 /hadMember/wasRevisionOf/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /hadMember/wasRevisionOf/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /hadMember/wasRevisionOf/qualifiedDelegation/hadActivity/id	@id
+/hadMember/wasRevisionOf/qualifiedDelegation/hadActivity/type	
 /hadMember/wasRevisionOf/qualifiedDelegation/hadActivity/activityType	@type
 /hadMember/wasRevisionOf/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasRevisionOf/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -3961,6 +4009,7 @@ path	@id
 /hadMember/wasRevisionOf/qualifiedDelegation/hadActivity/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
 /hadMember/wasRevisionOf/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /hadMember/wasRevisionOf/wasInfluencedBy/id	@id
+/hadMember/wasRevisionOf/wasInfluencedBy/type	
 /hadMember/wasRevisionOf/wasInfluencedBy/activityType	@type
 /hadMember/wasRevisionOf/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasRevisionOf/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -4006,6 +4055,7 @@ path	@id
 /hadMember/wasRevisionOf/qualifiedInfluence/id	@id
 /hadMember/wasRevisionOf/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
 /hadMember/wasRevisionOf/qualifiedInfluence/influencer/id	@id
+/hadMember/wasRevisionOf/qualifiedInfluence/influencer/type	
 /hadMember/wasRevisionOf/qualifiedInfluence/influencer/activityType	@type
 /hadMember/wasRevisionOf/qualifiedInfluence/influencer/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasRevisionOf/qualifiedInfluence/influencer/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -4050,6 +4100,7 @@ path	@id
 /hadMember/wasRevisionOf/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /hadMember/wasRevisionOf/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /hadMember/wasRevisionOf/qualifiedInfluence/activity/id	@id
+/hadMember/wasRevisionOf/qualifiedInfluence/activity/type	
 /hadMember/wasRevisionOf/qualifiedInfluence/activity/activityType	@type
 /hadMember/wasRevisionOf/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasRevisionOf/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -4112,6 +4163,7 @@ path	@id
 /hadMember/mentionOf/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /hadMember/mentionOf/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /hadMember/mentionOf/qualifiedDelegation/hadActivity/id	@id
+/hadMember/mentionOf/qualifiedDelegation/hadActivity/type	
 /hadMember/mentionOf/qualifiedDelegation/hadActivity/activityType	@type
 /hadMember/mentionOf/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/mentionOf/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -4162,6 +4214,7 @@ path	@id
 /hadMember/mentionOf/qualifiedDelegation/hadActivity/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
 /hadMember/mentionOf/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /hadMember/mentionOf/wasInfluencedBy/id	@id
+/hadMember/mentionOf/wasInfluencedBy/type	
 /hadMember/mentionOf/wasInfluencedBy/activityType	@type
 /hadMember/mentionOf/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/mentionOf/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -4207,6 +4260,7 @@ path	@id
 /hadMember/mentionOf/qualifiedInfluence/id	@id
 /hadMember/mentionOf/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
 /hadMember/mentionOf/qualifiedInfluence/influencer/id	@id
+/hadMember/mentionOf/qualifiedInfluence/influencer/type	
 /hadMember/mentionOf/qualifiedInfluence/influencer/activityType	@type
 /hadMember/mentionOf/qualifiedInfluence/influencer/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/mentionOf/qualifiedInfluence/influencer/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -4251,6 +4305,7 @@ path	@id
 /hadMember/mentionOf/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /hadMember/mentionOf/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /hadMember/mentionOf/qualifiedInfluence/activity/id	@id
+/hadMember/mentionOf/qualifiedInfluence/activity/type	
 /hadMember/mentionOf/qualifiedInfluence/activity/activityType	@type
 /hadMember/mentionOf/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/mentionOf/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -4310,6 +4365,7 @@ path	@id
 /hadMember/qualifiedGeneration/influencer	http://www.w3.org/ns/prov#influencer
 /hadMember/qualifiedGeneration/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /hadMember/qualifiedGeneration/hadActivity/id	@id
+/hadMember/qualifiedGeneration/hadActivity/type	
 /hadMember/qualifiedGeneration/hadActivity/activityType	@type
 /hadMember/qualifiedGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -4479,6 +4535,7 @@ path	@id
 /hadMember/qualifiedGeneration/hadActivity/qualifiedInfluence/agent/provType	@type
 /hadMember/qualifiedGeneration/activity	http://www.w3.org/ns/prov#activity
 /hadMember/qualifiedGeneration/activity/id	@id
+/hadMember/qualifiedGeneration/activity/type	
 /hadMember/qualifiedGeneration/activity/activityType	@type
 /hadMember/qualifiedGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -4654,6 +4711,7 @@ path	@id
 /hadMember/qualifiedInvalidation/influencer	http://www.w3.org/ns/prov#influencer
 /hadMember/qualifiedInvalidation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /hadMember/qualifiedInvalidation/hadActivity/id	@id
+/hadMember/qualifiedInvalidation/hadActivity/type	
 /hadMember/qualifiedInvalidation/hadActivity/activityType	@type
 /hadMember/qualifiedInvalidation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedInvalidation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -4823,6 +4881,7 @@ path	@id
 /hadMember/qualifiedInvalidation/hadActivity/qualifiedInfluence/agent/provType	@type
 /hadMember/qualifiedInvalidation/activity	http://www.w3.org/ns/prov#activity
 /hadMember/qualifiedInvalidation/activity/id	@id
+/hadMember/qualifiedInvalidation/activity/type	
 /hadMember/qualifiedInvalidation/activity/activityType	@type
 /hadMember/qualifiedInvalidation/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedInvalidation/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -5001,6 +5060,7 @@ path	@id
 /hadMember/qualifiedDerivation/hadGeneration/influencer	http://www.w3.org/ns/prov#influencer
 /hadMember/qualifiedDerivation/hadGeneration/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /hadMember/qualifiedDerivation/hadGeneration/hadActivity/id	@id
+/hadMember/qualifiedDerivation/hadGeneration/hadActivity/type	
 /hadMember/qualifiedDerivation/hadGeneration/hadActivity/activityType	@type
 /hadMember/qualifiedDerivation/hadGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedDerivation/hadGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -5170,6 +5230,7 @@ path	@id
 /hadMember/qualifiedDerivation/hadGeneration/hadActivity/qualifiedInfluence/agent/provType	@type
 /hadMember/qualifiedDerivation/hadGeneration/activity	http://www.w3.org/ns/prov#activity
 /hadMember/qualifiedDerivation/hadGeneration/activity/id	@id
+/hadMember/qualifiedDerivation/hadGeneration/activity/type	
 /hadMember/qualifiedDerivation/hadGeneration/activity/activityType	@type
 /hadMember/qualifiedDerivation/hadGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedDerivation/hadGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -5340,6 +5401,7 @@ path	@id
 /hadMember/qualifiedDerivation/hadGeneration/type	
 /hadMember/qualifiedDerivation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /hadMember/qualifiedDerivation/hadActivity/id	@id
+/hadMember/qualifiedDerivation/hadActivity/type	
 /hadMember/qualifiedDerivation/hadActivity/activityType	@type
 /hadMember/qualifiedDerivation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedDerivation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -5541,6 +5603,7 @@ path	@id
 /hadMember/qualifiedAttribution/agent/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /hadMember/qualifiedAttribution/agent/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /hadMember/qualifiedAttribution/agent/qualifiedDelegation/hadActivity/id	@id
+/hadMember/qualifiedAttribution/agent/qualifiedDelegation/hadActivity/type	
 /hadMember/qualifiedAttribution/agent/qualifiedDelegation/hadActivity/activityType	@type
 /hadMember/qualifiedAttribution/agent/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedAttribution/agent/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -5619,6 +5682,7 @@ path	@id
 /hadMember/qualifiedAttribution/agent/qualifiedDelegation/hadActivity/qualifiedInfluence/agent/length	http://purl.org/dc/terms/extent
 /hadMember/qualifiedAttribution/agent/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /hadMember/qualifiedAttribution/agent/wasInfluencedBy/id	@id
+/hadMember/qualifiedAttribution/agent/wasInfluencedBy/type	http://purl.org/dc/terms/type
 /hadMember/qualifiedAttribution/agent/wasInfluencedBy/activityType	@type
 /hadMember/qualifiedAttribution/agent/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedAttribution/agent/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -5670,7 +5734,6 @@ path	@id
 /hadMember/qualifiedAttribution/agent/wasInfluencedBy/href	http://www.w3.org/ns/oa#hasTarget
 /hadMember/qualifiedAttribution/agent/wasInfluencedBy/rel	http://www.iana.org/assignments/relation
 /hadMember/qualifiedAttribution/agent/wasInfluencedBy/anchor	
-/hadMember/qualifiedAttribution/agent/wasInfluencedBy/type	http://purl.org/dc/terms/type
 /hadMember/qualifiedAttribution/agent/wasInfluencedBy/hreflang	http://purl.org/dc/terms/language
 /hadMember/qualifiedAttribution/agent/wasInfluencedBy/title	http://www.w3.org/2000/01/rdf-schema#label
 /hadMember/qualifiedAttribution/agent/wasInfluencedBy/length	http://purl.org/dc/terms/extent
@@ -5678,6 +5741,7 @@ path	@id
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/id	@id
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/influencer/id	@id
+/hadMember/qualifiedAttribution/agent/qualifiedInfluence/influencer/type	http://purl.org/dc/terms/type
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/influencer/activityType	@type
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/influencer/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/influencer/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -5729,13 +5793,13 @@ path	@id
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/influencer/href	http://www.w3.org/ns/oa#hasTarget
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/influencer/rel	http://www.iana.org/assignments/relation
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/influencer/anchor	
-/hadMember/qualifiedAttribution/agent/qualifiedInfluence/influencer/type	http://purl.org/dc/terms/type
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/influencer/hreflang	http://purl.org/dc/terms/language
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/influencer/title	http://www.w3.org/2000/01/rdf-schema#label
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/influencer/length	http://purl.org/dc/terms/extent
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/activity/id	@id
+/hadMember/qualifiedAttribution/agent/qualifiedInfluence/activity/type	
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/activity/activityType	@type
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedAttribution/agent/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -5795,6 +5859,7 @@ path	@id
 /hadMember/qualifiedAttribution/agent/provType	@type
 /hadMember/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /hadMember/wasInfluencedBy/id	@id
+/hadMember/wasInfluencedBy/type	http://purl.org/dc/terms/type
 /hadMember/wasInfluencedBy/activityType	@type
 /hadMember/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -5875,7 +5940,6 @@ path	@id
 /hadMember/wasInfluencedBy/href	http://www.w3.org/ns/oa#hasTarget
 /hadMember/wasInfluencedBy/rel	http://www.iana.org/assignments/relation
 /hadMember/wasInfluencedBy/anchor	
-/hadMember/wasInfluencedBy/type	http://purl.org/dc/terms/type
 /hadMember/wasInfluencedBy/hreflang	http://purl.org/dc/terms/language
 /hadMember/wasInfluencedBy/title	http://www.w3.org/2000/01/rdf-schema#label
 /hadMember/wasInfluencedBy/length	http://purl.org/dc/terms/extent
@@ -5888,6 +5952,7 @@ path	@id
 /hadMember/wasInfluencedBy/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /hadMember/wasInfluencedBy/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /hadMember/wasInfluencedBy/qualifiedDelegation/hadActivity/id	@id
+/hadMember/wasInfluencedBy/qualifiedDelegation/hadActivity/type	
 /hadMember/wasInfluencedBy/qualifiedDelegation/hadActivity/activityType	@type
 /hadMember/wasInfluencedBy/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/wasInfluencedBy/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -5934,6 +5999,7 @@ path	@id
 /hadMember/qualifiedInfluence/id	@id
 /hadMember/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
 /hadMember/qualifiedInfluence/influencer/id	@id
+/hadMember/qualifiedInfluence/influencer/type	http://purl.org/dc/terms/type
 /hadMember/qualifiedInfluence/influencer/activityType	@type
 /hadMember/qualifiedInfluence/influencer/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedInfluence/influencer/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -6014,7 +6080,6 @@ path	@id
 /hadMember/qualifiedInfluence/influencer/href	http://www.w3.org/ns/oa#hasTarget
 /hadMember/qualifiedInfluence/influencer/rel	http://www.iana.org/assignments/relation
 /hadMember/qualifiedInfluence/influencer/anchor	
-/hadMember/qualifiedInfluence/influencer/type	http://purl.org/dc/terms/type
 /hadMember/qualifiedInfluence/influencer/hreflang	http://purl.org/dc/terms/language
 /hadMember/qualifiedInfluence/influencer/title	http://www.w3.org/2000/01/rdf-schema#label
 /hadMember/qualifiedInfluence/influencer/length	http://purl.org/dc/terms/extent
@@ -6027,6 +6092,7 @@ path	@id
 /hadMember/qualifiedInfluence/influencer/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /hadMember/qualifiedInfluence/influencer/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /hadMember/qualifiedInfluence/influencer/qualifiedDelegation/hadActivity/id	@id
+/hadMember/qualifiedInfluence/influencer/qualifiedDelegation/hadActivity/type	
 /hadMember/qualifiedInfluence/influencer/qualifiedDelegation/hadActivity/activityType	@type
 /hadMember/qualifiedInfluence/influencer/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedInfluence/influencer/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -6072,6 +6138,7 @@ path	@id
 /hadMember/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /hadMember/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /hadMember/qualifiedInfluence/activity/id	@id
+/hadMember/qualifiedInfluence/activity/type	
 /hadMember/qualifiedInfluence/activity/activityType	@type
 /hadMember/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -6168,6 +6235,7 @@ path	@id
 /hadMember/qualifiedInfluence/agent/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /hadMember/qualifiedInfluence/agent/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /hadMember/qualifiedInfluence/agent/qualifiedDelegation/hadActivity/id	@id
+/hadMember/qualifiedInfluence/agent/qualifiedDelegation/hadActivity/type	
 /hadMember/qualifiedInfluence/agent/qualifiedDelegation/hadActivity/activityType	@type
 /hadMember/qualifiedInfluence/agent/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/qualifiedInfluence/agent/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -13068,6 +13136,7 @@ path	@id
 /qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /qualifiedDelegation/hadActivity/id	@id
+/qualifiedDelegation/hadActivity/type	
 /qualifiedDelegation/hadActivity/activityType	@type
 /qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17337,6 +17406,7 @@ path	@id
 /wasInfluencedBy/qualifiedEnd/entity/hadMember/type	
 /wasInfluencedBy/qualifiedEnd/entity/hadMember/hadMember	http://www.w3.org/ns/prov#hadMember
 /wasInfluencedBy/wasGeneratedBy/id	@id
+/wasInfluencedBy/wasGeneratedBy/type	
 /wasInfluencedBy/wasGeneratedBy/activityType	@type
 /wasInfluencedBy/wasGeneratedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/wasGeneratedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17386,6 +17456,7 @@ path	@id
 /wasInfluencedBy/wasGeneratedBy/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/wasGeneratedBy/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/qualifiedGeneration/hadActivity/id	@id
+/wasInfluencedBy/qualifiedGeneration/hadActivity/type	
 /wasInfluencedBy/qualifiedGeneration/hadActivity/activityType	@type
 /wasInfluencedBy/qualifiedGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/qualifiedGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17429,6 +17500,7 @@ path	@id
 /wasInfluencedBy/qualifiedGeneration/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/qualifiedGeneration/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/qualifiedGeneration/activity/id	@id
+/wasInfluencedBy/qualifiedGeneration/activity/type	
 /wasInfluencedBy/qualifiedGeneration/activity/activityType	@type
 /wasInfluencedBy/qualifiedGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/qualifiedGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17472,6 +17544,7 @@ path	@id
 /wasInfluencedBy/qualifiedGeneration/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/qualifiedGeneration/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/qualifiedInvalidation/hadActivity/id	@id
+/wasInfluencedBy/qualifiedInvalidation/hadActivity/type	
 /wasInfluencedBy/qualifiedInvalidation/hadActivity/activityType	@type
 /wasInfluencedBy/qualifiedInvalidation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/qualifiedInvalidation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17515,6 +17588,7 @@ path	@id
 /wasInfluencedBy/qualifiedInvalidation/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/qualifiedInvalidation/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/qualifiedInvalidation/activity/id	@id
+/wasInfluencedBy/qualifiedInvalidation/activity/type	
 /wasInfluencedBy/qualifiedInvalidation/activity/activityType	@type
 /wasInfluencedBy/qualifiedInvalidation/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/qualifiedInvalidation/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17558,6 +17632,7 @@ path	@id
 /wasInfluencedBy/qualifiedInvalidation/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/qualifiedInvalidation/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/qualifiedDerivation/hadGeneration/hadActivity/id	@id
+/wasInfluencedBy/qualifiedDerivation/hadGeneration/hadActivity/type	
 /wasInfluencedBy/qualifiedDerivation/hadGeneration/hadActivity/activityType	@type
 /wasInfluencedBy/qualifiedDerivation/hadGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/qualifiedDerivation/hadGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17601,6 +17676,7 @@ path	@id
 /wasInfluencedBy/qualifiedDerivation/hadGeneration/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/qualifiedDerivation/hadGeneration/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/qualifiedDerivation/hadGeneration/activity/id	@id
+/wasInfluencedBy/qualifiedDerivation/hadGeneration/activity/type	
 /wasInfluencedBy/qualifiedDerivation/hadGeneration/activity/activityType	@type
 /wasInfluencedBy/qualifiedDerivation/hadGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/qualifiedDerivation/hadGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17644,6 +17720,7 @@ path	@id
 /wasInfluencedBy/qualifiedDerivation/hadGeneration/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/qualifiedDerivation/hadGeneration/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/qualifiedDerivation/hadActivity/id	@id
+/wasInfluencedBy/qualifiedDerivation/hadActivity/type	
 /wasInfluencedBy/qualifiedDerivation/hadActivity/activityType	@type
 /wasInfluencedBy/qualifiedDerivation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/qualifiedDerivation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17693,6 +17770,7 @@ path	@id
 /wasInfluencedBy/qualifiedDerivation/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/qualifiedDerivation/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/hadMember/wasGeneratedBy/id	@id
+/wasInfluencedBy/hadMember/wasGeneratedBy/type	
 /wasInfluencedBy/hadMember/wasGeneratedBy/activityType	@type
 /wasInfluencedBy/hadMember/wasGeneratedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/hadMember/wasGeneratedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17742,6 +17820,7 @@ path	@id
 /wasInfluencedBy/hadMember/wasGeneratedBy/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/hadMember/wasGeneratedBy/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/hadMember/qualifiedGeneration/hadActivity/id	@id
+/wasInfluencedBy/hadMember/qualifiedGeneration/hadActivity/type	
 /wasInfluencedBy/hadMember/qualifiedGeneration/hadActivity/activityType	@type
 /wasInfluencedBy/hadMember/qualifiedGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/hadMember/qualifiedGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17785,6 +17864,7 @@ path	@id
 /wasInfluencedBy/hadMember/qualifiedGeneration/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/hadMember/qualifiedGeneration/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/hadMember/qualifiedGeneration/activity/id	@id
+/wasInfluencedBy/hadMember/qualifiedGeneration/activity/type	
 /wasInfluencedBy/hadMember/qualifiedGeneration/activity/activityType	@type
 /wasInfluencedBy/hadMember/qualifiedGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/hadMember/qualifiedGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17828,6 +17908,7 @@ path	@id
 /wasInfluencedBy/hadMember/qualifiedGeneration/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/hadMember/qualifiedGeneration/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/hadMember/qualifiedInvalidation/hadActivity/id	@id
+/wasInfluencedBy/hadMember/qualifiedInvalidation/hadActivity/type	
 /wasInfluencedBy/hadMember/qualifiedInvalidation/hadActivity/activityType	@type
 /wasInfluencedBy/hadMember/qualifiedInvalidation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/hadMember/qualifiedInvalidation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17871,6 +17952,7 @@ path	@id
 /wasInfluencedBy/hadMember/qualifiedInvalidation/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/hadMember/qualifiedInvalidation/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/hadMember/qualifiedInvalidation/activity/id	@id
+/wasInfluencedBy/hadMember/qualifiedInvalidation/activity/type	
 /wasInfluencedBy/hadMember/qualifiedInvalidation/activity/activityType	@type
 /wasInfluencedBy/hadMember/qualifiedInvalidation/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/hadMember/qualifiedInvalidation/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17914,6 +17996,7 @@ path	@id
 /wasInfluencedBy/hadMember/qualifiedInvalidation/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/hadMember/qualifiedInvalidation/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadGeneration/hadActivity/id	@id
+/wasInfluencedBy/hadMember/qualifiedDerivation/hadGeneration/hadActivity/type	
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadGeneration/hadActivity/activityType	@type
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -17957,6 +18040,7 @@ path	@id
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadGeneration/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadGeneration/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadGeneration/activity/id	@id
+/wasInfluencedBy/hadMember/qualifiedDerivation/hadGeneration/activity/type	
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadGeneration/activity/activityType	@type
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -18000,6 +18084,7 @@ path	@id
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadGeneration/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadGeneration/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadActivity/id	@id
+/wasInfluencedBy/hadMember/qualifiedDerivation/hadActivity/type	
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadActivity/activityType	@type
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/hadMember/qualifiedDerivation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -19625,6 +19710,7 @@ path	@id
 /qualifiedInfluence/influencer/qualifiedEnd/entity/hadMember/type	
 /qualifiedInfluence/influencer/qualifiedEnd/entity/hadMember/hadMember	http://www.w3.org/ns/prov#hadMember
 /qualifiedInfluence/influencer/wasGeneratedBy/id	@id
+/qualifiedInfluence/influencer/wasGeneratedBy/type	
 /qualifiedInfluence/influencer/wasGeneratedBy/activityType	@type
 /qualifiedInfluence/influencer/wasGeneratedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/wasGeneratedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -19674,6 +19760,7 @@ path	@id
 /qualifiedInfluence/influencer/wasGeneratedBy/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/wasGeneratedBy/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/qualifiedGeneration/hadActivity/id	@id
+/qualifiedInfluence/influencer/qualifiedGeneration/hadActivity/type	
 /qualifiedInfluence/influencer/qualifiedGeneration/hadActivity/activityType	@type
 /qualifiedInfluence/influencer/qualifiedGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/qualifiedGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -19717,6 +19804,7 @@ path	@id
 /qualifiedInfluence/influencer/qualifiedGeneration/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/qualifiedGeneration/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/qualifiedGeneration/activity/id	@id
+/qualifiedInfluence/influencer/qualifiedGeneration/activity/type	
 /qualifiedInfluence/influencer/qualifiedGeneration/activity/activityType	@type
 /qualifiedInfluence/influencer/qualifiedGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/qualifiedGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -19760,6 +19848,7 @@ path	@id
 /qualifiedInfluence/influencer/qualifiedGeneration/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/qualifiedGeneration/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/qualifiedInvalidation/hadActivity/id	@id
+/qualifiedInfluence/influencer/qualifiedInvalidation/hadActivity/type	
 /qualifiedInfluence/influencer/qualifiedInvalidation/hadActivity/activityType	@type
 /qualifiedInfluence/influencer/qualifiedInvalidation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/qualifiedInvalidation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -19803,6 +19892,7 @@ path	@id
 /qualifiedInfluence/influencer/qualifiedInvalidation/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/qualifiedInvalidation/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/qualifiedInvalidation/activity/id	@id
+/qualifiedInfluence/influencer/qualifiedInvalidation/activity/type	
 /qualifiedInfluence/influencer/qualifiedInvalidation/activity/activityType	@type
 /qualifiedInfluence/influencer/qualifiedInvalidation/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/qualifiedInvalidation/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -19846,6 +19936,7 @@ path	@id
 /qualifiedInfluence/influencer/qualifiedInvalidation/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/qualifiedInvalidation/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/qualifiedDerivation/hadGeneration/hadActivity/id	@id
+/qualifiedInfluence/influencer/qualifiedDerivation/hadGeneration/hadActivity/type	
 /qualifiedInfluence/influencer/qualifiedDerivation/hadGeneration/hadActivity/activityType	@type
 /qualifiedInfluence/influencer/qualifiedDerivation/hadGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/qualifiedDerivation/hadGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -19889,6 +19980,7 @@ path	@id
 /qualifiedInfluence/influencer/qualifiedDerivation/hadGeneration/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/qualifiedDerivation/hadGeneration/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/qualifiedDerivation/hadGeneration/activity/id	@id
+/qualifiedInfluence/influencer/qualifiedDerivation/hadGeneration/activity/type	
 /qualifiedInfluence/influencer/qualifiedDerivation/hadGeneration/activity/activityType	@type
 /qualifiedInfluence/influencer/qualifiedDerivation/hadGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/qualifiedDerivation/hadGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -19932,6 +20024,7 @@ path	@id
 /qualifiedInfluence/influencer/qualifiedDerivation/hadGeneration/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/qualifiedDerivation/hadGeneration/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/qualifiedDerivation/hadActivity/id	@id
+/qualifiedInfluence/influencer/qualifiedDerivation/hadActivity/type	
 /qualifiedInfluence/influencer/qualifiedDerivation/hadActivity/activityType	@type
 /qualifiedInfluence/influencer/qualifiedDerivation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/qualifiedDerivation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -19981,6 +20074,7 @@ path	@id
 /qualifiedInfluence/influencer/qualifiedDerivation/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/qualifiedDerivation/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/hadMember/wasGeneratedBy/id	@id
+/qualifiedInfluence/influencer/hadMember/wasGeneratedBy/type	
 /qualifiedInfluence/influencer/hadMember/wasGeneratedBy/activityType	@type
 /qualifiedInfluence/influencer/hadMember/wasGeneratedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/hadMember/wasGeneratedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20030,6 +20124,7 @@ path	@id
 /qualifiedInfluence/influencer/hadMember/wasGeneratedBy/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/hadMember/wasGeneratedBy/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/hadMember/qualifiedGeneration/hadActivity/id	@id
+/qualifiedInfluence/influencer/hadMember/qualifiedGeneration/hadActivity/type	
 /qualifiedInfluence/influencer/hadMember/qualifiedGeneration/hadActivity/activityType	@type
 /qualifiedInfluence/influencer/hadMember/qualifiedGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/hadMember/qualifiedGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20073,6 +20168,7 @@ path	@id
 /qualifiedInfluence/influencer/hadMember/qualifiedGeneration/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/hadMember/qualifiedGeneration/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/hadMember/qualifiedGeneration/activity/id	@id
+/qualifiedInfluence/influencer/hadMember/qualifiedGeneration/activity/type	
 /qualifiedInfluence/influencer/hadMember/qualifiedGeneration/activity/activityType	@type
 /qualifiedInfluence/influencer/hadMember/qualifiedGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/hadMember/qualifiedGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20116,6 +20212,7 @@ path	@id
 /qualifiedInfluence/influencer/hadMember/qualifiedGeneration/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/hadMember/qualifiedGeneration/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/hadMember/qualifiedInvalidation/hadActivity/id	@id
+/qualifiedInfluence/influencer/hadMember/qualifiedInvalidation/hadActivity/type	
 /qualifiedInfluence/influencer/hadMember/qualifiedInvalidation/hadActivity/activityType	@type
 /qualifiedInfluence/influencer/hadMember/qualifiedInvalidation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/hadMember/qualifiedInvalidation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20159,6 +20256,7 @@ path	@id
 /qualifiedInfluence/influencer/hadMember/qualifiedInvalidation/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/hadMember/qualifiedInvalidation/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/hadMember/qualifiedInvalidation/activity/id	@id
+/qualifiedInfluence/influencer/hadMember/qualifiedInvalidation/activity/type	
 /qualifiedInfluence/influencer/hadMember/qualifiedInvalidation/activity/activityType	@type
 /qualifiedInfluence/influencer/hadMember/qualifiedInvalidation/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/hadMember/qualifiedInvalidation/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20202,6 +20300,7 @@ path	@id
 /qualifiedInfluence/influencer/hadMember/qualifiedInvalidation/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/hadMember/qualifiedInvalidation/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadGeneration/hadActivity/id	@id
+/qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadGeneration/hadActivity/type	
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadGeneration/hadActivity/activityType	@type
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20245,6 +20344,7 @@ path	@id
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadGeneration/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadGeneration/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadGeneration/activity/id	@id
+/qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadGeneration/activity/type	
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadGeneration/activity/activityType	@type
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20288,6 +20388,7 @@ path	@id
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadGeneration/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadGeneration/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadActivity/id	@id
+/qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadActivity/type	
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadActivity/activityType	@type
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20337,6 +20438,7 @@ path	@id
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/influencer/hadMember/qualifiedDerivation/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/wasGeneratedBy/id	@id
+/qualifiedInfluence/entity/wasGeneratedBy/type	
 /qualifiedInfluence/entity/wasGeneratedBy/activityType	@type
 /qualifiedInfluence/entity/wasGeneratedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/wasGeneratedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20386,6 +20488,7 @@ path	@id
 /qualifiedInfluence/entity/wasGeneratedBy/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/wasGeneratedBy/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/qualifiedGeneration/hadActivity/id	@id
+/qualifiedInfluence/entity/qualifiedGeneration/hadActivity/type	
 /qualifiedInfluence/entity/qualifiedGeneration/hadActivity/activityType	@type
 /qualifiedInfluence/entity/qualifiedGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/qualifiedGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20429,6 +20532,7 @@ path	@id
 /qualifiedInfluence/entity/qualifiedGeneration/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/qualifiedGeneration/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/qualifiedGeneration/activity/id	@id
+/qualifiedInfluence/entity/qualifiedGeneration/activity/type	
 /qualifiedInfluence/entity/qualifiedGeneration/activity/activityType	@type
 /qualifiedInfluence/entity/qualifiedGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/qualifiedGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20472,6 +20576,7 @@ path	@id
 /qualifiedInfluence/entity/qualifiedGeneration/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/qualifiedGeneration/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/qualifiedInvalidation/hadActivity/id	@id
+/qualifiedInfluence/entity/qualifiedInvalidation/hadActivity/type	
 /qualifiedInfluence/entity/qualifiedInvalidation/hadActivity/activityType	@type
 /qualifiedInfluence/entity/qualifiedInvalidation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/qualifiedInvalidation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20515,6 +20620,7 @@ path	@id
 /qualifiedInfluence/entity/qualifiedInvalidation/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/qualifiedInvalidation/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/qualifiedInvalidation/activity/id	@id
+/qualifiedInfluence/entity/qualifiedInvalidation/activity/type	
 /qualifiedInfluence/entity/qualifiedInvalidation/activity/activityType	@type
 /qualifiedInfluence/entity/qualifiedInvalidation/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/qualifiedInvalidation/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20558,6 +20664,7 @@ path	@id
 /qualifiedInfluence/entity/qualifiedInvalidation/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/qualifiedInvalidation/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/qualifiedDerivation/hadGeneration/hadActivity/id	@id
+/qualifiedInfluence/entity/qualifiedDerivation/hadGeneration/hadActivity/type	
 /qualifiedInfluence/entity/qualifiedDerivation/hadGeneration/hadActivity/activityType	@type
 /qualifiedInfluence/entity/qualifiedDerivation/hadGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/qualifiedDerivation/hadGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20601,6 +20708,7 @@ path	@id
 /qualifiedInfluence/entity/qualifiedDerivation/hadGeneration/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/qualifiedDerivation/hadGeneration/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/qualifiedDerivation/hadGeneration/activity/id	@id
+/qualifiedInfluence/entity/qualifiedDerivation/hadGeneration/activity/type	
 /qualifiedInfluence/entity/qualifiedDerivation/hadGeneration/activity/activityType	@type
 /qualifiedInfluence/entity/qualifiedDerivation/hadGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/qualifiedDerivation/hadGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20644,6 +20752,7 @@ path	@id
 /qualifiedInfluence/entity/qualifiedDerivation/hadGeneration/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/qualifiedDerivation/hadGeneration/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/qualifiedDerivation/hadActivity/id	@id
+/qualifiedInfluence/entity/qualifiedDerivation/hadActivity/type	
 /qualifiedInfluence/entity/qualifiedDerivation/hadActivity/activityType	@type
 /qualifiedInfluence/entity/qualifiedDerivation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/qualifiedDerivation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20693,6 +20802,7 @@ path	@id
 /qualifiedInfluence/entity/qualifiedDerivation/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/qualifiedDerivation/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/hadMember/wasGeneratedBy/id	@id
+/qualifiedInfluence/entity/hadMember/wasGeneratedBy/type	
 /qualifiedInfluence/entity/hadMember/wasGeneratedBy/activityType	@type
 /qualifiedInfluence/entity/hadMember/wasGeneratedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/hadMember/wasGeneratedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20742,6 +20852,7 @@ path	@id
 /qualifiedInfluence/entity/hadMember/wasGeneratedBy/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/hadMember/wasGeneratedBy/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/hadMember/qualifiedGeneration/hadActivity/id	@id
+/qualifiedInfluence/entity/hadMember/qualifiedGeneration/hadActivity/type	
 /qualifiedInfluence/entity/hadMember/qualifiedGeneration/hadActivity/activityType	@type
 /qualifiedInfluence/entity/hadMember/qualifiedGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/hadMember/qualifiedGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20785,6 +20896,7 @@ path	@id
 /qualifiedInfluence/entity/hadMember/qualifiedGeneration/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/hadMember/qualifiedGeneration/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/hadMember/qualifiedGeneration/activity/id	@id
+/qualifiedInfluence/entity/hadMember/qualifiedGeneration/activity/type	
 /qualifiedInfluence/entity/hadMember/qualifiedGeneration/activity/activityType	@type
 /qualifiedInfluence/entity/hadMember/qualifiedGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/hadMember/qualifiedGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20828,6 +20940,7 @@ path	@id
 /qualifiedInfluence/entity/hadMember/qualifiedGeneration/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/hadMember/qualifiedGeneration/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/hadMember/qualifiedInvalidation/hadActivity/id	@id
+/qualifiedInfluence/entity/hadMember/qualifiedInvalidation/hadActivity/type	
 /qualifiedInfluence/entity/hadMember/qualifiedInvalidation/hadActivity/activityType	@type
 /qualifiedInfluence/entity/hadMember/qualifiedInvalidation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/hadMember/qualifiedInvalidation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20871,6 +20984,7 @@ path	@id
 /qualifiedInfluence/entity/hadMember/qualifiedInvalidation/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/hadMember/qualifiedInvalidation/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/hadMember/qualifiedInvalidation/activity/id	@id
+/qualifiedInfluence/entity/hadMember/qualifiedInvalidation/activity/type	
 /qualifiedInfluence/entity/hadMember/qualifiedInvalidation/activity/activityType	@type
 /qualifiedInfluence/entity/hadMember/qualifiedInvalidation/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/hadMember/qualifiedInvalidation/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20914,6 +21028,7 @@ path	@id
 /qualifiedInfluence/entity/hadMember/qualifiedInvalidation/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/hadMember/qualifiedInvalidation/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadGeneration/hadActivity/id	@id
+/qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadGeneration/hadActivity/type	
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadGeneration/hadActivity/activityType	@type
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadGeneration/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadGeneration/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -20957,6 +21072,7 @@ path	@id
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadGeneration/hadActivity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadGeneration/hadActivity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadGeneration/activity/id	@id
+/qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadGeneration/activity/type	
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadGeneration/activity/activityType	@type
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadGeneration/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadGeneration/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -21000,6 +21116,7 @@ path	@id
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadGeneration/activity/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadGeneration/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadActivity/id	@id
+/qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadActivity/type	
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadActivity/activityType	@type
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /qualifiedInfluence/entity/hadMember/qualifiedDerivation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -22625,6 +22742,7 @@ path	@id
 /qualifiedInfluence/activity/qualifiedEnd/entity/hadMember/type	
 /qualifiedInfluence/activity/qualifiedEnd/entity/hadMember/hadMember	http://www.w3.org/ns/prov#hadMember
 /has_provenance/id	@id
+/has_provenance/type	
 /has_provenance/activityType	@type
 /has_provenance/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /has_provenance/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -22814,6 +22932,7 @@ path	@id
 /has_provenance/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /has_provenance/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /has_provenance/qualifiedDelegation/hadActivity/id	@id
+/has_provenance/qualifiedDelegation/hadActivity/type	
 /has_provenance/qualifiedDelegation/hadActivity/activityType	@type
 /has_provenance/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /has_provenance/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -22985,6 +23104,7 @@ path	@id
 /has_provenance/qualifiedInfluence/influencer/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /has_provenance/qualifiedInfluence/influencer/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /has_provenance/qualifiedInfluence/activity/id	@id
+/has_provenance/qualifiedInfluence/activity/type	
 /has_provenance/qualifiedInfluence/activity/activityType	@type
 /has_provenance/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /has_provenance/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -23035,6 +23155,7 @@ path	@id
 /has_provenance/qualifiedInfluence/activity/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /has_provenance/provType	@type
 /hadMember/has_provenance/id	@id
+/hadMember/has_provenance/type	
 /hadMember/has_provenance/activityType	@type
 /hadMember/has_provenance/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/has_provenance/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -23224,6 +23345,7 @@ path	@id
 /hadMember/has_provenance/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
 /hadMember/has_provenance/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
 /hadMember/has_provenance/qualifiedDelegation/hadActivity/id	@id
+/hadMember/has_provenance/qualifiedDelegation/hadActivity/type	
 /hadMember/has_provenance/qualifiedDelegation/hadActivity/activityType	@type
 /hadMember/has_provenance/qualifiedDelegation/hadActivity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/has_provenance/qualifiedDelegation/hadActivity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
@@ -23395,6 +23517,7 @@ path	@id
 /hadMember/has_provenance/qualifiedInfluence/influencer/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
 /hadMember/has_provenance/qualifiedInfluence/influencer/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
 /hadMember/has_provenance/qualifiedInfluence/activity/id	@id
+/hadMember/has_provenance/qualifiedInfluence/activity/type	
 /hadMember/has_provenance/qualifiedInfluence/activity/activityType	@type
 /hadMember/has_provenance/qualifiedInfluence/activity/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /hadMember/has_provenance/qualifiedInfluence/activity/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith

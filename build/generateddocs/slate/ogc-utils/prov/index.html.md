@@ -29,8 +29,8 @@ Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activi
     <a href="http://www.opengis.net/def/status/under-development" target="_blank" data-rainbow-uri>Under development</a>
 </p>
 
-<aside class="warning">
-Validation for this building block has <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">failed</a></strong>
+<aside class="success">
+This building block is <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">valid</a></strong>
 </aside>
 
 # Description
@@ -821,6 +821,16 @@ $defs:
       id:
         $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
+      type:
+        oneOf:
+        - type: string
+          const: Activity
+        - type: array
+          contains:
+            type: string
+            const: Activity
+          items:
+            type: string
       activityType:
         $ref: '#/$defs/oneOrMoreObjectref'
         x-jsonld-id: '@type'
@@ -918,6 +928,8 @@ $defs:
       - startedAtTime
     - required:
       - wasAssociatedWith
+    - required:
+      - type
     allOf:
     - $ref: '#/$defs/influenced'
   Agent:

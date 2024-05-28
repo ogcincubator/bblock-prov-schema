@@ -51,9 +51,9 @@
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2024-05-28T05:45:52.964602+00:00</small>
-                <p class="summary fw-semibold text-danger">
-                    Number of passing building blocks: 0 / 1 (0%)
+            <small class="datetime">Generated at 2024-05-28T07:45:12.917336+00:00</small>
+                <p class="summary fw-semibold text-success">
+                    Number of passing building blocks: 1 / 1 (100%)
                 </p>
             <div class="text-end small" id="expand-collapse">
                 <a href="#" class="expand-all">Expand all</a>
@@ -62,7 +62,7 @@
                 <div class="accordion mt-2" id="bblock-reports">
                         <div class="accordion-item bblock-report" data-bblock-id="ogc.ogc-utils.prov" id="bblock-ogc.ogc-utils.prov">
                             <h2 class="accordion-header bblock-title">
-                                <button class="accordion-button " type="button"
+                                <button class="accordion-button collapsed" type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#bblock-collapse-ogc\.ogc-utils\.prov">
                                     <div class="flex-fill">
@@ -70,16 +70,16 @@
                                         <small class="ms-2 bblock-id">ogc.ogc-utils.prov</small>
                                     </div>
 
-                                    <span class="badge text-bg-danger me-2">
-                                            Tests Failed
-                                            (75% passed)
+                                    <span class="badge text-bg-success me-2">
+                                            Passed
+                                            (100% passed)
                                     </span>
                                 </button>
                             </h2>
-                            <div class="accordion-collapse collapse show" id="bblock-collapse-ogc.ogc-utils.prov">
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.ogc-utils.prov">
                                 <div class="accordion-body">
-                                        <p class="summary fw-semibold text-danger">
-                                            Test passed: 3 / 4
+                                        <p class="summary fw-semibold text-success">
+                                            Test passed: 4 / 4
                                         </p>
                                         <div class="card mb-2 validation-item ">
                                             <div class="card-body">
@@ -182,7 +182,7 @@
                                                     <a href="ogc-utils/prov/example_4_1.json" target="_blank">example_4_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
                                                     <div class="float-end">
-                                                            <span class="badge text-bg-danger me-2">Failed</span>
+                                                            <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-4">
@@ -193,82 +193,7 @@
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_4_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_4_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: {&#x27;id&#x27;: &#x27;uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44&#x27;, &#x27;type&#x27;: [&#x27;wfprov:ProcessRun&#x27;, &#x27;Activity&#x27;], &#x27;name&#x27;: &#x27;Run of workflow/packed.cwl#main/sorted&#x27;} is not valid under any of the given schemas
-
-Failed validating &#x27;anyOf&#x27; in schema[1]:
-    {&#x27;allOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/$defs/influenced&#x27;}],
-     &#x27;anyOf&#x27;: [{&#x27;required&#x27;: [&#x27;activityType&#x27;]},
-               {&#x27;required&#x27;: [&#x27;used&#x27;]},
-               {&#x27;required&#x27;: [&#x27;wasInformedBy&#x27;]},
-               {&#x27;required&#x27;: [&#x27;endedAtTime&#x27;]},
-               {&#x27;required&#x27;: [&#x27;startedAtTime&#x27;]},
-               {&#x27;required&#x27;: [&#x27;wasAssociatedWith&#x27;]}],
-     &#x27;properties&#x27;: {&#x27;activityType&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/oneOrMoreObjectref&#x27;,
-                                     &#x27;x-jsonld-id&#x27;: &#x27;@type&#x27;},
-                    &#x27;atLocation&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/objectref&#x27;,
-                                   &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#atLocation&#x27;,
-                                   &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
-                    &#x27;endedAtTime&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/dateTime&#x27;,
-                                    &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#endedAtTime&#x27;,
-                                    &#x27;x-jsonld-type&#x27;: &#x27;http://www.w3.org/2001/XMLSchema#dateTime&#x27;},
-                    &#x27;generated&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/oneOrMoreEntitiesOrRefIds&#x27;,
-                                  &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#generated&#x27;,
-                                  &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
-                    &#x27;id&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/objectref&#x27;,
-                           &#x27;x-jsonld-id&#x27;: &#x27;@id&#x27;},
-                    &#x27;invalidated&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/oneOrMoreEntitiesOrRefIds&#x27;,
-                                    &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#invalidated&#x27;,
-                                    &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
-                    &#x27;qualifiedAssociation&#x27;: {&#x27;oneOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/$defs/objectref&#x27;},
-                                                       {&#x27;$ref&#x27;: &#x27;#/$defs/Association&#x27;},
-                                                       {&#x27;items&#x27;: {&#x27;oneOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/$defs/objectref&#x27;},
-                                                                            {&#x27;$ref&#x27;: &#x27;#/$defs/Association&#x27;}]},
-                                                        &#x27;type&#x27;: &#x27;array&#x27;}],
-                                             &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#qualifiedAssociation&#x27;,
-                                             &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
-                    &#x27;qualifiedCommunication&#x27;: {&#x27;oneOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/$defs/objectref&#x27;},
-                                                         {&#x27;$ref&#x27;: &#x27;#/$defs/Communication&#x27;},
-                                                         {&#x27;items&#x27;: {&#x27;oneOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/$defs/objectref&#x27;},
-                                                                              {&#x27;$ref&#x27;: &#x27;#/$defs/Generation&#x27;}]},
-                                                          &#x27;type&#x27;: &#x27;array&#x27;}],
-                                               &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#qualifiedCommunication&#x27;,
-                                               &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
-                    &#x27;qualifiedEnd&#x27;: {&#x27;oneOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/$defs/objectref&#x27;},
-                                               {&#x27;$ref&#x27;: &#x27;#/$defs/End&#x27;}],
-                                     &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#qualifiedEnd&#x27;,
-                                     &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
-                    &#x27;qualifiedStart&#x27;: {&#x27;oneOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/$defs/objectref&#x27;},
-                                                 {&#x27;$ref&#x27;: &#x27;#/$defs/Start&#x27;}],
-                                       &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#qualifiedStart&#x27;,
-                                       &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
-                    &#x27;qualifiedUsage&#x27;: {&#x27;oneOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/$defs/objectref&#x27;},
-                                                 {&#x27;$ref&#x27;: &#x27;#/$defs/Usage&#x27;},
-                                                 {&#x27;items&#x27;: {&#x27;oneOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/$defs/objectref&#x27;},
-                                                                      {&#x27;$ref&#x27;: &#x27;#/$defs/Usage&#x27;}]},
-                                                  &#x27;type&#x27;: &#x27;array&#x27;}],
-                                       &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#qualifiedUsage&#x27;,
-                                       &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
-                    &#x27;used&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/oneOrMoreEntitiesOrRefIds&#x27;,
-                             &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#used&#x27;,
-                             &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
-                    &#x27;wasAssociatedWith&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/oneOrMoreAgentsOrRefIds&#x27;,
-                                          &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#wasAssociatedWith&#x27;,
-                                          &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
-                    &#x27;wasEndedBy&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/oneOrMoreEntitiesOrRefIds&#x27;,
-                                   &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#wasEndedBy&#x27;,
-                                   &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
-                    &#x27;wasInformedBy&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/oneOrMoreActivitiesOrRefIds&#x27;,
-                                      &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#wasInformedBy&#x27;,
-                                      &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
-                    &#x27;wasStartedBy&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/oneOrMoreEntitiesOrRefIds&#x27;,
-                                     &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#wasStartedBy&#x27;,
-                                     &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;}},
-     &#x27;type&#x27;: &#x27;object&#x27;}
-
-On instance:
-    {&#x27;id&#x27;: &#x27;uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44&#x27;,
-     &#x27;name&#x27;: &#x27;Run of workflow/packed.cwl#main/sorted&#x27;,
-     &#x27;type&#x27;: [&#x27;wfprov:ProcessRun&#x27;, &#x27;Activity&#x27;]}</div>
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
                                             </div>
