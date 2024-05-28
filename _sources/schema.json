@@ -707,7 +707,10 @@
           "$ref": "#/$defs/oneOrMoreObjectref"
         },
         "hadActivity": {
-          "$ref": "#/$defs/oneOrMoreObjectref"
+          "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds"
+        },
+        "activity": {
+          "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds"
         }
       }
     },
