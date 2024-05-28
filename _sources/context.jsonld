@@ -119,6 +119,14 @@
       "@id": "prov:hadActivity",
       "@type": "@id"
     },
+    "activity": {
+      "@id": "prov:activity",
+      "@type": "@id"
+    },
+    "agent": {
+      "@id": "prov:agent",
+      "@type": "@id"
+    },
     "hadGeneration": {
       "@id": "prov:hadGeneration",
       "@type": "@id"
