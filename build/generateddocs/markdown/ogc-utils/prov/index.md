@@ -32,8 +32,113 @@ likewise the use of the property `type` is not specified to allow compatibility 
 
 ## Examples
 
-### Example Entities with Provenance Chains
-See panel to right - note that a more user friendly "collapsable" version is in development. 
+### Simple relationships
+#### json
+```json
+{
+  "id": "Object2",
+  "wasDerivedFrom": "Object1"
+}
+
+
+
+
+
+```
+
+#### jsonld
+```jsonld
+{
+  "id": "Object2",
+  "wasDerivedFrom": "Object1",
+  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"
+}
+```
+
+#### ttl
+```ttl
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<http://www.example.com/exampleEntities/Object2> prov:wasDerivedFrom <http://www.example.com/exampleEntities/Object1> .
+
+
+```
+
+
+### Activity
+this is a simple activity referencing some relevant document
+#### json
+```json
+{
+  "provType": "Activity",
+  "id": "someActivity_1",
+  "endedAtTime": "2029-01-01T22:05:19+02:00",
+  "wasAssociatedWith": "eg_agents:bc-3",
+  "used": {
+    "provType": "Entity",
+    "id": "Act3",
+    "wasAttributedTo": "eg_agents:Gov1",
+    "links": [
+      {
+        "href": "https://some.gov/linktoact/",
+        "rel": "related"
+      }
+    ]
+  }
+}
+
+
+
+
+
+```
+
+#### jsonld
+```jsonld
+{
+  "provType": "Activity",
+  "id": "someActivity_1",
+  "endedAtTime": "2029-01-01T22:05:19+02:00",
+  "wasAssociatedWith": "eg_agents:bc-3",
+  "used": {
+    "provType": "Entity",
+    "id": "Act3",
+    "wasAttributedTo": "eg_agents:Gov1",
+    "links": [
+      {
+        "href": "https://some.gov/linktoact/",
+        "rel": "related"
+      }
+    ]
+  },
+  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"
+}
+```
+
+#### ttl
+```ttl
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.example.com/exampleActivity/someActivity_1> a prov:Activity ;
+    prov:endedAtTime "2029-01-01T22:05:19+02:00"^^xsd:dateTime ;
+    prov:used <http://www.example.com/exampleActivity/Act3> ;
+    prov:wasAssociatedWith <http://www.example.com/exampleActivity/eg_agents:bc-3> .
+
+<http://www.example.com/exampleActivity/Act3> a prov:Entity ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://some.gov/linktoact/> ] ;
+    prov:wasAttributedTo <http://www.example.com/exampleActivity/eg_agents:Gov1> .
+
+
+```
+
+
+### Provenance Chain
+DAG defined by an object list. 
 #### json
 ```json
 {
@@ -230,77 +335,6 @@ surveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,
     prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
     prov:used thing:Act3 ;
     prov:wasAssociatedWith agents:ah-2344503 .
-
-
-```
-
-
-### Example Activity
-#### json
-```json
-{
-  "provType": "Activity",
-  "id": "surveyreg-nz:DP-1-S2",
-  "endedAtTime": "2029-01-01T22:05:19+02:00",
-  "wasAssociatedWith": "linz-registered-surveyors:bc-3",
-  "used": {
-    "provType": "Entity",
-    "id": "Act3",
-    "wasAttributedTo": "icsm-jurisdictions:nz",
-    "links": [
-      {
-        "href": "https://some.gov/linktoact/",
-        "rel": "related"
-      }
-    ]
-  }
-}
-
-
-
-
-
-```
-
-#### jsonld
-```jsonld
-{
-  "provType": "Activity",
-  "id": "surveyreg-nz:DP-1-S2",
-  "endedAtTime": "2029-01-01T22:05:19+02:00",
-  "wasAssociatedWith": "linz-registered-surveyors:bc-3",
-  "used": {
-    "provType": "Entity",
-    "id": "Act3",
-    "wasAttributedTo": "icsm-jurisdictions:nz",
-    "links": [
-      {
-        "href": "https://some.gov/linktoact/",
-        "rel": "related"
-      }
-    ]
-  },
-  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"
-}
-```
-
-#### ttl
-```ttl
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<surveyreg-nz:DP-1-S2> a prov:Activity ;
-    prov:endedAtTime "2029-01-01T22:05:19+02:00"^^xsd:dateTime ;
-    prov:used <http://www.example.com/exampleActivity/Act3> ;
-    prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
-
-<http://www.example.com/exampleActivity/Act3> a prov:Entity ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://some.gov/linktoact/> ] ;
-    prov:wasAttributedTo <icsm-jurisdictions:nz> .
 
 
 ```
@@ -805,6 +839,8 @@ $defs:
         oneOf:
         - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Activity'
+        x-jsonld-id: http://www.w3.org/ns/prov#activity
+        x-jsonld-type: '@id'
     required:
     - activity
   StartOrEnd:
@@ -997,6 +1033,8 @@ $defs:
         x-jsonld-type: '@id'
       activity:
         $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
+        x-jsonld-id: http://www.w3.org/ns/prov#activity
+        x-jsonld-type: '@id'
       agent:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#agent
@@ -1433,6 +1471,10 @@ Links to the schema:
           "@id": "prov:entity",
           "@type": "@id"
         },
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
+        },
         "agent": {
           "@context": {
             "href": {
@@ -1535,6 +1577,10 @@ Links to the schema:
     },
     "qualifiedCommunication": {
       "@context": {
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
+        },
         "atTime": {
           "@id": "prov:atTime",
           "@type": "http://www.w3.org/2001/XMLSchema#dateTime"

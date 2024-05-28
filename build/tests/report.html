@@ -22,12 +22,36 @@
             *[data-bs-toggle].collapsed .caret {
                 transform: rotate(0deg);
             }
+            .highlighted {
+                animation: highlight-border 3500ms ease-out;
+            }
+            .highlighted h2 button {
+                animation: highlight 3500ms ease-out;
+            }
+            @keyframes highlight {
+                0% {
+                    background: #ffff90;
+                }
+                100% {
+                    background: var(--bs-accordion-active-bg);
+                }
+            }
+            @keyframes highlight-border {
+                0% {
+                    border-color: red;
+                    border-width: 2px;
+                }
+                100% {
+                    border-color: var(--bs-accordion-border-color);
+                    border-width: var(--bs-accordion-border-width);
+                }
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2024-03-28T09:16:17.160595+00:00</small>
+            <small class="datetime">Generated at 2024-05-28T01:41:32.117821+00:00</small>
                 <p class="summary fw-semibold text-success">
                     Number of passing building blocks: 1 / 1 (100%)
                 </p>
@@ -36,9 +60,11 @@
                 <a href="#" class="collapse-all">Collapse all</a>
             </div>
                 <div class="accordion mt-2" id="bblock-reports">
-                        <div class="accordion-item bblock-report" data-bblock-id="ogc.ogc-utils.prov" id="bblock-0">
+                        <div class="accordion-item bblock-report" data-bblock-id="ogc.ogc-utils.prov" id="bblock-ogc.ogc-utils.prov">
                             <h2 class="accordion-header bblock-title">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#bblock-collapse-0">
+                                <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse"
+                                    data-bs-target="#bblock-collapse-ogc\.ogc-utils\.prov">
                                     <div class="flex-fill">
                                         Provenance Chain
                                         <small class="ms-2 bblock-id">ogc.ogc-utils.prov</small>
@@ -50,10 +76,10 @@
                                     </span>
                                 </button>
                             </h2>
-                            <div class="accordion-collapse collapse " id="bblock-collapse-0">
+                            <div class="accordion-collapse collapse " id="bblock-collapse-ogc.ogc-utils.prov">
                                 <div class="accordion-body">
                                         <p class="summary fw-semibold text-success">
-                                            Test passed: 2 / 2
+                                            Test passed: 3 / 3
                                         </p>
                                         <div class="card mb-2 validation-item ">
                                             <div class="card-body">
@@ -114,6 +140,35 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="card mb-2 validation-item ">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-3"
+                                                            aria-expanded="false" aria-controls="uid-3"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="ogc-utils/prov/example_3_1.json" target="_blank">example_3_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-3">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_3_1.json from examples</div>
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_3_1.jsonld created</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_3_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -131,6 +186,13 @@
                         accordionEntries.forEach(e => e.classList.remove('show'));
                     }
                 });
+                if (location.hash.startsWith('#bblock-')) {
+                    const highlight = document.querySelector(location.hash.replaceAll('.', '\\.'));
+                    if (highlight) {
+                        highlight.querySelector('.accordion-collapse').classList.add('show');
+                        highlight.classList.add('highlighted');
+                    }
+                }
             });
         </script>
     </body>

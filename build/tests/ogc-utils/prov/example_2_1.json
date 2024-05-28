@@ -1,12 +1,12 @@
 {
   "provType": "Activity",
-  "id": "surveyreg-nz:DP-1-S2",
+  "id": "someActivity_1",
   "endedAtTime": "2029-01-01T22:05:19+02:00",
-  "wasAssociatedWith": "linz-registered-surveyors:bc-3",
+  "wasAssociatedWith": "eg_agents:bc-3",
   "used": {
     "provType": "Entity",
     "id": "Act3",
-    "wasAttributedTo": "icsm-jurisdictions:nz",
+    "wasAttributedTo": "eg_agents:Gov1",
     "links": [
       {
         "href": "https://some.gov/linktoact/",

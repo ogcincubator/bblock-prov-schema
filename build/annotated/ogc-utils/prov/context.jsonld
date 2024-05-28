@@ -270,6 +270,10 @@
           "@id": "prov:entity",
           "@type": "@id"
         },
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
+        },
         "agent": {
           "@context": {
             "href": {
@@ -372,6 +376,10 @@
     },
     "qualifiedCommunication": {
       "@context": {
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
+        },
         "atTime": {
           "@id": "prov:atTime",
           "@type": "http://www.w3.org/2001/XMLSchema#dateTime"

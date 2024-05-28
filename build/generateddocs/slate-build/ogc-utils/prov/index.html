@@ -331,10 +331,13 @@
             <a href="#examples" class="toc-h1 toc-link" data-title="Examples">Examples</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#example-entities-with-provenance-chains" class="toc-h2 toc-link" data-title="Example Entities with Provenance Chains">Example Entities with Provenance Chains</a>
+                    <a href="#simple-relationships" class="toc-h2 toc-link" data-title="Simple relationships">Simple relationships</a>
                   </li>
                   <li>
-                    <a href="#example-activity" class="toc-h2 toc-link" data-title="Example Activity">Example Activity</a>
+                    <a href="#activity" class="toc-h2 toc-link" data-title="Activity">Activity</a>
+                  </li>
+                  <li>
+                    <a href="#provenance-chain-2" class="toc-h2 toc-link" data-title="Provenance Chain">Provenance Chain</a>
                   </li>
               </ul>
           </li>
@@ -385,7 +388,119 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 <p>Note that entityType is optional and may be replaced by <code>featureType</code> for compatibility with the OGC Feature implementation (implicitly always an Entity)</p>
 
 <p>likewise the use of the property <code>type</code> is not specified to allow compatibility with GeoJSON features that must have this property with a constant value (&quot;Feature&quot; or &quot;FeatureCollection&quot;).</p>
-<h1 id='examples'>Examples</h1><h2 id='example-entities-with-provenance-chains'>Example Entities with Provenance Chains</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+<h1 id='examples'>Examples</h1><h2 id='simple-relationships'>Simple relationships</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Object2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"wasDerivedFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Object1"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+
+
+
+</span></code></pre></div>
+<blockquote class="lang-specific json">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.json">Open in new window</a>
+    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_1_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-jsonld"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Object2"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"wasDerivedFrom"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Object1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote class="lang-specific jsonld">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.jsonld">Open in new window</a>
+    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_1_1.jsonld">View on JSON-LD Playground</a>
+</blockquote>
+<div class="highlight"><pre class="highlight turtle tab-turtle"><code><span class="kd">@prefix</span><span class="w"> </span><span class="nn">prov:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/ns/prov#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
+
+</span><span class="nl">&lt;http://www.example.com/exampleEntities/Object2&gt;</span><span class="w"> </span><span class="nn">prov:</span><span class="n">wasDerivedFrom</span><span class="w"> </span><span class="nl">&lt;http://www.example.com/exampleEntities/Object1&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
+
+
+</span></code></pre></div>
+<blockquote class="lang-specific turtle">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.ttl">Open in new window</a>
+</blockquote>
+<h2 id='activity'>Activity</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"someActivity_1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2029-01-01T22:05:19+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eg_agents:bc-3"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Act3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eg_agents:Gov1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://some.gov/linktoact/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"related"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+
+
+
+
+</span></code></pre></div>
+<blockquote class="lang-specific json">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.json">Open in new window</a>
+    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_2_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-jsonld"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"someActivity_1"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2029-01-01T22:05:19+02:00"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eg_agents:bc-3"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Act3"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eg_agents:Gov1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://some.gov/linktoact/"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"related"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>
+<blockquote class="lang-specific jsonld">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.jsonld">Open in new window</a>
+    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_2_1.jsonld">View on JSON-LD Playground</a>
+</blockquote>
+<div class="highlight"><pre class="highlight turtle tab-turtle"><code><span class="kd">@prefix</span><span class="w"> </span><span class="nn">ns1:</span><span class="w"> </span><span class="nl">&lt;http://www.iana.org/assignments/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
+</span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">oa:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/ns/oa#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
+</span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">prov:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/ns/prov#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
+</span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">rdfs:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
+</span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">xsd:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
+
+</span><span class="nl">&lt;http://www.example.com/exampleActivity/someActivity_1&gt;</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">prov:</span><span class="n">Activity</span><span class="w"> </span><span class="p">;</span><span class="w">
+    </span><span class="nn">prov:</span><span class="n">endedAtTime</span><span class="w"> </span><span class="s">"2029-01-01T22:05:19+02:00"</span><span class="p">^^</span><span class="nn">xsd:</span><span class="n">dateTime</span><span class="w"> </span><span class="p">;</span><span class="w">
+    </span><span class="nn">prov:</span><span class="n">used</span><span class="w"> </span><span class="nl">&lt;http://www.example.com/exampleActivity/Act3&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
+    </span><span class="nn">prov:</span><span class="n">wasAssociatedWith</span><span class="w"> </span><span class="nl">&lt;http://www.example.com/exampleActivity/eg_agents:bc-3&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
+
+</span><span class="nl">&lt;http://www.example.com/exampleActivity/Act3&gt;</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">prov:</span><span class="n">Entity</span><span class="w"> </span><span class="p">;</span><span class="w">
+    </span><span class="nn">rdfs:</span><span class="n">seeAlso</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">ns1:</span><span class="n">relation</span><span class="w"> </span><span class="nl">&lt;http://www.iana.org/assignments/relation/related&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
+            </span><span class="nn">oa:</span><span class="n">hasTarget</span><span class="w"> </span><span class="nl">&lt;https://some.gov/linktoact/&gt;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w">
+    </span><span class="nn">prov:</span><span class="n">wasAttributedTo</span><span class="w"> </span><span class="nl">&lt;http://www.example.com/exampleActivity/eg_agents:Gov1&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
+
+
+</span></code></pre></div>
+<blockquote class="lang-specific turtle">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.ttl">Open in new window</a>
+</blockquote>
+
+<p>this is a simple activity referencing some relevant document</p>
+<h2 id='provenance-chain-2'>Provenance Chain</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="nl">"@base"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://example.org/aThing/"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"agents"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://someagentregister.eg/"</span><span class="p">,</span><span class="w">
@@ -462,8 +577,8 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 </span></code></pre></div>
 <blockquote class="lang-specific json">
   <p class="example-links">
-    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.json">Open in new window</a>
-    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_1_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_3_1.json">Open in new window</a>
+    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_3_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-jsonld"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -541,8 +656,8 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 </span></code></pre></div>
 <blockquote class="lang-specific jsonld">
   <p class="example-links">
-    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.jsonld">Open in new window</a>
-    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_1_1.jsonld">View on JSON-LD Playground</a>
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_3_1.jsonld">Open in new window</a>
+    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_3_1.jsonld">View on JSON-LD Playground</a>
 </blockquote>
 <div class="highlight"><pre class="highlight turtle tab-turtle"><code><span class="kd">@prefix</span><span class="w"> </span><span class="nn">agents:</span><span class="w"> </span><span class="nl">&lt;https://someagentregister.eg/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
 </span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">dcterms:</span><span class="w"> </span><span class="nl">&lt;http://purl.org/dc/terms/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
@@ -588,84 +703,10 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
 </span></code></pre></div>
 <blockquote class="lang-specific turtle">
   <p class="example-links">
-    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.ttl">Open in new window</a>
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_3_1.ttl">Open in new window</a>
 </blockquote>
 
-<p>See panel to right - note that a more user friendly &quot;collapsable&quot; version is in development. </p>
-<h2 id='example-activity'>Example Activity</h2><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surveyreg-nz:DP-1-S2"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2029-01-01T22:05:19+02:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linz-registered-surveyors:bc-3"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Act3"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icsm-jurisdictions:nz"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://some.gov/linktoact/"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"related"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-
-
-
-
-
-</span></code></pre></div>
-<blockquote class="lang-specific json">
-  <p class="example-links">
-    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.json">Open in new window</a>
-    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_2_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
-</blockquote>
-<div class="highlight"><pre class="highlight json tab-jsonld"><code><span class="p">{</span><span class="w">
-  </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Activity"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"surveyreg-nz:DP-1-S2"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"endedAtTime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2029-01-01T22:05:19+02:00"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"wasAssociatedWith"</span><span class="p">:</span><span class="w"> </span><span class="s2">"linz-registered-surveyors:bc-3"</span><span class="p">,</span><span class="w">
-  </span><span class="nl">"used"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"provType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Entity"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Act3"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"wasAttributedTo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"icsm-jurisdictions:nz"</span><span class="p">,</span><span class="w">
-    </span><span class="nl">"links"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://some.gov/linktoact/"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"rel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"related"</span><span class="w">
-      </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div>
-<blockquote class="lang-specific jsonld">
-  <p class="example-links">
-    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.jsonld">Open in new window</a>
-    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_2_1.jsonld">View on JSON-LD Playground</a>
-</blockquote>
-<div class="highlight"><pre class="highlight turtle tab-turtle"><code><span class="kd">@prefix</span><span class="w"> </span><span class="nn">ns1:</span><span class="w"> </span><span class="nl">&lt;http://www.iana.org/assignments/&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
-</span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">oa:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/ns/oa#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
-</span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">prov:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/ns/prov#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
-</span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">rdfs:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
-</span><span class="kd">@prefix</span><span class="w"> </span><span class="nn">xsd:</span><span class="w"> </span><span class="nl">&lt;http://www.w3.org/2001/XMLSchema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
-
-</span><span class="nl">&lt;surveyreg-nz:DP-1-S2&gt;</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">prov:</span><span class="n">Activity</span><span class="w"> </span><span class="p">;</span><span class="w">
-    </span><span class="nn">prov:</span><span class="n">endedAtTime</span><span class="w"> </span><span class="s">"2029-01-01T22:05:19+02:00"</span><span class="p">^^</span><span class="nn">xsd:</span><span class="n">dateTime</span><span class="w"> </span><span class="p">;</span><span class="w">
-    </span><span class="nn">prov:</span><span class="n">used</span><span class="w"> </span><span class="nl">&lt;http://www.example.com/exampleActivity/Act3&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
-    </span><span class="nn">prov:</span><span class="n">wasAssociatedWith</span><span class="w"> </span><span class="nl">&lt;linz-registered-surveyors:bc-3&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
-
-</span><span class="nl">&lt;http://www.example.com/exampleActivity/Act3&gt;</span><span class="w"> </span><span class="k">a</span><span class="w"> </span><span class="nn">prov:</span><span class="n">Entity</span><span class="w"> </span><span class="p">;</span><span class="w">
-    </span><span class="nn">rdfs:</span><span class="n">seeAlso</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="nn">ns1:</span><span class="n">relation</span><span class="w"> </span><span class="nl">&lt;http://www.iana.org/assignments/relation/related&gt;</span><span class="w"> </span><span class="p">;</span><span class="w">
-            </span><span class="nn">oa:</span><span class="n">hasTarget</span><span class="w"> </span><span class="nl">&lt;https://some.gov/linktoact/&gt;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="p">;</span><span class="w">
-    </span><span class="nn">prov:</span><span class="n">wasAttributedTo</span><span class="w"> </span><span class="nl">&lt;icsm-jurisdictions:nz&gt;</span><span class="w"> </span><span class="p">.</span><span class="w">
-
-
-</span></code></pre></div>
-<blockquote class="lang-specific turtle">
-  <p class="example-links">
-    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.ttl">Open in new window</a>
-</blockquote>
+<p>DAG defined by an object list. </p>
 <h1 id='json-schema'>JSON Schema</h1><div class="highlight"><pre class="highlight yaml tab-yaml--schema"><code><span class="na">$schema</span><span class="pi">:</span> <span class="s">https://json-schema.org/draft/2020-12/schema</span>
 <span class="na">description</span><span class="pi">:</span> <span class="s">Provenance Chain using PROV-O core model supporting both an ID based</span>
   <span class="s">object graph and nesting</span>
@@ -1163,6 +1204,8 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         <span class="na">oneOf</span><span class="pi">:</span>
         <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/objectref'</span>
         <span class="pi">-</span> <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Activity'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#activity</span>
+        <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
     <span class="na">required</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">activity</span>
   <span class="na">StartOrEnd</span><span class="pi">:</span>
@@ -1355,6 +1398,8 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
         <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">activity</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreActivitiesOrRefIds'</span>
+        <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#activity</span>
+        <span class="na">x-jsonld-type</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@id'</span>
       <span class="na">agent</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreAgentsOrRefIds'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s">http://www.w3.org/ns/prov#agent</span>
@@ -1791,6 +1836,10 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:entity"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
         </span><span class="p">},</span><span class="w">
+        </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:activity"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
             </span><span class="nl">"href"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1893,6 +1942,10 @@ This building block is <strong><a href="https://github.com/ogcincubator/bblock-p
     </span><span class="p">},</span><span class="w">
     </span><span class="nl">"qualifiedCommunication"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
       </span><span class="nl">"@context"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"activity"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:activity"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"@id"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
         </span><span class="nl">"atTime"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
           </span><span class="nl">"@id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"prov:atTime"</span><span class="p">,</span><span class="w">
           </span><span class="nl">"@type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.w3.org/2001/XMLSchema#dateTime"</span><span class="w">

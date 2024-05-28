@@ -884,7 +884,9 @@
             {
               "$ref": "#/$defs/Activity"
             }
-          ]
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#activity",
+          "x-jsonld-type": "@id"
         }
       },
       "required": [
@@ -1237,7 +1239,9 @@
           "x-jsonld-type": "@id"
         },
         "activity": {
-          "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds"
+          "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#activity",
+          "x-jsonld-type": "@id"
         },
         "agent": {
           "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",

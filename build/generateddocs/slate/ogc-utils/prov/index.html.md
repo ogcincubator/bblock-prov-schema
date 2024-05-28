@@ -58,7 +58,161 @@ likewise the use of the property `type` is not specified to allow compatibility 
 
 # Examples
 
-## Example Entities with Provenance Chains
+## Simple relationships
+
+
+
+```json
+{
+  "id": "Object2",
+  "wasDerivedFrom": "Object1"
+}
+
+
+
+
+
+```
+
+<blockquote class="lang-specific json">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.json">Open in new window</a>
+    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_1_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
+</blockquote>
+
+
+
+
+```jsonld
+{
+  "id": "Object2",
+  "wasDerivedFrom": "Object1",
+  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"
+}
+```
+
+<blockquote class="lang-specific jsonld">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.jsonld">Open in new window</a>
+    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_1_1.jsonld">View on JSON-LD Playground</a>
+</blockquote>
+
+
+
+
+```turtle
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<http://www.example.com/exampleEntities/Object2> prov:wasDerivedFrom <http://www.example.com/exampleEntities/Object1> .
+
+
+```
+
+<blockquote class="lang-specific turtle">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.ttl">Open in new window</a>
+</blockquote>
+
+
+
+## Activity
+
+
+
+```json
+{
+  "provType": "Activity",
+  "id": "someActivity_1",
+  "endedAtTime": "2029-01-01T22:05:19+02:00",
+  "wasAssociatedWith": "eg_agents:bc-3",
+  "used": {
+    "provType": "Entity",
+    "id": "Act3",
+    "wasAttributedTo": "eg_agents:Gov1",
+    "links": [
+      {
+        "href": "https://some.gov/linktoact/",
+        "rel": "related"
+      }
+    ]
+  }
+}
+
+
+
+
+
+```
+
+<blockquote class="lang-specific json">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.json">Open in new window</a>
+    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_2_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
+</blockquote>
+
+
+
+
+```jsonld
+{
+  "provType": "Activity",
+  "id": "someActivity_1",
+  "endedAtTime": "2029-01-01T22:05:19+02:00",
+  "wasAssociatedWith": "eg_agents:bc-3",
+  "used": {
+    "provType": "Entity",
+    "id": "Act3",
+    "wasAttributedTo": "eg_agents:Gov1",
+    "links": [
+      {
+        "href": "https://some.gov/linktoact/",
+        "rel": "related"
+      }
+    ]
+  },
+  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"
+}
+```
+
+<blockquote class="lang-specific jsonld">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.jsonld">Open in new window</a>
+    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_2_1.jsonld">View on JSON-LD Playground</a>
+</blockquote>
+
+
+
+
+```turtle
+@prefix ns1: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.example.com/exampleActivity/someActivity_1> a prov:Activity ;
+    prov:endedAtTime "2029-01-01T22:05:19+02:00"^^xsd:dateTime ;
+    prov:used <http://www.example.com/exampleActivity/Act3> ;
+    prov:wasAssociatedWith <http://www.example.com/exampleActivity/eg_agents:bc-3> .
+
+<http://www.example.com/exampleActivity/Act3> a prov:Entity ;
+    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://some.gov/linktoact/> ] ;
+    prov:wasAttributedTo <http://www.example.com/exampleActivity/eg_agents:Gov1> .
+
+
+```
+
+<blockquote class="lang-specific turtle">
+  <p class="example-links">
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.ttl">Open in new window</a>
+</blockquote>
+
+
+this is a simple activity referencing some relevant document
+
+
+## Provenance Chain
 
 
 
@@ -141,8 +295,8 @@ likewise the use of the property `type` is not specified to allow compatibility 
 
 <blockquote class="lang-specific json">
   <p class="example-links">
-    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.json">Open in new window</a>
-    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_1_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_3_1.json">Open in new window</a>
+    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_3_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
 </blockquote>
 
 
@@ -226,8 +380,8 @@ likewise the use of the property `type` is not specified to allow compatibility 
 
 <blockquote class="lang-specific jsonld">
   <p class="example-links">
-    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.jsonld">Open in new window</a>
-    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_1_1.jsonld">View on JSON-LD Playground</a>
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_3_1.jsonld">Open in new window</a>
+    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_3_1.jsonld">View on JSON-LD Playground</a>
 </blockquote>
 
 
@@ -279,106 +433,11 @@ surveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,
 
 <blockquote class="lang-specific turtle">
   <p class="example-links">
-    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.ttl">Open in new window</a>
+    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_3_1.ttl">Open in new window</a>
 </blockquote>
 
 
-See panel to right - note that a more user friendly "collapsable" version is in development. 
-
-
-## Example Activity
-
-
-
-```json
-{
-  "provType": "Activity",
-  "id": "surveyreg-nz:DP-1-S2",
-  "endedAtTime": "2029-01-01T22:05:19+02:00",
-  "wasAssociatedWith": "linz-registered-surveyors:bc-3",
-  "used": {
-    "provType": "Entity",
-    "id": "Act3",
-    "wasAttributedTo": "icsm-jurisdictions:nz",
-    "links": [
-      {
-        "href": "https://some.gov/linktoact/",
-        "rel": "related"
-      }
-    ]
-  }
-}
-
-
-
-
-
-```
-
-<blockquote class="lang-specific json">
-  <p class="example-links">
-    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.json">Open in new window</a>
-    <a target="_blank" href="https://avillar.github.io/TreedocViewer/?dataParser=json&amp;dataUrl=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_2_1.json&amp;expand=2&amp;option=%7B%22showTable%22%3A+false%7D">View on JSON Viewer</a></p>
-</blockquote>
-
-
-
-
-```jsonld
-{
-  "provType": "Activity",
-  "id": "surveyreg-nz:DP-1-S2",
-  "endedAtTime": "2029-01-01T22:05:19+02:00",
-  "wasAssociatedWith": "linz-registered-surveyors:bc-3",
-  "used": {
-    "provType": "Entity",
-    "id": "Act3",
-    "wasAttributedTo": "icsm-jurisdictions:nz",
-    "links": [
-      {
-        "href": "https://some.gov/linktoact/",
-        "rel": "related"
-      }
-    ]
-  },
-  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"
-}
-```
-
-<blockquote class="lang-specific jsonld">
-  <p class="example-links">
-    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.jsonld">Open in new window</a>
-    <a target="_blank" href="https://json-ld.org/playground/#json-ld=https%3A%2F%2Fogcincubator.github.io%2Fbblock-prov-schema%2Fbuild%2Ftests%2Fogc-utils%2Fprov%2Fexample_2_1.jsonld">View on JSON-LD Playground</a>
-</blockquote>
-
-
-
-
-```turtle
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<surveyreg-nz:DP-1-S2> a prov:Activity ;
-    prov:endedAtTime "2029-01-01T22:05:19+02:00"^^xsd:dateTime ;
-    prov:used <http://www.example.com/exampleActivity/Act3> ;
-    prov:wasAssociatedWith <linz-registered-surveyors:bc-3> .
-
-<http://www.example.com/exampleActivity/Act3> a prov:Entity ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://some.gov/linktoact/> ] ;
-    prov:wasAttributedTo <icsm-jurisdictions:nz> .
-
-
-```
-
-<blockquote class="lang-specific turtle">
-  <p class="example-links">
-    <a target="_blank" href="https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.ttl">Open in new window</a>
-</blockquote>
-
+DAG defined by an object list. 
 
 
 # JSON Schema
@@ -881,6 +940,8 @@ $defs:
         oneOf:
         - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Activity'
+        x-jsonld-id: http://www.w3.org/ns/prov#activity
+        x-jsonld-type: '@id'
     required:
     - activity
   StartOrEnd:
@@ -1073,6 +1134,8 @@ $defs:
         x-jsonld-type: '@id'
       activity:
         $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
+        x-jsonld-id: http://www.w3.org/ns/prov#activity
+        x-jsonld-type: '@id'
       agent:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#agent
@@ -1511,6 +1574,10 @@ Links to the schema:
           "@id": "prov:entity",
           "@type": "@id"
         },
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
+        },
         "agent": {
           "@context": {
             "href": {
@@ -1613,6 +1680,10 @@ Links to the schema:
     },
     "qualifiedCommunication": {
       "@context": {
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
+        },
         "atTime": {
           "@id": "prov:atTime",
           "@type": "http://www.w3.org/2001/XMLSchema#dateTime"

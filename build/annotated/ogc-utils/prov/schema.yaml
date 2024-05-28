@@ -495,6 +495,8 @@ $defs:
         oneOf:
         - $ref: '#/$defs/objectref'
         - $ref: '#/$defs/Activity'
+        x-jsonld-id: http://www.w3.org/ns/prov#activity
+        x-jsonld-type: '@id'
     required:
     - activity
   StartOrEnd:
@@ -687,6 +689,8 @@ $defs:
         x-jsonld-type: '@id'
       activity:
         $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
+        x-jsonld-id: http://www.w3.org/ns/prov#activity
+        x-jsonld-type: '@id'
       agent:
         $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#agent
