@@ -165,7 +165,7 @@
           "x-jsonld-id": "@type"
         },
         "entityType": {
-          "$ref": "#/$defs/EntityTypes",
+          "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "@type"
         },
         "has_provenance": {
@@ -338,7 +338,7 @@
         {
           "properties": {
             "provType": {
-              "$comment": "#/$defs/EntityTypes",
+              "$ref": "#/$defs/EntityTypes",
               "x-jsonld-id": "@type"
             }
           },
@@ -349,7 +349,7 @@
         {
           "properties": {
             "prov:type": {
-              "$comment": "#/$defs/EntityTypes"
+              "$ref": "#/$defs/EntityTypes"
             }
           },
           "required": [
@@ -359,7 +359,7 @@
         {
           "properties": {
             "type": {
-              "$comment": "#/$defs/EntityTypes"
+              "$ref": "#/$defs/EntityTypes"
             }
           },
           "required": [
@@ -481,7 +481,7 @@
           "$ref": "#/$defs/ActivityTypes"
         },
         "activityType": {
-          "$ref": "#/$defs/ActivityTypes",
+          "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "@type"
         },
         "prov:type": {

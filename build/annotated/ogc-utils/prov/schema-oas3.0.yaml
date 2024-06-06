@@ -160,7 +160,7 @@ $defs:
       entityType:
         x-jsonld-id: '@type'
         allOf:
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.yaml#/$defs/EntityTypes
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.yaml#/$defs/oneOrMoreObjectref
       has_provenance:
         x-jsonld-id: http://purl.org/dc/terms/provenance
         x-jsonld-type: '@id'
@@ -270,18 +270,19 @@ $defs:
     anyOf:
     - properties:
         provType:
-          $comment: '#/$defs/EntityTypes'
           x-jsonld-id: '@type'
+          allOf:
+          - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.yaml#/$defs/EntityTypes
       required:
       - provType
     - properties:
         prov:type:
-          $comment: '#/$defs/EntityTypes'
+          $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.yaml#/$defs/EntityTypes
       required:
       - prov:type
     - properties:
         type:
-          $comment: '#/$defs/EntityTypes'
+          $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.yaml#/$defs/EntityTypes
       required:
       - type
     - required:
@@ -355,7 +356,7 @@ $defs:
       activityType:
         x-jsonld-id: '@type'
         allOf:
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.yaml#/$defs/ActivityTypes
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.yaml#/$defs/oneOrMoreObjectref
       prov:type:
         $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.yaml#/$defs/ActivityTypes
       endedAtTime:

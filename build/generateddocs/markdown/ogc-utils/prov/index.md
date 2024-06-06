@@ -541,7 +541,7 @@ $defs:
         $ref: '#/$defs/oneOrMoreObjectref'
         x-jsonld-id: '@type'
       entityType:
-        $ref: '#/$defs/EntityTypes'
+        $ref: '#/$defs/oneOrMoreObjectref'
         x-jsonld-id: '@type'
       has_provenance:
         $ref: '#/$defs/Prov'
@@ -641,18 +641,18 @@ $defs:
     anyOf:
     - properties:
         provType:
-          $comment: '#/$defs/EntityTypes'
+          $ref: '#/$defs/EntityTypes'
           x-jsonld-id: '@type'
       required:
       - provType
     - properties:
         prov:type:
-          $comment: '#/$defs/EntityTypes'
+          $ref: '#/$defs/EntityTypes'
       required:
       - prov:type
     - properties:
         type:
-          $comment: '#/$defs/EntityTypes'
+          $ref: '#/$defs/EntityTypes'
       required:
       - type
     - required:
@@ -721,7 +721,7 @@ $defs:
       type:
         $ref: '#/$defs/ActivityTypes'
       activityType:
-        $ref: '#/$defs/ActivityTypes'
+        $ref: '#/$defs/oneOrMoreObjectref'
         x-jsonld-id: '@type'
       prov:type:
         $ref: '#/$defs/ActivityTypes'

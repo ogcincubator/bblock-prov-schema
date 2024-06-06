@@ -29,8 +29,8 @@ Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activi
     <a href="http://www.opengis.net/def/status/under-development" target="_blank" data-rainbow-uri>Under development</a>
 </p>
 
-<aside class="warning">
-Validation for this building block has <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">failed</a></strong>
+<aside class="success">
+This building block is <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">valid</a></strong>
 </aside>
 
 # Description
@@ -667,7 +667,7 @@ $defs:
         $ref: '#/$defs/oneOrMoreObjectref'
         x-jsonld-id: '@type'
       entityType:
-        $ref: '#/$defs/EntityTypes'
+        $ref: '#/$defs/oneOrMoreObjectref'
         x-jsonld-id: '@type'
       has_provenance:
         $ref: '#/$defs/Prov'
@@ -767,18 +767,18 @@ $defs:
     anyOf:
     - properties:
         provType:
-          $comment: '#/$defs/EntityTypes'
+          $ref: '#/$defs/EntityTypes'
           x-jsonld-id: '@type'
       required:
       - provType
     - properties:
         prov:type:
-          $comment: '#/$defs/EntityTypes'
+          $ref: '#/$defs/EntityTypes'
       required:
       - prov:type
     - properties:
         type:
-          $comment: '#/$defs/EntityTypes'
+          $ref: '#/$defs/EntityTypes'
       required:
       - type
     - required:
@@ -847,7 +847,7 @@ $defs:
       type:
         $ref: '#/$defs/ActivityTypes'
       activityType:
-        $ref: '#/$defs/ActivityTypes'
+        $ref: '#/$defs/oneOrMoreObjectref'
         x-jsonld-id: '@type'
       prov:type:
         $ref: '#/$defs/ActivityTypes'

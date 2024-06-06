@@ -297,7 +297,7 @@
           "x-jsonld-id": "@type",
           "allOf": [
             {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/$defs/EntityTypes"
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/$defs/oneOrMoreObjectref"
             }
           ]
         },
@@ -515,8 +515,12 @@
         {
           "properties": {
             "provType": {
-              "$comment": "#/$defs/EntityTypes",
-              "x-jsonld-id": "@type"
+              "x-jsonld-id": "@type",
+              "allOf": [
+                {
+                  "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/$defs/EntityTypes"
+                }
+              ]
             }
           },
           "required": [
@@ -526,7 +530,7 @@
         {
           "properties": {
             "prov:type": {
-              "$comment": "#/$defs/EntityTypes"
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/$defs/EntityTypes"
             }
           },
           "required": [
@@ -536,7 +540,7 @@
         {
           "properties": {
             "type": {
-              "$comment": "#/$defs/EntityTypes"
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/$defs/EntityTypes"
             }
           },
           "required": [
@@ -669,7 +673,7 @@
           "x-jsonld-id": "@type",
           "allOf": [
             {
-              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/$defs/ActivityTypes"
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema-oas3.0.json#/$defs/oneOrMoreObjectref"
             }
           ]
         },

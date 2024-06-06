@@ -374,8 +374,8 @@
     <a href="http://www.opengis.net/def/status/under-development" target="_blank" data-rainbow-uri>Under development</a>
 </p>
 
-<aside class="warning">
-Validation for this building block has <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">failed</a></strong>
+<aside class="success">
+This building block is <strong><a href="https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/" target="_blank">valid</a></strong>
 </aside>
 <h1 id='description'>Description</h1><h2 id='provenance-chain'>Provenance chain</h2>
 <p>A JSON schema defining objects that may be referenced or nested as a chain of Activities, Entities or Agents (or subclasses thereof)</p>
@@ -913,7 +913,7 @@ Validation for this building block has <strong><a href="https://github.com/ogcin
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreObjectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
       <span class="na">entityType</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/EntityTypes'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreObjectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
       <span class="na">has_provenance</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/Prov'</span>
@@ -1013,18 +1013,18 @@ Validation for this building block has <strong><a href="https://github.com/ogcin
     <span class="na">anyOf</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="na">properties</span><span class="pi">:</span>
         <span class="na">provType</span><span class="pi">:</span>
-          <span class="na">$comment</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/EntityTypes'</span>
+          <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/EntityTypes'</span>
           <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
       <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">provType</span>
     <span class="pi">-</span> <span class="na">properties</span><span class="pi">:</span>
         <span class="s">prov:type:</span>
-          <span class="s">$comment</span><span class="err">:</span> <span class="s1">'</span><span class="s">#/$defs/EntityTypes'</span>
+          <span class="s">$ref</span><span class="err">:</span> <span class="s1">'</span><span class="s">#/$defs/EntityTypes'</span>
       <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">prov:type</span>
     <span class="pi">-</span> <span class="na">properties</span><span class="pi">:</span>
         <span class="na">type</span><span class="pi">:</span>
-          <span class="na">$comment</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/EntityTypes'</span>
+          <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/EntityTypes'</span>
       <span class="na">required</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">type</span>
     <span class="pi">-</span> <span class="na">required</span><span class="pi">:</span>
@@ -1093,7 +1093,7 @@ Validation for this building block has <strong><a href="https://github.com/ogcin
       <span class="na">type</span><span class="pi">:</span>
         <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/ActivityTypes'</span>
       <span class="na">activityType</span><span class="pi">:</span>
-        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/ActivityTypes'</span>
+        <span class="na">$ref</span><span class="pi">:</span> <span class="s1">'</span><span class="s">#/$defs/oneOrMoreObjectref'</span>
         <span class="na">x-jsonld-id</span><span class="pi">:</span> <span class="s1">'</span><span class="s">@type'</span>
       <span class="s">prov:type:</span>
         <span class="s">$ref</span><span class="err">:</span> <span class="s1">'</span><span class="s">#/$defs/ActivityTypes'</span>
