@@ -125,6 +125,29 @@
         }
       }
     },
+    "EntityType":  {
+          "type": "string",
+          "enum": [
+            "Entity",
+            "Bundle",
+            "Plan","prov:Entity",
+            "prov:Bundle",
+            "prov:Plan"
+          ]
+        },
+    "EntityTypes": {
+      "oneOf": [
+        {
+           "$ref": "#/$defs/EntityType"
+        },
+        {
+          "type": "array",
+          "contains": {
+            "$ref": "#/$defs/EntityType"
+          }
+        }
+      ]
+    },
     "Entity": {
       "type": "object",
       "properties": {
@@ -135,7 +158,7 @@
           "$ref": "#/$defs/oneOrMoreObjectref"
         },
         "entityType": {
-          "$ref": "#/$defs/oneOrMoreObjectref"
+          "$ref": "#/$defs/EntityTypes"
         },
         "has_provenance": {
           "$ref": "#/$defs/Prov"
@@ -159,16 +182,13 @@
           "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
         },
         "wasInvalidatedBy": {
-          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
+          "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds"
         },
         "wasQuotedFrom": {
-          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
+          "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
         },
         "wasRevisionOf": {
-          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
-        },
-        "mentionOf": {
-          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
+          "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
         },
         "atLocation": {
           "$ref": "#/$defs/objectref"
@@ -279,31 +299,31 @@
         {
           "properties": {
             "provType": {
-              "oneOf": [
-                {
-                  "type": "string",
-                  "enum": [
-                    "Entity",
-                    "Bundle",
-                    "Plan"
-                  ]
-                },
-                {
-                  "type": "array",
-                  "contains": {
-                    "type": "string",
-                    "enum": [
-                      "Entity",
-                      "Bundle",
-                      "Plan"
-                    ]
-                  }
-                }
-              ]
+              "$comment": "#/$defs/EntityTypes"
             }
           },
           "required": [
             "provType"
+          ]
+        },
+        {
+          "properties": {
+            "prov:type": {
+              "$comment": "#/$defs/EntityTypes"
+            }
+          },
+          "required": [
+            "prov:type"
+          ]
+        },
+        {
+          "properties": {
+            "type": {
+              "$comment": "#/$defs/EntityTypes"
+            }
+          },
+          "required": [
+            "type"
           ]
         },
         {
@@ -382,6 +402,30 @@
       "format": "date-time",
       "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?$"
     },
+    "ActivityTypes": {
+      "oneOf": [
+        {
+          "type": "string",
+          "enum": [
+            "Activity",
+            "prov:Activity"
+          ]
+        },
+        {
+          "type": "array",
+          "contains": {
+            "type": "string",
+            "enum": [
+              "Activity",
+              "prov:Activity"
+            ]
+          },
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    },
     "Activity": {
       "type": "object",
       "properties": {
@@ -389,25 +433,13 @@
           "$ref": "#/$defs/objectref"
         },
         "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "const": "Activity"
-            },
-            {
-              "type": "array",
-              "contains": {
-                "type": "string",
-                "const": "Activity"
-              },
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
+          "$ref": "#/$defs/ActivityTypes"
         },
         "activityType": {
-          "$ref": "#/$defs/oneOrMoreObjectref"
+          "$ref": "#/$defs/ActivityTypes"
+        },
+        "prov:type": {
+          "$ref": "#/$defs/ActivityTypes"
         },
         "endedAtTime": {
           "$ref": "#/$defs/dateTime"
@@ -534,6 +566,16 @@
         },
         {
           "required": [
+            "prov:type"
+          ]
+        },
+        {
+          "required": [
+            "type"
+          ]
+        },
+        {
+          "required": [
             "used"
           ]
         },
@@ -556,16 +598,43 @@
           "required": [
             "wasAssociatedWith"
           ]
-        },
-        {
-          "required": [
-            "type"
-          ]
         }
       ],
       "allOf": [
         {
           "$ref": "#/$defs/influenced"
+        }
+      ]
+    },
+    "AgentTypes": {
+      "type": "string",
+      "enum": [
+        "Agent",
+        "Organization",
+        "Person",
+        "SoftwareAgent",
+        "SoftwareDescription",
+        "DirectQueryService",
+        "prov:Agent",
+        "prov:Organization",
+        "prov:Person",
+        "prov:SoftwareAgent",
+        "prov:SoftwareDescription",
+        "prov:DirectQueryService"
+      ]
+    },
+    "AgentType": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/AgentTypes"
+        },
+        {
+          "type": "array",
+          "items": {
+            "contains": {
+              "$ref": "#/$defs/AgentTypes"
+            }
+          }
         }
       ]
     },
@@ -618,36 +687,7 @@
         {
           "properties": {
             "provType": {
-              "oneOf": [
-                {
-                  "type": "string",
-                  "enum": [
-                    "Agent",
-                    "Organization",
-                    "Person",
-                    "SoftwareAgent",
-                    "SoftwareDescription",
-                    "DirectQueryService"
-                  ]
-                },
-                {
-                  "type": "array",
-                  "contains": {
-                    "type": "string",
-                    "enum": [
-                      "Agent",
-                      "Organization",
-                      "Person",
-                      "SoftwareAgent",
-                      "SoftwareDescription",
-                      "DirectQueryService"
-                    ]
-                  },
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              ]
+              "$ref": "#/$defs/AgentType"
             }
           },
           "required": [
@@ -655,8 +695,23 @@
           ]
         },
         {
+          "properties": {
+            "type": {
+              "$ref": "#/$defs/AgentType"
+            }
+          },
           "required": [
-            "agentType"
+            "type"
+          ]
+        },
+        {
+          "properties": {
+            "prov:type": {
+              "$ref": "#/$defs/AgentType"
+            }
+          },
+          "required": [
+            "prov:type"
           ]
         },
         {
@@ -681,13 +736,13 @@
           "oneOf": [
             {
               "type": "string",
-              "const": "Usage"
+              "enum": ["prov:Usage","Usage" ]
             },
             {
               "type": "array",
               "contains": {
                 "type": "string",
-                "const": "Usage"
+                "enum": ["prov:Usage","Usage" ]
               },
               "items": {
                 "type": "string"
@@ -699,18 +754,10 @@
           "$ref": "#/$defs/dateTime"
         },
         "entity": {
-          "oneOf": [
-            {
-              "$ref": "#/$defs/objectref"
-            },
-            {
-              "$ref": "#/$defs/Entity"
-            }
-          ]
+          "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
         }
       },
       "required": [
-        "atTime",
         "entity"
       ]
     },
