@@ -2,12 +2,12 @@
   "name": "JSON schema for W3C PROV model",
   "abstract": "Defines a standardised JSON schema for PROV ontology elements - supporting a graph structure based on an array of objects implementing PROV defined classes with object cross references.",
   "description": "Provenance defined using the [W3C PROV-O model](https://www.w3.org/TR/prov-o/) is a DAG (non-cyclic graph) based on three main object types: Entity, Activity and Agent.\n\nThis repository defines a JSON schema and matching JSON-LD context for this model, using the canonical terminology used in the PROV ontology as element names.\n\nIt also defines a context for an optional schema property \"has_provenance\" that can be used to wrap a provenance graph as an array of such objects, to extend the property prov:wasGeneratedBy (whose range is one or more Entity objects) with an explicit schema.\n\n![](https://www.w3.org/TR/prov-o/diagrams/starting-points.svg)\n",
-  "modified": "2024-05-28T07:44:57.488401",
+  "modified": "2024-06-06T05:08:28.979671",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"18fbb122a3d7cc4de8b9271905f60ee3e86205a6",
-      "shortCommitId": "\"18fbb1",
-      "date": "2024-05-13T08:31:44+00:00\""
+      "commitId": "\"6509bb249db8feab3e8bc6394d64b8e7d197ff9f",
+      "shortCommitId": "\"6509bb",
+      "date": "2024-06-05T21:34:00+00:00\""
     }
   },
   "gitRepository": "https://github.com/ogcincubator/bblock-prov-schema",
@@ -28,7 +28,7 @@
       "itemClass": "schema",
       "register": "ogc-utils",
       "version": "0.1",
-      "dateOfLastChange": "2024-05-28",
+      "dateOfLastChange": "2024-06-06",
       "sources": [
         {
           "link": "https://www.w3.org/TR/prov-o/",
@@ -54,7 +54,7 @@
       "sourceSchema": "https://ogcincubator.github.io/bblock-prov-schema/_sources/schema.json",
       "sourceLdContext": "https://ogcincubator.github.io/bblock-prov-schema/_sources/context.jsonld",
       "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/",
-      "validationPassed": true,
+      "validationPassed": false,
       "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/",
       "documentation": {
         "markdown": {

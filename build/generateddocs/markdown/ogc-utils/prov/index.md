@@ -516,6 +516,21 @@ $defs:
             - $ref: '#/$defs/Influence'
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedInfluence
         x-jsonld-type: '@id'
+  EntityType:
+    type: string
+    enum:
+    - Entity
+    - Bundle
+    - Plan
+    - prov:Entity
+    - prov:Bundle
+    - prov:Plan
+  EntityTypes:
+    oneOf:
+    - $ref: '#/$defs/EntityType'
+    - type: array
+      contains:
+        $ref: '#/$defs/EntityType'
   Entity:
     type: object
     properties:
@@ -526,7 +541,7 @@ $defs:
         $ref: '#/$defs/oneOrMoreObjectref'
         x-jsonld-id: '@type'
       entityType:
-        $ref: '#/$defs/oneOrMoreObjectref'
+        $ref: '#/$defs/EntityTypes'
         x-jsonld-id: '@type'
       has_provenance:
         $ref: '#/$defs/Prov'
@@ -557,20 +572,16 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#specializationOf
         x-jsonld-type: '@id'
       wasInvalidatedBy:
-        $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
+        $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#wasInvalidatedBy
         x-jsonld-type: '@id'
       wasQuotedFrom:
-        $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
+        $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#wasQuotedFrom
         x-jsonld-type: '@id'
       wasRevisionOf:
-        $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
+        $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#wasRevisionOf
-        x-jsonld-type: '@id'
-      mentionOf:
-        $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
-        x-jsonld-id: http://www.w3.org/ns/prov#mentionOf
         x-jsonld-type: '@id'
       atLocation:
         $ref: '#/$defs/objectref'
@@ -630,22 +641,20 @@ $defs:
     anyOf:
     - properties:
         provType:
-          oneOf:
-          - type: string
-            enum:
-            - Entity
-            - Bundle
-            - Plan
-          - type: array
-            contains:
-              type: string
-              enum:
-              - Entity
-              - Bundle
-              - Plan
+          $comment: '#/$defs/EntityTypes'
           x-jsonld-id: '@type'
       required:
       - provType
+    - properties:
+        prov:type:
+          $comment: '#/$defs/EntityTypes'
+      required:
+      - prov:type
+    - properties:
+        type:
+          $comment: '#/$defs/EntityTypes'
+      required:
+      - type
     - required:
       - featureType
     - required:
@@ -689,6 +698,20 @@ $defs:
     type: string
     format: date-time
     pattern: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?$
+  ActivityTypes:
+    oneOf:
+    - type: string
+      enum:
+      - Activity
+      - prov:Activity
+    - type: array
+      contains:
+        type: string
+        enum:
+        - Activity
+        - prov:Activity
+      items:
+        type: string
   Activity:
     type: object
     properties:
@@ -696,18 +719,12 @@ $defs:
         $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
       type:
-        oneOf:
-        - type: string
-          const: Activity
-        - type: array
-          contains:
-            type: string
-            const: Activity
-          items:
-            type: string
+        $ref: '#/$defs/ActivityTypes'
       activityType:
-        $ref: '#/$defs/oneOrMoreObjectref'
+        $ref: '#/$defs/ActivityTypes'
         x-jsonld-id: '@type'
+      prov:type:
+        $ref: '#/$defs/ActivityTypes'
       endedAtTime:
         $ref: '#/$defs/dateTime'
         x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
@@ -793,6 +810,10 @@ $defs:
     - required:
       - activityType
     - required:
+      - prov:type
+    - required:
+      - type
+    - required:
       - used
     - required:
       - wasInformedBy
@@ -802,10 +823,30 @@ $defs:
       - startedAtTime
     - required:
       - wasAssociatedWith
-    - required:
-      - type
     allOf:
     - $ref: '#/$defs/influenced'
+  AgentTypes:
+    type: string
+    enum:
+    - Agent
+    - Organization
+    - Person
+    - SoftwareAgent
+    - SoftwareDescription
+    - DirectQueryService
+    - prov:Agent
+    - prov:Organization
+    - prov:Person
+    - prov:SoftwareAgent
+    - prov:SoftwareDescription
+    - prov:DirectQueryService
+  AgentType:
+    oneOf:
+    - $ref: '#/$defs/AgentTypes'
+    - type: array
+      items:
+        contains:
+          $ref: '#/$defs/AgentTypes'
   Agent:
     type: object
     properties:
@@ -842,32 +883,20 @@ $defs:
     anyOf:
     - properties:
         provType:
-          oneOf:
-          - type: string
-            enum:
-            - Agent
-            - Organization
-            - Person
-            - SoftwareAgent
-            - SoftwareDescription
-            - DirectQueryService
-          - type: array
-            contains:
-              type: string
-              enum:
-              - Agent
-              - Organization
-              - Person
-              - SoftwareAgent
-              - SoftwareDescription
-              - DirectQueryService
-            items:
-              type: string
+          $ref: '#/$defs/AgentType'
           x-jsonld-id: '@type'
       required:
       - provType
-    - required:
-      - agentType
+    - properties:
+        type:
+          $ref: '#/$defs/AgentType'
+      required:
+      - type
+    - properties:
+        prov:type:
+          $ref: '#/$defs/AgentType'
+      required:
+      - prov:type
     - required:
       - actedOnBehalfOf
     allOf:
@@ -881,11 +910,15 @@ $defs:
       type:
         oneOf:
         - type: string
-          const: Usage
+          enum:
+          - prov:Usage
+          - Usage
         - type: array
           contains:
             type: string
-            const: Usage
+            enum:
+            - prov:Usage
+            - Usage
           items:
             type: string
       atTime:
@@ -893,13 +926,10 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#atTime
         x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
       entity:
-        oneOf:
-        - $ref: '#/$defs/objectref'
-        - $ref: '#/$defs/Entity'
+        $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#entity
         x-jsonld-type: '@id'
     required:
-    - atTime
     - entity
   ActivityInfluence:
     type: object
@@ -1316,6 +1346,9 @@ x-jsonld-extra-terms:
   asInBundle:
     x-jsonld-id: http://www.w3.org/ns/prov#asInBundle
     x-jsonld-type: '@id'
+  mentionOf:
+    x-jsonld-id: http://www.w3.org/ns/prov#mentionOf
+    x-jsonld-type: '@id'
 x-jsonld-prefixes:
   prov: http://www.w3.org/ns/prov#
   xsd: http://www.w3.org/2001/XMLSchema#
@@ -1387,87 +1420,16 @@ Links to the schema:
       "@type": "@id"
     },
     "wasInvalidatedBy": {
-      "@context": {
-        "href": {
-          "@type": "@id",
-          "@id": "oa:hasTarget"
-        },
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
+      "@context": {},
       "@id": "prov:wasInvalidatedBy",
       "@type": "@id"
     },
     "wasQuotedFrom": {
-      "@context": {
-        "href": {
-          "@type": "@id",
-          "@id": "oa:hasTarget"
-        },
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
       "@id": "prov:wasQuotedFrom",
       "@type": "@id"
     },
     "wasRevisionOf": {
-      "@context": {
-        "href": {
-          "@type": "@id",
-          "@id": "oa:hasTarget"
-        },
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
       "@id": "prov:wasRevisionOf",
-      "@type": "@id"
-    },
-    "mentionOf": {
-      "@context": {
-        "href": {
-          "@type": "@id",
-          "@id": "oa:hasTarget"
-        },
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "type": "dct:type",
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
-      "@id": "prov:mentionOf",
       "@type": "@id"
     },
     "atLocation": {
@@ -2009,6 +1971,10 @@ Links to the schema:
     },
     "asInBundle": {
       "@id": "prov:asInBundle",
+      "@type": "@id"
+    },
+    "mentionOf": {
+      "@id": "prov:mentionOf",
       "@type": "@id"
     },
     "prov": "http://www.w3.org/ns/prov#",
