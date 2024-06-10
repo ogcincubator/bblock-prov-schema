@@ -1,10 +1,10 @@
 - title: Example Entities with Provenance Chains
   content: |-
-    See panel to right - note that a more user friendly "collapsable" version is in development. 
+    Mixture of direct nested entity/activity/entity and an array of provenance objects with a DAG
 
   snippets:
     - language: json
-      ref: example.json
+      ref: examples/example.json
       base-uri: http://www.example.com/exampleEntity/
 
 - title: Example Activity
