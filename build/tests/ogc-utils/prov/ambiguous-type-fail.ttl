@@ -1,4 +1,5 @@
 @prefix agents: <https://someagentregister.eg/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix ns1: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -7,6 +8,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/DP-1> a <https://example.org/Survey> ;
+    dct:type "Feature" ;
     prov:wasGeneratedBy surveyreg:DP-1-S1,
         surveyreg:DP-1-S2 .
 
@@ -14,7 +16,8 @@
             oa:hasTarget <https://nze.gov/linktoact/Example1> ] ;
     prov:wasAttributedTo agents:nz .
 
-surveyreg:DP-1-S2 prov:endedAtTime "2029-01-01"^^xsd:dateTime ;
+surveyreg:DP-1-S2 prov:activity <https://example.org/Registration> ;
+    prov:endedAtTime "2029-01-01"^^xsd:dateTime ;
     prov:used <https://example.org/Example-Act> ;
     prov:wasAssociatedWith agents:bc-3 ;
     prov:wasGeneratedBy surveyreg:DP-1-S1 .

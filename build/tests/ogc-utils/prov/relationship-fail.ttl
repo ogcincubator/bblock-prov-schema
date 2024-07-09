@@ -1,13 +1,17 @@
 @prefix agents: <https://someagentregister.eg/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix thing: <https://example.org/entities/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/DP-1> a <https://example.org/Survey> ;
+    dct:type "Feature" ;
     prov:wasGeneratedBy <https://example.org/DP-2223> .
 
-<https://example.org/DP-2223> prov:wasGeneratedBy thing:DP-1-S1 .
+<https://example.org/DP-2223> dct:type "Entity" ;
+    prov:wasGeneratedBy thing:DP-1-S1 .
 
-thing:DP-1-S1 prov:endedAtTime "2023-10-05"^^xsd:dateTime ;
+thing:DP-1-S1 dct:type "Activity" ;
+    prov:endedAtTime "2023-10-05"^^xsd:dateTime ;
     prov:wasAssociatedWith agents:ah-2344503 .
 
