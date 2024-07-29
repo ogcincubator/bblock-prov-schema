@@ -704,6 +704,16 @@
             "type"
           ]
         },
+         {
+          "properties": {
+            "agentType": {
+              "$ref": "#/$defs/AgentType"
+            }
+          },
+          "required": [
+            "agentType"
+          ]
+        },
         {
           "properties": {
             "prov:type": {

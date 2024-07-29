@@ -1,6 +1,8 @@
 # OGC Building Block template
 
-This repository defines a "building block" for use of [PROV-O Vocabulary](https://www.w3.org/TR/prov-o/) in a JSON or JSON-LD implementation.
+This repository defines a "building block" for use of [PROV-O Vocabulary](https://www.w3.org/TR/prov-o/) using a schema valid for either JSON or JSON-LD implementation. (See ["Other Prov JSON serialisations"](#other-prov-json-serialisations) )
+
+
 
 The "ready-to-use" form is generated [here:](https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/slate-build/ogc-utils/prov/index.html)
 
@@ -10,8 +12,20 @@ Such a schema is complex, and the purpose of this building block is to provide a
 
 The **JSON-LD** context binds these structures to the PROV-O vocabulary.
 
-The **SHACL** rules perform consistency checking above and beyond schema validation.
+If provided **SHACL** rules perform consistency checking above and beyond schema validation.
 
+## Other Prov JSON serialisations
+
+NB. The W3C PROV working group published two early project drafts for JSON and JSON-LD serialisations, however these are not ideal solutions because:
+
+- the JSON is not directly mappable to the PROV-O ontology via JSON-LD
+- the JSON-LD serialisation is -LD specific and not compatible with normal JSON schemas. 
+- neither is supported by a formally published JSON Schema.
+- neither schema supports annotation of existing objects as prov:Entities - requiring specialised structures to register all entities under a "entities" property.
+
+This building block defines a schema that avoids all these limitations. Users may choose to define a building block that allows either one of the published JSON forms or this schema for backwards compatibility, however there is little evidence of significant usage of the published drafts.
+
+## General
 
 [OGC Building Blocks](https://opengeospatial.github.io/bblocks) are defined by the Open Geospatial Consortium to support implementation of customised applications consistent with OGC specifications.
 
