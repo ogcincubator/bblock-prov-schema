@@ -401,7 +401,6 @@ this is a simple activity referencing some relevant document
 <https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
     dcterms:provenance <https://example.org/aThing/DP-2223>,
         surveyreg:DP-1-S1 ;
-    dcterms:type "Feature" ;
     prov:wasGeneratedBy surveyreg:DP-1-S1,
         surveyreg:DP-1-S2 .
 
@@ -557,21 +556,16 @@ DAG defined by an object list.
 
 
 ```turtle
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
-    dcterms:type "Feature" ;
-    prov:qualifiedGeneration [ dcterms:type "Generation" ;
-            prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;
+    prov:qualifiedGeneration [ prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;
             prov:atTime "2018-10-25T15:46:38.058365"^^xsd:dateTime ;
             prov:hadRole <wf:main/sorted/output> ] .
 
-<uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> rdfs:label "Run of workflow/packed.cwl#main/sorted" ;
-    dcterms:type "Activity",
-        "wfprov:ProcessRun" .
+<uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> rdfs:label "Run of workflow/packed.cwl#main/sorted" .
 
 
 ```
@@ -1024,6 +1018,12 @@ $defs:
           $ref: '#/$defs/AgentType'
       required:
       - type
+    - properties:
+        agentType:
+          $ref: '#/$defs/AgentType'
+          x-jsonld-id: '@type'
+      required:
+      - agentType
     - properties:
         prov:type:
           $ref: '#/$defs/AgentType'
@@ -1507,52 +1507,59 @@ Links to the schema:
     "featureType": "@type",
     "entityType": "@type",
     "has_provenance": {
-      "@context": {},
       "@id": "dct:provenance",
       "@type": "@id"
     },
     "wasGeneratedBy": {
-      "@context": {},
       "@id": "prov:wasGeneratedBy",
       "@type": "@id"
     },
     "wasAttributedTo": {
-      "@context": {},
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:wasAttributedTo",
       "@type": "@id"
     },
     "wasDerivedFrom": {
-      "@context": {},
       "@id": "prov:wasDerivedFrom",
       "@type": "@id"
     },
     "alternateOf": {
-      "@context": {},
       "@id": "prov:alternateOf",
       "@type": "@id"
     },
     "hadPrimarySource": {
-      "@context": {},
       "@id": "prov:hadPrimarySource",
       "@type": "@id"
     },
     "specializationOf": {
-      "@context": {},
       "@id": "prov:specializationOf",
       "@type": "@id"
     },
     "wasInvalidatedBy": {
-      "@context": {},
       "@id": "prov:wasInvalidatedBy",
       "@type": "@id"
     },
     "wasQuotedFrom": {
-      "@context": {},
       "@id": "prov:wasQuotedFrom",
       "@type": "@id"
     },
     "wasRevisionOf": {
-      "@context": {},
       "@id": "prov:wasRevisionOf",
       "@type": "@id"
     },
@@ -1561,42 +1568,161 @@ Links to the schema:
       "@type": "@id"
     },
     "links": {
-      "@context": {},
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "rdfs:seeAlso"
     },
     "qualifiedGeneration": {
-      "@context": {},
+      "@context": {
+        "atTime": {
+          "@id": "prov:atTime",
+          "@type": "xsd:dateTime"
+        },
+        "hadRole": {
+          "@id": "prov:hadRole",
+          "@type": "@id"
+        },
+        "influencer": {
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        },
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedGeneration",
       "@type": "@id"
     },
     "qualifiedInvalidation": {
-      "@context": {},
+      "@context": {
+        "atTime": {
+          "@id": "prov:atTime",
+          "@type": "xsd:dateTime"
+        },
+        "hadRole": {
+          "@id": "prov:hadRole",
+          "@type": "@id"
+        },
+        "influencer": {
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        },
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedInvalidation",
       "@type": "@id"
     },
     "qualifiedDerivation": {
-      "@context": {},
+      "@context": {
+        "hadGeneration": {
+          "@context": {
+            "atTime": {
+              "@id": "prov:atTime",
+              "@type": "xsd:dateTime"
+            },
+            "hadRole": {
+              "@id": "prov:hadRole",
+              "@type": "@id"
+            },
+            "influencer": {
+              "@id": "prov:influencer",
+              "@type": "@id"
+            },
+            "activity": {
+              "@id": "prov:activity",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:hadGeneration",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        },
+        "hadUsage": {
+          "@context": {
+            "atTime": {
+              "@id": "prov:atTime",
+              "@type": "xsd:dateTime"
+            }
+          },
+          "@id": "prov:hadUsage",
+          "@type": "@id"
+        },
+        "entity": {
+          "@id": "prov:entity",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedDerivation",
       "@type": "@id"
     },
     "qualifiedAttribution": {
-      "@context": {},
+      "@context": {
+        "agent": {
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },
     "wasInfluencedBy": {
-      "@context": {},
       "@id": "prov:wasInfluencedBy",
       "@type": "@id"
     },
     "qualifiedInfluence": {
-      "@context": {},
+      "@context": {
+        "influencer": {
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "entity": {
+          "@id": "prov:entity",
+          "@type": "@id"
+        },
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
+        },
+        "agent": {
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedInfluence",
       "@type": "@id"
     },
     "provType": "@type",
     "hadMember": {
-      "@context": {},
       "@id": "prov:hadMember",
       "@type": "@id"
     },
@@ -1606,137 +1732,162 @@ Links to the schema:
       "@type": "xsd:dateTime"
     },
     "wasAssociatedWith": {
-      "@context": {},
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:wasAssociatedWith",
       "@type": "@id"
     },
     "wasInformedBy": {
-      "@context": {},
       "@id": "prov:wasInformedBy",
       "@type": "@id"
     },
     "used": {
-      "@context": {},
       "@id": "prov:used",
       "@type": "@id"
     },
     "wasStartedBy": {
-      "@context": {},
       "@id": "prov:wasStartedBy",
       "@type": "@id"
     },
     "wasEndedBy": {
-      "@context": {},
       "@id": "prov:wasEndedBy",
       "@type": "@id"
     },
     "invalidated": {
-      "@context": {},
       "@id": "prov:invalidated",
       "@type": "@id"
     },
     "generated": {
-      "@context": {},
       "@id": "prov:generated",
       "@type": "@id"
     },
     "qualifiedUsage": {
-      "@context": {},
+      "@context": {
+        "atTime": {
+          "@id": "prov:atTime",
+          "@type": "xsd:dateTime"
+        },
+        "entity": {
+          "@id": "prov:entity",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedUsage",
       "@type": "@id"
     },
     "qualifiedCommunication": {
-      "@context": {},
+      "@context": {
+        "atTime": {
+          "@id": "prov:atTime",
+          "@type": "xsd:dateTime"
+        },
+        "hadRole": {
+          "@id": "prov:hadRole",
+          "@type": "@id"
+        },
+        "influencer": {
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        },
+        "activity": {
+          "@id": "prov:activity",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedCommunication",
       "@type": "@id"
     },
     "qualifiedStart": {
-      "@context": {},
+      "@context": {
+        "atTime": {
+          "@id": "prov:atTime",
+          "@type": "xsd:dateTime"
+        },
+        "entity": {
+          "@id": "prov:entity",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedStart",
       "@type": "@id"
     },
     "qualifiedEnd": {
-      "@context": {},
+      "@context": {
+        "atTime": {
+          "@id": "prov:atTime",
+          "@type": "xsd:dateTime"
+        },
+        "entity": {
+          "@id": "prov:entity",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedEnd",
       "@type": "@id"
     },
     "qualifiedAssociation": {
-      "@context": {},
+      "@context": {
+        "agent": {
+          "@id": "prov:agent",
+          "@type": "@id"
+        },
+        "hadRole": {
+          "@id": "prov:hadRole",
+          "@type": "@id"
+        },
+        "hadPlan": {
+          "@id": "prov:hadPlan",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedAssociation",
       "@type": "@id"
     },
     "agentType": "@type",
     "name": "rdfs:label",
     "actedOnBehalfOf": {
-      "@context": {},
       "@id": "prov:actedOnBehalfOf",
       "@type": "@id"
     },
     "qualifiedDelegation": {
-      "@context": {},
-      "@id": "prov:qualifiedDelegation",
-      "@type": "@id"
-    },
-    "href": {
-      "@type": "@id",
-      "@id": "oa:hasTarget"
-    },
-    "rel": {
       "@context": {
-        "@base": "http://www.iana.org/assignments/relation/"
+        "agent": {
+          "@id": "prov:agent",
+          "@type": "@id"
+        },
+        "hadActivity": {
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        }
       },
-      "@id": "http://www.iana.org/assignments/relation",
-      "@type": "@id"
-    },
-    "type": "dct:type",
-    "hreflang": "dct:language",
-    "title": "rdfs:label",
-    "length": "dct:extent",
-    "atTime": {
-      "@id": "prov:atTime",
-      "@type": "xsd:dateTime"
-    },
-    "entity": {
-      "@context": {},
-      "@id": "prov:entity",
-      "@type": "@id"
-    },
-    "hadRole": {
-      "@id": "prov:hadRole",
-      "@type": "@id"
-    },
-    "influencer": {
-      "@context": {},
-      "@id": "prov:influencer",
-      "@type": "@id"
-    },
-    "hadActivity": {
-      "@context": {},
-      "@id": "prov:hadActivity",
-      "@type": "@id"
-    },
-    "activity": {
-      "@context": {},
-      "@id": "prov:activity",
-      "@type": "@id"
-    },
-    "hadGeneration": {
-      "@context": {},
-      "@id": "prov:hadGeneration",
-      "@type": "@id"
-    },
-    "hadUsage": {
-      "@context": {},
-      "@id": "prov:hadUsage",
-      "@type": "@id"
-    },
-    "agent": {
-      "@context": {},
-      "@id": "prov:agent",
-      "@type": "@id"
-    },
-    "hadPlan": {
-      "@id": "prov:hadPlan",
+      "@id": "prov:qualifiedDelegation",
       "@type": "@id"
     },
     "Activity": "prov:Activity",

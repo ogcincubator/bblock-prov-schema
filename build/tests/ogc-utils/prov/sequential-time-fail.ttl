@@ -1,21 +1,17 @@
 @prefix agents: <https://someagentregister.eg/> .
-@prefix dct: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix surveyreg: <https://example.org/surveys/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/DP-1> a <https://example.org/Survey> ;
-    dct:type "Feature" ;
     prov:wasGeneratedBy surveyreg:DP-1-S1,
         surveyreg:DP-1-S2 .
 
 <https://example.org/PriorThing> prov:wasGeneratedBy surveyreg:impossible .
 
-surveyreg:DP-1-S2 prov:activity <https://example.org/Registration> ;
-    prov:endedAtTime "2021-01-01"^^xsd:dateTime ;
+surveyreg:DP-1-S2 prov:endedAtTime "2021-01-01"^^xsd:dateTime ;
     prov:used <https://example.org/PriorThing> ;
     prov:wasAssociatedWith agents:bc-3 .
 
-surveyreg:impossible prov:activity <https://example.org/SomethingImpossiblyAfter> ;
-    prov:endedAtTime "2029-01-01"^^xsd:dateTime .
+surveyreg:impossible prov:endedAtTime "2029-01-01"^^xsd:dateTime .
 

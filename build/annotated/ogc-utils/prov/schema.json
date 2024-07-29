@@ -790,6 +790,17 @@
         },
         {
           "properties": {
+            "agentType": {
+              "$ref": "#/$defs/AgentType",
+              "x-jsonld-id": "@type"
+            }
+          },
+          "required": [
+            "agentType"
+          ]
+        },
+        {
+          "properties": {
             "prov:type": {
               "$ref": "#/$defs/AgentType"
             }
