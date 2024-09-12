@@ -125,20 +125,21 @@
         }
       }
     },
-    "EntityType":  {
-          "type": "string",
-          "enum": [
-            "Entity",
-            "Bundle",
-            "Plan","prov:Entity",
-            "prov:Bundle",
-            "prov:Plan"
-          ]
-        },
+    "EntityType": {
+      "type": "string",
+      "enum": [
+        "Entity",
+        "Bundle",
+        "Plan",
+        "prov:Entity",
+        "prov:Bundle",
+        "prov:Plan"
+      ]
+    },
     "EntityTypes": {
       "oneOf": [
         {
-           "$ref": "#/$defs/EntityType"
+          "$ref": "#/$defs/EntityType"
         },
         {
           "type": "array",
@@ -680,8 +681,17 @@
           ]
         }
       },
-      "required": [
-        "name"
+      "oneOf": [
+        {
+          "required": [
+            "name"
+          ]
+        },
+        {
+          "required": [
+            "id"
+          ]
+        }
       ],
       "anyOf": [
         {
@@ -704,7 +714,7 @@
             "type"
           ]
         },
-         {
+        {
           "properties": {
             "agentType": {
               "$ref": "#/$defs/AgentType"
@@ -746,13 +756,19 @@
           "oneOf": [
             {
               "type": "string",
-              "enum": ["prov:Usage","Usage" ]
+              "enum": [
+                "prov:Usage",
+                "Usage"
+              ]
             },
             {
               "type": "array",
               "contains": {
                 "type": "string",
-                "enum": ["prov:Usage","Usage" ]
+                "enum": [
+                  "prov:Usage",
+                  "Usage"
+                ]
               },
               "items": {
                 "type": "string"
