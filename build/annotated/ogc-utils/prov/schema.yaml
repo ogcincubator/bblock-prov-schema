@@ -420,8 +420,11 @@ $defs:
             - $ref: '#/$defs/Delegation'
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedDelegation
         x-jsonld-type: '@id'
-    required:
-    - name
+    oneOf:
+    - required:
+      - name
+    - required:
+      - id
     anyOf:
     - properties:
         provType:

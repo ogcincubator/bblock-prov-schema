@@ -763,8 +763,17 @@
           "x-jsonld-type": "@id"
         }
       },
-      "required": [
-        "name"
+      "oneOf": [
+        {
+          "required": [
+            "name"
+          ]
+        },
+        {
+          "required": [
+            "id"
+          ]
+        }
       ],
       "anyOf": [
         {

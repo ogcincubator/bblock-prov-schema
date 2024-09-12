@@ -13,14 +13,14 @@
     rdfs:label "Provenance Chain" ;
     dct:abstract "Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way." ;
     dct:created "2023-07-10T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md" ],
-        [ dct:format "text/html" ;
+    dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov" ],
+        [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md" ],
         [ dct:format "application/json" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov/index.json" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2024-07-29"^^xsd:date ;
+    dct:modified "2024-09-12"^^xsd:date ;
     dct:source <https://www.w3.org/TR/prov-o/> ;
     skos:inScheme <https://ogcincubator.github.io/bblock-prov-schema/> ;
     dcat:keyword "prov",
@@ -53,18 +53,18 @@ It also defines a context for an optional schema property "has_provenance" that 
 <https://www.w3.org/TR/prov-o/> rdfs:label "The PROV-O vocabulary" .
 
 [] a prov:Activity ;
-    prov:endedAtTime "2024-07-29T22:58:48.373202"^^xsd:dateTime ;
-    prov:startedAtTime "2024-07-29T22:58:48.319325"^^xsd:dateTime ;
+    prov:endedAtTime "2024-09-12T07:26:33.893022"^^xsd:dateTime ;
+    prov:startedAtTime "2024-09-12T07:26:33.837604"^^xsd:dateTime ;
     prov:used [ a prov:Entity ;
             dct:format "application/yaml" ;
             rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
         [ a prov:Entity ;
             dct:format "application/json" ;
-            dct:hasVersion "git:07448205ebebf431118157704e1b5f35c50fce42" ;
+            dct:hasVersion "git:e88b0a290876a29799492e7cd86955a10fc24d66" ;
             rdfs:seeAlso <https://ogcincubator.github.io/bblock-prov-schema/build/register.json> ] ;
     prov:wasAssociatedWith [ a prov:Agent,
                 schema:SoftwareApplication ;
             rdfs:label "OGC-NA tools" ;
-            dct:hasVersion "0.3.49" ;
+            dct:hasVersion "0.3.51" ;
             rdfs:seeAlso <https://github.com/opengeospatial/ogc-na-tools> ] .
 

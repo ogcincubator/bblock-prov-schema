@@ -51,7 +51,7 @@
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2024-07-29T22:58:48.316707+00:00</small>
+            <small class="datetime">Generated at 2024-09-12T07:26:33.835009+00:00</small>
                 <p class="summary fw-semibold text-success">
                     Number of passing building blocks: 1 / 1 (100%)
                 </p>
@@ -105,8 +105,6 @@
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
                                                                     <div class="font-monospace entry-message section-files ">Using ambiguous-type-fail.json from test resources</div>
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD ambiguous-type-fail.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle ambiguous-type-fail.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
                                                                     <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: {&#x27;@context&#x27;: {&#x27;@base&#x27;: &#x27;https://example.org/&#x27;, &#x27;agents&#x27;: &#x27;https://someagentregister.eg/&#x27;, &#x27;thing&#x27;: &#x27;https://example.org/entities/&#x27;, &#x27;foaf&#x27;: &#x27;http://xmlns.com/foaf/0.1/&#x27;, &#x27;surveyreg&#x27;: &#x27;https://example.org/surveys/&#x27;}, &#x27;id&#x27;: &#x27;DP-1&#x27;, &#x27;type&#x27;: &#x27;Feature&#x27;, &#x27;featureType&#x27;: &#x27;Survey&#x27;, &#x27;wasGeneratedBy&#x27;: [&#x27;surveyreg:DP-1-S1&#x27;, {&#x27;activity&#x27;: &#x27;Registration&#x27;, &#x27;id&#x27;: &#x27;surveyreg:DP-1-S2&#x27;, &#x27;endedAtTime&#x27;: &#x27;2029-01-01&#x27;, &#x27;wasAssociatedWith&#x27;: &#x27;agents:bc-3&#x27;, &#x27;wasGeneratedBy&#x27;: &#x27;surveyreg:DP-1-S1&#x27;, &#x27;used&#x27;: {&#x27;id&#x27;: &#x27;Example-Act&#x27;, &#x27;wasAttributedTo&#x27;: &#x27;agents:nz&#x27;, &#x27;links&#x27;: [{&#x27;href&#x27;: &#x27;https://nze.gov/linktoact/Example1&#x27;, &#x27;rel&#x27;: &#x27;related&#x27;}]}}], &#x27;provenance&#x27;: [{&#x27;id&#x27;: &#x27;DP-2223&#x27;, &#x27;type&#x27;: &#x27;Entity&#x27;, &#x27;wasGeneratedBy&#x27;: &#x27;thing:DP-1-S1&#x27;}, {&#x27;type&#x27;: &#x27;Activity&#x27;, &#x27;id&#x27;: &#x27;thing:DP-1-S1&#x27;, &#x27;endedAtTime&#x27;: &#x27;2023-10-05&#x27;, &#x27;wasAssociatedWith&#x27;: &#x27;agents:ah-2344503&#x27;, &#x27;used&#x27;: {&#x27;id&#x27;: &#x27;Act3&#x27;, &#x27;type&#x27;: &#x27;Entity&#x27;, &#x27;wasAttributedTo&#x27;: &#x27;agents:nz&#x27;, &#x27;links&#x27;: [{&#x27;href&#x27;: &#x27;https://some.gov/linktoact/&#x27;, &#x27;rel&#x27;: &#x27;related&#x27;}]}}]} is not valid under any of the given schemas
 
@@ -221,6 +219,8 @@ Failed validating &#x27;anyOf&#x27; in schema:
                                    {&#x27;properties&#x27;: {&#x27;prov:type&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/AgentType&#x27;}},
                                     &#x27;required&#x27;: [&#x27;prov:type&#x27;]},
                                    {&#x27;required&#x27;: [&#x27;actedOnBehalfOf&#x27;]}],
+                         &#x27;oneOf&#x27;: [{&#x27;required&#x27;: [&#x27;name&#x27;]},
+                                   {&#x27;required&#x27;: [&#x27;id&#x27;]}],
                          &#x27;properties&#x27;: {&#x27;actedOnBehalfOf&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/oneOrMoreAgentsOrRefIds&#x27;,
                                                             &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#actedOnBehalfOf&#x27;,
                                                             &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
@@ -240,7 +240,6 @@ Failed validating &#x27;anyOf&#x27; in schema:
                                                                            &#x27;type&#x27;: &#x27;array&#x27;}],
                                                                 &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#qualifiedDelegation&#x27;,
                                                                 &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;}},
-                         &#x27;required&#x27;: [&#x27;name&#x27;],
                          &#x27;type&#x27;: &#x27;object&#x27;},
                &#x27;AgentType&#x27;: {&#x27;oneOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/$defs/AgentTypes&#x27;},
                                        {&#x27;items&#x27;: {&#x27;contains&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/AgentTypes&#x27;}},
@@ -721,7 +720,7 @@ On instance:
                          &#x27;wasAssociatedWith&#x27;: &#x27;agents:bc-3&#x27;,
                          &#x27;wasGeneratedBy&#x27;: &#x27;surveyreg:DP-1-S1&#x27;}]}</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON-LD</div>
-                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7fa110d772e0&gt;
+                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7fd78d66f370&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -764,8 +763,6 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
                                                                     <div class="font-monospace entry-message section-files ">Using relationship-fail.json from test resources</div>
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD relationship-fail.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle relationship-fail.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
                                                                     <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: {&#x27;@context&#x27;: {&#x27;@base&#x27;: &#x27;https://example.org/&#x27;, &#x27;agents&#x27;: &#x27;https://someagentregister.eg/&#x27;, &#x27;thing&#x27;: &#x27;https://example.org/entities/&#x27;, &#x27;foaf&#x27;: &#x27;http://xmlns.com/foaf/0.1/&#x27;, &#x27;survtypes&#x27;: &#x27;https://example.org/surveytypes/&#x27;, &#x27;surveyreg&#x27;: &#x27;https://example.org/surveys/&#x27;}, &#x27;id&#x27;: &#x27;DP-1&#x27;, &#x27;type&#x27;: &#x27;Feature&#x27;, &#x27;featureType&#x27;: &#x27;Survey&#x27;, &#x27;wasGeneratedBy&#x27;: {&#x27;id&#x27;: &#x27;DP-2223&#x27;, &#x27;type&#x27;: &#x27;Entity&#x27;, &#x27;wasGeneratedBy&#x27;: {&#x27;type&#x27;: &#x27;Activity&#x27;, &#x27;id&#x27;: &#x27;thing:DP-1-S1&#x27;, &#x27;endedAtTime&#x27;: &#x27;2023-10-05&#x27;, &#x27;wasAssociatedWith&#x27;: &#x27;agents:ah-2344503&#x27;}}} is not valid under any of the given schemas
 
@@ -880,6 +877,8 @@ Failed validating &#x27;anyOf&#x27; in schema:
                                    {&#x27;properties&#x27;: {&#x27;prov:type&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/AgentType&#x27;}},
                                     &#x27;required&#x27;: [&#x27;prov:type&#x27;]},
                                    {&#x27;required&#x27;: [&#x27;actedOnBehalfOf&#x27;]}],
+                         &#x27;oneOf&#x27;: [{&#x27;required&#x27;: [&#x27;name&#x27;]},
+                                   {&#x27;required&#x27;: [&#x27;id&#x27;]}],
                          &#x27;properties&#x27;: {&#x27;actedOnBehalfOf&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/oneOrMoreAgentsOrRefIds&#x27;,
                                                             &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#actedOnBehalfOf&#x27;,
                                                             &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
@@ -899,7 +898,6 @@ Failed validating &#x27;anyOf&#x27; in schema:
                                                                            &#x27;type&#x27;: &#x27;array&#x27;}],
                                                                 &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#qualifiedDelegation&#x27;,
                                                                 &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;}},
-                         &#x27;required&#x27;: [&#x27;name&#x27;],
                          &#x27;type&#x27;: &#x27;object&#x27;},
                &#x27;AgentType&#x27;: {&#x27;oneOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/$defs/AgentTypes&#x27;},
                                        {&#x27;items&#x27;: {&#x27;contains&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/AgentTypes&#x27;}},
@@ -1365,7 +1363,7 @@ On instance:
                                            &#x27;type&#x27;: &#x27;Activity&#x27;,
                                            &#x27;wasAssociatedWith&#x27;: &#x27;agents:ah-2344503&#x27;}}}</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON-LD</div>
-                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7fa110d772e0&gt;
+                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7fd78d66f370&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -1408,8 +1406,6 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
                                                                     <div class="font-monospace entry-message section-files ">Using sequential-time-fail.json from test resources</div>
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD sequential-time-fail.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle sequential-time-fail.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
                                                                     <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: {&#x27;@context&#x27;: {&#x27;@base&#x27;: &#x27;https://example.org/&#x27;, &#x27;agents&#x27;: &#x27;https://someagentregister.eg/&#x27;, &#x27;thing&#x27;: &#x27;https://example.org/entities/&#x27;, &#x27;foaf&#x27;: &#x27;http://xmlns.com/foaf/0.1/&#x27;, &#x27;survtypes&#x27;: &#x27;https://example.org/surveytypes/&#x27;, &#x27;surveyreg&#x27;: &#x27;https://example.org/surveys/&#x27;}, &#x27;id&#x27;: &#x27;DP-1&#x27;, &#x27;type&#x27;: &#x27;Feature&#x27;, &#x27;featureType&#x27;: &#x27;Survey&#x27;, &#x27;wasGeneratedBy&#x27;: [&#x27;surveyreg:DP-1-S1&#x27;, {&#x27;activity&#x27;: &#x27;Registration&#x27;, &#x27;id&#x27;: &#x27;surveyreg:DP-1-S2&#x27;, &#x27;endedAtTime&#x27;: &#x27;2021-01-01&#x27;, &#x27;wasAssociatedWith&#x27;: &#x27;agents:bc-3&#x27;, &#x27;used&#x27;: {&#x27;id&#x27;: &#x27;PriorThing&#x27;, &#x27;wasGeneratedBy&#x27;: {&#x27;activity&#x27;: &#x27;SomethingImpossiblyAfter&#x27;, &#x27;id&#x27;: &#x27;surveyreg:impossible&#x27;, &#x27;endedAtTime&#x27;: &#x27;2029-01-01&#x27;}}}]} is not valid under any of the given schemas
 
@@ -1524,6 +1520,8 @@ Failed validating &#x27;anyOf&#x27; in schema:
                                    {&#x27;properties&#x27;: {&#x27;prov:type&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/AgentType&#x27;}},
                                     &#x27;required&#x27;: [&#x27;prov:type&#x27;]},
                                    {&#x27;required&#x27;: [&#x27;actedOnBehalfOf&#x27;]}],
+                         &#x27;oneOf&#x27;: [{&#x27;required&#x27;: [&#x27;name&#x27;]},
+                                   {&#x27;required&#x27;: [&#x27;id&#x27;]}],
                          &#x27;properties&#x27;: {&#x27;actedOnBehalfOf&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/oneOrMoreAgentsOrRefIds&#x27;,
                                                             &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#actedOnBehalfOf&#x27;,
                                                             &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;},
@@ -1543,7 +1541,6 @@ Failed validating &#x27;anyOf&#x27; in schema:
                                                                            &#x27;type&#x27;: &#x27;array&#x27;}],
                                                                 &#x27;x-jsonld-id&#x27;: &#x27;http://www.w3.org/ns/prov#qualifiedDelegation&#x27;,
                                                                 &#x27;x-jsonld-type&#x27;: &#x27;@id&#x27;}},
-                         &#x27;required&#x27;: [&#x27;name&#x27;],
                          &#x27;type&#x27;: &#x27;object&#x27;},
                &#x27;AgentType&#x27;: {&#x27;oneOf&#x27;: [{&#x27;$ref&#x27;: &#x27;#/$defs/AgentTypes&#x27;},
                                        {&#x27;items&#x27;: {&#x27;contains&#x27;: {&#x27;$ref&#x27;: &#x27;#/$defs/AgentTypes&#x27;}},
@@ -2012,7 +2009,7 @@ On instance:
                                                      &#x27;id&#x27;: &#x27;surveyreg:impossible&#x27;}},
                          &#x27;wasAssociatedWith&#x27;: &#x27;agents:bc-3&#x27;}]}</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON-LD</div>
-                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7fa110d772e0&gt;
+                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7fd78d66f370&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -2026,7 +2023,7 @@ Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 53, in parse_datetime
     raise ISO8601Error(&quot;ISO 8601 time designator &#x27;T&#x27; missing. Unable to&quot;
 isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. Unable to parse datetime string &#x27;2021-01-01&#x27;
-Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7fa110d772e0&gt;
+Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7fd78d66f370&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)

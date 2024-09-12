@@ -1,5 +1,5 @@
 Validation report for ogc.ogc-utils.prov - Provenance Chain
-Generated 2024-07-29T22:58:48.105293+00:00
+Generated 2024-09-12T07:26:33.687780+00:00
 === General ===
 Test was expected to fail and it did.
 === End General ===
@@ -7,8 +7,6 @@ Test was expected to fail and it did.
 === Files ===
 Using sequential-time-fail.json from test resources
 JSON-LD context is present - uplifting
-Output JSON-LD sequential-time-fail.jsonld created
-Output Turtle sequential-time-fail.ttl created
 === End Files ===
 
 === JSON Schema ===
@@ -127,6 +125,8 @@ Failed validating 'anyOf' in schema:
                                    {'properties': {'prov:type': {'$ref': '#/$defs/AgentType'}},
                                     'required': ['prov:type']},
                                    {'required': ['actedOnBehalfOf']}],
+                         'oneOf': [{'required': ['name']},
+                                   {'required': ['id']}],
                          'properties': {'actedOnBehalfOf': {'$ref': '#/$defs/oneOrMoreAgentsOrRefIds',
                                                             'x-jsonld-id': 'http://www.w3.org/ns/prov#actedOnBehalfOf',
                                                             'x-jsonld-type': '@id'},
@@ -146,7 +146,6 @@ Failed validating 'anyOf' in schema:
                                                                            'type': 'array'}],
                                                                 'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedDelegation',
                                                                 'x-jsonld-type': '@id'}},
-                         'required': ['name'],
                          'type': 'object'},
                'AgentType': {'oneOf': [{'$ref': '#/$defs/AgentTypes'},
                                        {'items': {'contains': {'$ref': '#/$defs/AgentTypes'}},
@@ -619,7 +618,7 @@ On instance:
 === JSON-LD ===
 
 ** Validation error **
-Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fa110d772e0>
+Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fd78d66f370>
 Traceback (most recent call last):
   File "/venv/lib/python3.10/site-packages/isodate/isodatetime.py", line 51, in parse_datetime
     datestring, timestring = datetimestring.split('T')
@@ -633,7 +632,7 @@ Traceback (most recent call last):
   File "/venv/lib/python3.10/site-packages/isodate/isodatetime.py", line 53, in parse_datetime
     raise ISO8601Error("ISO 8601 time designator 'T' missing. Unable to"
 isodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2021-01-01'
-Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fa110d772e0>
+Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fd78d66f370>
 Traceback (most recent call last):
   File "/venv/lib/python3.10/site-packages/isodate/isodatetime.py", line 51, in parse_datetime
     datestring, timestring = datetimestring.split('T')
