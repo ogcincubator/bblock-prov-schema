@@ -13,12 +13,12 @@
     rdfs:label "Provenance Chain" ;
     dct:abstract "Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way." ;
     dct:created "2023-07-10T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
+    dct:description [ dct:format "text/html" ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov" ],
+        [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md" ],
         [ dct:format "application/json" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov/index.json" ],
-        [ dct:format "text/html" ;
-            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov" ] ;
+            rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov/index.json" ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2024-11-18"^^xsd:date ;
     dct:source <https://www.w3.org/TR/prov-o/> ;
@@ -53,11 +53,11 @@ It also defines a context for an optional schema property "has_provenance" that 
 <https://www.w3.org/TR/prov-o/> rdfs:label "The PROV-O vocabulary" .
 
 [] a prov:Activity ;
-    prov:endedAtTime "2024-11-18T09:28:44.987147"^^xsd:dateTime ;
-    prov:startedAtTime "2024-11-18T09:28:44.924917"^^xsd:dateTime ;
+    prov:endedAtTime "2024-11-18T11:05:31.159497"^^xsd:dateTime ;
+    prov:startedAtTime "2024-11-18T11:05:31.097752"^^xsd:dateTime ;
     prov:used [ a prov:Entity ;
             dct:format "application/json" ;
-            dct:hasVersion "git:9e99c9355aeb46a54ae1c4171079a553e6daa316" ;
+            dct:hasVersion "git:2bd57a60d1b7fddef0ce927350df2f4c0d42448a" ;
             rdfs:seeAlso <https://ogcincubator.github.io/bblock-prov-schema/build/register.json> ],
         [ a prov:Entity ;
             dct:format "application/yaml" ;

@@ -51,7 +51,7 @@
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2024-11-18T09:28:44.922128+00:00</small>
+            <small class="datetime">Generated at 2024-11-18T11:05:31.094770+00:00</small>
                 <p class="summary fw-semibold text-success">
                     Number of passing building blocks: 1 / 1 (100%)
                 </p>
@@ -79,7 +79,7 @@
                             <div class="accordion-collapse collapse " id="bblock-collapse-ogc.ogc-utils.prov">
                                 <div class="accordion-body">
                                         <p class="summary fw-semibold text-success">
-                                            Test passed: 6 / 6
+                                            Test passed: 8 / 8
                                         </p>
                                         <div class="card mb-2 validation-item require-fail">
                                             <div class="card-body">
@@ -720,7 +720,7 @@ On instance:
                          &#x27;wasAssociatedWith&#x27;: &#x27;agents:bc-3&#x27;,
                          &#x27;wasGeneratedBy&#x27;: &#x27;surveyreg:DP-1-S1&#x27;}]}</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON-LD</div>
-                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7facf6ee4160&gt;
+                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7fb425d88160&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -1363,7 +1363,7 @@ On instance:
                                            &#x27;type&#x27;: &#x27;Activity&#x27;,
                                            &#x27;wasAssociatedWith&#x27;: &#x27;agents:ah-2344503&#x27;}}}</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON-LD</div>
-                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7facf6ee4160&gt;
+                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7fb425d88160&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -2009,7 +2009,7 @@ On instance:
                                                      &#x27;id&#x27;: &#x27;surveyreg:impossible&#x27;}},
                          &#x27;wasAssociatedWith&#x27;: &#x27;agents:bc-3&#x27;}]}</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON-LD</div>
-                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7facf6ee4160&gt;
+                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7fb425d88160&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -2023,7 +2023,7 @@ Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 53, in parse_datetime
     raise ISO8601Error(&quot;ISO 8601 time designator &#x27;T&#x27; missing. Unable to&quot;
 isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. Unable to parse datetime string &#x27;2021-01-01&#x27;
-Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7facf6ee4160&gt;
+Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7fb425d88160&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -2124,6 +2124,64 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_3_1.jsonld created</div>
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_3_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item ">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-7"
+                                                            aria-expanded="false" aria-controls="uid-7"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="ogc-utils/prov/example_4_1.json" target="_blank">example_4_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-7">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_4_1.json from examples</div>
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_4_1.jsonld created</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_4_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item ">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-8"
+                                                            aria-expanded="false" aria-controls="uid-8"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="ogc-utils/prov/example_5_1.json" target="_blank">example_5_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-8">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                    <div class="font-monospace entry-message section-files ">Using example_5_1.json from examples</div>
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_5_1.jsonld created</div>
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_5_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>

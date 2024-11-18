@@ -1,28 +1,73 @@
 {
-  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
-  "prov:type": "prov:Activity",
-  "generated": {
-    "id": "output",
-    "type": "Entity",
-    "response": "\u001b[0mLLM Generated Code: \u001b[96mgdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\n\u001b[0mRaw Response: \u001b[96m511.8048618048641\n\u001b[0mResponse:\u001b[92mThe closest hospital to UNSW Village is approximately 512 meters away."
-  },
-  "endedAtTime": "2024-11-18T06:44:33.504798Z",
-  "used": [
+  "@context": [
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
     {
-      "id": "file",
-      "type": "Entity",
-      "data": [
-        {
-          "id": "osmdata.shp",
-          "type": "Entity",
-          "records": 3544
+      "@base": "https://example.org/aThing/",
+      "agents": "https://someagentregister.eg/",
+      "thing": "https://example.org/entities/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "survtypes": "https://example.org/surveytypes/",
+      "surveyreg": "https://example.org/surveys/",
+      "featureType": {
+        "@id": "@type",
+        "@context": {
+          "@base": "http://example.org/myEntities/"
         }
-      ]
+      },
+      "activityType": {
+        "@id": "@type",
+        "@context": {
+          "@base": "http://example.org/myActivityTypes/"
+        }
+      }
+    }
+  ],
+  "id": "DP-1",
+  "type": "Feature",
+  "featureType": "Survey",
+  "wasGeneratedBy": [
+    "surveyreg:DP-1-S1",
+    {
+      "activityType": "Registration",
+      "id": "surveyreg:DP-1-S2",
+      "endedAtTime": "2019-01-01T19:03:15+01:00",
+      "wasAssociatedWith": "agents:bc-3",
+      "used": {
+        "id": "Example-Act",
+        "wasAttributedTo": "agents:nz",
+        "links": [
+          {
+            "href": "https://nze.gov/linktoact/Example1",
+            "rel": "related"
+          }
+        ]
+      }
+    }
+  ],
+  "has_provenance": [
+    {
+      "id": "DP-2223",
+      "provType": "Entity",
+      "featureType": "Survey",
+      "wasGeneratedBy": "DP-1-S1"
     },
     {
-      "id": "user_input",
-      "type": "Entity",
-      "input": "How far away is the closest hospital from UNSW village"
+      "provType": "Activity",
+      "id": "surveyreg:DP-1-S1",
+      "activityType": "InitialSurvey",
+      "endedAtTime": "2023-10-05T05:03:15+01:00",
+      "wasAssociatedWith": "agents:ah-2344503",
+      "used": {
+        "id": "thing:Act3",
+        "entityType": "Legislation",
+        "wasAttributedTo": "agents:nz",
+        "links": [
+          {
+            "href": "https://some.gov/linktoact/",
+            "rel": "related"
+          }
+        ]
+      }
     }
   ]
 }
