@@ -1,21 +1,21 @@
-#- title: Simple relationships
-#  snippets:
-#    - language: json
-#      ref: examples/simple-rel.json
-#      base-uri: http://www.example.com/exampleEntities/
-#
-#- title: Activity
-#  content: |-
-#    this is a simple activity referencing some relevant document
-#
-#  snippets:
-#    - language: json
-#      # this is referenced from complete examples using a $ref pattern following JSON schema approach
-#      ref: examples/example-activity.json
-#      base-uri: http://www.example.com/exampleActivity/
-#      # how to reference a schema from a different bblock?
-#      schema-ref: "#/$defs/Activity"
-#
+- title: Simple relationships
+  snippets:
+    - language: json
+      ref: examples/simple-rel.json
+      base-uri: http://www.example.com/exampleEntities/
+
+- title: Activity
+  content: |-
+    this is a simple activity referencing some relevant document
+
+  snippets:
+    - language: json
+      # this is referenced from complete examples using a $ref pattern following JSON schema approach
+      ref: examples/example-activity.json
+      base-uri: http://www.example.com/exampleActivity/
+      # how to reference a schema from a different bblock?
+      schema-ref: "#/$defs/Activity"
+
 - title: LLM Example
   content: |-
     A provenance chain for Large Language Model.
