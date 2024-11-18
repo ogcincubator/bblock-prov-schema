@@ -16,6 +16,22 @@
       # how to reference a schema from a different bblock?
       schema-ref: "#/$defs/Activity"
 
+- title: Provenance Chain
+  content: |-
+    DAG defined by an object list.
+  snippets:
+    - language: json
+      ref: examples/example.json
+      base-uri: http://www.example.com/exampleEntity/
+
+- title: Qualified Generation
+  content: |-
+    A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) example.
+  snippets:
+    - language: json
+      ref: examples/example-activityinfluence.json
+      base-uri: http://www.example.com/exampleEntity/
+
 - title: LLM Example
   content: |-
     A provenance chain for Large Language Model.
