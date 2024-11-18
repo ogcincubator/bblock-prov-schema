@@ -49,9 +49,9 @@ likewise the use of the property `type` is not specified to allow compatibility 
 #### jsonld
 ```jsonld
 {
+  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
   "id": "Object2",
-  "wasDerivedFrom": "Object1",
-  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"
+  "wasDerivedFrom": "Object1"
 }
 ```
 
@@ -96,6 +96,7 @@ this is a simple activity referencing some relevant document
 #### jsonld
 ```jsonld
 {
+  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
   "provType": "Activity",
   "id": "someActivity_1",
   "endedAtTime": "2029-01-01T22:05:19+02:00",
@@ -110,8 +111,7 @@ this is a simple activity referencing some relevant document
         "rel": "related"
       }
     ]
-  },
-  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"
+  }
 }
 ```
 
@@ -137,301 +137,66 @@ this is a simple activity referencing some relevant document
 ```
 
 
-### Provenance Chain
-DAG defined by an object list. 
+### LLM Example
+A provenance chain for Large Language Model.
 #### json
 ```json
 {
-  "@context": {
-    "@base": "https://example.org/aThing/",
-    "agents": "https://someagentregister.eg/",
-    "thing": "https://example.org/entities/",
-    "foaf": "http://xmlns.com/foaf/0.1/",
-    "survtypes": "https://example.org/surveytypes/",
-    "surveyreg": "https://example.org/surveys/",
-    "featureType": {
-      "@id": "@type",
-      "@context": {
-        "@base": "http://example.org/myEntities/"
-      }
+    "prov:type": "prov:Activity",
+    "generated": {
+        "id": "output",
+        "type": "Entity",
+        "response": "\u001b[0mLLM Generated Code: \u001b[96mgdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\n\u001b[0mRaw Response: \u001b[96m511.8048618048641\n\u001b[0mResponse:\u001b[92mThe closest hospital to UNSW Village is approximately 512 meters away."
     },
-    "activityType": {
-      "@id": "@type",
-      "@context": {
-        "@base": "http://example.org/myActivityTypes/"
-      }
-    }
-  },
-  "id": "DP-1",
-  "type": "Feature",
-  "featureType": "Survey",
-  "wasGeneratedBy": [
-    "surveyreg:DP-1-S1",
-    {
-      "activityType": "Registration",
-      "id": "surveyreg:DP-1-S2",
-      "endedAtTime": "2019-01-01T19:03:15+01:00",
-      "wasAssociatedWith": "agents:bc-3",
-      "used": {
-        "id": "Example-Act",
-        "wasAttributedTo": "agents:nz",
-        "links": [
-          {
-            "href": "https://nze.gov/linktoact/Example1",
-            "rel": "related"
-          }
-        ]
-      }
-    }
-  ],
-  "has_provenance": [
-    {
-      "id": "DP-2223",
-      "provType": "Entity",
-      "featureType": "Survey",
-      "wasGeneratedBy": "DP-1-S1"
-    },
-    {
-      "provType": "Activity",
-      "id": "surveyreg:DP-1-S1",
-      "activityType": "InitialSurvey",
-      "endedAtTime": "2023-10-05T05:03:15+01:00",
-      "wasAssociatedWith": "agents:ah-2344503",
-      "used": {
-        "id": "thing:Act3",
-        "entityType": "Legislation",
-        "wasAttributedTo": "agents:nz",
-        "links": [
-          {
-            "href": "https://some.gov/linktoact/",
-            "rel": "related"
-          }
-        ]
-      }
-    }
-  ]
+    "endedAtTime": "2024-11-18T06:44:33.504798Z",
+    "used": [
+        {
+            "id": "file",
+            "type": "Entity",
+            "data": [
+                {
+                    "id": "osmdata.shp",
+                    "type": "Entity",
+                    "records": 3544
+                }
+            ]
+        },
+        {
+            "id": "user_input",
+            "type": "Entity",
+            "input": "How far away is the closest hospital from UNSW village"
+        }
+    ]
 }
-
-
-
-
 ```
 
 #### jsonld
 ```jsonld
 {
-  "@context": [
-    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
-    {
-      "@base": "https://example.org/aThing/",
-      "agents": "https://someagentregister.eg/",
-      "thing": "https://example.org/entities/",
-      "foaf": "http://xmlns.com/foaf/0.1/",
-      "survtypes": "https://example.org/surveytypes/",
-      "surveyreg": "https://example.org/surveys/",
-      "featureType": {
-        "@id": "@type",
-        "@context": {
-          "@base": "http://example.org/myEntities/"
-        }
-      },
-      "activityType": {
-        "@id": "@type",
-        "@context": {
-          "@base": "http://example.org/myActivityTypes/"
-        }
-      }
-    }
-  ],
-  "id": "DP-1",
-  "type": "Feature",
-  "featureType": "Survey",
-  "wasGeneratedBy": [
-    "surveyreg:DP-1-S1",
-    {
-      "activityType": "Registration",
-      "id": "surveyreg:DP-1-S2",
-      "endedAtTime": "2019-01-01T19:03:15+01:00",
-      "wasAssociatedWith": "agents:bc-3",
-      "used": {
-        "id": "Example-Act",
-        "wasAttributedTo": "agents:nz",
-        "links": [
-          {
-            "href": "https://nze.gov/linktoact/Example1",
-            "rel": "related"
-          }
-        ]
-      }
-    }
-  ],
-  "has_provenance": [
-    {
-      "id": "DP-2223",
-      "provType": "Entity",
-      "featureType": "Survey",
-      "wasGeneratedBy": "DP-1-S1"
-    },
-    {
-      "provType": "Activity",
-      "id": "surveyreg:DP-1-S1",
-      "activityType": "InitialSurvey",
-      "endedAtTime": "2023-10-05T05:03:15+01:00",
-      "wasAssociatedWith": "agents:ah-2344503",
-      "used": {
-        "id": "thing:Act3",
-        "entityType": "Legislation",
-        "wasAttributedTo": "agents:nz",
-        "links": [
-          {
-            "href": "https://some.gov/linktoact/",
-            "rel": "related"
-          }
-        ]
-      }
-    }
-  ]
-}
-```
-
-#### ttl
-```ttl
-@prefix agents: <https://someagentregister.eg/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix oa: <http://www.w3.org/ns/oa#> .
-@prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix surveyreg: <https://example.org/surveys/> .
-@prefix thing: <https://example.org/entities/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
-    dcterms:provenance <https://example.org/aThing/DP-2223>,
-        surveyreg:DP-1-S1 ;
-    prov:wasGeneratedBy surveyreg:DP-1-S1,
-        surveyreg:DP-1-S2 .
-
-<https://example.org/aThing/DP-2223> a <http://example.org/myEntities/Survey>,
-        prov:Entity ;
-    prov:wasGeneratedBy <https://example.org/aThing/DP-1-S1> .
-
-<https://example.org/aThing/Example-Act> rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://nze.gov/linktoact/Example1> ] ;
-    prov:wasAttributedTo agents:nz .
-
-thing:Act3 a <https://example.org/aThing/Legislation> ;
-    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://some.gov/linktoact/> ] ;
-    prov:wasAttributedTo agents:nz .
-
-surveyreg:DP-1-S2 a <http://example.org/myActivityTypes/Registration> ;
-    prov:endedAtTime "2019-01-01T19:03:15+01:00"^^xsd:dateTime ;
-    prov:used <https://example.org/aThing/Example-Act> ;
-    prov:wasAssociatedWith agents:bc-3 .
-
-surveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,
-        prov:Activity ;
-    prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
-    prov:used thing:Act3 ;
-    prov:wasAssociatedWith agents:ah-2344503 .
-
-
-```
-
-
-### Qualified Generation
-A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) example.
-#### json
-```json
-{
-  "@context": {
-    "@base": "https://example.org/aThing/",
-    "agents": "https://someagentregister.eg/",
-    "thing": "https://example.org/entities/",
-    "foaf": "http://xmlns.com/foaf/0.1/",
-    "survtypes": "https://example.org/surveytypes/",
-    "surveyreg": "https://example.org/surveys/",
-    "featureType": {
-      "@id": "@type",
-      "@context": {
-        "@base": "http://example.org/myEntities/"
-      }
-    },
-    "activityType": {
-      "@id": "@type",
-      "@context": {
-        "@base": "http://example.org/myActivityTypes/"
-      }
-    }
+  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
+  "prov:type": "prov:Activity",
+  "generated": {
+    "id": "output",
+    "type": "Entity",
+    "response": "\u001b[0mLLM Generated Code: \u001b[96mgdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\n\u001b[0mRaw Response: \u001b[96m511.8048618048641\n\u001b[0mResponse:\u001b[92mThe closest hospital to UNSW Village is approximately 512 meters away."
   },
-  "id": "DP-1",
-  "type": "Feature",
-  "featureType": "Survey",
-  "qualifiedGeneration": [
+  "endedAtTime": "2024-11-18T06:44:33.504798Z",
+  "used": [
     {
-      "type": "Generation",
-      "activity": {
-        "id": "uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44",
-        "type": [
-          "wfprov:ProcessRun",
-          "Activity"
-        ],
-        "name": "Run of workflow/packed.cwl#main/sorted"
-      },
-      "atTime": "2018-10-25T15:46:38.058365",
-      "hadRole": "wf:main/sorted/output"
-    }
-  ]
-}
-
-
-
-
-```
-
-#### jsonld
-```jsonld
-{
-  "@context": [
-    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
-    {
-      "@base": "https://example.org/aThing/",
-      "agents": "https://someagentregister.eg/",
-      "thing": "https://example.org/entities/",
-      "foaf": "http://xmlns.com/foaf/0.1/",
-      "survtypes": "https://example.org/surveytypes/",
-      "surveyreg": "https://example.org/surveys/",
-      "featureType": {
-        "@id": "@type",
-        "@context": {
-          "@base": "http://example.org/myEntities/"
+      "id": "file",
+      "type": "Entity",
+      "data": [
+        {
+          "id": "osmdata.shp",
+          "type": "Entity",
+          "records": 3544
         }
-      },
-      "activityType": {
-        "@id": "@type",
-        "@context": {
-          "@base": "http://example.org/myActivityTypes/"
-        }
-      }
-    }
-  ],
-  "id": "DP-1",
-  "type": "Feature",
-  "featureType": "Survey",
-  "qualifiedGeneration": [
+      ]
+    },
     {
-      "type": "Generation",
-      "activity": {
-        "id": "uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44",
-        "type": [
-          "wfprov:ProcessRun",
-          "Activity"
-        ],
-        "name": "Run of workflow/packed.cwl#main/sorted"
-      },
-      "atTime": "2018-10-25T15:46:38.058365",
-      "hadRole": "wf:main/sorted/output"
+      "id": "user_input",
+      "type": "Entity",
+      "input": "How far away is the closest hospital from UNSW village"
     }
   ]
 }
@@ -440,15 +205,13 @@ A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) exam
 #### ttl
 ```ttl
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
-    prov:qualifiedGeneration [ prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;
-            prov:atTime "2018-10-25T15:46:38.058365"^^xsd:dateTime ;
-            prov:hadRole <wf:main/sorted/output> ] .
-
-<uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> rdfs:label "Run of workflow/packed.cwl#main/sorted" .
+[] prov:endedAtTime "2024-11-18T06:44:33.504798+00:00"^^xsd:dateTime ;
+    prov:generated <http://www.example.com/exampleEntity/output> ;
+    prov:type "prov:Activity" ;
+    prov:used <http://www.example.com/exampleEntity/file>,
+        <http://www.example.com/exampleEntity/user_input> .
 
 
 ```

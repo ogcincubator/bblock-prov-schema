@@ -1,5 +1,5 @@
 {
+  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
   "id": "Object2",
-  "wasDerivedFrom": "Object1",
-  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"
+  "wasDerivedFrom": "Object1"
 }
