@@ -9,7 +9,7 @@
   "itemClass": "schema",
   "register": "ogc-utils",
   "version": "0.1",
-  "dateOfLastChange": "2024-11-18",
+  "dateOfLastChange": "2024-11-20",
   "sources": [
     {
       "link": "https://www.w3.org/TR/prov-o/",
@@ -24,8 +24,8 @@
   ],
   "shaclRules": {},
   "dependsOn": [
-    "ogc.ogc-utils.iri-or-curie",
-    "ogc.ogc-utils.json-link"
+    "ogc.ogc-utils.json-link",
+    "ogc.ogc-utils.iri-or-curie"
   ],
   "ldContext": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
   "schema": {
@@ -139,17 +139,17 @@
           "language": "json",
           "ref": "examples/example-llm.json",
           "base-uri": "http://www.example.com/exampleEntity/",
-          "code": "{\n    \"prov:type\": \"prov:Activity\",\n    \"generated\": {\n        \"id\": \"output\",\n        \"type\": \"Entity\",\n        \"response\": \"\\u001b[0mLLM Generated Code: \\u001b[96mgdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\\n\\u001b[0mRaw Response: \\u001b[96m511.8048618048641\\n\\u001b[0mResponse:\\u001b[92mThe closest hospital to UNSW Village is approximately 512 meters away.\"\n    },\n    \"endedAtTime\": \"2024-11-18T06:44:33.504798Z\",\n    \"used\": [\n        {\n            \"id\": \"file\",\n            \"type\": \"Entity\",\n            \"data\": [\n                {\n                    \"id\": \"osmdata.shp\",\n                    \"type\": \"Entity\",\n                    \"records\": 3544\n                }\n            ]\n        },\n        {\n            \"id\": \"user_input\",\n            \"type\": \"Entity\",\n            \"input\": \"How far away is the closest hospital from UNSW village\"\n        }\n    ]\n}",
+          "code": "{\n    \"prov:type\": \"prov:Activity\",\n    \"generated\": {\n        \"id\": \"output\",\n        \"type\": \"Entity\",\n        \"AgentType\": \"SoftwareAgent\",\n        \"response\": [\n            {\n                \"id\": \"LLM Generated Code\",\n                \"type\": \"Entity\",\n                \"wasGeneratedBy\": \"gemini-1.5-pro-001\",\n                \"data\": \"gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\"\n            },\n            {\n                \"id\": \"Code Output\",\n                \"type\": \"Entity\",\n                \"data\": \"511.8048618048641\"\n            },\n            {\n                \"id\": \"Final Output\",\n                \"type\": \"Entity\",\n                \"wasGeneratedBy\": \"gemini-1.5-flash-001\",\n                \"data\": \"The closest hospital to UNSW Village is approximately 512 meters away.\"\n            }\n        ]\n    },\n    \"startedAtTime\": \"2024-11-19T05:07:22.927913Z\",\n    \"endedAtTime\": \"2024-11-19T05:07:34.304708Z\",\n    \"used\": [\n        {\n            \"id\": \"file\",\n            \"type\": \"Entity\",\n            \"AgentType\": \"Person\",\n            \"data\": [\n                {\n                    \"id\": \"osmdata.shp\",\n                    \"type\": \"Entity\",\n                    \"records\": 3544\n                }\n            ]\n        },\n        {\n            \"id\": \"user_input\",\n            \"type\": \"Entity\",\n            \"input\": \"How far away is the closest hospital from UNSW village\"\n        }\n    ]\n}",
           "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_5_1.json"
         },
         {
           "language": "jsonld",
-          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld\",\n  \"prov:type\": \"prov:Activity\",\n  \"generated\": {\n    \"id\": \"output\",\n    \"type\": \"Entity\",\n    \"response\": \"\\u001b[0mLLM Generated Code: \\u001b[96mgdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\\n\\u001b[0mRaw Response: \\u001b[96m511.8048618048641\\n\\u001b[0mResponse:\\u001b[92mThe closest hospital to UNSW Village is approximately 512 meters away.\"\n  },\n  \"endedAtTime\": \"2024-11-18T06:44:33.504798Z\",\n  \"used\": [\n    {\n      \"id\": \"file\",\n      \"type\": \"Entity\",\n      \"data\": [\n        {\n          \"id\": \"osmdata.shp\",\n          \"type\": \"Entity\",\n          \"records\": 3544\n        }\n      ]\n    },\n    {\n      \"id\": \"user_input\",\n      \"type\": \"Entity\",\n      \"input\": \"How far away is the closest hospital from UNSW village\"\n    }\n  ]\n}",
+          "code": "{\n  \"@context\": \"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld\",\n  \"prov:type\": \"prov:Activity\",\n  \"generated\": {\n    \"id\": \"output\",\n    \"type\": \"Entity\",\n    \"AgentType\": \"SoftwareAgent\",\n    \"response\": [\n      {\n        \"id\": \"LLM Generated Code\",\n        \"type\": \"Entity\",\n        \"wasGeneratedBy\": \"gemini-1.5-pro-001\",\n        \"data\": \"gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\"\n      },\n      {\n        \"id\": \"Code Output\",\n        \"type\": \"Entity\",\n        \"data\": \"511.8048618048641\"\n      },\n      {\n        \"id\": \"Final Output\",\n        \"type\": \"Entity\",\n        \"wasGeneratedBy\": \"gemini-1.5-flash-001\",\n        \"data\": \"The closest hospital to UNSW Village is approximately 512 meters away.\"\n      }\n    ]\n  },\n  \"startedAtTime\": \"2024-11-19T05:07:22.927913Z\",\n  \"endedAtTime\": \"2024-11-19T05:07:34.304708Z\",\n  \"used\": [\n    {\n      \"id\": \"file\",\n      \"type\": \"Entity\",\n      \"AgentType\": \"Person\",\n      \"data\": [\n        {\n          \"id\": \"osmdata.shp\",\n          \"type\": \"Entity\",\n          \"records\": 3544\n        }\n      ]\n    },\n    {\n      \"id\": \"user_input\",\n      \"type\": \"Entity\",\n      \"input\": \"How far away is the closest hospital from UNSW village\"\n    }\n  ]\n}",
           "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_5_1.jsonld"
         },
         {
           "language": "ttl",
-          "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] prov:endedAtTime \"2024-11-18T06:44:33.504798+00:00\"^^xsd:dateTime ;\n    prov:generated <http://www.example.com/exampleEntity/output> ;\n    prov:type \"prov:Activity\" ;\n    prov:used <http://www.example.com/exampleEntity/file>,\n        <http://www.example.com/exampleEntity/user_input> .\n\n",
+          "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] prov:endedAtTime \"2024-11-19T05:07:34.304708+00:00\"^^xsd:dateTime ;\n    prov:generated <http://www.example.com/exampleEntity/output> ;\n    prov:startedAtTime \"2024-11-19T05:07:22.927913+00:00\"^^xsd:dateTime ;\n    prov:type \"prov:Activity\" ;\n    prov:used <http://www.example.com/exampleEntity/file>,\n        <http://www.example.com/exampleEntity/user_input> .\n\n",
           "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_5_1.ttl"
         }
       ]

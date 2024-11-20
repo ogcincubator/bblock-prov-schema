@@ -463,13 +463,34 @@ A provenance chain for Large Language Model.
     "generated": {
         "id": "output",
         "type": "Entity",
-        "response": "\u001b[0mLLM Generated Code: \u001b[96mgdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\n\u001b[0mRaw Response: \u001b[96m511.8048618048641\n\u001b[0mResponse:\u001b[92mThe closest hospital to UNSW Village is approximately 512 meters away."
+        "AgentType": "SoftwareAgent",
+        "response": [
+            {
+                "id": "LLM Generated Code",
+                "type": "Entity",
+                "wasGeneratedBy": "gemini-1.5-pro-001",
+                "data": "gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()"
+            },
+            {
+                "id": "Code Output",
+                "type": "Entity",
+                "data": "511.8048618048641"
+            },
+            {
+                "id": "Final Output",
+                "type": "Entity",
+                "wasGeneratedBy": "gemini-1.5-flash-001",
+                "data": "The closest hospital to UNSW Village is approximately 512 meters away."
+            }
+        ]
     },
-    "endedAtTime": "2024-11-18T06:44:33.504798Z",
+    "startedAtTime": "2024-11-19T05:07:22.927913Z",
+    "endedAtTime": "2024-11-19T05:07:34.304708Z",
     "used": [
         {
             "id": "file",
             "type": "Entity",
+            "AgentType": "Person",
             "data": [
                 {
                     "id": "osmdata.shp",
@@ -495,13 +516,34 @@ A provenance chain for Large Language Model.
   "generated": {
     "id": "output",
     "type": "Entity",
-    "response": "\u001b[0mLLM Generated Code: \u001b[96mgdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\n\u001b[0mRaw Response: \u001b[96m511.8048618048641\n\u001b[0mResponse:\u001b[92mThe closest hospital to UNSW Village is approximately 512 meters away."
+    "AgentType": "SoftwareAgent",
+    "response": [
+      {
+        "id": "LLM Generated Code",
+        "type": "Entity",
+        "wasGeneratedBy": "gemini-1.5-pro-001",
+        "data": "gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()"
+      },
+      {
+        "id": "Code Output",
+        "type": "Entity",
+        "data": "511.8048618048641"
+      },
+      {
+        "id": "Final Output",
+        "type": "Entity",
+        "wasGeneratedBy": "gemini-1.5-flash-001",
+        "data": "The closest hospital to UNSW Village is approximately 512 meters away."
+      }
+    ]
   },
-  "endedAtTime": "2024-11-18T06:44:33.504798Z",
+  "startedAtTime": "2024-11-19T05:07:22.927913Z",
+  "endedAtTime": "2024-11-19T05:07:34.304708Z",
   "used": [
     {
       "id": "file",
       "type": "Entity",
+      "AgentType": "Person",
       "data": [
         {
           "id": "osmdata.shp",
@@ -524,8 +566,9 @@ A provenance chain for Large Language Model.
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-[] prov:endedAtTime "2024-11-18T06:44:33.504798+00:00"^^xsd:dateTime ;
+[] prov:endedAtTime "2024-11-19T05:07:34.304708+00:00"^^xsd:dateTime ;
     prov:generated <http://www.example.com/exampleEntity/output> ;
+    prov:startedAtTime "2024-11-19T05:07:22.927913+00:00"^^xsd:dateTime ;
     prov:type "prov:Activity" ;
     prov:used <http://www.example.com/exampleEntity/file>,
         <http://www.example.com/exampleEntity/user_input> .

@@ -106,7 +106,7 @@
   "name": "Building Blocks - JSON schema for W3C PROV model",
   "abstract": "Defines a standardised JSON schema for PROV ontology elements - supporting a graph structure based on an array of objects implementing PROV defined classes with object cross references.",
   "description": "Provenance defined using the [W3C PROV-O model](https://www.w3.org/TR/prov-o/) is a DAG (non-cyclic graph) based on three main object types: Entity, Activity and Agent.\n\nThis repository defines a JSON schema and matching JSON-LD context for this model, using the canonical terminology used in the PROV ontology as element names.\n\nIt also defines a context for an optional schema property \"has_provenance\" that can be used to wrap a provenance graph as an array of such objects, to extend the property prov:wasGeneratedBy (whose range is one or more Entity objects) with an explicit schema.\n\n![](https://www.w3.org/TR/prov-o/diagrams/starting-points.svg)\n",
-  "modified": "2024-11-18T11:05:29.832215",
+  "modified": "2024-11-20T21:00:18.964576",
   "tooling": {
     "bblocks-postprocess": {
       "commitId": "\"92755a131115293631118b409fa11027d18f8fa3",
@@ -137,7 +137,7 @@
       "itemClass": "schema",
       "register": "ogc-utils",
       "version": "0.1",
-      "dateOfLastChange": "2024-11-18",
+      "dateOfLastChange": "2024-11-20",
       "sources": [
         {
           "link": "https://www.w3.org/TR/prov-o/",
@@ -152,8 +152,8 @@
       ],
       "shaclRules": {},
       "dependsOn": [
-        "ogc.ogc-utils.iri-or-curie",
-        "ogc.ogc-utils.json-link"
+        "ogc.ogc-utils.json-link",
+        "ogc.ogc-utils.iri-or-curie"
       ],
       "ldContext": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
       "schema": {
