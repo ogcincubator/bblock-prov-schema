@@ -20,7 +20,7 @@
         [ dct:format "text/markdown" ;
             rdfs:isDefinedBy "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md" ] ;
     dct:hasVersion "0.1" ;
-    dct:modified "2024-11-20"^^xsd:date ;
+    dct:modified "2025-01-22"^^xsd:date ;
     dct:source <https://www.w3.org/TR/prov-o/> ;
     skos:inScheme <https://ogcincubator.github.io/bblock-prov-schema/> ;
     dcat:keyword "prov",
@@ -53,15 +53,15 @@ It also defines a context for an optional schema property "has_provenance" that 
 <https://www.w3.org/TR/prov-o/> rdfs:label "The PROV-O vocabulary" .
 
 [] a prov:Activity ;
-    prov:endedAtTime "2024-11-20T21:00:20.254068"^^xsd:dateTime ;
-    prov:startedAtTime "2024-11-20T21:00:20.190903"^^xsd:dateTime ;
+    prov:endedAtTime "2025-01-22T05:06:45.039444"^^xsd:dateTime ;
+    prov:startedAtTime "2025-01-22T05:06:44.978749"^^xsd:dateTime ;
     prov:used [ a prov:Entity ;
-            dct:format "application/json" ;
-            dct:hasVersion "git:2335b49b153003b84958996572e5063e08431adf" ;
-            rdfs:seeAlso <https://ogcincubator.github.io/bblock-prov-schema/build/register.json> ],
-        [ a prov:Entity ;
             dct:format "application/yaml" ;
-            rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ] ;
+            rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
+        [ a prov:Entity ;
+            dct:format "application/json" ;
+            dct:hasVersion "git:6f59940117754d0973f7727e3ca2b215214d6a9c" ;
+            rdfs:seeAlso <https://ogcincubator.github.io/bblock-prov-schema/build/register.json> ] ;
     prov:wasAssociatedWith [ a prov:Agent,
                 schema:SoftwareApplication ;
             rdfs:label "OGC-NA tools" ;
