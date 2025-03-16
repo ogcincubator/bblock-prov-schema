@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Provenance Chain using PROV-O core model supporting both an ID based object graph and nesting",
+  "$defs": {
+    "Entity": {
+      "$anchor": "Entity",
+      "$ref": "bblocks://ogc.ogc-utils.prov-entity"
+    },
+    "Activity": {
+      "$anchor": "Activity",
+      "$ref": "bblocks://ogc.ogc-utils.prov-activity"
+    },
+    "Agent": {
+      "$anchor": "Agent",
+      "$ref": "bblocks://ogc.ogc-utils.prov-agent"
+    },
+    "Influence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+        },
+        "influencer": {
+          "anyOf": [
+            {
+              "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreActivitiesOrRefIds"
+            },
+            {
+              "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreEntitiesOrRefIds"
+            },
+            {
+              "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreAgentsOrRefIds"
+            }
+          ]
+        },
+        "entity": {
+          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreEntitiesOrRefIds"
+        },
+        "activity": {
+          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreActivitiesOrRefIds"
+        },
+        "agent": {
+          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreAgentsOrRefIds"
+        }
+      },
+      "anyOf": [
+        {
+          "required": [
+            "influencer"
+          ]
+        },
+        {
+          "required": [
+            "entity"
+          ]
+        },
+        {
+          "required": [
+            "activity"
+          ]
+        },
+        {
+          "required": [
+            "agent"
+          ]
+        }
+      ]
+    },
+    "Prov": {
+      "$anchor": "Prov",
+      "description": "An list of provenance objects linked together to form a provenance chain for the current object. Objects may have nested objects as well, with or without referencable ids",
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#Entity"
+          },
+          {
+            "$ref": "#Agent"
+          },
+          {
+            "$ref": "#Activity"
+          }
+        ]
+      }
+    }
+  },
+  "anyOf": [
+    {
+      "$ref": "#Prov"
+    },
+    {
+      "$ref": "#Entity"
+    },
+    {
+      "$ref": "#Activity"
+    }
+  ]
+}

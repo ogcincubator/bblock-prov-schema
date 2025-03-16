@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "PROV Activity object schema",
+  "$defs": {
+    "dateTime": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?$"
+    },
+    "AgentTypes": {
+      "type": "string",
+      "enum": [
+        "Agent",
+        "Organization",
+        "Person",
+        "SoftwareAgent",
+        "SoftwareDescription",
+        "DirectQueryService",
+        "prov:Agent",
+        "prov:Organization",
+        "prov:Person",
+        "prov:SoftwareAgent",
+        "prov:SoftwareDescription",
+        "prov:DirectQueryService"
+      ]
+    },
+    "AgentType": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/AgentTypes"
+        },
+        {
+          "type": "array",
+          "items": {
+            "contains": {
+              "$ref": "#/$defs/AgentTypes"
+            }
+          }
+        }
+      ]
+    },
+    "Agent": {
+      "type": "object",
+      "properties": {
+        "agentType": {
+          "$ref": "#/$defs/oneOrMoreObjectref"
+        },
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+        },
+        "actedOnBehalfOf": {
+          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
+        },
+        "atLocation": {
+          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+        },
+        "qualifiedDelegation": {
+          "oneOf": [
+            {
+              "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+            },
+            {
+              "$ref": "#/$defs/Delegation"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+                  },
+                  {
+                    "$ref": "#/$defs/Delegation"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "oneOf": [
+        {
+          "required": [
+            "name"
+          ]
+        },
+        {
+          "required": [
+            "id"
+          ]
+        }
+      ],
+      "anyOf": [
+        {
+          "properties": {
+            "provType": {
+              "$ref": "#/$defs/AgentType"
+            }
+          },
+          "required": [
+            "provType"
+          ]
+        },
+        {
+          "properties": {
+            "type": {
+              "$ref": "#/$defs/AgentType"
+            }
+          },
+          "required": [
+            "type"
+          ]
+        },
+        {
+          "properties": {
+            "agentType": {
+              "$ref": "#/$defs/AgentType"
+            }
+          },
+          "required": [
+            "agentType"
+          ]
+        },
+        {
+          "properties": {
+            "prov:type": {
+              "$ref": "#/$defs/AgentType"
+            }
+          },
+          "required": [
+            "prov:type"
+          ]
+        },
+        {
+          "required": [
+            "actedOnBehalfOf"
+          ]
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#influenced"
+        }
+      ]
+    }
+  },
+  "anyOf": [
+    {
+      "$ref": "#/$defs/Agent"
+    }
+  ]
+}

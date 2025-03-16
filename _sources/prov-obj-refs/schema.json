@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Provenance Chain using PROV-O core model supporting both an ID based object graph and nesting",
+  "$defs": {
+    "Agent": {
+      "$ref": "bblocks://ogc.ogc-utils.prov#/$defs/Agent"
+    },
+    "Entity": {
+      "$ref": "bblocks://ogc.ogc-utils.prov#/$defs/Entity"
+    },
+    "influenced": {
+      "type": "object",
+      "properties": {
+        "wasInfluencedBy": {
+          "anyOf": [
+            {
+              "$ref": "#oneOrMoreActivitiesOrRefIds"
+            },
+            {
+              "$ref": "#oneOrMoreEntitiesOrRefIds"
+            },
+            {
+              "$ref": "#oneOrMoreAgentsOrRefIds"
+            }
+          ]
+        },
+        "qualifiedInfluence": {
+          "oneOf": [
+            {
+              "$ref": "#objectref"
+            },
+            {
+              "$ref": "#/$defs/Influence"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#objectref"
+                  },
+                  {
+                    "$ref": "#/$defs/Influence"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "Activity": {
+      "$ref": "bblocks://ogc.ogc-utils.prov#/$defs/Activity"
+    },
+    "objectref": {
+      "$anchor": "objectref",
+      "$ref": "bblocks://ogc.ogc-utils.iri-or-curie"
+    },
+    "oneOrMoreObjectref": {
+      "$anchor": "oneOrMoreObjectref",
+      "$ref": "bblocks://ogc.ogc-utils.iri-or-curie#MultipleOrObject"
+    },
+    "oneOrMoreActivitiesOrRefIds": {
+      "$anchor": "oneOrMoreActivitiesOrRefIds",
+      "oneOf": [
+        {
+          "$ref": "#objectref"
+        },
+        {
+          "$ref": "#Activity"
+        },
+        {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#objectref"
+              },
+              {
+                "$ref": "#Activity"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "oneOrMoreEntitiesOrRefIds": {
+      "$anchor": "oneOrMoreEntitiesOrRefIds",
+      "oneOf": [
+        {
+          "$ref": "#objectref"
+        },
+        {
+          "$ref": "#Entity"
+        },
+        {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#objectref"
+              },
+              {
+                "$ref": "#Entity"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "oneOrMoreAgentsOrRefIds": {
+      "$anchor": "oneOrMoreAgentsOrRefIds",
+      "oneOf": [
+        {
+          "$ref": "#objectref"
+        },
+        {
+          "$ref": "#externalLink"
+        },
+        {
+          "$ref": "#Agent"
+        },
+        {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#objectref"
+              },
+              {
+                "$ref": "#Agent"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "externalLink": {
+      "$anchor": "externalLink",
+      "$ref": "bblocks://ogc.ogc-utils.json-link"
+    }
+  }
+}
