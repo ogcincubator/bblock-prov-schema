@@ -573,7 +573,7 @@
                     "$ref": "#/$defs/objectref"
                   },
                   {
-                    "$ref": "#/$defs/Generation"
+                    "$ref": "#/$defs/Communication"
                   }
                 ]
               }

@@ -1,5 +1,5 @@
 Validation report for ogc.ogc-utils.prov - Provenance Chain
-Generated 2025-03-03T14:10:40.561390+00:00
+Generated 2025-03-17T08:30:16.671376+00:00
 === General ===
 Test was expected to fail and it did.
 === End General ===
@@ -51,7 +51,7 @@ Failed validating 'anyOf' in schema:
                                            'qualifiedCommunication': {'oneOf': [{'$ref': '#/$defs/objectref'},
                                                                                 {'$ref': '#/$defs/Communication'},
                                                                                 {'items': {'oneOf': [{'$ref': '#/$defs/objectref'},
-                                                                                                     {'$ref': '#/$defs/Generation'}]},
+                                                                                                     {'$ref': '#/$defs/Communication'}]},
                                                                                  'type': 'array'}],
                                                                       'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedCommunication',
                                                                       'x-jsonld-type': '@id'},
@@ -615,7 +615,7 @@ On instance:
 === JSON-LD ===
 
 ** Validation error **
-Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7eff616a7be0>
+Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f9e97a87be0>
 Traceback (most recent call last):
   File "/venv/lib/python3.10/site-packages/isodate/isodatetime.py", line 51, in parse_datetime
     datestring, timestring = datetimestring.split('T')

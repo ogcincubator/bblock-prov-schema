@@ -81,6 +81,7 @@ path	@id
 /atLocation	http://www.w3.org/ns/prov#atLocation
 /links	http://www.w3.org/2000/01/rdf-schema#seeAlso
 /qualifiedGeneration	http://www.w3.org/ns/prov#qualifiedGeneration
+/qualifiedGeneration/type	
 /qualifiedInvalidation	http://www.w3.org/ns/prov#qualifiedInvalidation
 /qualifiedInvalidation/type	
 /qualifiedDerivation	http://www.w3.org/ns/prov#qualifiedDerivation

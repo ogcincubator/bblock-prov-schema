@@ -322,7 +322,7 @@ $defs:
           items:
             oneOf:
             - $ref: '#/$defs/objectref'
-            - $ref: '#/$defs/Generation'
+            - $ref: '#/$defs/Communication'
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedCommunication
         x-jsonld-type: '@id'
       qualifiedStart:
