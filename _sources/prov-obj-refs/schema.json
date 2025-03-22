@@ -6,7 +6,7 @@
       "$ref": "bblocks://ogc.ogc-utils.prov#Agent"
     },
     "Entity": {
-      "$ref": "bblocks://ogc.ogc-utils.prov#/#Entity"
+      "$ref": "bblocks://ogc.ogc-utils.prov#Entity"
     },
     "influenced": {
       "type": "object",
