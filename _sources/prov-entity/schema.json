@@ -39,7 +39,7 @@
           "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreObjectref"
         },
         "has_provenance": {
-          "$ref": "#/$defs/Prov"
+          "$ref": "bblocks://ogc.ogc-utils.prov#Prov"
         },
         "wasGeneratedBy": {
           "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreActivitiesOrRefIds"
@@ -83,7 +83,7 @@
               "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
             },
             {
-              "$ref": "#/$defs/Generation"
+              "$ref": "bblocks://ogc.ogc-utils.prov-activity#Generation"
             },
             {
               "type": "array",
@@ -93,7 +93,7 @@
                     "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
                   },
                   {
-                    "$ref": "#/$defs/Generation"
+                    "$ref": "bblocks://ogc.ogc-utils.prov-activity#Generation"
                   }
                 ]
               }
@@ -106,7 +106,7 @@
               "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
             },
             {
-              "$ref": "#/$defs/Invalidation"
+              "$ref": "bblocks://ogc.ogc-utils.prov-activity#Invalidation"
             },
             {
               "type": "array",
@@ -116,7 +116,7 @@
                     "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
                   },
                   {
-                    "$ref": "#/$defs/Invalidation"
+                    "$ref": "bblocks://ogc.ogc-utils.prov-activity#Invalidation"
                   }
                 ]
               }
@@ -129,7 +129,7 @@
               "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
             },
             {
-              "$ref": "#/$defs/Derivation"
+              "$ref": "bblocks://ogc.ogc-utils.prov-activity#Derivation"
             },
             {
               "type": "array",
@@ -139,7 +139,7 @@
                     "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
                   },
                   {
-                    "$ref": "#/$defs/Derivation"
+                    "$ref": "bblocks://ogc.ogc-utils.prov-activity#Derivation"
                   }
                 ]
               }
@@ -152,7 +152,7 @@
               "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
             },
             {
-              "$ref": "#/$defs/Attribution"
+              "$ref": "bblocks://ogc.ogc-utils.prov-activity#Attribution"
             },
             {
               "type": "array",
@@ -162,7 +162,7 @@
                     "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
                   },
                   {
-                    "$ref": "#/$defs/Attribution"
+                    "$ref": "bblocks://ogc.ogc-utils.prov-activity#Attribution"
                   }
                 ]
               }

@@ -43,7 +43,7 @@
       "type": "object",
       "properties": {
         "agentType": {
-          "$ref": "#/$defs/oneOrMoreObjectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreObjectref"
         },
         "name": {
           "type": "string"
@@ -52,7 +52,7 @@
           "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
         },
         "actedOnBehalfOf": {
-          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreAgentsOrRefIds"
         },
         "atLocation": {
           "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
@@ -63,7 +63,7 @@
               "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
             },
             {
-              "$ref": "#/$defs/Delegation"
+              "$ref": "bblocks://ogc.ogc-utils.prov-activity#Delegation"
             },
             {
               "type": "array",
@@ -73,7 +73,7 @@
                     "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
                   },
                   {
-                    "$ref": "#/$defs/Delegation"
+                    "$ref": "bblocks://ogc.ogc-utils.prov-activity#Delegation"
                   }
                 ]
               }
@@ -145,6 +145,49 @@
           "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#influenced"
         }
       ]
+    },
+    "Association": {
+      "$anchor": "Association",
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+        },
+        "type": {
+          "oneOf": [
+            {
+              "type": "string",
+              "const": "Association"
+            },
+            {
+              "type": "array",
+              "contains": {
+                "type": "string",
+                "const": "Association"
+              },
+              "items": {
+                "type": "string"
+              }
+            }
+          ]
+        },
+        "agent": {
+          "oneOf": [
+            {
+              "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+            },
+            {
+              "$ref": "#/$defs/Agent"
+            }
+          ]
+        },
+        "hadRole": {
+          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreObjectref"
+        },
+        "hadPlan": {
+          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreObjectref"
+        }
+      }
     }
   },
   "anyOf": [

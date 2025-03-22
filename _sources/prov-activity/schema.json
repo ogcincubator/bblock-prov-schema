@@ -145,7 +145,7 @@
               "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
             },
             {
-              "$ref": "#/$defs/Association"
+              "$ref": "bblocks://ogc.ogc-utils.prov#Association"
             },
             {
               "type": "array",
@@ -155,7 +155,7 @@
                     "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
                   },
                   {
-                    "$ref": "#/$defs/Association"
+                    "$ref": "bblocks://ogc.ogc-utils.prov#Association"
                   }
                 ]
               }
@@ -402,7 +402,7 @@
               "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
             },
             {
-              "$ref": "#/$defs/Entity"
+              "$ref": "bblocks://ogc.ogc-utils.prov#Entity"
             }
           ]
         },
@@ -527,7 +527,7 @@
               "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
             },
             {
-              "$ref": "#/$defs/Entity"
+              "$ref": "bblocks://ogc.ogc-utils.prov#Entity"
             }
           ]
         }
@@ -567,7 +567,7 @@
               "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
             },
             {
-              "$ref": "#/$defs/Agent"
+              "$ref": "bblocks://ogc.ogc-utils.prov#Agent"
             }
           ]
         },
@@ -613,7 +613,7 @@
               "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
             },
             {
-              "$ref": "#/$defs/Agent"
+              "$ref": "bblocks://ogc.ogc-utils.prov#Agent"
             }
           ]
         }
@@ -647,7 +647,7 @@
               "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
             },
             {
-              "$ref": "#/$defs/Entity"
+              "$ref": "bblocks://ogc.ogc-utils.prov#IEntity"
             }
           ]
         },

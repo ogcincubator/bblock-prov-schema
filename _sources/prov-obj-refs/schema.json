@@ -3,10 +3,10 @@
   "description": "Provenance Chain using PROV-O core model supporting both an ID based object graph and nesting",
   "$defs": {
     "Agent": {
-      "$ref": "bblocks://ogc.ogc-utils.prov#/$defs/Agent"
+      "$ref": "bblocks://ogc.ogc-utils.prov#Agent"
     },
     "Entity": {
-      "$ref": "bblocks://ogc.ogc-utils.prov#/$defs/Entity"
+      "$ref": "bblocks://ogc.ogc-utils.prov#/#Entity"
     },
     "influenced": {
       "type": "object",
@@ -30,7 +30,7 @@
               "$ref": "#objectref"
             },
             {
-              "$ref": "#/$defs/Influence"
+              "$ref": "bblocks://ogc.ogc-utils.prov#Influence"
             },
             {
               "type": "array",
@@ -40,7 +40,7 @@
                     "$ref": "#objectref"
                   },
                   {
-                    "$ref": "#/$defs/Influence"
+                    "$ref": "bblocks://ogc.ogc-utils.prov#Influence"
                   }
                 ]
               }
@@ -50,7 +50,7 @@
       }
     },
     "Activity": {
-      "$ref": "bblocks://ogc.ogc-utils.prov#/$defs/Activity"
+      "$ref": "bblocks://ogc.ogc-utils.prov#Activity"
     },
     "objectref": {
       "$anchor": "objectref",
