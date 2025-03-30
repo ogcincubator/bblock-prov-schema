@@ -1,5 +1,7 @@
 ## Provenance chain
 
+This schema is a single artefact, in case of tools that cannot handle references to reusable components.  It may be removed if proven unnecessary.
+
 A JSON schema defining objects that may be referenced or nested as a chain of Activities, Entities or Agents (or subclasses thereof)
 
 This schema implements the PROV vocabulary semantics (through JSON-LD mapping directly to the PROV-O RDF model.)

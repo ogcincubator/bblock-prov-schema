@@ -1,7 +1,7 @@
 {
-  "name": "Provenance Chain",
+  "name": "Single Schema for PROV",
   "highlighted": true ,
-  "abstract": "Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way.",
+  "abstract": "The original version of a single Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way.",
   "status": "under-development",
   "dateTimeAddition": "2023-07-10T00:00:00Z",
   "itemClass": "schema",

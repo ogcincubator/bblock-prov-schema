@@ -2,6 +2,93 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "Provenance Chain using PROV-O core model supporting both an ID based object graph and nesting",
   "$defs": {
+    "objectref": {
+      "$anchor": "objectref",
+      "$ref": "bblocks://ogc.ogc-utils.iri-or-curie"
+    },
+    "oneOrMoreObjectref": {
+      "$anchor": "oneOrMoreObjectref",
+      "$ref": "bblocks://ogc.ogc-utils.iri-or-curie#/$defs/MultipleOrObject"
+    },
+    "oneOrMoreActivitiesOrRefIds": {
+      "$anchor": "oneOrMoreActivitiesOrRefIds",
+      "oneOf": [
+        {
+          "$ref": "#objectref"
+        },
+        {
+          "$ref": "bblocks://ogc.ogc-utils.prov#Activity"
+        },
+        {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#objectref"
+              },
+              {
+                "$ref": "bblocks://ogc.ogc-utils.prov#Activity"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "oneOrMoreEntitiesOrRefIds": {
+      "$anchor": "oneOrMoreEntitiesOrRefIds",
+      "oneOf": [
+        {
+          "$ref": "#objectref"
+        },
+        {
+          "$ref": "#Entity"
+        },
+        {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#objectref"
+              },
+              {
+                "$ref": "#Entity"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "oneOrMoreAgentsOrRefIds": {
+      "$anchor": "oneOrMoreAgentsOrRefIds",
+      "oneOf": [
+        {
+          "$ref": "#objectref"
+        },
+        {
+          "$ref": "#externalLink"
+        },
+        {
+          "$ref": "#Agent"
+        },
+        {
+          "type": "array",
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#objectref"
+              },
+              {
+                "$ref": "#Agent"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "externalLink": {
+      "$anchor": "externalLink",
+      "$ref": "bblocks://ogc.ogc-utils.json-link"
+    },
     "Entity": {
       "$anchor": "Entity",
       "$ref": "bblocks://ogc.ogc-utils.prov-entity"
@@ -19,32 +106,33 @@
       "$ref": "bblocks://ogc.ogc-utils.prov-agent#Association"
     },
     "Influence": {
+      "$anchor": "Influence",
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
         },
         "influencer": {
           "anyOf": [
             {
-              "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreActivitiesOrRefIds"
+              "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreActivitiesOrRefIds"
             },
             {
-              "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreEntitiesOrRefIds"
+              "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
             },
             {
-              "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreAgentsOrRefIds"
+              "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreAgentsOrRefIds"
             }
           ]
         },
         "entity": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreEntitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
         },
         "activity": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreActivitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreActivitiesOrRefIds"
         },
         "agent": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreAgentsOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreAgentsOrRefIds"
         }
       },
       "anyOf": [
@@ -69,6 +157,48 @@
           ]
         }
       ]
+    },
+    "influenced": {
+      "$anchor": "influenced",
+      "type": "object",
+      "properties": {
+        "wasInfluencedBy": {
+          "anyOf": [
+            {
+              "$ref": "#oneOrMoreActivitiesOrRefIds"
+            },
+            {
+              "$ref": "#oneOrMoreEntitiesOrRefIds"
+            },
+            {
+              "$ref": "#oneOrMoreAgentsOrRefIds"
+            }
+          ]
+        },
+        "qualifiedInfluence": {
+          "oneOf": [
+            {
+              "$ref": "#objectref"
+            },
+            {
+              "$ref": "bblocks://ogc.ogc-utils.prov#Influence"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#objectref"
+                  },
+                  {
+                    "$ref": "bblocks://ogc.ogc-utils.prov#Influence"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
     },
     "Prov": {
       "$anchor": "Prov",

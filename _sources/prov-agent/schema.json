@@ -40,27 +40,28 @@
       ]
     },
     "Agent": {
+      "$anchor": "Agent",
       "type": "object",
       "properties": {
         "agentType": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreObjectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref"
         },
         "name": {
           "type": "string"
         },
         "id": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
         },
         "actedOnBehalfOf": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreAgentsOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreAgentsOrRefIds"
         },
         "atLocation": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
         },
         "qualifiedDelegation": {
           "oneOf": [
             {
-              "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+              "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
             },
             {
               "$ref": "bblocks://ogc.ogc-utils.prov-activity#Delegation"
@@ -70,7 +71,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+                    "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
                   },
                   {
                     "$ref": "bblocks://ogc.ogc-utils.prov-activity#Delegation"
@@ -142,7 +143,7 @@
       ],
       "allOf": [
         {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#influenced"
+          "$ref": "bblocks://ogc.ogc-utils.prov#influenced"
         }
       ]
     },
@@ -151,7 +152,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
         },
         "type": {
           "oneOf": [
@@ -174,7 +175,7 @@
         "agent": {
           "oneOf": [
             {
-              "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+              "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
             },
             {
               "$ref": "#/$defs/Agent"
@@ -182,10 +183,10 @@
           ]
         },
         "hadRole": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreObjectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref"
         },
         "hadPlan": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreObjectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref"
         }
       }
     }

@@ -30,7 +30,6 @@
         {
             "id": "file",
             "type": "Entity",
-            "AgentType": "Person",
             "data": [
                 {
                     "id": "osmdata.shp",
@@ -41,7 +40,7 @@
         },
         {
             "id": "user_input",
-            "type": "Entity",
+            "prov:type": "Entity",
             "input": "How far away is the closest hospital from UNSW village"
         }
     ]

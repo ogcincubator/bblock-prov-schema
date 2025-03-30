@@ -30,57 +30,57 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
         },
         "featureType": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreObjectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref"
         },
         "entityType": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreObjectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref"
         },
         "has_provenance": {
           "$ref": "bblocks://ogc.ogc-utils.prov#Prov"
         },
         "wasGeneratedBy": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreActivitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreActivitiesOrRefIds"
         },
         "wasAttributedTo": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreAgentsOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreAgentsOrRefIds"
         },
         "wasDerivedFrom": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreEntitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
         },
         "alternateOf": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreEntitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
         },
         "hadPrimarySource": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreEntitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
         },
         "specializationOf": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreEntitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
         },
         "wasInvalidatedBy": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreActivitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreActivitiesOrRefIds"
         },
         "wasQuotedFrom": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreEntitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
         },
         "wasRevisionOf": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#oneOrMoreEntitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
         },
         "atLocation": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
         },
         "links": {
           "type": "array",
           "items": {
-            "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#externalLink"
+            "$ref": "bblocks://ogc.ogc-utils.prov#externalLink"
           }
         },
         "qualifiedGeneration": {
           "oneOf": [
             {
-              "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+              "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
             },
             {
               "$ref": "bblocks://ogc.ogc-utils.prov-activity#Generation"
@@ -90,7 +90,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+                    "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
                   },
                   {
                     "$ref": "bblocks://ogc.ogc-utils.prov-activity#Generation"
@@ -103,7 +103,7 @@
         "qualifiedInvalidation": {
           "oneOf": [
             {
-              "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+              "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
             },
             {
               "$ref": "bblocks://ogc.ogc-utils.prov-activity#Invalidation"
@@ -113,7 +113,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+                    "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
                   },
                   {
                     "$ref": "bblocks://ogc.ogc-utils.prov-activity#Invalidation"
@@ -126,7 +126,7 @@
         "qualifiedDerivation": {
           "oneOf": [
             {
-              "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+              "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
             },
             {
               "$ref": "bblocks://ogc.ogc-utils.prov-activity#Derivation"
@@ -136,7 +136,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+                    "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
                   },
                   {
                     "$ref": "bblocks://ogc.ogc-utils.prov-activity#Derivation"
@@ -149,7 +149,7 @@
         "qualifiedAttribution": {
           "oneOf": [
             {
-              "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+              "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
             },
             {
               "$ref": "bblocks://ogc.ogc-utils.prov-activity#Attribution"
@@ -159,7 +159,7 @@
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#objectref"
+                    "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
                   },
                   {
                     "$ref": "bblocks://ogc.ogc-utils.prov-activity#Attribution"
@@ -271,7 +271,7 @@
       ],
       "allOf": [
         {
-          "$ref": "bblocks://ogc.ogc-utils.prov-obj-refs#influenced"
+          "$ref": "bblocks://ogc.ogc-utils.prov#influenced"
         }
       ]
     }
