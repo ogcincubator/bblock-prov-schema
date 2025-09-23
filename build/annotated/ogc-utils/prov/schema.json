@@ -1468,6 +1468,10 @@
     "KeyEntityPair": "http://www.w3.org/ns/prov#KeyEntityPair",
     "Insertion": "http://www.w3.org/ns/prov#Insertion",
     "Removal": "http://www.w3.org/ns/prov#Removal",
+    "atTime": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#atTime",
+      "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
     "generatedAtTime": {
       "x-jsonld-id": "http://www.w3.org/ns/prov#generatedAtTime",
       "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
@@ -1490,8 +1494,16 @@
       "x-jsonld-id": "http://www.w3.org/ns/prov#removedKey",
       "x-jsonld-type": "http://www.w3.org/2000/01/rdf-schema#Literal"
     },
+    "activity": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#activity",
+      "x-jsonld-type": "@id"
+    },
     "influenced": {
       "x-jsonld-id": "http://www.w3.org/ns/prov#influenced",
+      "x-jsonld-type": "@id"
+    },
+    "influencer": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#influencer",
       "x-jsonld-type": "@id"
     },
     "qualifiedPrimarySource": {

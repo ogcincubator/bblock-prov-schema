@@ -1,5 +1,5 @@
 Validation report for ogc.ogc-utils.prov - Provenance Chain
-Generated 2025-03-17T08:30:16.671376+00:00
+Generated 2025-09-23T07:34:38.891644+00:00
 === General ===
 Test was expected to fail and it did.
 === End General ===
@@ -540,8 +540,12 @@ Failed validating 'anyOf' in schema:
                               'Start': 'http://www.w3.org/ns/prov#Start',
                               'Submit': 'http://www.w3.org/ns/prov#Submit',
                               'Usage': 'http://www.w3.org/ns/prov#Usage',
+                              'activity': {'x-jsonld-id': 'http://www.w3.org/ns/prov#activity',
+                                           'x-jsonld-type': '@id'},
                               'asInBundle': {'x-jsonld-id': 'http://www.w3.org/ns/prov#asInBundle',
                                              'x-jsonld-type': '@id'},
+                              'atTime': {'x-jsonld-id': 'http://www.w3.org/ns/prov#atTime',
+                                         'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},
                               'derivedByInsertionFrom': {'x-jsonld-id': 'http://www.w3.org/ns/prov#derivedByInsertionFrom',
                                                          'x-jsonld-type': '@id'},
                               'derivedByRemovalFrom': {'x-jsonld-id': 'http://www.w3.org/ns/prov#derivedByRemovalFrom',
@@ -559,6 +563,8 @@ Failed validating 'anyOf' in schema:
                               'has_query_service': {'x-jsonld-id': 'http://www.w3.org/ns/prov#has_query_service',
                                                     'x-jsonld-type': '@id'},
                               'influenced': {'x-jsonld-id': 'http://www.w3.org/ns/prov#influenced',
+                                             'x-jsonld-type': '@id'},
+                              'influencer': {'x-jsonld-id': 'http://www.w3.org/ns/prov#influencer',
                                              'x-jsonld-type': '@id'},
                               'insertedKeyEntityPair': {'x-jsonld-id': 'http://www.w3.org/ns/prov#insertedKeyEntityPair',
                                                         'x-jsonld-type': '@id'},
@@ -615,7 +621,7 @@ On instance:
 === JSON-LD ===
 
 ** Validation error **
-Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f9e97a87be0>
+Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f38b911a0e0>
 Traceback (most recent call last):
   File "/venv/lib/python3.10/site-packages/isodate/isodatetime.py", line 51, in parse_datetime
     datestring, timestring = datetimestring.split('T')
