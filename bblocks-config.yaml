@@ -16,3 +16,4 @@ description: |
 
 imports:
   - default
+  - https://ogcincubator.github.io/cross-domain-model
