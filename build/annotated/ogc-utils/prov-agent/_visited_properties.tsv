@@ -1,0 +1,127 @@
+path	@id
+/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
+/wasInfluencedBy/id	
+/wasInfluencedBy/type	
+/wasInfluencedBy/activityType	
+/wasInfluencedBy/prov:type	
+/wasInfluencedBy/endedAtTime	
+/wasInfluencedBy/wasAssociatedWith	
+/wasInfluencedBy/wasAssociatedWith/href	http://www.w3.org/ns/oa#hasTarget
+/wasInfluencedBy/wasAssociatedWith/rel	http://www.iana.org/assignments/relation
+/wasInfluencedBy/wasAssociatedWith/anchor	
+/wasInfluencedBy/wasAssociatedWith/type	http://purl.org/dc/terms/type
+/wasInfluencedBy/wasAssociatedWith/hreflang	http://purl.org/dc/terms/language
+/wasInfluencedBy/wasAssociatedWith/title	http://www.w3.org/2000/01/rdf-schema#label
+/wasInfluencedBy/wasAssociatedWith/length	http://purl.org/dc/terms/extent
+/wasInfluencedBy/wasAssociatedWith/provType	
+/wasInfluencedBy/wasAssociatedWith/agentType	
+/wasInfluencedBy/wasAssociatedWith/prov:type	
+/wasInfluencedBy/wasAssociatedWith/name	
+/wasInfluencedBy/wasAssociatedWith/id	
+/wasInfluencedBy/wasAssociatedWith/actedOnBehalfOf	
+/wasInfluencedBy/wasAssociatedWith/atLocation	
+/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation	
+/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/id	
+/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/type	
+/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/agent	
+/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/hadActivity	
+/wasInfluencedBy/wasInformedBy	
+/wasInfluencedBy/used	
+/wasInfluencedBy/used/provType	
+/wasInfluencedBy/used/prov:type	
+/wasInfluencedBy/used/type	
+/wasInfluencedBy/used/hadMember	
+/wasInfluencedBy/used/id	
+/wasInfluencedBy/used/featureType	
+/wasInfluencedBy/used/entityType	
+/wasInfluencedBy/used/has_provenance	
+/wasInfluencedBy/used/wasGeneratedBy	
+/wasInfluencedBy/used/wasAttributedTo	
+/wasInfluencedBy/used/wasDerivedFrom	
+/wasInfluencedBy/used/alternateOf	
+/wasInfluencedBy/used/hadPrimarySource	
+/wasInfluencedBy/used/specializationOf	
+/wasInfluencedBy/used/wasInvalidatedBy	
+/wasInfluencedBy/used/wasQuotedFrom	
+/wasInfluencedBy/used/wasRevisionOf	
+/wasInfluencedBy/used/atLocation	
+/wasInfluencedBy/used/links	
+/wasInfluencedBy/used/links/href	http://www.w3.org/ns/oa#hasTarget
+/wasInfluencedBy/used/links/rel	http://www.iana.org/assignments/relation
+/wasInfluencedBy/used/links/anchor	
+/wasInfluencedBy/used/links/type	http://purl.org/dc/terms/type
+/wasInfluencedBy/used/links/hreflang	http://purl.org/dc/terms/language
+/wasInfluencedBy/used/links/title	http://www.w3.org/2000/01/rdf-schema#label
+/wasInfluencedBy/used/links/length	http://purl.org/dc/terms/extent
+/wasInfluencedBy/used/qualifiedGeneration	
+/wasInfluencedBy/used/qualifiedGeneration/id	
+/wasInfluencedBy/used/qualifiedGeneration/atTime	
+/wasInfluencedBy/used/qualifiedGeneration/hadRole	
+/wasInfluencedBy/used/qualifiedGeneration/influencer	
+/wasInfluencedBy/used/qualifiedGeneration/hadActivity	
+/wasInfluencedBy/used/qualifiedGeneration/activity	
+/wasInfluencedBy/used/qualifiedGeneration/type	
+/wasInfluencedBy/used/qualifiedInvalidation	
+/wasInfluencedBy/used/qualifiedInvalidation/type	
+/wasInfluencedBy/used/qualifiedDerivation	
+/wasInfluencedBy/used/qualifiedDerivation/id	
+/wasInfluencedBy/used/qualifiedDerivation/type	
+/wasInfluencedBy/used/qualifiedDerivation/hadGeneration	
+/wasInfluencedBy/used/qualifiedDerivation/hadGeneration/type	
+/wasInfluencedBy/used/qualifiedDerivation/hadActivity	
+/wasInfluencedBy/used/qualifiedDerivation/hadUsage	
+/wasInfluencedBy/used/qualifiedDerivation/hadUsage/id	
+/wasInfluencedBy/used/qualifiedDerivation/hadUsage/type	
+/wasInfluencedBy/used/qualifiedDerivation/hadUsage/atTime	
+/wasInfluencedBy/used/qualifiedDerivation/hadUsage/entity	
+/wasInfluencedBy/used/qualifiedDerivation/entity	
+/wasInfluencedBy/used/qualifiedAttribution	
+/wasInfluencedBy/used/qualifiedAttribution/id	
+/wasInfluencedBy/used/qualifiedAttribution/type	
+/wasInfluencedBy/used/qualifiedAttribution/agent	
+/wasInfluencedBy/wasStartedBy	
+/wasInfluencedBy/wasEndedBy	
+/wasInfluencedBy/invalidated	
+/wasInfluencedBy/generated	
+/wasInfluencedBy/atLocation	
+/wasInfluencedBy/qualifiedUsage	
+/wasInfluencedBy/qualifiedCommunication	
+/wasInfluencedBy/qualifiedCommunication/type	
+/wasInfluencedBy/qualifiedStart	
+/wasInfluencedBy/qualifiedStart/id	
+/wasInfluencedBy/qualifiedStart/type	
+/wasInfluencedBy/qualifiedStart/atTime	
+/wasInfluencedBy/qualifiedStart/entity	
+/wasInfluencedBy/qualifiedStart/hadActivity	
+/wasInfluencedBy/qualifiedEnd	
+/wasInfluencedBy/qualifiedEnd/type	
+/wasInfluencedBy/qualifiedAssociation	
+/wasInfluencedBy/qualifiedAssociation/id	
+/wasInfluencedBy/qualifiedAssociation/type	
+/wasInfluencedBy/qualifiedAssociation/agent	
+/wasInfluencedBy/qualifiedAssociation/hadRole	
+/wasInfluencedBy/qualifiedAssociation/hadPlan	
+/wasInfluencedBy/agent	
+/wasInfluencedBy/hadActivity	
+/wasInfluencedBy/hadGeneration	
+/wasInfluencedBy/hadUsage	
+/wasInfluencedBy/entity	
+/qualifiedInfluence	http://www.w3.org/ns/prov#qualifiedInfluence
+/qualifiedInfluence/id	@id
+/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
+/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
+/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
+/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
+/provType	
+/type	
+/agentType	
+/prov:type	
+/name	
+/id	
+/actedOnBehalfOf	
+/atLocation	
+/qualifiedDelegation	
+/qualifiedDelegation/id	
+/qualifiedDelegation/type	
+/qualifiedDelegation/agent	
+/qualifiedDelegation/hadActivity	

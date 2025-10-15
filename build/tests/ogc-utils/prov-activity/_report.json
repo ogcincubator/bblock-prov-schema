@@ -1,0 +1,14 @@
+{
+  "title": "Validation report for ogc.ogc-utils.prov-activity - Prov Activity",
+  "bblockName": "Prov Activity",
+  "bblockId": "ogc.ogc-utils.prov-activity",
+  "generated": "2025-10-15T10:10:39.319111+00:00",
+  "result": true,
+  "items": [],
+  "globalErrors": {},
+  "counts": {
+    "total": 0,
+    "passed": 0,
+    "failed": 0
+  }
+}
