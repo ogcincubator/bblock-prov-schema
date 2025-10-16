@@ -10,14 +10,14 @@
   "itemClass": "schema",
   "register": "ogc-utils",
   "version": "0.1",
-  "dateOfLastChange": "2025-10-15",
+  "dateOfLastChange": "2025-10-16",
   "dependsOn": [
-    "ogc.ogc-utils.json-link",
-    "ogc.ogc-utils.prov-entity",
-    "ogc.ogc-utils.prov-agent",
-    "ogc.model.cross-domain.prov",
     "ogc.ogc-utils.prov-activity",
-    "ogc.ogc-utils.iri-or-curie"
+    "ogc.ogc-utils.prov-entity",
+    "ogc.ogc-utils.iri-or-curie",
+    "ogc.ogc-utils.json-link",
+    "ogc.ogc-utils.prov-agent",
+    "ogc.model.cross-domain.prov"
   ],
   "sources": [
     {

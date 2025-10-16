@@ -1,0 +1,70 @@
+Validation report for ogc.ogc-utils.prov-activity - Prov Activity
+Generated 2025-10-16T07:55:13.089226+00:00
+=== General ===
+Test was expected to fail and it did.
+=== End General ===
+
+=== Files ===
+Using entity-fail.json from test resources
+JSON-LD context is present - uplifting
+Output JSON-LD entity-fail.jsonld created
+Output Turtle entity-fail.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+
+** Validation error **
+ValidationError: {'id': 'DP-2223', 'provType': 'Entity', 'featureType': 'Survey', 'wasGeneratedBy': 'DP-1-S1'} is not valid under any of the given schemas
+
+Failed validating 'anyOf' in schema[0]:
+    {'$anchor': 'Activity',
+     'allOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#influenced'}],
+     'anyOf': [{'required': ['activityType']},
+               {'required': ['prov:type']},
+               {'required': ['type']},
+               {'required': ['used']},
+               {'required': ['wasInformedBy']},
+               {'required': ['endedAtTime']},
+               {'required': ['startedAtTime']},
+               {'required': ['wasAssociatedWith']}],
+     'properties': {'activityType': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref'},
+                    'atLocation': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},
+                    'endedAtTime': {'$ref': '#/$defs/dateTime'},
+                    'generated': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds'},
+                    'id': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},
+                    'invalidated': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds'},
+                    'prov:type': {'$ref': '#/$defs/ActivityTypes'},
+                    'qualifiedAssociation': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},
+                                                       {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#Association'},
+                                                       {'items': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},
+                                                                            {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#Association'}]},
+                                                        'type': 'array'}]},
+                    'qualifiedCommunication': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},
+                                                         {'$ref': '#/$defs/Communication'},
+                                                         {'items': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},
+                                                                              {'$ref': '#/$defs/Generation'}]},
+                                                          'type': 'array'}]},
+                    'qualifiedEnd': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},
+                                               {'$ref': '#/$defs/End'}]},
+                    'qualifiedStart': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},
+                                                 {'$ref': '#/$defs/Start'}]},
+                    'qualifiedUsage': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},
+                                                 {'$ref': '#/$defs/Usage'},
+                                                 {'items': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},
+                                                                      {'$ref': '#/$defs/Usage'}]},
+                                                  'type': 'array'}]},
+                    'type': {'$ref': '#/$defs/ActivityTypes'},
+                    'used': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds'},
+                    'wasAssociatedWith': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds'},
+                    'wasEndedBy': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds'},
+                    'wasInformedBy': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds'},
+                    'wasStartedBy': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds'}},
+     'type': 'object'}
+
+On instance:
+    {'featureType': 'Survey',
+     'id': 'DP-2223',
+     'provType': 'Entity',
+     'wasGeneratedBy': 'DP-1-S1'}
+=== End JSON Schema ===
+

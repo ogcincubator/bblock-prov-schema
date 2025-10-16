@@ -48,10 +48,6 @@
           "@id": "prov:entity",
           "@type": "@id"
         },
-        "activity": {
-          "@id": "prov:activity",
-          "@type": "@id"
-        },
         "agent": {
           "@context": {
             "href": {
@@ -176,16 +172,8 @@
           "@id": "prov:hadRole",
           "@type": "@id"
         },
-        "influencer": {
-          "@id": "prov:influencer",
-          "@type": "@id"
-        },
         "hadActivity": {
           "@id": "prov:hadActivity",
-          "@type": "@id"
-        },
-        "activity": {
-          "@id": "prov:activity",
           "@type": "@id"
         }
       },
@@ -202,16 +190,8 @@
           "@id": "prov:hadRole",
           "@type": "@id"
         },
-        "influencer": {
-          "@id": "prov:influencer",
-          "@type": "@id"
-        },
         "hadActivity": {
           "@id": "prov:hadActivity",
-          "@type": "@id"
-        },
-        "activity": {
-          "@id": "prov:activity",
           "@type": "@id"
         }
       },
@@ -228,14 +208,6 @@
             },
             "hadRole": {
               "@id": "prov:hadRole",
-              "@type": "@id"
-            },
-            "influencer": {
-              "@id": "prov:influencer",
-              "@type": "@id"
-            },
-            "activity": {
-              "@id": "prov:activity",
               "@type": "@id"
             }
           },
@@ -348,16 +320,8 @@
           "@id": "prov:hadRole",
           "@type": "@id"
         },
-        "influencer": {
-          "@id": "prov:influencer",
-          "@type": "@id"
-        },
         "hadActivity": {
           "@id": "prov:hadActivity",
-          "@type": "@id"
-        },
-        "activity": {
-          "@id": "prov:activity",
           "@type": "@id"
         }
       },
@@ -510,8 +474,24 @@
       "@id": "prov:removedKey",
       "@type": "rdfs:Literal"
     },
+    "activity": {
+      "@id": "prov:activity",
+      "@type": "@id"
+    },
+    "hadGeneration": {
+      "@id": "prov:hadGeneration",
+      "@type": "@id"
+    },
+    "hadUsage": {
+      "@id": "prov:hadUsage",
+      "@type": "@id"
+    },
     "influenced": {
       "@id": "prov:influenced",
+      "@type": "@id"
+    },
+    "influencer": {
+      "@id": "prov:influencer",
       "@type": "@id"
     },
     "qualifiedPrimarySource": {

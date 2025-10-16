@@ -12,6 +12,219 @@ Sub-schema for PROV Entities
 ## Activity Object sub-schema
 
 Defines Activities and core subtypes.
+## Examples
+
+### Activity
+this is a simple activity referencing some relevant document
+#### json
+```json
+{
+  "provType": "Activity",
+  "id": "someActivity_1",
+  "endedAtTime": "2029-01-01T22:05:19+02:00",
+  "wasAssociatedWith": "eg_agents:bc-3",
+  "used": {
+    "provType": "Entity",
+    "id": "Act3",
+    "wasAttributedTo": "eg_agents:Gov1",
+    "links": [
+      {
+        "href": "https://some.gov/linktoact/",
+        "rel": "related"
+      }
+    ]
+  }
+}
+
+
+
+
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "iana": "http://www.iana.org/assignments/"
+    },
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/context.jsonld"
+  ],
+  "provType": "Activity",
+  "id": "someActivity_1",
+  "endedAtTime": "2029-01-01T22:05:19+02:00",
+  "wasAssociatedWith": "eg_agents:bc-3",
+  "used": {
+    "provType": "Entity",
+    "id": "Act3",
+    "wasAttributedTo": "eg_agents:Gov1",
+    "links": [
+      {
+        "href": "https://some.gov/linktoact/",
+        "rel": "related"
+      }
+    ]
+  }
+}
+```
+
+#### ttl
+```ttl
+@prefix iana: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.example.com/exampleActivity/someActivity_1> a prov:Activity ;
+    prov:endedAtTime "2029-01-01T22:05:19+02:00"^^xsd:dateTime ;
+    prov:used <http://www.example.com/exampleActivity/Act3> ;
+    prov:wasAssociatedWith <http://www.example.com/exampleActivity/eg_agents:bc-3> .
+
+<http://www.example.com/exampleActivity/Act3> a prov:Entity ;
+    rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://some.gov/linktoact/> ] ;
+    prov:wasAttributedTo <http://www.example.com/exampleActivity/eg_agents:Gov1> .
+
+
+```
+
+
+### Workflow (using LLM) Example
+A provenance chain for a workflow using a Large Language Model to interpret a query and and a geospatial data source.
+
+This is a fairly trivial example not attempting to standardise descriptions of such workflows, which would be an obvious profile for this model.
+#### json
+```json
+{
+    "prov:type": "prov:Activity",
+    "generated": {
+        "id": "output",
+        "type": "Entity",
+        "AgentType": "SoftwareAgent",
+        "response": [
+            {
+                "id": "LLM Generated Code",
+                "type": "Entity",
+                "wasGeneratedBy": "gemini-1.5-pro-001",
+                "data": "gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()"
+            },
+            {
+                "id": "Code Output",
+                "type": "Entity",
+                "data": "511.8048618048641"
+            },
+            {
+                "id": "Final Output",
+                "type": "Entity",
+                "wasGeneratedBy": "gemini-1.5-flash-001",
+                "data": "The closest hospital to UNSW Village is approximately 512 meters away."
+            }
+        ]
+    },
+    "startedAtTime": "2024-11-19T05:07:22.927913Z",
+    "endedAtTime": "2024-11-19T05:07:34.304708Z",
+    "used": [
+        {
+            "id": "file",
+            "type": "Entity",
+            "data": [
+                {
+                    "id": "osmdata.shp",
+                    "type": "Entity",
+                    "records": 3544
+                }
+            ]
+        },
+        {
+            "id": "user_input",
+            "prov:type": "Entity",
+            "input": "How far away is the closest hospital from UNSW village"
+        }
+    ]
+}
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "iana": "http://www.iana.org/assignments/"
+    },
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/context.jsonld"
+  ],
+  "prov:type": "prov:Activity",
+  "generated": {
+    "id": "output",
+    "type": "Entity",
+    "AgentType": "SoftwareAgent",
+    "response": [
+      {
+        "id": "LLM Generated Code",
+        "type": "Entity",
+        "wasGeneratedBy": "gemini-1.5-pro-001",
+        "data": "gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()"
+      },
+      {
+        "id": "Code Output",
+        "type": "Entity",
+        "data": "511.8048618048641"
+      },
+      {
+        "id": "Final Output",
+        "type": "Entity",
+        "wasGeneratedBy": "gemini-1.5-flash-001",
+        "data": "The closest hospital to UNSW Village is approximately 512 meters away."
+      }
+    ]
+  },
+  "startedAtTime": "2024-11-19T05:07:22.927913Z",
+  "endedAtTime": "2024-11-19T05:07:34.304708Z",
+  "used": [
+    {
+      "id": "file",
+      "type": "Entity",
+      "data": [
+        {
+          "id": "osmdata.shp",
+          "type": "Entity",
+          "records": 3544
+        }
+      ]
+    },
+    {
+      "id": "user_input",
+      "prov:type": "Entity",
+      "input": "How far away is the closest hospital from UNSW village"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.example.com/exampleEntity/file> dcterms:type "Entity" .
+
+<http://www.example.com/exampleEntity/output> dcterms:type "Entity" .
+
+<http://www.example.com/exampleEntity/user_input> prov:type "Entity" .
+
+[] prov:endedAtTime "2024-11-19T05:07:34.304708+00:00"^^xsd:dateTime ;
+    prov:generated <http://www.example.com/exampleEntity/output> ;
+    prov:startedAtTime "2024-11-19T05:07:22.927913+00:00"^^xsd:dateTime ;
+    prov:type "prov:Activity" ;
+    prov:used <http://www.example.com/exampleEntity/file>,
+        <http://www.example.com/exampleEntity/user_input> .
+
+
+```
+
 ## Schema
 
 ```yaml
@@ -338,13 +551,6 @@ $defs:
               const: End
 anyOf:
 - $ref: '#/$defs/Activity'
-- $ref: '#/$defs/ActivityInfluence'
-- $ref: '#/$defs/Generation'
-- $ref: '#/$defs/Invalidation'
-- $ref: '#/$defs/Communication'
-- $ref: '#/$defs/Delegation'
-- $ref: '#/$defs/Derivation'
-- $ref: '#/$defs/Attribution'
 
 ```
 

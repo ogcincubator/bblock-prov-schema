@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "ogc-utils",
   "version": "0.1",
-  "dateOfLastChange": "2025-10-15",
+  "dateOfLastChange": "2025-10-16",
   "sources": [
     {
       "link": "https://www.w3.org/TR/prov-o/",
@@ -25,8 +25,8 @@
   ],
   "shaclShapes": {},
   "dependsOn": [
-    "ogc.ogc-utils.prov",
-    "ogc.ogc-utils.prov-activity"
+    "ogc.ogc-utils.prov-activity",
+    "ogc.ogc-utils.prov"
   ],
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml",
@@ -37,7 +37,90 @@
   "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-entity/",
   "rdfData": [],
   "validationPassed": true,
+  "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov-entity/",
   "description": "## Provenance chain\n\nA JSON schema defining objects that may be referenced or nested as a chain of Activities, Entities or Agents (or subclasses thereof)\n\nThis schema implements the PROV vocabulary semantics (through JSON-LD mapping directly to the PROV-O RDF model.)\n\n## Object typing\n\nObject typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).\n\n`provType` may be used to map to the subClasses of the Provenance vocabulary.\n\nCustom application object types are explicit (`activityType`, `agentType`, `entityType` to support schema validation clarity).\n\n\n\nNote that entityType is optional and may be replaced by `featureType` for compatibility with the OGC Feature implementation (implicitly always an Entity)\n\nlikewise the use of the property `type` is not specified to allow compatibility with GeoJSON features that must have this property with a constant value (\"Feature\" or \"FeatureCollection\").\n\n",
+  "examples": [
+    {
+      "title": "Simple relationships",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "../prov/examples/simple-rel.json",
+          "base-uri": "http://www.example.com/exampleEntities/",
+          "code": "{\n  \"id\": \"Object2\",\n  \"wasDerivedFrom\": \"Object1\"\n}\n\n\n\n\n",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_1_1.json"
+        },
+        {
+          "language": "jsonld",
+          "code": "{\n  \"@context\": [\n    {\n      \"iana\": \"http://www.iana.org/assignments/\"\n    },\n    \"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld\"\n  ],\n  \"id\": \"Object2\",\n  \"wasDerivedFrom\": \"Object1\"\n}",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_1_1.jsonld"
+        },
+        {
+          "language": "ttl",
+          "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<http://www.example.com/exampleEntities/Object2> prov:wasDerivedFrom <http://www.example.com/exampleEntities/Object1> .\n\n",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_1_1.ttl"
+        }
+      ],
+      "prefixes": {
+        "iana": "http://www.iana.org/assignments/"
+      }
+    },
+    {
+      "title": "Provenance Chain",
+      "content": "DAG defined by an object list.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "../prov/examples/example.json",
+          "base-uri": "http://www.example.com/exampleEntity/",
+          "code": "{\n  \"@context\": {\n    \"@base\": \"https://example.org/aThing/\",\n    \"agents\": \"https://someagentregister.eg/\",\n    \"thing\": \"https://example.org/entities/\",\n    \"foaf\": \"http://xmlns.com/foaf/0.1/\",\n    \"survtypes\": \"https://example.org/surveytypes/\",\n    \"surveyreg\": \"https://example.org/surveys/\",\n    \"featureType\": {\n      \"@id\": \"@type\",\n      \"@context\": {\n        \"@base\": \"http://example.org/myEntities/\"\n      }\n    },\n    \"activityType\": {\n      \"@id\": \"@type\",\n      \"@context\": {\n        \"@base\": \"http://example.org/myActivityTypes/\"\n      }\n    }\n  },\n  \"id\": \"DP-1\",\n  \"type\": \"Feature\",\n  \"featureType\": \"Survey\",\n  \"wasGeneratedBy\": [\n    \"surveyreg:DP-1-S1\",\n    {\n      \"activityType\": \"Registration\",\n      \"id\": \"surveyreg:DP-1-S2\",\n      \"endedAtTime\": \"2019-01-01T19:03:15+01:00\",\n      \"wasAssociatedWith\": \"agents:bc-3\",\n      \"used\": {\n        \"id\": \"Example-Act\",\n        \"wasAttributedTo\": \"agents:nz\",\n        \"links\": [\n          {\n            \"href\": \"https://nze.gov/linktoact/Example1\",\n            \"rel\": \"related\"\n          }\n        ]\n      }\n    }\n  ],\n  \"has_provenance\": [\n    {\n      \"id\": \"DP-2223\",\n      \"provType\": \"Entity\",\n      \"featureType\": \"Survey\",\n      \"wasGeneratedBy\": \"DP-1-S1\"\n    },\n    {\n      \"provType\": \"Activity\",\n      \"id\": \"surveyreg:DP-1-S1\",\n      \"activityType\": \"InitialSurvey\",\n      \"endedAtTime\": \"2023-10-05T05:03:15+01:00\",\n      \"wasAssociatedWith\": \"agents:ah-2344503\",\n      \"used\": {\n        \"id\": \"thing:Act3\",\n        \"entityType\": \"Legislation\",\n        \"wasAttributedTo\": \"agents:nz\",\n        \"links\": [\n          {\n            \"href\": \"https://some.gov/linktoact/\",\n            \"rel\": \"related\"\n          }\n        ]\n      }\n    }\n  ]\n}\n\n\n\n",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_2_1.json"
+        },
+        {
+          "language": "jsonld",
+          "code": "{\n  \"@context\": [\n    {\n      \"iana\": \"http://www.iana.org/assignments/\"\n    },\n    \"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld\",\n    {\n      \"@base\": \"https://example.org/aThing/\",\n      \"agents\": \"https://someagentregister.eg/\",\n      \"thing\": \"https://example.org/entities/\",\n      \"foaf\": \"http://xmlns.com/foaf/0.1/\",\n      \"survtypes\": \"https://example.org/surveytypes/\",\n      \"surveyreg\": \"https://example.org/surveys/\",\n      \"featureType\": {\n        \"@id\": \"@type\",\n        \"@context\": {\n          \"@base\": \"http://example.org/myEntities/\"\n        }\n      },\n      \"activityType\": {\n        \"@id\": \"@type\",\n        \"@context\": {\n          \"@base\": \"http://example.org/myActivityTypes/\"\n        }\n      }\n    }\n  ],\n  \"id\": \"DP-1\",\n  \"type\": \"Feature\",\n  \"featureType\": \"Survey\",\n  \"wasGeneratedBy\": [\n    \"surveyreg:DP-1-S1\",\n    {\n      \"activityType\": \"Registration\",\n      \"id\": \"surveyreg:DP-1-S2\",\n      \"endedAtTime\": \"2019-01-01T19:03:15+01:00\",\n      \"wasAssociatedWith\": \"agents:bc-3\",\n      \"used\": {\n        \"id\": \"Example-Act\",\n        \"wasAttributedTo\": \"agents:nz\",\n        \"links\": [\n          {\n            \"href\": \"https://nze.gov/linktoact/Example1\",\n            \"rel\": \"related\"\n          }\n        ]\n      }\n    }\n  ],\n  \"has_provenance\": [\n    {\n      \"id\": \"DP-2223\",\n      \"provType\": \"Entity\",\n      \"featureType\": \"Survey\",\n      \"wasGeneratedBy\": \"DP-1-S1\"\n    },\n    {\n      \"provType\": \"Activity\",\n      \"id\": \"surveyreg:DP-1-S1\",\n      \"activityType\": \"InitialSurvey\",\n      \"endedAtTime\": \"2023-10-05T05:03:15+01:00\",\n      \"wasAssociatedWith\": \"agents:ah-2344503\",\n      \"used\": {\n        \"id\": \"thing:Act3\",\n        \"entityType\": \"Legislation\",\n        \"wasAttributedTo\": \"agents:nz\",\n        \"links\": [\n          {\n            \"href\": \"https://some.gov/linktoact/\",\n            \"rel\": \"related\"\n          }\n        ]\n      }\n    }\n  ]\n}",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_2_1.jsonld"
+        },
+        {
+          "language": "ttl",
+          "code": "@prefix agents: <https://someagentregister.eg/> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix iana: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix surveyreg: <https://example.org/surveys/> .\n@prefix thing: <https://example.org/entities/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;\n    dcterms:provenance <https://example.org/aThing/DP-2223>,\n        surveyreg:DP-1-S1 ;\n    dcterms:type \"Feature\" ;\n    prov:wasGeneratedBy surveyreg:DP-1-S1,\n        surveyreg:DP-1-S2 .\n\n<https://example.org/aThing/DP-2223> a <http://example.org/myEntities/Survey>,\n        prov:Entity ;\n    prov:wasGeneratedBy <https://example.org/aThing/DP-1-S1> .\n\n<https://example.org/aThing/Example-Act> rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://nze.gov/linktoact/Example1> ] ;\n    prov:wasAttributedTo agents:nz .\n\nthing:Act3 a <https://example.org/aThing/Legislation> ;\n    rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://some.gov/linktoact/> ] ;\n    prov:wasAttributedTo agents:nz .\n\nsurveyreg:DP-1-S2 a <http://example.org/myActivityTypes/Registration> ;\n    prov:endedAtTime \"2019-01-01T19:03:15+01:00\"^^xsd:dateTime ;\n    prov:used <https://example.org/aThing/Example-Act> ;\n    prov:wasAssociatedWith agents:bc-3 .\n\nsurveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,\n        prov:Activity ;\n    prov:endedAtTime \"2023-10-05T05:03:15+01:00\"^^xsd:dateTime ;\n    prov:used thing:Act3 ;\n    prov:wasAssociatedWith agents:ah-2344503 .\n\n",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_2_1.ttl"
+        }
+      ],
+      "prefixes": {
+        "iana": "http://www.iana.org/assignments/"
+      }
+    },
+    {
+      "title": "Qualified Generation",
+      "content": "A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) example.",
+      "snippets": [
+        {
+          "language": "json",
+          "ref": "../prov/examples/example-activityinfluence.json",
+          "base-uri": "http://www.example.com/exampleEntity/",
+          "code": "{\n  \"@context\": {\n    \"@base\": \"https://example.org/aThing/\",\n    \"agents\": \"https://someagentregister.eg/\",\n    \"thing\": \"https://example.org/entities/\",\n    \"foaf\": \"http://xmlns.com/foaf/0.1/\",\n    \"survtypes\": \"https://example.org/surveytypes/\",\n    \"surveyreg\": \"https://example.org/surveys/\",\n    \"featureType\": {\n      \"@id\": \"@type\",\n      \"@context\": {\n        \"@base\": \"http://example.org/myEntities/\"\n      }\n    },\n    \"activityType\": {\n      \"@id\": \"@type\",\n      \"@context\": {\n        \"@base\": \"http://example.org/myActivityTypes/\"\n      }\n    }\n  },\n  \"id\": \"DP-1\",\n  \"type\": \"Feature\",\n  \"featureType\": \"Survey\",\n  \"qualifiedGeneration\": [\n    {\n      \"type\": \"Generation\",\n      \"activity\": {\n        \"id\": \"uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44\",\n        \"type\": [\n          \"wfprov:ProcessRun\",\n          \"Activity\"\n        ],\n        \"name\": \"Run of workflow/packed.cwl#main/sorted\"\n      },\n      \"atTime\": \"2018-10-25T15:46:38.058365\",\n      \"hadRole\": \"wf:main/sorted/output\"\n    }\n  ]\n}\n\n\n\n",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_3_1.json"
+        },
+        {
+          "language": "jsonld",
+          "code": "{\n  \"@context\": [\n    {\n      \"iana\": \"http://www.iana.org/assignments/\"\n    },\n    \"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld\",\n    {\n      \"@base\": \"https://example.org/aThing/\",\n      \"agents\": \"https://someagentregister.eg/\",\n      \"thing\": \"https://example.org/entities/\",\n      \"foaf\": \"http://xmlns.com/foaf/0.1/\",\n      \"survtypes\": \"https://example.org/surveytypes/\",\n      \"surveyreg\": \"https://example.org/surveys/\",\n      \"featureType\": {\n        \"@id\": \"@type\",\n        \"@context\": {\n          \"@base\": \"http://example.org/myEntities/\"\n        }\n      },\n      \"activityType\": {\n        \"@id\": \"@type\",\n        \"@context\": {\n          \"@base\": \"http://example.org/myActivityTypes/\"\n        }\n      }\n    }\n  ],\n  \"id\": \"DP-1\",\n  \"type\": \"Feature\",\n  \"featureType\": \"Survey\",\n  \"qualifiedGeneration\": [\n    {\n      \"type\": \"Generation\",\n      \"activity\": {\n        \"id\": \"uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44\",\n        \"type\": [\n          \"wfprov:ProcessRun\",\n          \"Activity\"\n        ],\n        \"name\": \"Run of workflow/packed.cwl#main/sorted\"\n      },\n      \"atTime\": \"2018-10-25T15:46:38.058365\",\n      \"hadRole\": \"wf:main/sorted/output\"\n    }\n  ]\n}",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_3_1.jsonld"
+        },
+        {
+          "language": "ttl",
+          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;\n    dcterms:type \"Feature\" ;\n    prov:qualifiedGeneration [ dcterms:type \"Generation\" ;\n            prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;\n            prov:atTime \"2018-10-25T15:46:38.058365\"^^xsd:dateTime ;\n            prov:hadRole <wf:main/sorted/output> ] .\n\n<uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> rdfs:label \"Run of workflow/packed.cwl#main/sorted\" ;\n    dcterms:type \"Activity\",\n        \"wfprov:ProcessRun\" .\n\n",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_3_1.ttl"
+        }
+      ],
+      "prefixes": {
+        "iana": "http://www.iana.org/assignments/"
+      }
+    }
+  ],
+  "examplePrefixes": {
+    "iana": "http://www.iana.org/assignments/"
+  },
   "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: PROV Activity object schema\n$defs:\n  EntityType:\n    type: string\n    enum:\n    - Entity\n    - Bundle\n    - Plan\n    - prov:Entity\n    - prov:Bundle\n    - prov:Plan\n  EntityTypes:\n    oneOf:\n    - $ref: '#/$defs/EntityType'\n    - type: array\n      contains:\n        $ref: '#/$defs/EntityType'\n  Entity:\n    type: object\n    properties:\n      id:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n      featureType:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref\n      entityType:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref\n      has_provenance:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#Prov\n      wasGeneratedBy:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds\n      wasAttributedTo:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds\n      wasDerivedFrom:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds\n      alternateOf:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds\n      hadPrimarySource:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds\n      specializationOf:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds\n      wasInvalidatedBy:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds\n      wasQuotedFrom:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds\n      wasRevisionOf:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds\n      atLocation:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n      links:\n        type: array\n        items:\n          $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#externalLink\n      qualifiedGeneration:\n        oneOf:\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Generation\n        - type: array\n          items:\n            oneOf:\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Generation\n      qualifiedInvalidation:\n        oneOf:\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Invalidation\n        - type: array\n          items:\n            oneOf:\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Invalidation\n      qualifiedDerivation:\n        oneOf:\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Derivation\n        - type: array\n          items:\n            oneOf:\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Derivation\n      qualifiedAttribution:\n        oneOf:\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Attribution\n        - type: array\n          items:\n            oneOf:\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Attribution\n    required:\n    - id\n    anyOf:\n    - properties:\n        provType:\n          $ref: '#/$defs/EntityTypes'\n      required:\n      - provType\n    - properties:\n        prov:type:\n          $ref: '#/$defs/EntityTypes'\n      required:\n      - prov:type\n    - properties:\n        type:\n          $ref: '#/$defs/EntityTypes'\n      required:\n      - type\n    - required:\n      - featureType\n    - required:\n      - entityType\n    - required:\n      - wasGeneratedBy\n    - required:\n      - wasAttributedTo\n    - required:\n      - wasDerivedFrom\n    - required:\n      - has_provenance\n    - properties:\n        type:\n          type: string\n          const: Collection\n        hadMember:\n          type: array\n          items:\n            $ref: '#/$defs/Entity'\n      required:\n      - hadMember\n      - type\n    - properties:\n        type:\n          type: string\n          const: EmptyCollection\n        hadMember:\n          type: array\n          maxItems: 0\n      required:\n      - hadMember\n      - type\n    allOf:\n    - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#influenced\nanyOf:\n- $ref: '#/$defs/Entity'\n",
   "gitRepository": "https://github.com/ogcincubator/bblock-prov-schema",
   "gitPath": "_sources/prov-entity"

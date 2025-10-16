@@ -30,6 +30,374 @@ Note that entityType is optional and may be replaced by `featureType` for compat
 likewise the use of the property `type` is not specified to allow compatibility with GeoJSON features that must have this property with a constant value ("Feature" or "FeatureCollection").
 
 
+## Examples
+
+### Simple relationships
+#### json
+```json
+{
+  "id": "Object2",
+  "wasDerivedFrom": "Object1"
+}
+
+
+
+
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "iana": "http://www.iana.org/assignments/"
+    },
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld"
+  ],
+  "id": "Object2",
+  "wasDerivedFrom": "Object1"
+}
+```
+
+#### ttl
+```ttl
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<http://www.example.com/exampleEntities/Object2> prov:wasDerivedFrom <http://www.example.com/exampleEntities/Object1> .
+
+
+```
+
+
+### Provenance Chain
+DAG defined by an object list.
+#### json
+```json
+{
+  "@context": {
+    "@base": "https://example.org/aThing/",
+    "agents": "https://someagentregister.eg/",
+    "thing": "https://example.org/entities/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "survtypes": "https://example.org/surveytypes/",
+    "surveyreg": "https://example.org/surveys/",
+    "featureType": {
+      "@id": "@type",
+      "@context": {
+        "@base": "http://example.org/myEntities/"
+      }
+    },
+    "activityType": {
+      "@id": "@type",
+      "@context": {
+        "@base": "http://example.org/myActivityTypes/"
+      }
+    }
+  },
+  "id": "DP-1",
+  "type": "Feature",
+  "featureType": "Survey",
+  "wasGeneratedBy": [
+    "surveyreg:DP-1-S1",
+    {
+      "activityType": "Registration",
+      "id": "surveyreg:DP-1-S2",
+      "endedAtTime": "2019-01-01T19:03:15+01:00",
+      "wasAssociatedWith": "agents:bc-3",
+      "used": {
+        "id": "Example-Act",
+        "wasAttributedTo": "agents:nz",
+        "links": [
+          {
+            "href": "https://nze.gov/linktoact/Example1",
+            "rel": "related"
+          }
+        ]
+      }
+    }
+  ],
+  "has_provenance": [
+    {
+      "id": "DP-2223",
+      "provType": "Entity",
+      "featureType": "Survey",
+      "wasGeneratedBy": "DP-1-S1"
+    },
+    {
+      "provType": "Activity",
+      "id": "surveyreg:DP-1-S1",
+      "activityType": "InitialSurvey",
+      "endedAtTime": "2023-10-05T05:03:15+01:00",
+      "wasAssociatedWith": "agents:ah-2344503",
+      "used": {
+        "id": "thing:Act3",
+        "entityType": "Legislation",
+        "wasAttributedTo": "agents:nz",
+        "links": [
+          {
+            "href": "https://some.gov/linktoact/",
+            "rel": "related"
+          }
+        ]
+      }
+    }
+  ]
+}
+
+
+
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "iana": "http://www.iana.org/assignments/"
+    },
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld",
+    {
+      "@base": "https://example.org/aThing/",
+      "agents": "https://someagentregister.eg/",
+      "thing": "https://example.org/entities/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "survtypes": "https://example.org/surveytypes/",
+      "surveyreg": "https://example.org/surveys/",
+      "featureType": {
+        "@id": "@type",
+        "@context": {
+          "@base": "http://example.org/myEntities/"
+        }
+      },
+      "activityType": {
+        "@id": "@type",
+        "@context": {
+          "@base": "http://example.org/myActivityTypes/"
+        }
+      }
+    }
+  ],
+  "id": "DP-1",
+  "type": "Feature",
+  "featureType": "Survey",
+  "wasGeneratedBy": [
+    "surveyreg:DP-1-S1",
+    {
+      "activityType": "Registration",
+      "id": "surveyreg:DP-1-S2",
+      "endedAtTime": "2019-01-01T19:03:15+01:00",
+      "wasAssociatedWith": "agents:bc-3",
+      "used": {
+        "id": "Example-Act",
+        "wasAttributedTo": "agents:nz",
+        "links": [
+          {
+            "href": "https://nze.gov/linktoact/Example1",
+            "rel": "related"
+          }
+        ]
+      }
+    }
+  ],
+  "has_provenance": [
+    {
+      "id": "DP-2223",
+      "provType": "Entity",
+      "featureType": "Survey",
+      "wasGeneratedBy": "DP-1-S1"
+    },
+    {
+      "provType": "Activity",
+      "id": "surveyreg:DP-1-S1",
+      "activityType": "InitialSurvey",
+      "endedAtTime": "2023-10-05T05:03:15+01:00",
+      "wasAssociatedWith": "agents:ah-2344503",
+      "used": {
+        "id": "thing:Act3",
+        "entityType": "Legislation",
+        "wasAttributedTo": "agents:nz",
+        "links": [
+          {
+            "href": "https://some.gov/linktoact/",
+            "rel": "related"
+          }
+        ]
+      }
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix agents: <https://someagentregister.eg/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix iana: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix surveyreg: <https://example.org/surveys/> .
+@prefix thing: <https://example.org/entities/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
+    dcterms:provenance <https://example.org/aThing/DP-2223>,
+        surveyreg:DP-1-S1 ;
+    dcterms:type "Feature" ;
+    prov:wasGeneratedBy surveyreg:DP-1-S1,
+        surveyreg:DP-1-S2 .
+
+<https://example.org/aThing/DP-2223> a <http://example.org/myEntities/Survey>,
+        prov:Entity ;
+    prov:wasGeneratedBy <https://example.org/aThing/DP-1-S1> .
+
+<https://example.org/aThing/Example-Act> rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://nze.gov/linktoact/Example1> ] ;
+    prov:wasAttributedTo agents:nz .
+
+thing:Act3 a <https://example.org/aThing/Legislation> ;
+    rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://some.gov/linktoact/> ] ;
+    prov:wasAttributedTo agents:nz .
+
+surveyreg:DP-1-S2 a <http://example.org/myActivityTypes/Registration> ;
+    prov:endedAtTime "2019-01-01T19:03:15+01:00"^^xsd:dateTime ;
+    prov:used <https://example.org/aThing/Example-Act> ;
+    prov:wasAssociatedWith agents:bc-3 .
+
+surveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,
+        prov:Activity ;
+    prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
+    prov:used thing:Act3 ;
+    prov:wasAssociatedWith agents:ah-2344503 .
+
+
+```
+
+
+### Qualified Generation
+A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) example.
+#### json
+```json
+{
+  "@context": {
+    "@base": "https://example.org/aThing/",
+    "agents": "https://someagentregister.eg/",
+    "thing": "https://example.org/entities/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "survtypes": "https://example.org/surveytypes/",
+    "surveyreg": "https://example.org/surveys/",
+    "featureType": {
+      "@id": "@type",
+      "@context": {
+        "@base": "http://example.org/myEntities/"
+      }
+    },
+    "activityType": {
+      "@id": "@type",
+      "@context": {
+        "@base": "http://example.org/myActivityTypes/"
+      }
+    }
+  },
+  "id": "DP-1",
+  "type": "Feature",
+  "featureType": "Survey",
+  "qualifiedGeneration": [
+    {
+      "type": "Generation",
+      "activity": {
+        "id": "uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44",
+        "type": [
+          "wfprov:ProcessRun",
+          "Activity"
+        ],
+        "name": "Run of workflow/packed.cwl#main/sorted"
+      },
+      "atTime": "2018-10-25T15:46:38.058365",
+      "hadRole": "wf:main/sorted/output"
+    }
+  ]
+}
+
+
+
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "iana": "http://www.iana.org/assignments/"
+    },
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld",
+    {
+      "@base": "https://example.org/aThing/",
+      "agents": "https://someagentregister.eg/",
+      "thing": "https://example.org/entities/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "survtypes": "https://example.org/surveytypes/",
+      "surveyreg": "https://example.org/surveys/",
+      "featureType": {
+        "@id": "@type",
+        "@context": {
+          "@base": "http://example.org/myEntities/"
+        }
+      },
+      "activityType": {
+        "@id": "@type",
+        "@context": {
+          "@base": "http://example.org/myActivityTypes/"
+        }
+      }
+    }
+  ],
+  "id": "DP-1",
+  "type": "Feature",
+  "featureType": "Survey",
+  "qualifiedGeneration": [
+    {
+      "type": "Generation",
+      "activity": {
+        "id": "uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44",
+        "type": [
+          "wfprov:ProcessRun",
+          "Activity"
+        ],
+        "name": "Run of workflow/packed.cwl#main/sorted"
+      },
+      "atTime": "2018-10-25T15:46:38.058365",
+      "hadRole": "wf:main/sorted/output"
+    }
+  ]
+}
+```
+
+#### ttl
+```ttl
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
+    dcterms:type "Feature" ;
+    prov:qualifiedGeneration [ dcterms:type "Generation" ;
+            prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;
+            prov:atTime "2018-10-25T15:46:38.058365"^^xsd:dateTime ;
+            prov:hadRole <wf:main/sorted/output> ] .
+
+<uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> rdfs:label "Run of workflow/packed.cwl#main/sorted" ;
+    dcterms:type "Activity",
+        "wfprov:ProcessRun" .
+
+
+```
+
 ## Schema
 
 ```yaml

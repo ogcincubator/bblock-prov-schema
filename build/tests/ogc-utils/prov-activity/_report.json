@@ -2,13 +2,195 @@
   "title": "Validation report for ogc.ogc-utils.prov-activity - Prov Activity",
   "bblockName": "Prov Activity",
   "bblockId": "ogc.ogc-utils.prov-activity",
-  "generated": "2025-10-15T10:10:39.319111+00:00",
+  "generated": "2025-10-16T07:55:13.384855+00:00",
   "result": true,
-  "items": [],
+  "items": [
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": true,
+        "filename": "_sources/prov-activity/tests/entity-fail.json",
+        "url": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-activity/tests/entity-fail.json",
+        "language": "json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "GENERAL",
+          "title": "General",
+          "entries": [
+            {
+              "op": "require-fail",
+              "isError": false,
+              "message": "Test was expected to fail and it did."
+            }
+          ]
+        },
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using entity-fail.json from test resources"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "entity-fail.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD entity-fail.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "entity-fail.ttl",
+              "size": 3,
+              "isError": false,
+              "message": "Output Turtle entity-fail.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": false,
+              "exception": "ValidationError",
+              "errorMessage": "{'id': 'DP-2223', 'provType': 'Entity', 'featureType': 'Survey', 'wasGeneratedBy': 'DP-1-S1'} is not valid under any of the given schemas",
+              "isError": true,
+              "message": "ValidationError: {'id': 'DP-2223', 'provType': 'Entity', 'featureType': 'Survey', 'wasGeneratedBy': 'DP-1-S1'} is not valid under any of the given schemas\n\nFailed validating 'anyOf' in schema[0]:\n    {'$anchor': 'Activity',\n     'allOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#influenced'}],\n     'anyOf': [{'required': ['activityType']},\n               {'required': ['prov:type']},\n               {'required': ['type']},\n               {'required': ['used']},\n               {'required': ['wasInformedBy']},\n               {'required': ['endedAtTime']},\n               {'required': ['startedAtTime']},\n               {'required': ['wasAssociatedWith']}],\n     'properties': {'activityType': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref'},\n                    'atLocation': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                    'endedAtTime': {'$ref': '#/$defs/dateTime'},\n                    'generated': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds'},\n                    'id': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                    'invalidated': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds'},\n                    'prov:type': {'$ref': '#/$defs/ActivityTypes'},\n                    'qualifiedAssociation': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                                       {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#Association'},\n                                                       {'items': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                                                            {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#Association'}]},\n                                                        'type': 'array'}]},\n                    'qualifiedCommunication': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                                         {'$ref': '#/$defs/Communication'},\n                                                         {'items': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                                                              {'$ref': '#/$defs/Generation'}]},\n                                                          'type': 'array'}]},\n                    'qualifiedEnd': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                               {'$ref': '#/$defs/End'}]},\n                    'qualifiedStart': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                                 {'$ref': '#/$defs/Start'}]},\n                    'qualifiedUsage': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                                 {'$ref': '#/$defs/Usage'},\n                                                 {'items': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                                                      {'$ref': '#/$defs/Usage'}]},\n                                                  'type': 'array'}]},\n                    'type': {'$ref': '#/$defs/ActivityTypes'},\n                    'used': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds'},\n                    'wasAssociatedWith': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds'},\n                    'wasEndedBy': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds'},\n                    'wasInformedBy': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds'},\n                    'wasStartedBy': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds'}},\n     'type': 'object'}\n\nOn instance:\n    {'featureType': 'Survey',\n     'id': 'DP-2223',\n     'provType': 'Entity',\n     'wasGeneratedBy': 'DP-1-S1'}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/ogc-utils/prov-activity/example_1_1.json",
+        "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-activity/example_1_1.json",
+        "exampleIndex": 1,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_1_1.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_1_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_1_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_1_1.ttl",
+              "size": 9,
+              "isError": false,
+              "message": "Output Turtle example_1_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "filename": "#/$defs/Activity",
+              "isError": false,
+              "message": "Using the following JSON Schema: #/$defs/Activity"
+            },
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "EXAMPLE",
+        "requireFail": false,
+        "filename": "build/tests/ogc-utils/prov-activity/example_2_1.json",
+        "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-activity/example_2_1.json",
+        "exampleIndex": 2,
+        "snippetIndex": 1,
+        "language": "application/json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using example_2_1.json from examples"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "example_2_1.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD example_2_1.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "example_2_1.ttl",
+              "size": 9,
+              "isError": false,
+              "message": "Output Turtle example_2_1.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "globalErrors": {},
   "counts": {
-    "total": 0,
-    "passed": 0,
+    "total": 3,
+    "passed": 3,
     "failed": 0
   }
 }

@@ -632,27 +632,6 @@
   "anyOf": [
     {
       "$ref": "#/$defs/Activity"
-    },
-    {
-      "$ref": "#/$defs/ActivityInfluence"
-    },
-    {
-      "$ref": "#/$defs/Generation"
-    },
-    {
-      "$ref": "#/$defs/Invalidation"
-    },
-    {
-      "$ref": "#/$defs/Communication"
-    },
-    {
-      "$ref": "#/$defs/Delegation"
-    },
-    {
-      "$ref": "#/$defs/Derivation"
-    },
-    {
-      "$ref": "#/$defs/Attribution"
     }
   ]
 }

@@ -1429,8 +1429,20 @@ x-jsonld-extra-terms:
   removedKey:
     x-jsonld-id: http://www.w3.org/ns/prov#removedKey
     x-jsonld-type: http://www.w3.org/2000/01/rdf-schema#Literal
+  activity:
+    x-jsonld-id: http://www.w3.org/ns/prov#activity
+    x-jsonld-type: '@id'
+  hadGeneration:
+    x-jsonld-id: http://www.w3.org/ns/prov#hadGeneration
+    x-jsonld-type: '@id'
+  hadUsage:
+    x-jsonld-id: http://www.w3.org/ns/prov#hadUsage
+    x-jsonld-type: '@id'
   influenced:
     x-jsonld-id: http://www.w3.org/ns/prov#influenced
+    x-jsonld-type: '@id'
+  influencer:
+    x-jsonld-id: http://www.w3.org/ns/prov#influencer
     x-jsonld-type: '@id'
   qualifiedPrimarySource:
     x-jsonld-id: http://www.w3.org/ns/prov#qualifiedPrimarySource
@@ -1549,10 +1561,6 @@ Links to the schema:
         },
         "entity": {
           "@id": "prov:entity",
-          "@type": "@id"
-        },
-        "activity": {
-          "@id": "prov:activity",
           "@type": "@id"
         },
         "agent": {
@@ -1679,16 +1687,8 @@ Links to the schema:
           "@id": "prov:hadRole",
           "@type": "@id"
         },
-        "influencer": {
-          "@id": "prov:influencer",
-          "@type": "@id"
-        },
         "hadActivity": {
           "@id": "prov:hadActivity",
-          "@type": "@id"
-        },
-        "activity": {
-          "@id": "prov:activity",
           "@type": "@id"
         }
       },
@@ -1705,16 +1705,8 @@ Links to the schema:
           "@id": "prov:hadRole",
           "@type": "@id"
         },
-        "influencer": {
-          "@id": "prov:influencer",
-          "@type": "@id"
-        },
         "hadActivity": {
           "@id": "prov:hadActivity",
-          "@type": "@id"
-        },
-        "activity": {
-          "@id": "prov:activity",
           "@type": "@id"
         }
       },
@@ -1731,14 +1723,6 @@ Links to the schema:
             },
             "hadRole": {
               "@id": "prov:hadRole",
-              "@type": "@id"
-            },
-            "influencer": {
-              "@id": "prov:influencer",
-              "@type": "@id"
-            },
-            "activity": {
-              "@id": "prov:activity",
               "@type": "@id"
             }
           },
@@ -1851,16 +1835,8 @@ Links to the schema:
           "@id": "prov:hadRole",
           "@type": "@id"
         },
-        "influencer": {
-          "@id": "prov:influencer",
-          "@type": "@id"
-        },
         "hadActivity": {
           "@id": "prov:hadActivity",
-          "@type": "@id"
-        },
-        "activity": {
-          "@id": "prov:activity",
           "@type": "@id"
         }
       },
@@ -2013,8 +1989,24 @@ Links to the schema:
       "@id": "prov:removedKey",
       "@type": "rdfs:Literal"
     },
+    "activity": {
+      "@id": "prov:activity",
+      "@type": "@id"
+    },
+    "hadGeneration": {
+      "@id": "prov:hadGeneration",
+      "@type": "@id"
+    },
+    "hadUsage": {
+      "@id": "prov:hadUsage",
+      "@type": "@id"
+    },
     "influenced": {
       "@id": "prov:influenced",
+      "@type": "@id"
+    },
+    "influencer": {
+      "@id": "prov:influencer",
       "@type": "@id"
     },
     "qualifiedPrimarySource": {
