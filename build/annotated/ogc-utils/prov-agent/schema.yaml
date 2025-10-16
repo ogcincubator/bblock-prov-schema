@@ -1,0 +1,108 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+description: PROV Activity object schema
+$defs:
+  dateTime:
+    type: string
+    format: date-time
+    pattern: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?$
+  AgentTypes:
+    type: string
+    enum:
+    - Agent
+    - Organization
+    - Person
+    - SoftwareAgent
+    - SoftwareDescription
+    - DirectQueryService
+    - prov:Agent
+    - prov:Organization
+    - prov:Person
+    - prov:SoftwareAgent
+    - prov:SoftwareDescription
+    - prov:DirectQueryService
+  AgentType:
+    oneOf:
+    - $ref: '#/$defs/AgentTypes'
+    - type: array
+      items:
+        contains:
+          $ref: '#/$defs/AgentTypes'
+  Agent:
+    $anchor: Agent
+    type: object
+    properties:
+      agentType:
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+      name:
+        type: string
+      id:
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+      actedOnBehalfOf:
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds
+      atLocation:
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+      qualifiedDelegation:
+        oneOf:
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Delegation
+        - type: array
+          items:
+            oneOf:
+            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Delegation
+    oneOf:
+    - required:
+      - name
+    - required:
+      - id
+    anyOf:
+    - properties:
+        provType:
+          $ref: '#/$defs/AgentType'
+      required:
+      - provType
+    - properties:
+        type:
+          $ref: '#/$defs/AgentType'
+      required:
+      - type
+    - properties:
+        agentType:
+          $ref: '#/$defs/AgentType'
+      required:
+      - agentType
+    - properties:
+        prov:type:
+          $ref: '#/$defs/AgentType'
+      required:
+      - prov:type
+    - required:
+      - actedOnBehalfOf
+    allOf:
+    - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#influenced
+  Association:
+    $anchor: Association
+    type: object
+    properties:
+      id:
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+      type:
+        oneOf:
+        - type: string
+          const: Association
+        - type: array
+          contains:
+            type: string
+            const: Association
+          items:
+            type: string
+      agent:
+        oneOf:
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: '#/$defs/Agent'
+      hadRole:
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+      hadPlan:
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+anyOf:
+- $ref: '#/$defs/Agent'

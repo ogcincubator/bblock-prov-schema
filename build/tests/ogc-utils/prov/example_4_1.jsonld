@@ -1,5 +1,8 @@
 {
   "@context": [
+    {
+      "iana": "http://www.iana.org/assignments/"
+    },
     "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
     {
       "@base": "https://example.org/aThing/",

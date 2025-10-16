@@ -1,0 +1,44 @@
+
+
+{
+  "itemIdentifier": "ogc.ogc-utils.prov-agent",
+  "name": "Prov Agent",
+  "highlighted": true,
+  "abstract": "Agent object in provenance model",
+  "status": "under-development",
+  "dateTimeAddition": "2023-07-10T00:00:00Z",
+  "itemClass": "schema",
+  "register": "ogc-utils",
+  "version": "0.1",
+  "dateOfLastChange": "2025-10-15",
+  "sources": [
+    {
+      "link": "https://www.w3.org/TR/prov-o/",
+      "title": "The PROV-O vocabulary"
+    }
+  ],
+  "maturity": "development",
+  "scope": "unstable",
+  "tags": [
+    "prov",
+    "utils"
+  ],
+  "shaclShapes": {},
+  "dependsOn": [
+    "ogc.ogc-utils.prov",
+    "ogc.ogc-utils.prov-activity"
+  ],
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-agent/schema.json",
+  "ldContext": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/context.jsonld",
+  "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-agent/",
+  "rdfData": [],
+  "validationPassed": true,
+  "description": "## Provenance chain\n\nA JSON schema defining objects that may be referenced or nested as a chain of Activities, Entities or Agents (or subclasses thereof)\n\nThis schema implements the PROV vocabulary semantics (through JSON-LD mapping directly to the PROV-O RDF model.)\n\n## Object typing\n\nObject typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).\n\n`provType` may be used to map to the subClasses of the Provenance vocabulary.\n\nCustom application object types are explicit (`activityType`, `agentType`, `entityType` to support schema validation clarity).\n\n\n\nNote that entityType is optional and may be replaced by `featureType` for compatibility with the OGC Feature implementation (implicitly always an Entity)\n\nlikewise the use of the property `type` is not specified to allow compatibility with GeoJSON features that must have this property with a constant value (\"Feature\" or \"FeatureCollection\").\n\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: PROV Activity object schema\n$defs:\n  dateTime:\n    type: string\n    format: date-time\n    pattern: ^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?$\n  AgentTypes:\n    type: string\n    enum:\n    - Agent\n    - Organization\n    - Person\n    - SoftwareAgent\n    - SoftwareDescription\n    - DirectQueryService\n    - prov:Agent\n    - prov:Organization\n    - prov:Person\n    - prov:SoftwareAgent\n    - prov:SoftwareDescription\n    - prov:DirectQueryService\n  AgentType:\n    oneOf:\n    - $ref: '#/$defs/AgentTypes'\n    - type: array\n      items:\n        contains:\n          $ref: '#/$defs/AgentTypes'\n  Agent:\n    $anchor: Agent\n    type: object\n    properties:\n      agentType:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref\n      name:\n        type: string\n      id:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n      actedOnBehalfOf:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds\n      atLocation:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n      qualifiedDelegation:\n        oneOf:\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Delegation\n        - type: array\n          items:\n            oneOf:\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Delegation\n    oneOf:\n    - required:\n      - name\n    - required:\n      - id\n    anyOf:\n    - properties:\n        provType:\n          $ref: '#/$defs/AgentType'\n      required:\n      - provType\n    - properties:\n        type:\n          $ref: '#/$defs/AgentType'\n      required:\n      - type\n    - properties:\n        agentType:\n          $ref: '#/$defs/AgentType'\n      required:\n      - agentType\n    - properties:\n        prov:type:\n          $ref: '#/$defs/AgentType'\n      required:\n      - prov:type\n    - required:\n      - actedOnBehalfOf\n    allOf:\n    - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#influenced\n  Association:\n    $anchor: Association\n    type: object\n    properties:\n      id:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n      type:\n        oneOf:\n        - type: string\n          const: Association\n        - type: array\n          contains:\n            type: string\n            const: Association\n          items:\n            type: string\n      agent:\n        oneOf:\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n        - $ref: '#/$defs/Agent'\n      hadRole:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref\n      hadPlan:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref\nanyOf:\n- $ref: '#/$defs/Agent'\n",
+  "gitRepository": "https://github.com/ogcincubator/bblock-prov-schema",
+  "gitPath": "_sources/prov-agent"
+}

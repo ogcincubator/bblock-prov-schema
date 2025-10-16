@@ -1,0 +1,44 @@
+
+
+{
+  "itemIdentifier": "ogc.ogc-utils.prov-entity",
+  "name": "Prov Entity",
+  "highlighted": true,
+  "abstract": "Provenance Entity",
+  "status": "under-development",
+  "dateTimeAddition": "2023-07-10T00:00:00Z",
+  "itemClass": "schema",
+  "register": "ogc-utils",
+  "version": "0.1",
+  "dateOfLastChange": "2025-10-15",
+  "sources": [
+    {
+      "link": "https://www.w3.org/TR/prov-o/",
+      "title": "The PROV-O vocabulary"
+    }
+  ],
+  "maturity": "development",
+  "scope": "unstable",
+  "tags": [
+    "prov",
+    "utils"
+  ],
+  "shaclShapes": {},
+  "dependsOn": [
+    "ogc.ogc-utils.prov",
+    "ogc.ogc-utils.prov-activity"
+  ],
+  "schema": {
+    "application/yaml": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml",
+    "application/json": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.json"
+  },
+  "sourceSchema": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-entity/schema.json",
+  "ldContext": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld",
+  "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-entity/",
+  "rdfData": [],
+  "validationPassed": true,
+  "description": "## Provenance chain\n\nA JSON schema defining objects that may be referenced or nested as a chain of Activities, Entities or Agents (or subclasses thereof)\n\nThis schema implements the PROV vocabulary semantics (through JSON-LD mapping directly to the PROV-O RDF model.)\n\n## Object typing\n\nObject typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).\n\n`provType` may be used to map to the subClasses of the Provenance vocabulary.\n\nCustom application object types are explicit (`activityType`, `agentType`, `entityType` to support schema validation clarity).\n\n\n\nNote that entityType is optional and may be replaced by `featureType` for compatibility with the OGC Feature implementation (implicitly always an Entity)\n\nlikewise the use of the property `type` is not specified to allow compatibility with GeoJSON features that must have this property with a constant value (\"Feature\" or \"FeatureCollection\").\n\n",
+  "annotatedSchema": "$schema: https://json-schema.org/draft/2020-12/schema\ndescription: PROV Activity object schema\n$defs:\n  EntityType:\n    type: string\n    enum:\n    - Entity\n    - Bundle\n    - Plan\n    - prov:Entity\n    - prov:Bundle\n    - prov:Plan\n  EntityTypes:\n    oneOf:\n    - $ref: '#/$defs/EntityType'\n    - type: array\n      contains:\n        $ref: '#/$defs/EntityType'\n  Entity:\n    type: object\n    properties:\n      id:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n      featureType:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref\n      entityType:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref\n      has_provenance:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#Prov\n      wasGeneratedBy:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds\n      wasAttributedTo:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds\n      wasDerivedFrom:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds\n      alternateOf:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds\n      hadPrimarySource:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds\n      specializationOf:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds\n      wasInvalidatedBy:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds\n      wasQuotedFrom:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds\n      wasRevisionOf:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds\n      atLocation:\n        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n      links:\n        type: array\n        items:\n          $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#externalLink\n      qualifiedGeneration:\n        oneOf:\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Generation\n        - type: array\n          items:\n            oneOf:\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Generation\n      qualifiedInvalidation:\n        oneOf:\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Invalidation\n        - type: array\n          items:\n            oneOf:\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Invalidation\n      qualifiedDerivation:\n        oneOf:\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Derivation\n        - type: array\n          items:\n            oneOf:\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Derivation\n      qualifiedAttribution:\n        oneOf:\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Attribution\n        - type: array\n          items:\n            oneOf:\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref\n            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Attribution\n    required:\n    - id\n    anyOf:\n    - properties:\n        provType:\n          $ref: '#/$defs/EntityTypes'\n      required:\n      - provType\n    - properties:\n        prov:type:\n          $ref: '#/$defs/EntityTypes'\n      required:\n      - prov:type\n    - properties:\n        type:\n          $ref: '#/$defs/EntityTypes'\n      required:\n      - type\n    - required:\n      - featureType\n    - required:\n      - entityType\n    - required:\n      - wasGeneratedBy\n    - required:\n      - wasAttributedTo\n    - required:\n      - wasDerivedFrom\n    - required:\n      - has_provenance\n    - properties:\n        type:\n          type: string\n          const: Collection\n        hadMember:\n          type: array\n          items:\n            $ref: '#/$defs/Entity'\n      required:\n      - hadMember\n      - type\n    - properties:\n        type:\n          type: string\n          const: EmptyCollection\n        hadMember:\n          type: array\n          maxItems: 0\n      required:\n      - hadMember\n      - type\n    allOf:\n    - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#influenced\nanyOf:\n- $ref: '#/$defs/Entity'\n",
+  "gitRepository": "https://github.com/ogcincubator/bblock-prov-schema",
+  "gitPath": "_sources/prov-entity"
+}
