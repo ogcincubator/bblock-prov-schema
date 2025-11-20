@@ -1362,6 +1362,7 @@ anyOf:
 - $ref: '#/$defs/Entity'
 - $ref: '#/$defs/Activity'
 x-jsonld-extra-terms:
+  agentType: '@type'
   Activity: http://www.w3.org/ns/prov#Activity
   ActivityInfluence: http://www.w3.org/ns/prov#ActivityInfluence
   Agent: http://www.w3.org/ns/prov#Agent
@@ -1412,6 +1413,9 @@ x-jsonld-extra-terms:
   KeyEntityPair: http://www.w3.org/ns/prov#KeyEntityPair
   Insertion: http://www.w3.org/ns/prov#Insertion
   Removal: http://www.w3.org/ns/prov#Removal
+  atTime:
+    x-jsonld-id: http://www.w3.org/ns/prov#atTime
+    x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
   generatedAtTime:
     x-jsonld-id: http://www.w3.org/ns/prov#generatedAtTime
     x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
@@ -1429,11 +1433,29 @@ x-jsonld-extra-terms:
   removedKey:
     x-jsonld-id: http://www.w3.org/ns/prov#removedKey
     x-jsonld-type: http://www.w3.org/2000/01/rdf-schema#Literal
+  actedOnBehalfOf:
+    x-jsonld-id: http://www.w3.org/ns/prov#actedOnBehalfOf
+    x-jsonld-type: '@id'
+  agent:
+    x-jsonld-id: http://www.w3.org/ns/prov#agent
+    x-jsonld-type: '@id'
+  entity:
+    x-jsonld-id: http://www.w3.org/ns/prov#entity
+    x-jsonld-type: '@id'
+  hadActivity:
+    x-jsonld-id: http://www.w3.org/ns/prov#hadActivity
+    x-jsonld-type: '@id'
   activity:
     x-jsonld-id: http://www.w3.org/ns/prov#activity
     x-jsonld-type: '@id'
   hadGeneration:
     x-jsonld-id: http://www.w3.org/ns/prov#hadGeneration
+    x-jsonld-type: '@id'
+  hadPlan:
+    x-jsonld-id: http://www.w3.org/ns/prov#hadPlan
+    x-jsonld-type: '@id'
+  hadRole:
+    x-jsonld-id: http://www.w3.org/ns/prov#hadRole
     x-jsonld-type: '@id'
   hadUsage:
     x-jsonld-id: http://www.w3.org/ns/prov#hadUsage
@@ -1444,6 +1466,12 @@ x-jsonld-extra-terms:
   influencer:
     x-jsonld-id: http://www.w3.org/ns/prov#influencer
     x-jsonld-type: '@id'
+  qualifiedDelegation:
+    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedDelegation
+    x-jsonld-type: '@id'
+  qualifiedInfluence:
+    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedInfluence
+    x-jsonld-type: '@id'
   qualifiedPrimarySource:
     x-jsonld-id: http://www.w3.org/ns/prov#qualifiedPrimarySource
     x-jsonld-type: '@id'
@@ -1452,6 +1480,9 @@ x-jsonld-extra-terms:
     x-jsonld-type: '@id'
   qualifiedRevision:
     x-jsonld-id: http://www.w3.org/ns/prov#qualifiedRevision
+    x-jsonld-type: '@id'
+  wasInfluencedBy:
+    x-jsonld-id: http://www.w3.org/ns/prov#wasInfluencedBy
     x-jsonld-type: '@id'
   has_anchor:
     x-jsonld-id: http://www.w3.org/ns/prov#has_anchor
@@ -1495,6 +1526,7 @@ x-jsonld-extra-terms:
   mentionOf:
     x-jsonld-id: http://www.w3.org/ns/prov#mentionOf
     x-jsonld-type: '@id'
+  name: http://www.w3.org/2000/01/rdf-schema#label
 x-jsonld-prefixes:
   prov: http://www.w3.org/ns/prov#
   xsd: http://www.w3.org/2001/XMLSchema#
@@ -1557,10 +1589,6 @@ Links to the schema:
             "length": "dct:extent"
           },
           "@id": "prov:influencer",
-          "@type": "@id"
-        },
-        "entity": {
-          "@id": "prov:entity",
           "@type": "@id"
         },
         "agent": {
@@ -1678,86 +1706,18 @@ Links to the schema:
       "@id": "rdfs:seeAlso"
     },
     "qualifiedGeneration": {
-      "@context": {
-        "atTime": {
-          "@id": "prov:atTime",
-          "@type": "xsd:dateTime"
-        },
-        "hadRole": {
-          "@id": "prov:hadRole",
-          "@type": "@id"
-        },
-        "hadActivity": {
-          "@id": "prov:hadActivity",
-          "@type": "@id"
-        }
-      },
       "@id": "prov:qualifiedGeneration",
       "@type": "@id"
     },
     "qualifiedInvalidation": {
-      "@context": {
-        "atTime": {
-          "@id": "prov:atTime",
-          "@type": "xsd:dateTime"
-        },
-        "hadRole": {
-          "@id": "prov:hadRole",
-          "@type": "@id"
-        },
-        "hadActivity": {
-          "@id": "prov:hadActivity",
-          "@type": "@id"
-        }
-      },
       "@id": "prov:qualifiedInvalidation",
       "@type": "@id"
     },
     "qualifiedDerivation": {
-      "@context": {
-        "hadGeneration": {
-          "@context": {
-            "atTime": {
-              "@id": "prov:atTime",
-              "@type": "xsd:dateTime"
-            },
-            "hadRole": {
-              "@id": "prov:hadRole",
-              "@type": "@id"
-            }
-          },
-          "@id": "prov:hadGeneration",
-          "@type": "@id"
-        },
-        "hadActivity": {
-          "@id": "prov:hadActivity",
-          "@type": "@id"
-        },
-        "hadUsage": {
-          "@context": {
-            "atTime": {
-              "@id": "prov:atTime",
-              "@type": "xsd:dateTime"
-            }
-          },
-          "@id": "prov:hadUsage",
-          "@type": "@id"
-        },
-        "entity": {
-          "@id": "prov:entity",
-          "@type": "@id"
-        }
-      },
       "@id": "prov:qualifiedDerivation",
       "@type": "@id"
     },
     "qualifiedAttribution": {
-      "@context": {
-        "agent": {
-          "@id": "prov:agent",
-          "@type": "@id"
-        }
-      },
       "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },
@@ -1812,88 +1772,22 @@ Links to the schema:
       "@type": "@id"
     },
     "qualifiedUsage": {
-      "@context": {
-        "atTime": {
-          "@id": "prov:atTime",
-          "@type": "xsd:dateTime"
-        },
-        "entity": {
-          "@id": "prov:entity",
-          "@type": "@id"
-        }
-      },
       "@id": "prov:qualifiedUsage",
       "@type": "@id"
     },
     "qualifiedCommunication": {
-      "@context": {
-        "atTime": {
-          "@id": "prov:atTime",
-          "@type": "xsd:dateTime"
-        },
-        "hadRole": {
-          "@id": "prov:hadRole",
-          "@type": "@id"
-        },
-        "hadActivity": {
-          "@id": "prov:hadActivity",
-          "@type": "@id"
-        }
-      },
       "@id": "prov:qualifiedCommunication",
       "@type": "@id"
     },
     "qualifiedStart": {
-      "@context": {
-        "atTime": {
-          "@id": "prov:atTime",
-          "@type": "xsd:dateTime"
-        },
-        "entity": {
-          "@id": "prov:entity",
-          "@type": "@id"
-        },
-        "hadActivity": {
-          "@id": "prov:hadActivity",
-          "@type": "@id"
-        }
-      },
       "@id": "prov:qualifiedStart",
       "@type": "@id"
     },
     "qualifiedEnd": {
-      "@context": {
-        "atTime": {
-          "@id": "prov:atTime",
-          "@type": "xsd:dateTime"
-        },
-        "entity": {
-          "@id": "prov:entity",
-          "@type": "@id"
-        },
-        "hadActivity": {
-          "@id": "prov:hadActivity",
-          "@type": "@id"
-        }
-      },
       "@id": "prov:qualifiedEnd",
       "@type": "@id"
     },
     "qualifiedAssociation": {
-      "@context": {
-        "agent": {
-          "@id": "prov:agent",
-          "@type": "@id"
-        },
-        "hadRole": {
-          "@id": "prov:hadRole",
-          "@type": "@id"
-        },
-        "hadPlan": {
-          "@id": "prov:hadPlan",
-          "@type": "@id"
-        }
-      },
       "@id": "prov:qualifiedAssociation",
       "@type": "@id"
     },
@@ -1904,16 +1798,6 @@ Links to the schema:
       "@type": "@id"
     },
     "qualifiedDelegation": {
-      "@context": {
-        "agent": {
-          "@id": "prov:agent",
-          "@type": "@id"
-        },
-        "hadActivity": {
-          "@id": "prov:hadActivity",
-          "@type": "@id"
-        }
-      },
       "@id": "prov:qualifiedDelegation",
       "@type": "@id"
     },
@@ -1967,6 +1851,10 @@ Links to the schema:
     "KeyEntityPair": "prov:KeyEntityPair",
     "Insertion": "prov:Insertion",
     "Removal": "prov:Removal",
+    "atTime": {
+      "@id": "prov:atTime",
+      "@type": "xsd:dateTime"
+    },
     "generatedAtTime": {
       "@id": "prov:generatedAtTime",
       "@type": "xsd:dateTime"
@@ -1989,12 +1877,32 @@ Links to the schema:
       "@id": "prov:removedKey",
       "@type": "rdfs:Literal"
     },
+    "agent": {
+      "@id": "prov:agent",
+      "@type": "@id"
+    },
+    "entity": {
+      "@id": "prov:entity",
+      "@type": "@id"
+    },
+    "hadActivity": {
+      "@id": "prov:hadActivity",
+      "@type": "@id"
+    },
     "activity": {
       "@id": "prov:activity",
       "@type": "@id"
     },
     "hadGeneration": {
       "@id": "prov:hadGeneration",
+      "@type": "@id"
+    },
+    "hadPlan": {
+      "@id": "prov:hadPlan",
+      "@type": "@id"
+    },
+    "hadRole": {
+      "@id": "prov:hadRole",
       "@type": "@id"
     },
     "hadUsage": {

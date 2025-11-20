@@ -1,5 +1,5 @@
 Validation report for ogc.ogc-utils.prov-bundled - Single Schema for PROV
-Generated 2025-10-16T07:55:13.618831+00:00
+Generated 2025-11-20T10:32:04.577479+00:00
 === General ===
 Test was expected to fail and it did.
 === End General ===
@@ -540,10 +540,17 @@ Failed validating 'anyOf' in schema:
                               'Start': 'http://www.w3.org/ns/prov#Start',
                               'Submit': 'http://www.w3.org/ns/prov#Submit',
                               'Usage': 'http://www.w3.org/ns/prov#Usage',
+                              'actedOnBehalfOf': {'x-jsonld-id': 'http://www.w3.org/ns/prov#actedOnBehalfOf',
+                                                  'x-jsonld-type': '@id'},
                               'activity': {'x-jsonld-id': 'http://www.w3.org/ns/prov#activity',
                                            'x-jsonld-type': '@id'},
+                              'agent': {'x-jsonld-id': 'http://www.w3.org/ns/prov#agent',
+                                        'x-jsonld-type': '@id'},
+                              'agentType': '@type',
                               'asInBundle': {'x-jsonld-id': 'http://www.w3.org/ns/prov#asInBundle',
                                              'x-jsonld-type': '@id'},
+                              'atTime': {'x-jsonld-id': 'http://www.w3.org/ns/prov#atTime',
+                                         'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},
                               'derivedByInsertionFrom': {'x-jsonld-id': 'http://www.w3.org/ns/prov#derivedByInsertionFrom',
                                                          'x-jsonld-type': '@id'},
                               'derivedByRemovalFrom': {'x-jsonld-id': 'http://www.w3.org/ns/prov#derivedByRemovalFrom',
@@ -552,12 +559,20 @@ Failed validating 'anyOf' in schema:
                                                    'x-jsonld-type': '@id'},
                               'dictionary': {'x-jsonld-id': 'http://www.w3.org/ns/prov#dictionary',
                                              'x-jsonld-type': '@id'},
+                              'entity': {'x-jsonld-id': 'http://www.w3.org/ns/prov#entity',
+                                         'x-jsonld-type': '@id'},
                               'generatedAtTime': {'x-jsonld-id': 'http://www.w3.org/ns/prov#generatedAtTime',
                                                   'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},
+                              'hadActivity': {'x-jsonld-id': 'http://www.w3.org/ns/prov#hadActivity',
+                                              'x-jsonld-type': '@id'},
                               'hadDictionaryMember': {'x-jsonld-id': 'http://www.w3.org/ns/prov#hadDictionaryMember',
                                                       'x-jsonld-type': '@id'},
                               'hadGeneration': {'x-jsonld-id': 'http://www.w3.org/ns/prov#hadGeneration',
                                                 'x-jsonld-type': '@id'},
+                              'hadPlan': {'x-jsonld-id': 'http://www.w3.org/ns/prov#hadPlan',
+                                          'x-jsonld-type': '@id'},
+                              'hadRole': {'x-jsonld-id': 'http://www.w3.org/ns/prov#hadRole',
+                                          'x-jsonld-type': '@id'},
                               'hadUsage': {'x-jsonld-id': 'http://www.w3.org/ns/prov#hadUsage',
                                            'x-jsonld-type': '@id'},
                               'has_anchor': {'x-jsonld-id': 'http://www.w3.org/ns/prov#has_anchor',
@@ -574,6 +589,7 @@ Failed validating 'anyOf' in schema:
                                                     'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},
                               'mentionOf': {'x-jsonld-id': 'http://www.w3.org/ns/prov#mentionOf',
                                             'x-jsonld-type': '@id'},
+                              'name': 'http://www.w3.org/2000/01/rdf-schema#label',
                               'pairEntity': {'x-jsonld-id': 'http://www.w3.org/ns/prov#pairEntity',
                                              'x-jsonld-type': '@id'},
                               'pairKey': {'x-jsonld-id': 'http://www.w3.org/ns/prov#pairKey',
@@ -581,6 +597,10 @@ Failed validating 'anyOf' in schema:
                               'pingback': {'x-jsonld-id': 'http://www.w3.org/ns/prov#pingback',
                                            'x-jsonld-type': '@id'},
                               'provenanceUriTemplate': 'http://www.w3.org/ns/prov#provenanceUriTemplate',
+                              'qualifiedDelegation': {'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedDelegation',
+                                                      'x-jsonld-type': '@id'},
+                              'qualifiedInfluence': {'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedInfluence',
+                                                     'x-jsonld-type': '@id'},
                               'qualifiedInsertion': {'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedInsertion',
                                                      'x-jsonld-type': '@id'},
                               'qualifiedPrimarySource': {'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedPrimarySource',
@@ -595,7 +615,9 @@ Failed validating 'anyOf' in schema:
                                              'x-jsonld-type': 'http://www.w3.org/2000/01/rdf-schema#Literal'},
                               'startedAtTime': {'x-jsonld-id': 'http://www.w3.org/ns/prov#startedAtTime',
                                                 'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},
-                              'value': 'http://www.w3.org/ns/prov#value'},
+                              'value': 'http://www.w3.org/ns/prov#value',
+                              'wasInfluencedBy': {'x-jsonld-id': 'http://www.w3.org/ns/prov#wasInfluencedBy',
+                                                  'x-jsonld-type': '@id'}},
      'x-jsonld-prefixes': {'dct': 'http://purl.org/dc/terms/',
                            'prov': 'http://www.w3.org/ns/prov#',
                            'rdf': 'http://www.w3.org/1999/02/22-rdf-syntax-ns#',
@@ -623,7 +645,7 @@ On instance:
 === JSON-LD ===
 
 ** Validation error **
-Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7ff7697ea0e0>
+Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f0fcffbe0e0>
 Traceback (most recent call last):
   File "/venv/lib/python3.10/site-packages/isodate/isodatetime.py", line 51, in parse_datetime
     datestring, timestring = datetimestring.split('T')

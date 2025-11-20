@@ -13,11 +13,11 @@
   "dateOfLastChange": "2025-10-16",
   "dependsOn": [
     "ogc.ogc-utils.prov-activity",
-    "ogc.ogc-utils.prov-entity",
     "ogc.ogc-utils.iri-or-curie",
-    "ogc.ogc-utils.json-link",
+    "ogc.model.cross-domain.prov",
+    "ogc.ogc-utils.prov-entity",
     "ogc.ogc-utils.prov-agent",
-    "ogc.model.cross-domain.prov"
+    "ogc.ogc-utils.json-link"
   ],
   "sources": [
     {
