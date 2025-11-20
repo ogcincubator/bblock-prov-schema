@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.ogc-utils.prov-entity - Prov Entity",
   "bblockName": "Prov Entity",
   "bblockId": "ogc.ogc-utils.prov-entity",
-  "generated": "2025-11-20T10:32:04.987858+00:00",
+  "generated": "2025-11-20T21:36:56.916716+00:00",
   "result": true,
   "items": [
     {
@@ -95,7 +95,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_2_1.ttl",
-              "size": 27,
+              "size": 26,
               "isError": false,
               "message": "Output Turtle example_2_1.ttl created"
             }
@@ -150,7 +150,7 @@
               "op": "ttl-create",
               "empty": false,
               "filename": "example_3_1.ttl",
-              "size": 10,
+              "size": 6,
               "isError": false,
               "message": "Output Turtle example_3_1.ttl created"
             }
