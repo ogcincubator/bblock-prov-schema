@@ -39,15 +39,9 @@
           "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref",
           "x-jsonld-id": "@id"
         },
-        "type": {
-          "$ref": "#/$defs/ActivityTypes"
-        },
         "activityType": {
           "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#oneOrMoreObjectref",
           "x-jsonld-id": "@type"
-        },
-        "prov:type": {
-          "$ref": "#/$defs/ActivityTypes"
         },
         "endedAtTime": {
           "$ref": "#/$defs/dateTime",
@@ -196,16 +190,32 @@
       },
       "anyOf": [
         {
+          "properties": {
+            "provType": {
+              "$ref": "#/$defs/ActivityTypes",
+              "x-jsonld-id": "@type"
+            }
+          },
           "required": [
-            "activityType"
+            "provType"
           ]
         },
         {
+          "properties": {
+            "prov:type": {
+              "$ref": "#/$defs/ActivityTypes"
+            }
+          },
           "required": [
             "prov:type"
           ]
         },
         {
+          "properties": {
+            "type": {
+              "$ref": "#/$defs/ActivityTypes"
+            }
+          },
           "required": [
             "type"
           ]
@@ -708,7 +718,6 @@
     "agentType": "@type",
     "entityType": "@type",
     "featureType": "@type",
-    "provType": "@type",
     "Activity": "http://www.w3.org/ns/prov#Activity",
     "ActivityInfluence": "http://www.w3.org/ns/prov#ActivityInfluence",
     "Agent": "http://www.w3.org/ns/prov#Agent",

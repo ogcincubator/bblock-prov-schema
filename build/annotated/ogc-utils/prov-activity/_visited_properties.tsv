@@ -1,9 +1,10 @@
 path	@id
 /wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
-/wasInfluencedBy/id	@id
-/wasInfluencedBy/type	
-/wasInfluencedBy/activityType	@type
+/wasInfluencedBy/provType	@type
 /wasInfluencedBy/prov:type	
+/wasInfluencedBy/type	
+/wasInfluencedBy/id	@id
+/wasInfluencedBy/activityType	@type
 /wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
 /wasInfluencedBy/wasAssociatedWith/href	http://www.w3.org/ns/oa#hasTarget
@@ -107,10 +108,11 @@ path	@id
 /qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
 /qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
 /qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
-/id	@id
-/type	
-/activityType	@type
+/provType	@type
 /prov:type	
+/type	
+/id	@id
+/activityType	@type
 /endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
 /wasInformedBy	http://www.w3.org/ns/prov#wasInformedBy

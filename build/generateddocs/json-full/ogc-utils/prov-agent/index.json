@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "ogc-utils",
   "version": "0.1",
-  "dateOfLastChange": "2025-11-20",
+  "dateOfLastChange": "2025-12-16",
   "sources": [
     {
       "link": "https://www.w3.org/TR/prov-o/",
@@ -26,8 +26,8 @@
   ],
   "shaclShapes": {},
   "dependsOn": [
-    "ogc.ogc-utils.prov",
-    "ogc.ogc-utils.prov-activity"
+    "ogc.ogc-utils.prov-activity",
+    "ogc.ogc-utils.prov"
   ],
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml",

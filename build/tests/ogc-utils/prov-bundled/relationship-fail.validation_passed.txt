@@ -1,5 +1,5 @@
 Validation report for ogc.ogc-utils.prov-bundled - Single Schema for PROV
-Generated 2025-11-20T21:36:56.366797+00:00
+Generated 2025-12-16T09:15:25.611366+00:00
 === General ===
 Test was expected to fail and it did.
 === End General ===
@@ -645,7 +645,7 @@ On instance:
 === JSON-LD ===
 
 ** Validation error **
-Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f54fff6a0e0>
+Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fd6ef3ee560>
 Traceback (most recent call last):
   File "/venv/lib/python3.10/site-packages/isodate/isodatetime.py", line 51, in parse_datetime
     datestring, timestring = datetimestring.split('T')

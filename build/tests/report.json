@@ -6,85 +6,19 @@
     "result": true
   },
   "bblocks": {
-    "ogc.ogc-utils.prov-activity": {
-      "title": "Validation report for ogc.ogc-utils.prov-activity - Prov Activity",
-      "bblockName": "Prov Activity",
-      "bblockId": "ogc.ogc-utils.prov-activity",
-      "generated": "2025-11-20T21:36:56.073727+00:00",
+    "ogc.ogc-utils.prov-entity": {
+      "title": "Validation report for ogc.ogc-utils.prov-entity - Prov Entity",
+      "bblockName": "Prov Entity",
+      "bblockId": "ogc.ogc-utils.prov-entity",
+      "generated": "2025-12-16T09:15:25.386613+00:00",
       "result": true,
       "items": [
         {
           "source": {
-            "type": "TEST_RESOURCE",
-            "requireFail": true,
-            "filename": "_sources/prov-activity/tests/entity-fail.json",
-            "url": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-activity/tests/entity-fail.json",
-            "language": "json"
-          },
-          "result": true,
-          "sections": [
-            {
-              "name": "GENERAL",
-              "title": "General",
-              "entries": [
-                {
-                  "op": "require-fail",
-                  "isError": false,
-                  "message": "Test was expected to fail and it did."
-                }
-              ]
-            },
-            {
-              "name": "FILES",
-              "title": "Files",
-              "entries": [
-                {
-                  "isError": false,
-                  "message": "Using entity-fail.json from test resources"
-                },
-                {
-                  "op": "jsonld-uplift",
-                  "isError": false,
-                  "message": "JSON-LD context is present - uplifting"
-                },
-                {
-                  "op": "jsonld-create",
-                  "filename": "entity-fail.jsonld",
-                  "isError": false,
-                  "message": "Output JSON-LD entity-fail.jsonld created"
-                },
-                {
-                  "op": "ttl-create",
-                  "empty": false,
-                  "filename": "entity-fail.ttl",
-                  "size": 3,
-                  "isError": false,
-                  "message": "Output Turtle entity-fail.ttl created"
-                }
-              ]
-            },
-            {
-              "name": "JSON_SCHEMA",
-              "title": "JSON Schema",
-              "entries": [
-                {
-                  "op": "validation",
-                  "result": false,
-                  "exception": "ValidationError",
-                  "errorMessage": "{'id': 'DP-2223', 'provType': 'Entity', 'featureType': 'Survey', 'wasGeneratedBy': 'DP-1-S1'} is not valid under any of the given schemas",
-                  "isError": true,
-                  "message": "ValidationError: {'id': 'DP-2223', 'provType': 'Entity', 'featureType': 'Survey', 'wasGeneratedBy': 'DP-1-S1'} is not valid under any of the given schemas\n\nFailed validating 'anyOf' in schema[0]:\n    {'$anchor': 'Activity',\n     'allOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#influenced'}],\n     'anyOf': [{'required': ['activityType']},\n               {'required': ['prov:type']},\n               {'required': ['type']},\n               {'required': ['used']},\n               {'required': ['wasInformedBy']},\n               {'required': ['endedAtTime']},\n               {'required': ['startedAtTime']},\n               {'required': ['wasAssociatedWith']}],\n     'properties': {'activityType': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref',\n                                     'x-jsonld-id': '@type'},\n                    'atLocation': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref',\n                                   'x-jsonld-id': 'http://www.w3.org/ns/prov#atLocation',\n                                   'x-jsonld-type': '@id'},\n                    'endedAtTime': {'$ref': '#/$defs/dateTime',\n                                    'x-jsonld-id': 'http://www.w3.org/ns/prov#endedAtTime',\n                                    'x-jsonld-type': 'http://www.w3.org/2001/XMLSchema#dateTime'},\n                    'generated': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds',\n                                  'x-jsonld-id': 'http://www.w3.org/ns/prov#generated',\n                                  'x-jsonld-type': '@id'},\n                    'id': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref',\n                           'x-jsonld-id': '@id'},\n                    'invalidated': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds',\n                                    'x-jsonld-id': 'http://www.w3.org/ns/prov#invalidated',\n                                    'x-jsonld-type': '@id'},\n                    'prov:type': {'$ref': '#/$defs/ActivityTypes'},\n                    'qualifiedAssociation': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                                       {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#Association'},\n                                                       {'items': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                                                            {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#Association'}]},\n                                                        'type': 'array'}],\n                                             'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedAssociation',\n                                             'x-jsonld-type': '@id'},\n                    'qualifiedCommunication': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                                         {'$ref': '#/$defs/Communication'},\n                                                         {'items': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                                                              {'$ref': '#/$defs/Generation'}]},\n                                                          'type': 'array'}],\n                                               'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedCommunication',\n                                               'x-jsonld-type': '@id'},\n                    'qualifiedEnd': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                               {'$ref': '#/$defs/End'}],\n                                     'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedEnd',\n                                     'x-jsonld-type': '@id'},\n                    'qualifiedStart': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                                 {'$ref': '#/$defs/Start'}],\n                                       'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedStart',\n                                       'x-jsonld-type': '@id'},\n                    'qualifiedUsage': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                                 {'$ref': '#/$defs/Usage'},\n                                                 {'items': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref'},\n                                                                      {'$ref': '#/$defs/Usage'}]},\n                                                  'type': 'array'}],\n                                       'x-jsonld-id': 'http://www.w3.org/ns/prov#qualifiedUsage',\n                                       'x-jsonld-type': '@id'},\n                    'type': {'$ref': '#/$defs/ActivityTypes'},\n                    'used': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds',\n                             'x-jsonld-id': 'http://www.w3.org/ns/prov#used',\n                             'x-jsonld-type': '@id'},\n                    'wasAssociatedWith': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds',\n                                          'x-jsonld-id': 'http://www.w3.org/ns/prov#wasAssociatedWith',\n                                          'x-jsonld-type': '@id'},\n                    'wasEndedBy': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds',\n                                   'x-jsonld-id': 'http://www.w3.org/ns/prov#wasEndedBy',\n                                   'x-jsonld-type': '@id'},\n                    'wasInformedBy': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds',\n                                      'x-jsonld-id': 'http://www.w3.org/ns/prov#wasInformedBy',\n                                      'x-jsonld-type': '@id'},\n                    'wasStartedBy': {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds',\n                                     'x-jsonld-id': 'http://www.w3.org/ns/prov#wasStartedBy',\n                                     'x-jsonld-type': '@id'}},\n     'type': 'object'}\n\nOn instance:\n    {'featureType': 'Survey',\n     'id': 'DP-2223',\n     'provType': 'Entity',\n     'wasGeneratedBy': 'DP-1-S1'}"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "source": {
             "type": "EXAMPLE",
             "requireFail": false,
-            "filename": "build/tests/ogc-utils/prov-activity/example_1_1.json",
-            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-activity/example_1_1.json",
+            "filename": "build/tests/ogc-utils/prov-entity/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_1_1.json",
             "exampleIndex": 1,
             "snippetIndex": 1,
             "language": "application/json"
@@ -97,7 +31,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_1_1.json from examples"
+                  "message": "Using example_1_1.json (example_1_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -114,7 +48,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_1_1.ttl",
-                  "size": 9,
+                  "size": 1,
                   "isError": false,
                   "message": "Output Turtle example_1_1.ttl created"
                 }
@@ -124,11 +58,6 @@
               "name": "JSON_SCHEMA",
               "title": "JSON Schema",
               "entries": [
-                {
-                  "filename": "#/$defs/Activity",
-                  "isError": false,
-                  "message": "Using the following JSON Schema: #/$defs/Activity"
-                },
                 {
                   "op": "validation",
                   "result": true,
@@ -143,8 +72,8 @@
           "source": {
             "type": "EXAMPLE",
             "requireFail": false,
-            "filename": "build/tests/ogc-utils/prov-activity/example_2_1.json",
-            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-activity/example_2_1.json",
+            "filename": "build/tests/ogc-utils/prov-entity/example_2_1.json",
+            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_2_1.json",
             "exampleIndex": 2,
             "snippetIndex": 1,
             "language": "application/json"
@@ -157,7 +86,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_2_1.json from examples"
+                  "message": "Using example_2_1.json (example_2_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -174,9 +103,64 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_2_1.ttl",
-                  "size": 7,
+                  "size": 26,
                   "isError": false,
                   "message": "Output Turtle example_2_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/ogc-utils/prov-entity/example_3_1.json",
+            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_3_1.json",
+            "exampleIndex": 3,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_3_1.json (example_3_1) from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_3_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_3_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_3_1.ttl",
+                  "size": 6,
+                  "isError": false,
+                  "message": "Output Turtle example_3_1.ttl created"
                 }
               ]
             },
@@ -206,7 +190,7 @@
       "title": "Validation report for ogc.ogc-utils.prov-bundled - Single Schema for PROV",
       "bblockName": "Single Schema for PROV",
       "bblockId": "ogc.ogc-utils.prov-bundled",
-      "generated": "2025-11-20T21:36:56.575611+00:00",
+      "generated": "2025-12-16T09:15:25.746140+00:00",
       "result": true,
       "items": [
         {
@@ -266,7 +250,7 @@
                 {
                   "op": "jsonld-uplift-error",
                   "isError": true,
-                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f54fff6a0e0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
+                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fd6ef3ee560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
                 }
               ]
             }
@@ -329,7 +313,7 @@
                 {
                   "op": "jsonld-uplift-error",
                   "isError": true,
-                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f54fff6a0e0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2023-10-05'\n"
+                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fd6ef3ee560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2023-10-05'\n"
                 }
               ]
             }
@@ -392,7 +376,7 @@
                 {
                   "op": "jsonld-uplift-error",
                   "isError": true,
-                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f54fff6a0e0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2021-01-01'\nFailed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f54fff6a0e0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
+                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fd6ef3ee560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2021-01-01'\nFailed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fd6ef3ee560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
                 }
               ]
             }
@@ -416,7 +400,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_1_1.json from examples"
+                  "message": "Using example_1_1.json (example_1_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -471,7 +455,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_2_1.json from examples"
+                  "message": "Using example_2_1.json (example_2_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -531,7 +515,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_3_1.json from examples"
+                  "message": "Using example_3_1.json (example_3_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -548,7 +532,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_3_1.ttl",
-                  "size": 26,
+                  "size": 27,
                   "isError": false,
                   "message": "Output Turtle example_3_1.ttl created"
                 }
@@ -586,7 +570,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_4_1.json from examples"
+                  "message": "Using example_4_1.json (example_4_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -603,7 +587,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_4_1.ttl",
-                  "size": 6,
+                  "size": 10,
                   "isError": false,
                   "message": "Output Turtle example_4_1.ttl created"
                 }
@@ -641,7 +625,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_5_1.json from examples"
+                  "message": "Using example_5_1.json (example_5_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -658,7 +642,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_5_1.ttl",
-                  "size": 6,
+                  "size": 9,
                   "isError": false,
                   "message": "Output Turtle example_5_1.ttl created"
                 }
@@ -686,205 +670,11 @@
         "failed": 0
       }
     },
-    "ogc.ogc-utils.prov-agent": {
-      "title": "Validation report for ogc.ogc-utils.prov-agent - Prov Agent",
-      "bblockName": "Prov Agent",
-      "bblockId": "ogc.ogc-utils.prov-agent",
-      "generated": "2025-11-20T21:36:56.601841+00:00",
-      "result": true,
-      "items": [],
-      "globalErrors": {},
-      "counts": {
-        "total": 0,
-        "passed": 0,
-        "failed": 0
-      }
-    },
-    "ogc.ogc-utils.prov-entity": {
-      "title": "Validation report for ogc.ogc-utils.prov-entity - Prov Entity",
-      "bblockName": "Prov Entity",
-      "bblockId": "ogc.ogc-utils.prov-entity",
-      "generated": "2025-11-20T21:36:56.916716+00:00",
-      "result": true,
-      "items": [
-        {
-          "source": {
-            "type": "EXAMPLE",
-            "requireFail": false,
-            "filename": "build/tests/ogc-utils/prov-entity/example_1_1.json",
-            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_1_1.json",
-            "exampleIndex": 1,
-            "snippetIndex": 1,
-            "language": "application/json"
-          },
-          "result": true,
-          "sections": [
-            {
-              "name": "FILES",
-              "title": "Files",
-              "entries": [
-                {
-                  "isError": false,
-                  "message": "Using example_1_1.json from examples"
-                },
-                {
-                  "op": "jsonld-uplift",
-                  "isError": false,
-                  "message": "JSON-LD context is present - uplifting"
-                },
-                {
-                  "op": "jsonld-create",
-                  "filename": "example_1_1.jsonld",
-                  "isError": false,
-                  "message": "Output JSON-LD example_1_1.jsonld created"
-                },
-                {
-                  "op": "ttl-create",
-                  "empty": false,
-                  "filename": "example_1_1.ttl",
-                  "size": 1,
-                  "isError": false,
-                  "message": "Output Turtle example_1_1.ttl created"
-                }
-              ]
-            },
-            {
-              "name": "JSON_SCHEMA",
-              "title": "JSON Schema",
-              "entries": [
-                {
-                  "op": "validation",
-                  "result": true,
-                  "isError": false,
-                  "message": "Validation passed"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "source": {
-            "type": "EXAMPLE",
-            "requireFail": false,
-            "filename": "build/tests/ogc-utils/prov-entity/example_2_1.json",
-            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_2_1.json",
-            "exampleIndex": 2,
-            "snippetIndex": 1,
-            "language": "application/json"
-          },
-          "result": true,
-          "sections": [
-            {
-              "name": "FILES",
-              "title": "Files",
-              "entries": [
-                {
-                  "isError": false,
-                  "message": "Using example_2_1.json from examples"
-                },
-                {
-                  "op": "jsonld-uplift",
-                  "isError": false,
-                  "message": "JSON-LD context is present - uplifting"
-                },
-                {
-                  "op": "jsonld-create",
-                  "filename": "example_2_1.jsonld",
-                  "isError": false,
-                  "message": "Output JSON-LD example_2_1.jsonld created"
-                },
-                {
-                  "op": "ttl-create",
-                  "empty": false,
-                  "filename": "example_2_1.ttl",
-                  "size": 26,
-                  "isError": false,
-                  "message": "Output Turtle example_2_1.ttl created"
-                }
-              ]
-            },
-            {
-              "name": "JSON_SCHEMA",
-              "title": "JSON Schema",
-              "entries": [
-                {
-                  "op": "validation",
-                  "result": true,
-                  "isError": false,
-                  "message": "Validation passed"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "source": {
-            "type": "EXAMPLE",
-            "requireFail": false,
-            "filename": "build/tests/ogc-utils/prov-entity/example_3_1.json",
-            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_3_1.json",
-            "exampleIndex": 3,
-            "snippetIndex": 1,
-            "language": "application/json"
-          },
-          "result": true,
-          "sections": [
-            {
-              "name": "FILES",
-              "title": "Files",
-              "entries": [
-                {
-                  "isError": false,
-                  "message": "Using example_3_1.json from examples"
-                },
-                {
-                  "op": "jsonld-uplift",
-                  "isError": false,
-                  "message": "JSON-LD context is present - uplifting"
-                },
-                {
-                  "op": "jsonld-create",
-                  "filename": "example_3_1.jsonld",
-                  "isError": false,
-                  "message": "Output JSON-LD example_3_1.jsonld created"
-                },
-                {
-                  "op": "ttl-create",
-                  "empty": false,
-                  "filename": "example_3_1.ttl",
-                  "size": 6,
-                  "isError": false,
-                  "message": "Output Turtle example_3_1.ttl created"
-                }
-              ]
-            },
-            {
-              "name": "JSON_SCHEMA",
-              "title": "JSON Schema",
-              "entries": [
-                {
-                  "op": "validation",
-                  "result": true,
-                  "isError": false,
-                  "message": "Validation passed"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "globalErrors": {},
-      "counts": {
-        "total": 3,
-        "passed": 3,
-        "failed": 0
-      }
-    },
     "ogc.ogc-utils.prov": {
       "title": "Validation report for ogc.ogc-utils.prov - Provenance Chain",
       "bblockName": "Provenance Chain",
       "bblockId": "ogc.ogc-utils.prov",
-      "generated": "2025-11-20T21:36:57.495373+00:00",
+      "generated": "2025-12-16T09:15:26.157635+00:00",
       "result": true,
       "items": [
         {
@@ -944,7 +734,7 @@
                 {
                   "op": "jsonld-uplift-error",
                   "isError": true,
-                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f54fff6a0e0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
+                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fd6ef3ee560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
                 }
               ]
             }
@@ -1007,7 +797,7 @@
                 {
                   "op": "jsonld-uplift-error",
                   "isError": true,
-                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f54fff6a0e0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2023-10-05'\n"
+                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fd6ef3ee560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2023-10-05'\n"
                 }
               ]
             }
@@ -1070,7 +860,7 @@
                 {
                   "op": "jsonld-uplift-error",
                   "isError": true,
-                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f54fff6a0e0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2021-01-01'\nFailed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f54fff6a0e0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
+                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fd6ef3ee560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2021-01-01'\nFailed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fd6ef3ee560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
                 }
               ]
             }
@@ -1094,7 +884,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_1_1.json from examples"
+                  "message": "Using example_1_1.json (example_1_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1149,7 +939,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_2_1.json from examples"
+                  "message": "Using example_2_1.json (example_2_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1209,7 +999,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_3_1.json from examples"
+                  "message": "Using example_3_1.json (example_3_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1226,7 +1016,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_3_1.ttl",
-                  "size": 26,
+                  "size": 27,
                   "isError": false,
                   "message": "Output Turtle example_3_1.ttl created"
                 }
@@ -1264,7 +1054,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_4_1.json from examples"
+                  "message": "Using example_4_1.json (example_4_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1281,7 +1071,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_4_1.ttl",
-                  "size": 6,
+                  "size": 10,
                   "isError": false,
                   "message": "Output Turtle example_4_1.ttl created"
                 }
@@ -1319,7 +1109,7 @@
               "entries": [
                 {
                   "isError": false,
-                  "message": "Using example_5_1.json from examples"
+                  "message": "Using example_5_1.json (example_5_1) from examples"
                 },
                 {
                   "op": "jsonld-uplift",
@@ -1336,7 +1126,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_5_1.ttl",
-                  "size": 7,
+                  "size": 9,
                   "isError": false,
                   "message": "Output Turtle example_5_1.ttl created"
                 }
@@ -1361,6 +1151,216 @@
       "counts": {
         "total": 8,
         "passed": 8,
+        "failed": 0
+      }
+    },
+    "ogc.ogc-utils.prov-activity": {
+      "title": "Validation report for ogc.ogc-utils.prov-activity - Prov Activity",
+      "bblockName": "Prov Activity",
+      "bblockId": "ogc.ogc-utils.prov-activity",
+      "generated": "2025-12-16T09:15:26.398902+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "TEST_RESOURCE",
+            "requireFail": true,
+            "filename": "_sources/prov-activity/tests/entity-fail.json",
+            "url": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-activity/tests/entity-fail.json",
+            "language": "json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "GENERAL",
+              "title": "General",
+              "entries": [
+                {
+                  "op": "require-fail",
+                  "isError": false,
+                  "message": "Test was expected to fail and it did."
+                }
+              ]
+            },
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using entity-fail.json from test resources"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "entity-fail.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD entity-fail.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "entity-fail.ttl",
+                  "size": 3,
+                  "isError": false,
+                  "message": "Output Turtle entity-fail.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": false,
+                  "exception": "ValidationError",
+                  "errorMessage": "'Entity' is not one of ['Activity', 'prov:Activity']",
+                  "isError": true,
+                  "message": "ValidationError: 'Entity' is not one of ['Activity', 'prov:Activity']\n\nFailed validating 'enum' in schema[0]:\n    {'enum': ['Activity', 'prov:Activity'], 'type': 'string'}\n\nOn instance:\n    'Entity'"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/ogc-utils/prov-activity/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-activity/example_1_1.json",
+            "exampleIndex": 1,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_1_1.json (example_1_1) from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_1_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_1_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_1_1.ttl",
+                  "size": 9,
+                  "isError": false,
+                  "message": "Output Turtle example_1_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "filename": "#/$defs/Activity",
+                  "isError": false,
+                  "message": "Using the following JSON Schema: #/$defs/Activity"
+                },
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/ogc-utils/prov-activity/example_2_1.json",
+            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-activity/example_2_1.json",
+            "exampleIndex": 2,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_2_1.json (example_2_1) from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_2_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_2_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_2_1.ttl",
+                  "size": 7,
+                  "isError": false,
+                  "message": "Output Turtle example_2_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0
+      }
+    },
+    "ogc.ogc-utils.prov-agent": {
+      "title": "Validation report for ogc.ogc-utils.prov-agent - Prov Agent",
+      "bblockName": "Prov Agent",
+      "bblockId": "ogc.ogc-utils.prov-agent",
+      "generated": "2025-12-16T09:15:26.424311+00:00",
+      "result": true,
+      "items": [],
+      "globalErrors": {},
+      "counts": {
+        "total": 0,
+        "passed": 0,
         "failed": 0
       }
     }
