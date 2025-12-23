@@ -45,12 +45,68 @@ $defs:
   Entity:
     $anchor: Entity
     $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml
+  EntityWithRequirements:
+    allOf:
+    - $ref: '#Entity'
+    - anyOf:
+      - required:
+        - provType
+      - required:
+        - prov:type
+      - required:
+        - type
+      - required:
+        - featureType
+      - required:
+        - entityType
+      - required:
+        - wasGeneratedBy
+      - required:
+        - wasAttributedTo
+      - required:
+        - wasDerivedFrom
+      - required:
+        - has_provenance
   Activity:
     $anchor: Activity
     $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml
+  ActivityWithRequirements:
+    allOf:
+    - $ref: '#Activity'
+    - anyOf:
+      - required:
+        - provType
+      - required:
+        - prov:type
+      - required:
+        - type
+      - required:
+        - used
+      - required:
+        - wasInformedBy
+      - required:
+        - endedAtTime
+      - required:
+        - startedAtTime
+      - required:
+        - wasAssociatedWith
   Agent:
     $anchor: Agent
     $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml
+  AgentWithRequirements:
+    allOf:
+    - $ref: '#Agent'
+    - anyOf:
+      - required:
+        - provType
+      - required:
+        - type
+      - required:
+        - agentType
+      - required:
+        - prov:type
+      - required:
+        - actedOnBehalfOf
   Association:
     $anchor: Association
     $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml#Association
@@ -119,13 +175,13 @@ $defs:
     type: array
     items:
       oneOf:
-      - $ref: '#Entity'
-      - $ref: '#Agent'
-      - $ref: '#Activity'
+      - $ref: '#/$defs/EntityWithRequirements'
+      - $ref: '#/$defs/AgentWithRequirements'
+      - $ref: '#/$defs/ActivityWithRequirements'
 anyOf:
 - $ref: '#Prov'
-- $ref: '#Entity'
-- $ref: '#Activity'
+- $ref: '#/$defs/EntityWithRequirements'
+- $ref: '#/$defs/ActivityWithRequirements'
 x-jsonld-extra-terms:
   activityType: '@type'
   agentType: '@type'

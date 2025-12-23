@@ -1,7 +1,6 @@
 path	@id
 /wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
 /wasInfluencedBy/id	@id
-/wasInfluencedBy/type	
 /wasInfluencedBy/activityType	@type
 /wasInfluencedBy/prov:type	
 /wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime

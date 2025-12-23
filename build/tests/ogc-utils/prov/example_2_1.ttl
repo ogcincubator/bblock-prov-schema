@@ -1,5 +1,3 @@
-@prefix iana: <http://www.iana.org/assignments/> .
-@prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -10,7 +8,6 @@
     prov:wasAssociatedWith <http://www.example.com/exampleActivity/eg_agents:bc-3> .
 
 <http://www.example.com/exampleActivity/Act3> a prov:Entity ;
-    rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://some.gov/linktoact/> ] ;
+    rdfs:seeAlso [ ] ;
     prov:wasAttributedTo <http://www.example.com/exampleActivity/eg_agents:Gov1> .
 

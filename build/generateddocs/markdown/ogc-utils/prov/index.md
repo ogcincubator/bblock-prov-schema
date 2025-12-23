@@ -127,8 +127,6 @@ this is a simple activity referencing some relevant document
 
 #### ttl
 ```ttl
-@prefix iana: <http://www.iana.org/assignments/> .
-@prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -139,8 +137,7 @@ this is a simple activity referencing some relevant document
     prov:wasAssociatedWith <http://www.example.com/exampleActivity/eg_agents:bc-3> .
 
 <http://www.example.com/exampleActivity/Act3> a prov:Entity ;
-    rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://some.gov/linktoact/> ] ;
+    rdfs:seeAlso [ ] ;
     prov:wasAttributedTo <http://www.example.com/exampleActivity/eg_agents:Gov1> .
 
 
@@ -311,8 +308,6 @@ DAG defined by an object list.
 ```ttl
 @prefix agents: <https://someagentregister.eg/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix iana: <http://www.iana.org/assignments/> .
-@prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix surveyreg: <https://example.org/surveys/> .
@@ -322,7 +317,6 @@ DAG defined by an object list.
 <https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
     dcterms:provenance <https://example.org/aThing/DP-2223>,
         surveyreg:DP-1-S1 ;
-    dcterms:type "Feature" ;
     prov:wasGeneratedBy surveyreg:DP-1-S1,
         surveyreg:DP-1-S2 .
 
@@ -330,13 +324,11 @@ DAG defined by an object list.
         prov:Entity ;
     prov:wasGeneratedBy <https://example.org/aThing/DP-1-S1> .
 
-<https://example.org/aThing/Example-Act> rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://nze.gov/linktoact/Example1> ] ;
+<https://example.org/aThing/Example-Act> rdfs:seeAlso [ ] ;
     prov:wasAttributedTo agents:nz .
 
 thing:Act3 a <https://example.org/aThing/Legislation> ;
-    rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://some.gov/linktoact/> ] ;
+    rdfs:seeAlso [ ] ;
     prov:wasAttributedTo agents:nz .
 
 surveyreg:DP-1-S2 a <http://example.org/myActivityTypes/Registration> ;
@@ -456,21 +448,16 @@ A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) exam
 
 #### ttl
 ```ttl
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
-    dcterms:type "Feature" ;
-    prov:qualifiedGeneration [ dcterms:type "Generation" ;
-            prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;
+    prov:qualifiedGeneration [ prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;
             prov:atTime "2018-10-25T15:46:38.058365"^^xsd:dateTime ;
             prov:hadRole <wf:main/sorted/output> ] .
 
-<uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> rdfs:label "Run of workflow/packed.cwl#main/sorted" ;
-    dcterms:type "Activity",
-        "wfprov:ProcessRun" .
+<uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> rdfs:label "Run of workflow/packed.cwl#main/sorted" .
 
 
 ```
@@ -590,13 +577,8 @@ This is a fairly trivial example not attempting to standardise descriptions of s
 
 #### ttl
 ```ttl
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-
-<http://www.example.com/exampleEntity/file> dcterms:type "Entity" .
-
-<http://www.example.com/exampleEntity/output> dcterms:type "Entity" .
 
 <http://www.example.com/exampleEntity/user_input> prov:type "Entity" .
 
@@ -660,12 +642,68 @@ $defs:
   Entity:
     $anchor: Entity
     $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml
+  EntityWithRequirements:
+    allOf:
+    - $ref: '#Entity'
+    - anyOf:
+      - required:
+        - provType
+      - required:
+        - prov:type
+      - required:
+        - type
+      - required:
+        - featureType
+      - required:
+        - entityType
+      - required:
+        - wasGeneratedBy
+      - required:
+        - wasAttributedTo
+      - required:
+        - wasDerivedFrom
+      - required:
+        - has_provenance
   Activity:
     $anchor: Activity
     $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml
+  ActivityWithRequirements:
+    allOf:
+    - $ref: '#Activity'
+    - anyOf:
+      - required:
+        - provType
+      - required:
+        - prov:type
+      - required:
+        - type
+      - required:
+        - used
+      - required:
+        - wasInformedBy
+      - required:
+        - endedAtTime
+      - required:
+        - startedAtTime
+      - required:
+        - wasAssociatedWith
   Agent:
     $anchor: Agent
     $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml
+  AgentWithRequirements:
+    allOf:
+    - $ref: '#Agent'
+    - anyOf:
+      - required:
+        - provType
+      - required:
+        - type
+      - required:
+        - agentType
+      - required:
+        - prov:type
+      - required:
+        - actedOnBehalfOf
   Association:
     $anchor: Association
     $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml#Association
@@ -734,13 +772,13 @@ $defs:
     type: array
     items:
       oneOf:
-      - $ref: '#Entity'
-      - $ref: '#Agent'
-      - $ref: '#Activity'
+      - $ref: '#/$defs/EntityWithRequirements'
+      - $ref: '#/$defs/AgentWithRequirements'
+      - $ref: '#/$defs/ActivityWithRequirements'
 anyOf:
 - $ref: '#Prov'
-- $ref: '#Entity'
-- $ref: '#Activity'
+- $ref: '#/$defs/EntityWithRequirements'
+- $ref: '#/$defs/ActivityWithRequirements'
 x-jsonld-extra-terms:
   activityType: '@type'
   agentType: '@type'
@@ -1021,6 +1059,8 @@ Links to the schema:
 {
   "@context": {
     "wasInfluencedBy": {
+      "@id": "prov:wasInfluencedBy",
+      "@type": "@id",
       "@context": {
         "href": {
           "@type": "@id",
@@ -1033,15 +1073,15 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
+        "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
-      },
-      "@id": "prov:wasInfluencedBy",
-      "@type": "@id"
+      }
     },
     "qualifiedInfluence": {
+      "@id": "prov:qualifiedInfluence",
+      "@type": "@id",
       "@context": {
         "influencer": {
           "@context": {
@@ -1056,7 +1096,7 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
+            "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -1077,7 +1117,7 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
+            "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -1085,18 +1125,14 @@ Links to the schema:
           "@id": "prov:agent",
           "@type": "@id"
         }
-      },
-      "@id": "prov:qualifiedInfluence",
-      "@type": "@id"
+      }
     },
-    "provType": "@type",
-    "prov:type": {},
-    "type": "dct:type",
     "hadMember": {
       "@id": "prov:hadMember",
       "@type": "@id"
     },
     "id": "@id",
+    "provType": "@type",
     "featureType": "@type",
     "entityType": "@type",
     "has_provenance": {
@@ -1108,6 +1144,8 @@ Links to the schema:
       "@type": "@id"
     },
     "wasAttributedTo": {
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id",
       "@context": {
         "href": {
           "@type": "@id",
@@ -1120,13 +1158,11 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
+        "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
-      },
-      "@id": "prov:wasAttributedTo",
-      "@type": "@id"
+      }
     },
     "wasDerivedFrom": {
       "@id": "prov:wasDerivedFrom",
@@ -1160,26 +1196,7 @@ Links to the schema:
       "@id": "prov:atLocation",
       "@type": "@id"
     },
-    "links": {
-      "@context": {
-        "href": {
-          "@type": "@id",
-          "@id": "oa:hasTarget"
-        },
-        "rel": {
-          "@context": {
-            "@base": "http://www.iana.org/assignments/relation/"
-          },
-          "@id": "http://www.iana.org/assignments/relation",
-          "@type": "@id"
-        },
-        "anchor": {},
-        "hreflang": "dct:language",
-        "title": "rdfs:label",
-        "length": "dct:extent"
-      },
-      "@id": "rdfs:seeAlso"
-    },
+    "links": "rdfs:seeAlso",
     "qualifiedGeneration": {
       "@id": "prov:qualifiedGeneration",
       "@type": "@id"
@@ -1371,8 +1388,6 @@ Links to the schema:
       "@type": "@id"
     },
     "wasAssociatedWith": {
-      "@id": "prov:wasAssociatedWith",
-      "@type": "@id",
       "@context": {
         "href": {
           "@type": "@id",
@@ -1385,11 +1400,13 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
+        "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
-      }
+      },
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id"
     },
     "wasEndedBy": {
       "@id": "prov:wasEndedBy",

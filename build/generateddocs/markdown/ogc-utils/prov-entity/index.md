@@ -419,6 +419,11 @@ $defs:
       id:
         $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: '@id'
+      provType:
+        $ref: '#/$defs/EntityTypes'
+        x-jsonld-id: '@type'
+      prov:type:
+        $ref: '#/$defs/EntityTypes'
       featureType:
         $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: '@type'
@@ -522,34 +527,6 @@ $defs:
     - id
     anyOf:
     - properties:
-        provType:
-          $ref: '#/$defs/EntityTypes'
-          x-jsonld-id: '@type'
-      required:
-      - provType
-    - properties:
-        prov:type:
-          $ref: '#/$defs/EntityTypes'
-      required:
-      - prov:type
-    - properties:
-        type:
-          $ref: '#/$defs/EntityTypes'
-      required:
-      - type
-    - required:
-      - featureType
-    - required:
-      - entityType
-    - required:
-      - wasGeneratedBy
-    - required:
-      - wasAttributedTo
-    - required:
-      - wasDerivedFrom
-    - required:
-      - has_provenance
-    - properties:
         type:
           type: string
           const: Collection
@@ -574,6 +551,10 @@ $defs:
       required:
       - hadMember
       - type
+    - not:
+        required:
+        - hadMember
+        - type
     allOf:
     - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#influenced
 anyOf:
@@ -818,7 +799,6 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
@@ -842,7 +822,6 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -852,7 +831,6 @@ Links to the schema:
         },
         "activity": {
           "@context": {
-            "type": "dct:type",
             "wasAssociatedWith": {
               "@context": {
                 "href": {
@@ -866,7 +844,7 @@ Links to the schema:
                   "@id": "http://www.iana.org/assignments/relation",
                   "@type": "@id"
                 },
-                "anchor": {},
+                "type": "dct:type",
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
                 "length": "dct:extent"
@@ -891,7 +869,6 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
             "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
@@ -904,47 +881,20 @@ Links to the schema:
       "@id": "prov:qualifiedInfluence",
       "@type": "@id"
     },
-    "provType": "@type",
-    "prov:type": {},
-    "type": {},
     "hadMember": {
       "@id": "prov:hadMember",
       "@type": "@id"
     },
     "id": "@id",
+    "provType": "@type",
     "featureType": "@type",
     "entityType": "@type",
     "has_provenance": {
-      "@context": {
-        "type": "dct:type",
-        "wasAssociatedWith": {
-          "@id": "prov:wasAssociatedWith",
-          "@type": "@id",
-          "@context": {
-            "href": {
-              "@type": "@id",
-              "@id": "oa:hasTarget"
-            },
-            "rel": {
-              "@context": {
-                "@base": "http://www.iana.org/assignments/relation/"
-              },
-              "@id": "http://www.iana.org/assignments/relation",
-              "@type": "@id"
-            },
-            "anchor": {},
-            "hreflang": "dct:language",
-            "title": "rdfs:label",
-            "length": "dct:extent"
-          }
-        }
-      },
       "@id": "dct:provenance",
       "@type": "@id"
     },
     "wasGeneratedBy": {
       "@context": {
-        "type": "dct:type",
         "wasAssociatedWith": {
           "@context": {
             "href": {
@@ -958,7 +908,7 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
+            "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -983,7 +933,6 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
@@ -1010,7 +959,6 @@ Links to the schema:
     },
     "wasInvalidatedBy": {
       "@context": {
-        "type": "dct:type",
         "wasAssociatedWith": {
           "@context": {
             "href": {
@@ -1024,7 +972,7 @@ Links to the schema:
               "@id": "http://www.iana.org/assignments/relation",
               "@type": "@id"
             },
-            "anchor": {},
+            "type": "dct:type",
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
@@ -1061,7 +1009,6 @@ Links to the schema:
           "@id": "http://www.iana.org/assignments/relation",
           "@type": "@id"
         },
-        "anchor": {},
         "type": "dct:type",
         "hreflang": "dct:language",
         "title": "rdfs:label",
@@ -1081,7 +1028,6 @@ Links to the schema:
       "@context": {
         "hadActivity": {
           "@context": {
-            "type": "dct:type",
             "wasAssociatedWith": {
               "@context": {
                 "href": {
@@ -1095,7 +1041,7 @@ Links to the schema:
                   "@id": "http://www.iana.org/assignments/relation",
                   "@type": "@id"
                 },
-                "anchor": {},
+                "type": "dct:type",
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
                 "length": "dct:extent"
@@ -1112,15 +1058,6 @@ Links to the schema:
       "@type": "@id"
     },
     "qualifiedAttribution": {
-      "@context": {
-        "agent": {
-          "@context": {
-            "type": "dct:type"
-          },
-          "@id": "prov:agent",
-          "@type": "@id"
-        }
-      },
       "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },

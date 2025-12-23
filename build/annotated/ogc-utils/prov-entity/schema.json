@@ -33,6 +33,13 @@
           "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref",
           "x-jsonld-id": "@id"
         },
+        "provType": {
+          "$ref": "#/$defs/EntityTypes",
+          "x-jsonld-id": "@type"
+        },
+        "prov:type": {
+          "$ref": "#/$defs/EntityTypes"
+        },
         "featureType": {
           "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#oneOrMoreObjectref",
           "x-jsonld-id": "@type"
@@ -210,67 +217,6 @@
       "anyOf": [
         {
           "properties": {
-            "provType": {
-              "$ref": "#/$defs/EntityTypes",
-              "x-jsonld-id": "@type"
-            }
-          },
-          "required": [
-            "provType"
-          ]
-        },
-        {
-          "properties": {
-            "prov:type": {
-              "$ref": "#/$defs/EntityTypes"
-            }
-          },
-          "required": [
-            "prov:type"
-          ]
-        },
-        {
-          "properties": {
-            "type": {
-              "$ref": "#/$defs/EntityTypes"
-            }
-          },
-          "required": [
-            "type"
-          ]
-        },
-        {
-          "required": [
-            "featureType"
-          ]
-        },
-        {
-          "required": [
-            "entityType"
-          ]
-        },
-        {
-          "required": [
-            "wasGeneratedBy"
-          ]
-        },
-        {
-          "required": [
-            "wasAttributedTo"
-          ]
-        },
-        {
-          "required": [
-            "wasDerivedFrom"
-          ]
-        },
-        {
-          "required": [
-            "has_provenance"
-          ]
-        },
-        {
-          "properties": {
             "type": {
               "type": "string",
               "const": "Collection"
@@ -306,6 +252,14 @@
             "hadMember",
             "type"
           ]
+        },
+        {
+          "not": {
+            "required": [
+              "hadMember",
+              "type"
+            ]
+          }
         }
       ],
       "allOf": [

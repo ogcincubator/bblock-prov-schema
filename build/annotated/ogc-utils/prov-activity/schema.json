@@ -39,6 +39,13 @@
           "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref",
           "x-jsonld-id": "@id"
         },
+        "provType": {
+          "$ref": "#/$defs/ActivityTypes",
+          "x-jsonld-id": "@type"
+        },
+        "prov:type": {
+          "$ref": "#/$defs/ActivityTypes"
+        },
         "activityType": {
           "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#oneOrMoreObjectref",
           "x-jsonld-id": "@type"
@@ -188,64 +195,6 @@
           "x-jsonld-type": "@id"
         }
       },
-      "anyOf": [
-        {
-          "properties": {
-            "provType": {
-              "$ref": "#/$defs/ActivityTypes",
-              "x-jsonld-id": "@type"
-            }
-          },
-          "required": [
-            "provType"
-          ]
-        },
-        {
-          "properties": {
-            "prov:type": {
-              "$ref": "#/$defs/ActivityTypes"
-            }
-          },
-          "required": [
-            "prov:type"
-          ]
-        },
-        {
-          "properties": {
-            "type": {
-              "$ref": "#/$defs/ActivityTypes"
-            }
-          },
-          "required": [
-            "type"
-          ]
-        },
-        {
-          "required": [
-            "used"
-          ]
-        },
-        {
-          "required": [
-            "wasInformedBy"
-          ]
-        },
-        {
-          "required": [
-            "endedAtTime"
-          ]
-        },
-        {
-          "required": [
-            "startedAtTime"
-          ]
-        },
-        {
-          "required": [
-            "wasAssociatedWith"
-          ]
-        }
-      ],
       "allOf": [
         {
           "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#influenced"

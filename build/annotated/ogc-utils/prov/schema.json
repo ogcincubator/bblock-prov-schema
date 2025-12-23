@@ -93,13 +93,156 @@
       "$anchor": "Entity",
       "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.json"
     },
+    "EntityWithRequirements": {
+      "allOf": [
+        {
+          "$ref": "#Entity"
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "provType"
+              ]
+            },
+            {
+              "required": [
+                "prov:type"
+              ]
+            },
+            {
+              "required": [
+                "type"
+              ]
+            },
+            {
+              "required": [
+                "featureType"
+              ]
+            },
+            {
+              "required": [
+                "entityType"
+              ]
+            },
+            {
+              "required": [
+                "wasGeneratedBy"
+              ]
+            },
+            {
+              "required": [
+                "wasAttributedTo"
+              ]
+            },
+            {
+              "required": [
+                "wasDerivedFrom"
+              ]
+            },
+            {
+              "required": [
+                "has_provenance"
+              ]
+            }
+          ]
+        }
+      ]
+    },
     "Activity": {
       "$anchor": "Activity",
       "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json"
     },
+    "ActivityWithRequirements": {
+      "allOf": [
+        {
+          "$ref": "#Activity"
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "provType"
+              ]
+            },
+            {
+              "required": [
+                "prov:type"
+              ]
+            },
+            {
+              "required": [
+                "type"
+              ]
+            },
+            {
+              "required": [
+                "used"
+              ]
+            },
+            {
+              "required": [
+                "wasInformedBy"
+              ]
+            },
+            {
+              "required": [
+                "endedAtTime"
+              ]
+            },
+            {
+              "required": [
+                "startedAtTime"
+              ]
+            },
+            {
+              "required": [
+                "wasAssociatedWith"
+              ]
+            }
+          ]
+        }
+      ]
+    },
     "Agent": {
       "$anchor": "Agent",
       "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.json"
+    },
+    "AgentWithRequirements": {
+      "allOf": [
+        {
+          "$ref": "#Agent"
+        },
+        {
+          "anyOf": [
+            {
+              "required": [
+                "provType"
+              ]
+            },
+            {
+              "required": [
+                "type"
+              ]
+            },
+            {
+              "required": [
+                "agentType"
+              ]
+            },
+            {
+              "required": [
+                "prov:type"
+              ]
+            },
+            {
+              "required": [
+                "actedOnBehalfOf"
+              ]
+            }
+          ]
+        }
+      ]
     },
     "Association": {
       "$anchor": "Association",
@@ -220,13 +363,13 @@
       "items": {
         "oneOf": [
           {
-            "$ref": "#Entity"
+            "$ref": "#/$defs/EntityWithRequirements"
           },
           {
-            "$ref": "#Agent"
+            "$ref": "#/$defs/AgentWithRequirements"
           },
           {
-            "$ref": "#Activity"
+            "$ref": "#/$defs/ActivityWithRequirements"
           }
         ]
       }
@@ -237,10 +380,10 @@
       "$ref": "#Prov"
     },
     {
-      "$ref": "#Entity"
+      "$ref": "#/$defs/EntityWithRequirements"
     },
     {
-      "$ref": "#Activity"
+      "$ref": "#/$defs/ActivityWithRequirements"
     }
   ],
   "x-jsonld-extra-terms": {

@@ -477,9 +477,6 @@
           "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
-        "type": {
-          "$ref": "#/$defs/ActivityTypes"
-        },
         "activityType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "@type"

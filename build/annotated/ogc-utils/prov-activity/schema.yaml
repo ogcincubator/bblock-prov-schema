@@ -26,6 +26,11 @@ $defs:
       id:
         $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: '@id'
+      provType:
+        $ref: '#/$defs/ActivityTypes'
+        x-jsonld-id: '@type'
+      prov:type:
+        $ref: '#/$defs/ActivityTypes'
       activityType:
         $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: '@type'
@@ -110,33 +115,6 @@ $defs:
             - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#Association
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedAssociation
         x-jsonld-type: '@id'
-    anyOf:
-    - properties:
-        provType:
-          $ref: '#/$defs/ActivityTypes'
-          x-jsonld-id: '@type'
-      required:
-      - provType
-    - properties:
-        prov:type:
-          $ref: '#/$defs/ActivityTypes'
-      required:
-      - prov:type
-    - properties:
-        type:
-          $ref: '#/$defs/ActivityTypes'
-      required:
-      - type
-    - required:
-      - used
-    - required:
-      - wasInformedBy
-    - required:
-      - endedAtTime
-    - required:
-      - startedAtTime
-    - required:
-      - wasAssociatedWith
     allOf:
     - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#influenced
   Usage:

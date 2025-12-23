@@ -34,6 +34,11 @@ $defs:
       agentType:
         $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: '@type'
+      provType:
+        $ref: '#/$defs/AgentType'
+        x-jsonld-id: '@type'
+      prov:type:
+        $ref: '#/$defs/AgentType'
       name:
         type: string
         x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label
@@ -64,31 +69,6 @@ $defs:
       - name
     - required:
       - id
-    anyOf:
-    - properties:
-        provType:
-          $ref: '#/$defs/AgentType'
-          x-jsonld-id: '@type'
-      required:
-      - provType
-    - properties:
-        type:
-          $ref: '#/$defs/AgentType'
-      required:
-      - type
-    - properties:
-        agentType:
-          $ref: '#/$defs/AgentType'
-          x-jsonld-id: '@type'
-      required:
-      - agentType
-    - properties:
-        prov:type:
-          $ref: '#/$defs/AgentType'
-      required:
-      - prov:type
-    - required:
-      - actedOnBehalfOf
     allOf:
     - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#influenced
   Association:
