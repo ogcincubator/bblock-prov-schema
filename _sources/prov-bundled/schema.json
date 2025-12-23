@@ -433,9 +433,6 @@
         "id": {
           "$ref": "#/$defs/objectref"
         },
-        "type": {
-          "$ref": "#/$defs/ActivityTypes"
-        },
         "activityType": {
           "$ref": "#/$defs/oneOrMoreObjectref"
         },

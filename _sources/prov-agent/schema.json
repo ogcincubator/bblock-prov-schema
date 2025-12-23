@@ -46,6 +46,12 @@
         "agentType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref"
         },
+        "provType": {
+          "$ref": "#/$defs/AgentType"
+        },
+        "prov:type": {
+          "$ref": "#/$defs/AgentType"
+        },
         "name": {
           "type": "string"
         },
@@ -91,53 +97,6 @@
         {
           "required": [
             "id"
-          ]
-        }
-      ],
-      "anyOf": [
-        {
-          "properties": {
-            "provType": {
-              "$ref": "#/$defs/AgentType"
-            }
-          },
-          "required": [
-            "provType"
-          ]
-        },
-        {
-          "properties": {
-            "type": {
-              "$ref": "#/$defs/AgentType"
-            }
-          },
-          "required": [
-            "type"
-          ]
-        },
-        {
-          "properties": {
-            "agentType": {
-              "$ref": "#/$defs/AgentType"
-            }
-          },
-          "required": [
-            "agentType"
-          ]
-        },
-        {
-          "properties": {
-            "prov:type": {
-              "$ref": "#/$defs/AgentType"
-            }
-          },
-          "required": [
-            "prov:type"
-          ]
-        },
-        {
-          "required": [
-            "actedOnBehalfOf"
           ]
         }
       ],

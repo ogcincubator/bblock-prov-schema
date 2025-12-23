@@ -38,6 +38,12 @@
         "id": {
           "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
         },
+        "provType": {
+          "$ref": "#/$defs/ActivityTypes"
+        },
+        "prov:type": {
+          "$ref": "#/$defs/ActivityTypes"
+        },
         "activityType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref"
         },
@@ -158,63 +164,6 @@
           ]
         }
       },
-      "anyOf": [
-        {
-          "properties": {
-            "provType": {
-              "$ref": "#/$defs/ActivityTypes"
-            }
-          },
-          "required": [
-            "provType"
-          ]
-        },
-        {
-          "properties": {
-            "prov:type": {
-              "$ref": "#/$defs/ActivityTypes"
-            }
-          },
-          "required": [
-            "prov:type"
-          ]
-        },
-        {
-          "properties": {
-            "type": {
-              "$ref": "#/$defs/ActivityTypes"
-            }
-          },
-          "required": [
-            "type"
-          ]
-        },
-        {
-          "required": [
-            "used"
-          ]
-        },
-        {
-          "required": [
-            "wasInformedBy"
-          ]
-        },
-        {
-          "required": [
-            "endedAtTime"
-          ]
-        },
-        {
-          "required": [
-            "startedAtTime"
-          ]
-        },
-        {
-          "required": [
-            "wasAssociatedWith"
-          ]
-        }
-      ],
       "allOf": [
         {
           "$ref": "bblocks://ogc.ogc-utils.prov#influenced"
@@ -322,7 +271,7 @@
       ]
     },
     "Invalidation": {
-            "$anchor": "Invalidation",
+      "$anchor": "Invalidation",
       "allOf": [
         {
           "$ref": "#/$defs/ActivityInfluence"
@@ -356,7 +305,7 @@
       ]
     },
     "Communication": {
-                "$anchor": "Communication",
+      "$anchor": "Communication",
       "allOf": [
         {
           "$ref": "#/$defs/ActivityInfluence"
@@ -508,7 +457,7 @@
       }
     },
     "Attribution": {
-                    "$anchor": "Attribution",
+      "$anchor": "Attribution",
       "type": "object",
       "properties": {
         "id": {
