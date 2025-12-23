@@ -32,6 +32,12 @@
         "id": {
           "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
         },
+        "provType": {
+          "$ref": "#/$defs/EntityTypes"
+        },
+        "prov:type": {
+          "$ref": "#/$defs/EntityTypes"
+        },
         "featureType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref"
         },
@@ -176,66 +182,6 @@
       "anyOf": [
         {
           "properties": {
-            "provType": {
-              "$ref": "#/$defs/EntityTypes"
-            }
-          },
-          "required": [
-            "provType"
-          ]
-        },
-        {
-          "properties": {
-            "prov:type": {
-              "$ref": "#/$defs/EntityTypes"
-            }
-          },
-          "required": [
-            "prov:type"
-          ]
-        },
-        {
-          "properties": {
-            "type": {
-              "$ref": "#/$defs/EntityTypes"
-            }
-          },
-          "required": [
-            "type"
-          ]
-        },
-        {
-          "required": [
-            "featureType"
-          ]
-        },
-        {
-          "required": [
-            "entityType"
-          ]
-        },
-        {
-          "required": [
-            "wasGeneratedBy"
-          ]
-        },
-        {
-          "required": [
-            "wasAttributedTo"
-          ]
-        },
-        {
-          "required": [
-            "wasDerivedFrom"
-          ]
-        },
-        {
-          "required": [
-            "has_provenance"
-          ]
-        },
-        {
-          "properties": {
             "type": {
               "type": "string",
               "const": "Collection"
@@ -267,6 +213,13 @@
             "hadMember",
             "type"
           ]
+        },
+        {
+          "not": {
+            "required": [
+              "hadMember", "type"
+            ]
+          }
         }
       ],
       "allOf": [
