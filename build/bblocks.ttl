@@ -2,8 +2,8 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix ns1: <http://www.iana.org/assignments/> .
-@prefix ns2: <http://www.w3.org/ns/oa#> .
+@prefix ns1: <http://www.w3.org/ns/oa#> .
+@prefix ns2: <http://www.iana.org/assignments/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prof: <http://www.w3.org/ns/dx/prof/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
@@ -20,12 +20,12 @@
     rdfs:label "Single Schema for PROV" ;
     dct:abstract "The original version of a single Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-07-10T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "text/markdown" ;
+    dct:description [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov-bundled/index.json> ],
+        [ dct:format "text/markdown" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov-bundled/index.md> ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov-bundled> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov-bundled/index.json> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov-bundled> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2026-01-13"^^xsd:date ;
     dct:source <https://www.w3.org/TR/prov-o/> ;
@@ -38,14 +38,14 @@
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/schema.json> ;
             prof:hasRole role:schema ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
-            dct:format "application/ld+json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/context.jsonld> ;
-            prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/yaml" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/schema.yaml> ;
-            prof:hasRole role:schema ] ;
+            prof:hasRole role:schema ],
+        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+            dct:format "application/ld+json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/context.jsonld> ;
+            prof:hasRole role:mapping ] ;
     bblocks:dependsOn <bblocks://ogc.ogc-utils.iri-or-curie>,
         <bblocks://ogc.ogc-utils.json-link> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-bundled/context.jsonld> ;
@@ -55,18 +55,18 @@
 
 <https://ogcincubator.github.io/bblock-prov-schema/build/bblocks.ttl> a prov:Entity ;
     dct:format "text/turtle" ;
-    prov:wasAttributedTo _:N515de53652c94dd99e83f4d7d383faa1 ;
+    prov:wasAttributedTo _:Nc57759dbabf2432286e27a46cb34d056 ;
     prov:wasGeneratedBy [ a prov:Activity ;
-            prov:endedAtTime "2026-01-13T22:05:07.902423"^^xsd:dateTime ;
-            prov:startedAtTime "2026-01-13T22:05:07.758137"^^xsd:dateTime ;
+            prov:endedAtTime "2026-01-13T22:10:35.888589"^^xsd:dateTime ;
+            prov:startedAtTime "2026-01-13T22:10:35.701834"^^xsd:dateTime ;
             prov:used [ a prov:Entity ;
                     dct:format "application/yaml" ;
                     rdfs:seeAlso <file:///src/ogc/bblocks/register-context.yaml> ],
                 [ a prov:Entity ;
                     dct:format "application/json" ;
-                    dct:hasVersion "git:c256cdb94ee5b878ba031cf00c0d7085eac1a326" ;
+                    dct:hasVersion "git:d3b70e0fd5ecf64dd7703e01e8218114d027c85f" ;
                     rdfs:seeAlso <https://ogcincubator.github.io/bblock-prov-schema/build/register.json> ] ;
-            prov:wasAssociatedWith _:N515de53652c94dd99e83f4d7d383faa1 ] .
+            prov:wasAssociatedWith _:Nc57759dbabf2432286e27a46cb34d056 ] .
 
 <bblocks://ogc.ogc-utils.prov-agent> a skos:Concept,
         dcat:Dataset,
@@ -74,12 +74,12 @@
     rdfs:label "Prov Agent" ;
     dct:abstract "Agent object in provenance model"^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-07-10T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov-agent/index.json> ],
-        [ dct:format "text/html" ;
+    dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov-agent> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov-agent/index.md> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov-agent/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov-agent/index.json> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2026-01-13"^^xsd:date ;
     dct:source <https://www.w3.org/TR/prov-o/> ;
@@ -115,10 +115,10 @@
     dct:created "2023-07-10T00:00:00+00:00"^^xsd:dateTime ;
     dct:description [ dct:format "text/html" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov-entity> ],
-        [ dct:format "application/json" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov-entity/index.json> ],
         [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov-entity/index.md> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov-entity/index.md> ],
+        [ dct:format "application/json" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov-entity/index.json> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2026-01-13"^^xsd:date ;
     dct:source <https://www.w3.org/TR/prov-o/> ;
@@ -127,14 +127,14 @@
     skos:topConceptOf <https://ogcincubator.github.io/bblock-prov-schema/> ;
     dcat:keyword "prov",
         "utils" ;
-    prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml> ;
-            prof:hasRole role:schema ],
-        [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
+    prof:hasResource [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld> ;
             prof:hasRole role:mapping ],
+        [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml> ;
+            prof:hasRole role:schema ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
             dct:format "application/json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.json> ;
@@ -152,12 +152,12 @@
     rdfs:label "Provenance Chain" ;
     dct:abstract "Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way."^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
     dct:created "2023-07-10T00:00:00+00:00"^^xsd:dateTime ;
-    dct:description [ dct:format "application/json" ;
+    dct:description [ dct:format "text/markdown" ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md> ],
+        [ dct:format "application/json" ;
             rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov/index.json> ],
         [ dct:format "text/html" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov> ],
-        [ dct:format "text/markdown" ;
-            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md> ] ;
+            rdfs:isDefinedBy <https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov> ] ;
     dct:hasVersion "0.1" ;
     dct:modified "2026-01-13"^^xsd:date ;
     dct:source <https://www.w3.org/TR/prov-o/> ;
@@ -210,16 +210,16 @@
     dcat:keyword "prov",
         "utils" ;
     prof:hasResource [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/json" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json> ;
+            dct:format "application/yaml" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml> ;
             prof:hasRole role:schema ],
         [ dct:conformsTo <https://www.w3.org/TR/json-ld11/> ;
             dct:format "application/ld+json" ;
             prof:hasArtifact <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/context.jsonld> ;
             prof:hasRole role:mapping ],
         [ dct:conformsTo <https://json-schema.org/draft/2020-12/schema> ;
-            dct:format "application/yaml" ;
-            prof:hasArtifact <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml> ;
+            dct:format "application/json" ;
+            prof:hasArtifact <https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json> ;
             prof:hasRole role:schema ] ;
     bblocks:dependsOn <bblocks://ogc.ogc-utils.prov> ;
     bblocks:hasSourceJsonLdContext <https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/context.jsonld> ;
@@ -261,7 +261,7 @@ In our view, none of the existing PROV serializations supports all these require
 
 An activity to reconcile these approaches and explore formalisation is proposed. 
 """^^<https://www.w3.org/ns/iana/media-types/text/markdown> ;
-    dct:modified "2026-01-13T22:05:00.869955"^^xsd:dateTime ;
+    dct:modified "2026-01-13T22:10:27.351906"^^xsd:dateTime ;
     void:sparqlEndpoint <https://defs-dev.opengis.net/fuseki/query> ;
     owl:imports <https://ogcincubator.github.io/cross-domain-model/build/register.json>,
         <https://opengeospatial.github.io/bblocks/register.json> ;
@@ -271,22 +271,22 @@ An activity to reconcile these approaches and explore formalisation is proposed.
         <bblocks://ogc.ogc-utils.prov-bundled>,
         <bblocks://ogc.ogc-utils.prov-entity> ;
     skos:prefLabel "Building Blocks - JSON schemas for W3C PROV model" ;
-    prof:hasResource [ rdfs:label "This Building Blocks Register in RDF Turtle format" ;
-            dct:type "text/turtle" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            ns2:hasTarget <https://ogcincubator.github.io/bblock-prov-schema/build/bblocks.ttl> ],
+    prof:hasResource [ rdfs:label "This Building Blocks Register in JSON-LD format" ;
+            dct:type "application/ld+json" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:hasTarget <https://ogcincubator.github.io/bblock-prov-schema/build/bblocks.jsonld> ],
         [ rdfs:label "This Building Blocks Register in JSON format" ;
             dct:type "application/json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            ns2:hasTarget <https://ogcincubator.github.io/bblock-prov-schema/build/register.json> ],
-        [ rdfs:label "This Building Blocks Register in JSON-LD format" ;
-            dct:type "application/ld+json" ;
-            ns1:relation <http://www.iana.org/assignments/relation/self> ;
-            ns2:hasTarget <https://ogcincubator.github.io/bblock-prov-schema/build/bblocks.jsonld> ] ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:hasTarget <https://ogcincubator.github.io/bblock-prov-schema/build/register.json> ],
+        [ rdfs:label "This Building Blocks Register in RDF Turtle format" ;
+            dct:type "text/turtle" ;
+            ns2:relation <http://www.iana.org/assignments/relation/self> ;
+            ns1:hasTarget <https://ogcincubator.github.io/bblock-prov-schema/build/bblocks.ttl> ] ;
     foaf:homepage <https://ogcincubator.github.io/bblock-prov-schema/> ;
     bblocks:hasValidationReport <https://ogcincubator.github.io/bblock-prov-schema/build/tests/report.html> .
 
-_:N515de53652c94dd99e83f4d7d383faa1 a prov:Agent,
+_:Nc57759dbabf2432286e27a46cb34d056 a prov:Agent,
         schema:SoftwareApplication ;
     rdfs:label "OGC-NA tools" ;
     dct:hasVersion "0.5.14" ;

@@ -25,8 +25,8 @@
   ],
   "shaclShapes": {},
   "dependsOn": [
-    "ogc.ogc-utils.iri-or-curie",
-    "ogc.ogc-utils.json-link"
+    "ogc.ogc-utils.json-link",
+    "ogc.ogc-utils.iri-or-curie"
   ],
   "ldContext": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/context.jsonld",
   "schema": {

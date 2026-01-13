@@ -26,8 +26,8 @@
   ],
   "shaclShapes": {},
   "dependsOn": [
-    "ogc.ogc-utils.prov-activity",
-    "ogc.ogc-utils.prov"
+    "ogc.ogc-utils.prov",
+    "ogc.ogc-utils.prov-activity"
   ],
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml",
