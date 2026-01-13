@@ -12,12 +12,12 @@
   "version": "0.1",
   "dateOfLastChange": "2026-01-13",
   "dependsOn": [
-    "ogc.model.cross-domain.prov",
-    "ogc.ogc-utils.prov-activity",
     "ogc.ogc-utils.prov-entity",
-    "ogc.ogc-utils.json-link",
+    "ogc.ogc-utils.prov-activity",
     "ogc.ogc-utils.iri-or-curie",
-    "ogc.ogc-utils.prov-agent"
+    "ogc.ogc-utils.prov-agent",
+    "ogc.model.cross-domain.prov",
+    "ogc.ogc-utils.json-link"
   ],
   "sources": [
     {
