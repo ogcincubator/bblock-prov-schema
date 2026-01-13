@@ -10,14 +10,14 @@
   "itemClass": "schema",
   "register": "ogc-utils",
   "version": "0.1",
-  "dateOfLastChange": "2025-12-23",
+  "dateOfLastChange": "2026-01-13",
   "dependsOn": [
-    "ogc.ogc-utils.prov-agent",
-    "ogc.ogc-utils.json-link",
+    "ogc.ogc-utils.prov-entity",
     "ogc.ogc-utils.prov-activity",
-    "ogc.model.cross-domain.prov",
     "ogc.ogc-utils.iri-or-curie",
-    "ogc.ogc-utils.prov-entity"
+    "ogc.ogc-utils.prov-agent",
+    "ogc.model.cross-domain.prov",
+    "ogc.ogc-utils.json-link"
   ],
   "sources": [
     {
@@ -89,7 +89,7 @@
         },
         {
           "language": "ttl",
-          "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<http://www.example.com/exampleActivity/someActivity_1> a prov:Activity ;\n    prov:endedAtTime \"2029-01-01T22:05:19+02:00\"^^xsd:dateTime ;\n    prov:used <http://www.example.com/exampleActivity/Act3> ;\n    prov:wasAssociatedWith <http://www.example.com/exampleActivity/eg_agents:bc-3> .\n\n<http://www.example.com/exampleActivity/Act3> a prov:Entity ;\n    rdfs:seeAlso [ ] ;\n    prov:wasAttributedTo <http://www.example.com/exampleActivity/eg_agents:Gov1> .\n\n",
+          "code": "@prefix iana: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<http://www.example.com/exampleActivity/someActivity_1> a prov:Activity ;\n    prov:endedAtTime \"2029-01-01T22:05:19+02:00\"^^xsd:dateTime ;\n    prov:used <http://www.example.com/exampleActivity/Act3> ;\n    prov:wasAssociatedWith <http://www.example.com/exampleActivity/eg_agents:bc-3> .\n\n<http://www.example.com/exampleActivity/Act3> a prov:Entity ;\n    rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://some.gov/linktoact/> ] ;\n    prov:wasAttributedTo <http://www.example.com/exampleActivity/eg_agents:Gov1> .\n\n",
           "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.ttl"
         }
       ],
@@ -115,7 +115,7 @@
         },
         {
           "language": "ttl",
-          "code": "@prefix agents: <https://someagentregister.eg/> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix surveyreg: <https://example.org/surveys/> .\n@prefix thing: <https://example.org/entities/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;\n    dcterms:provenance <https://example.org/aThing/DP-2223>,\n        surveyreg:DP-1-S1 ;\n    prov:wasGeneratedBy surveyreg:DP-1-S1,\n        surveyreg:DP-1-S2 .\n\n<https://example.org/aThing/DP-2223> a <http://example.org/myEntities/Survey>,\n        prov:Entity ;\n    prov:wasGeneratedBy <https://example.org/aThing/DP-1-S1> .\n\n<https://example.org/aThing/Example-Act> rdfs:seeAlso [ ] ;\n    prov:wasAttributedTo agents:nz .\n\nthing:Act3 a <https://example.org/aThing/Legislation> ;\n    rdfs:seeAlso [ ] ;\n    prov:wasAttributedTo agents:nz .\n\nsurveyreg:DP-1-S2 a <http://example.org/myActivityTypes/Registration> ;\n    prov:endedAtTime \"2019-01-01T19:03:15+01:00\"^^xsd:dateTime ;\n    prov:used <https://example.org/aThing/Example-Act> ;\n    prov:wasAssociatedWith agents:bc-3 .\n\nsurveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,\n        prov:Activity ;\n    prov:endedAtTime \"2023-10-05T05:03:15+01:00\"^^xsd:dateTime ;\n    prov:used thing:Act3 ;\n    prov:wasAssociatedWith agents:ah-2344503 .\n\n",
+          "code": "@prefix agents: <https://someagentregister.eg/> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix iana: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix surveyreg: <https://example.org/surveys/> .\n@prefix thing: <https://example.org/entities/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;\n    dcterms:provenance <https://example.org/aThing/DP-2223>,\n        surveyreg:DP-1-S1 ;\n    prov:wasGeneratedBy surveyreg:DP-1-S1,\n        surveyreg:DP-1-S2 .\n\n<https://example.org/aThing/DP-2223> a <http://example.org/myEntities/Survey>,\n        prov:Entity ;\n    prov:wasGeneratedBy <https://example.org/aThing/DP-1-S1> .\n\n<https://example.org/aThing/Example-Act> rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://nze.gov/linktoact/Example1> ] ;\n    prov:wasAttributedTo agents:nz .\n\nthing:Act3 a <https://example.org/aThing/Legislation> ;\n    rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://some.gov/linktoact/> ] ;\n    prov:wasAttributedTo agents:nz .\n\nsurveyreg:DP-1-S2 a <http://example.org/myActivityTypes/Registration> ;\n    prov:endedAtTime \"2019-01-01T19:03:15+01:00\"^^xsd:dateTime ;\n    prov:used <https://example.org/aThing/Example-Act> ;\n    prov:wasAssociatedWith agents:bc-3 .\n\nsurveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,\n        prov:Activity ;\n    prov:endedAtTime \"2023-10-05T05:03:15+01:00\"^^xsd:dateTime ;\n    prov:used thing:Act3 ;\n    prov:wasAssociatedWith agents:ah-2344503 .\n\n",
           "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_3_1.ttl"
         }
       ],

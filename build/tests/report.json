@@ -10,7 +10,7 @@
       "title": "Validation report for ogc.ogc-utils.prov-agent - Prov Agent",
       "bblockName": "Prov Agent",
       "bblockId": "ogc.ogc-utils.prov-agent",
-      "generated": "2025-12-23T10:39:01.390527+00:00",
+      "generated": "2026-01-13T22:05:06.460297+00:00",
       "result": true,
       "items": [],
       "globalErrors": {},
@@ -20,191 +20,11 @@
         "failed": 0
       }
     },
-    "ogc.ogc-utils.prov-entity": {
-      "title": "Validation report for ogc.ogc-utils.prov-entity - Prov Entity",
-      "bblockName": "Prov Entity",
-      "bblockId": "ogc.ogc-utils.prov-entity",
-      "generated": "2025-12-23T10:39:01.790599+00:00",
-      "result": true,
-      "items": [
-        {
-          "source": {
-            "type": "EXAMPLE",
-            "requireFail": false,
-            "filename": "build/tests/ogc-utils/prov-entity/example_1_1.json",
-            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_1_1.json",
-            "exampleIndex": 1,
-            "snippetIndex": 1,
-            "language": "application/json"
-          },
-          "result": true,
-          "sections": [
-            {
-              "name": "FILES",
-              "title": "Files",
-              "entries": [
-                {
-                  "isError": false,
-                  "message": "Using example_1_1.json from examples"
-                },
-                {
-                  "op": "jsonld-uplift",
-                  "isError": false,
-                  "message": "JSON-LD context is present - uplifting"
-                },
-                {
-                  "op": "jsonld-create",
-                  "filename": "example_1_1.jsonld",
-                  "isError": false,
-                  "message": "Output JSON-LD example_1_1.jsonld created"
-                },
-                {
-                  "op": "ttl-create",
-                  "empty": false,
-                  "filename": "example_1_1.ttl",
-                  "size": 1,
-                  "isError": false,
-                  "message": "Output Turtle example_1_1.ttl created"
-                }
-              ]
-            },
-            {
-              "name": "JSON_SCHEMA",
-              "title": "JSON Schema",
-              "entries": [
-                {
-                  "op": "validation",
-                  "result": true,
-                  "isError": false,
-                  "message": "Validation passed"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "source": {
-            "type": "EXAMPLE",
-            "requireFail": false,
-            "filename": "build/tests/ogc-utils/prov-entity/example_2_1.json",
-            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_2_1.json",
-            "exampleIndex": 2,
-            "snippetIndex": 1,
-            "language": "application/json"
-          },
-          "result": true,
-          "sections": [
-            {
-              "name": "FILES",
-              "title": "Files",
-              "entries": [
-                {
-                  "isError": false,
-                  "message": "Using example_2_1.json from examples"
-                },
-                {
-                  "op": "jsonld-uplift",
-                  "isError": false,
-                  "message": "JSON-LD context is present - uplifting"
-                },
-                {
-                  "op": "jsonld-create",
-                  "filename": "example_2_1.jsonld",
-                  "isError": false,
-                  "message": "Output JSON-LD example_2_1.jsonld created"
-                },
-                {
-                  "op": "ttl-create",
-                  "empty": false,
-                  "filename": "example_2_1.ttl",
-                  "size": 26,
-                  "isError": false,
-                  "message": "Output Turtle example_2_1.ttl created"
-                }
-              ]
-            },
-            {
-              "name": "JSON_SCHEMA",
-              "title": "JSON Schema",
-              "entries": [
-                {
-                  "op": "validation",
-                  "result": true,
-                  "isError": false,
-                  "message": "Validation passed"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "source": {
-            "type": "EXAMPLE",
-            "requireFail": false,
-            "filename": "build/tests/ogc-utils/prov-entity/example_3_1.json",
-            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_3_1.json",
-            "exampleIndex": 3,
-            "snippetIndex": 1,
-            "language": "application/json"
-          },
-          "result": true,
-          "sections": [
-            {
-              "name": "FILES",
-              "title": "Files",
-              "entries": [
-                {
-                  "isError": false,
-                  "message": "Using example_3_1.json from examples"
-                },
-                {
-                  "op": "jsonld-uplift",
-                  "isError": false,
-                  "message": "JSON-LD context is present - uplifting"
-                },
-                {
-                  "op": "jsonld-create",
-                  "filename": "example_3_1.jsonld",
-                  "isError": false,
-                  "message": "Output JSON-LD example_3_1.jsonld created"
-                },
-                {
-                  "op": "ttl-create",
-                  "empty": false,
-                  "filename": "example_3_1.ttl",
-                  "size": 6,
-                  "isError": false,
-                  "message": "Output Turtle example_3_1.ttl created"
-                }
-              ]
-            },
-            {
-              "name": "JSON_SCHEMA",
-              "title": "JSON Schema",
-              "entries": [
-                {
-                  "op": "validation",
-                  "result": true,
-                  "isError": false,
-                  "message": "Validation passed"
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "globalErrors": {},
-      "counts": {
-        "total": 3,
-        "passed": 3,
-        "failed": 0
-      }
-    },
     "ogc.ogc-utils.prov-bundled": {
       "title": "Validation report for ogc.ogc-utils.prov-bundled - Single Schema for PROV",
       "bblockName": "Single Schema for PROV",
       "bblockId": "ogc.ogc-utils.prov-bundled",
-      "generated": "2025-12-23T10:39:02.254494+00:00",
+      "generated": "2026-01-13T22:05:06.771528+00:00",
       "result": true,
       "items": [
         {
@@ -262,7 +82,7 @@
                 {
                   "op": "jsonld-uplift-error",
                   "isError": true,
-                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fa90fe8a560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
+                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f3a3f74a5f0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
                 }
               ]
             }
@@ -323,7 +143,7 @@
                 {
                   "op": "jsonld-uplift-error",
                   "isError": true,
-                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fa90fe8a560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2023-10-05'\n"
+                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f3a3f74a5f0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2023-10-05'\n"
                 }
               ]
             }
@@ -384,7 +204,7 @@
                 {
                   "op": "jsonld-uplift-error",
                   "isError": true,
-                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fa90fe8a560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2021-01-01'\nFailed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fa90fe8a560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
+                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f3a3f74a5f0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2021-01-01'\nFailed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f3a3f74a5f0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
                 }
               ]
             }
@@ -682,7 +502,7 @@
       "title": "Validation report for ogc.ogc-utils.prov - Provenance Chain",
       "bblockName": "Provenance Chain",
       "bblockId": "ogc.ogc-utils.prov",
-      "generated": "2025-12-23T10:39:02.843379+00:00",
+      "generated": "2026-01-13T22:05:07.247950+00:00",
       "result": true,
       "items": [
         {
@@ -740,7 +560,7 @@
                 {
                   "op": "jsonld-uplift-error",
                   "isError": true,
-                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fa90fe8a560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
+                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f3a3f74a5f0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
                 }
               ]
             }
@@ -801,7 +621,7 @@
                 {
                   "op": "jsonld-uplift-error",
                   "isError": true,
-                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fa90fe8a560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2023-10-05'\n"
+                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f3a3f74a5f0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2023-10-05'\n"
                 }
               ]
             }
@@ -862,7 +682,7 @@
                 {
                   "op": "jsonld-uplift-error",
                   "isError": true,
-                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fa90fe8a560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2021-01-01'\nFailed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7fa90fe8a560>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
+                  "message": "Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f3a3f74a5f0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2021-01-01'\nFailed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7f3a3f74a5f0>\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 51, in parse_datetime\n    datestring, timestring = datetimestring.split('T')\nValueError: not enough values to unpack (expected 2, got 1)\n\nDuring handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/venv/lib/python3.10/site-packages/rdflib/term.py\", line 2084, in _castLexicalToPython\n    return conv_func(lexical)  # type: ignore[arg-type]\n  File \"/venv/lib/python3.10/site-packages/isodate/isodatetime.py\", line 53, in parse_datetime\n    raise ISO8601Error(\"ISO 8601 time designator 'T' missing. Unable to\"\nisodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2029-01-01'\n"
                 }
               ]
             }
@@ -958,7 +778,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_2_1.ttl",
-                  "size": 7,
+                  "size": 9,
                   "isError": false,
                   "message": "Output Turtle example_2_1.ttl created"
                 }
@@ -1018,7 +838,7 @@
                   "op": "ttl-create",
                   "empty": false,
                   "filename": "example_3_1.ttl",
-                  "size": 22,
+                  "size": 26,
                   "isError": false,
                   "message": "Output Turtle example_3_1.ttl created"
                 }
@@ -1160,7 +980,7 @@
       "title": "Validation report for ogc.ogc-utils.prov-activity - Prov Activity",
       "bblockName": "Prov Activity",
       "bblockId": "ogc.ogc-utils.prov-activity",
-      "generated": "2025-12-23T10:39:03.227150+00:00",
+      "generated": "2026-01-13T22:05:07.541198+00:00",
       "result": true,
       "items": [
         {
@@ -1327,6 +1147,186 @@
                   "size": 7,
                   "isError": false,
                   "message": "Output Turtle example_2_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "globalErrors": {},
+      "counts": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0
+      }
+    },
+    "ogc.ogc-utils.prov-entity": {
+      "title": "Validation report for ogc.ogc-utils.prov-entity - Prov Entity",
+      "bblockName": "Prov Entity",
+      "bblockId": "ogc.ogc-utils.prov-entity",
+      "generated": "2026-01-13T22:05:07.742206+00:00",
+      "result": true,
+      "items": [
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/ogc-utils/prov-entity/example_1_1.json",
+            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_1_1.json",
+            "exampleIndex": 1,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_1_1.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_1_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_1_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_1_1.ttl",
+                  "size": 1,
+                  "isError": false,
+                  "message": "Output Turtle example_1_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/ogc-utils/prov-entity/example_2_1.json",
+            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_2_1.json",
+            "exampleIndex": 2,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_2_1.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_2_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_2_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_2_1.ttl",
+                  "size": 26,
+                  "isError": false,
+                  "message": "Output Turtle example_2_1.ttl created"
+                }
+              ]
+            },
+            {
+              "name": "JSON_SCHEMA",
+              "title": "JSON Schema",
+              "entries": [
+                {
+                  "op": "validation",
+                  "result": true,
+                  "isError": false,
+                  "message": "Validation passed"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "source": {
+            "type": "EXAMPLE",
+            "requireFail": false,
+            "filename": "build/tests/ogc-utils/prov-entity/example_3_1.json",
+            "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-entity/example_3_1.json",
+            "exampleIndex": 3,
+            "snippetIndex": 1,
+            "language": "application/json"
+          },
+          "result": true,
+          "sections": [
+            {
+              "name": "FILES",
+              "title": "Files",
+              "entries": [
+                {
+                  "isError": false,
+                  "message": "Using example_3_1.json from examples"
+                },
+                {
+                  "op": "jsonld-uplift",
+                  "isError": false,
+                  "message": "JSON-LD context is present - uplifting"
+                },
+                {
+                  "op": "jsonld-create",
+                  "filename": "example_3_1.jsonld",
+                  "isError": false,
+                  "message": "Output JSON-LD example_3_1.jsonld created"
+                },
+                {
+                  "op": "ttl-create",
+                  "empty": false,
+                  "filename": "example_3_1.ttl",
+                  "size": 6,
+                  "isError": false,
+                  "message": "Output Turtle example_3_1.ttl created"
                 }
               ]
             },

@@ -127,6 +127,8 @@ this is a simple activity referencing some relevant document
 
 #### ttl
 ```ttl
+@prefix iana: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -137,7 +139,8 @@ this is a simple activity referencing some relevant document
     prov:wasAssociatedWith <http://www.example.com/exampleActivity/eg_agents:bc-3> .
 
 <http://www.example.com/exampleActivity/Act3> a prov:Entity ;
-    rdfs:seeAlso [ ] ;
+    rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://some.gov/linktoact/> ] ;
     prov:wasAttributedTo <http://www.example.com/exampleActivity/eg_agents:Gov1> .
 
 
@@ -308,6 +311,8 @@ DAG defined by an object list.
 ```ttl
 @prefix agents: <https://someagentregister.eg/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix iana: <http://www.iana.org/assignments/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix surveyreg: <https://example.org/surveys/> .
@@ -324,11 +329,13 @@ DAG defined by an object list.
         prov:Entity ;
     prov:wasGeneratedBy <https://example.org/aThing/DP-1-S1> .
 
-<https://example.org/aThing/Example-Act> rdfs:seeAlso [ ] ;
+<https://example.org/aThing/Example-Act> rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://nze.gov/linktoact/Example1> ] ;
     prov:wasAttributedTo agents:nz .
 
 thing:Act3 a <https://example.org/aThing/Legislation> ;
-    rdfs:seeAlso [ ] ;
+    rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;
+            oa:hasTarget <https://some.gov/linktoact/> ] ;
     prov:wasAttributedTo agents:nz .
 
 surveyreg:DP-1-S2 a <http://example.org/myActivityTypes/Registration> ;
@@ -1059,8 +1066,6 @@ Links to the schema:
 {
   "@context": {
     "wasInfluencedBy": {
-      "@id": "prov:wasInfluencedBy",
-      "@type": "@id",
       "@context": {
         "href": {
           "@type": "@id",
@@ -1077,11 +1082,11 @@ Links to the schema:
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
-      }
+      },
+      "@id": "prov:wasInfluencedBy",
+      "@type": "@id"
     },
     "qualifiedInfluence": {
-      "@id": "prov:qualifiedInfluence",
-      "@type": "@id",
       "@context": {
         "influencer": {
           "@context": {
@@ -1125,7 +1130,9 @@ Links to the schema:
           "@id": "prov:agent",
           "@type": "@id"
         }
-      }
+      },
+      "@id": "prov:qualifiedInfluence",
+      "@type": "@id"
     },
     "hadMember": {
       "@id": "prov:hadMember",
@@ -1144,8 +1151,6 @@ Links to the schema:
       "@type": "@id"
     },
     "wasAttributedTo": {
-      "@id": "prov:wasAttributedTo",
-      "@type": "@id",
       "@context": {
         "href": {
           "@type": "@id",
@@ -1162,7 +1167,9 @@ Links to the schema:
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
-      }
+      },
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id"
     },
     "wasDerivedFrom": {
       "@id": "prov:wasDerivedFrom",
@@ -1196,7 +1203,26 @@ Links to the schema:
       "@id": "prov:atLocation",
       "@type": "@id"
     },
-    "links": "rdfs:seeAlso",
+    "links": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "rdfs:seeAlso"
+    },
     "qualifiedGeneration": {
       "@id": "prov:qualifiedGeneration",
       "@type": "@id"
@@ -1388,6 +1414,8 @@ Links to the schema:
       "@type": "@id"
     },
     "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id",
       "@context": {
         "href": {
           "@type": "@id",
@@ -1404,9 +1432,7 @@ Links to the schema:
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
-      },
-      "@id": "prov:wasAssociatedWith",
-      "@type": "@id"
+      }
     },
     "wasEndedBy": {
       "@id": "prov:wasEndedBy",

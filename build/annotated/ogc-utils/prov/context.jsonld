@@ -1,8 +1,6 @@
 {
   "@context": {
     "wasInfluencedBy": {
-      "@id": "prov:wasInfluencedBy",
-      "@type": "@id",
       "@context": {
         "href": {
           "@type": "@id",
@@ -19,11 +17,11 @@
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
-      }
+      },
+      "@id": "prov:wasInfluencedBy",
+      "@type": "@id"
     },
     "qualifiedInfluence": {
-      "@id": "prov:qualifiedInfluence",
-      "@type": "@id",
       "@context": {
         "influencer": {
           "@context": {
@@ -67,7 +65,9 @@
           "@id": "prov:agent",
           "@type": "@id"
         }
-      }
+      },
+      "@id": "prov:qualifiedInfluence",
+      "@type": "@id"
     },
     "hadMember": {
       "@id": "prov:hadMember",
@@ -86,8 +86,6 @@
       "@type": "@id"
     },
     "wasAttributedTo": {
-      "@id": "prov:wasAttributedTo",
-      "@type": "@id",
       "@context": {
         "href": {
           "@type": "@id",
@@ -104,7 +102,9 @@
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
-      }
+      },
+      "@id": "prov:wasAttributedTo",
+      "@type": "@id"
     },
     "wasDerivedFrom": {
       "@id": "prov:wasDerivedFrom",
@@ -138,7 +138,26 @@
       "@id": "prov:atLocation",
       "@type": "@id"
     },
-    "links": "rdfs:seeAlso",
+    "links": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "rdfs:seeAlso"
+    },
     "qualifiedGeneration": {
       "@id": "prov:qualifiedGeneration",
       "@type": "@id"
@@ -330,6 +349,8 @@
       "@type": "@id"
     },
     "wasAssociatedWith": {
+      "@id": "prov:wasAssociatedWith",
+      "@type": "@id",
       "@context": {
         "href": {
           "@type": "@id",
@@ -346,9 +367,7 @@
         "hreflang": "dct:language",
         "title": "rdfs:label",
         "length": "dct:extent"
-      },
-      "@id": "prov:wasAssociatedWith",
-      "@type": "@id"
+      }
     },
     "wasEndedBy": {
       "@id": "prov:wasEndedBy",
