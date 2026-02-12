@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "ogc-utils",
   "version": "0.1",
-  "dateOfLastChange": "2026-01-13",
+  "dateOfLastChange": "2026-02-12",
   "sources": [
     {
       "link": "https://www.w3.org/TR/prov-o/",
@@ -25,8 +25,8 @@
   ],
   "shaclShapes": {},
   "dependsOn": [
-    "ogc.ogc-utils.json-link",
-    "ogc.ogc-utils.iri-or-curie"
+    "ogc.ogc-utils.iri-or-curie",
+    "ogc.ogc-utils.json-link"
   ],
   "ldContext": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/context.jsonld",
   "schema": {
@@ -105,7 +105,7 @@
         },
         {
           "language": "ttl",
-          "code": "@prefix agents: <https://someagentregister.eg/> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix surveyreg: <https://example.org/surveys/> .\n@prefix thing: <https://example.org/entities/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;\n    dcterms:provenance <https://example.org/aThing/DP-2223>,\n        surveyreg:DP-1-S1 ;\n    dcterms:type \"Feature\" ;\n    prov:wasGeneratedBy surveyreg:DP-1-S1,\n        surveyreg:DP-1-S2 .\n\n<https://example.org/aThing/DP-2223> a <http://example.org/myEntities/Survey>,\n        prov:Entity ;\n    prov:wasGeneratedBy <https://example.org/aThing/DP-1-S1> .\n\n<https://example.org/aThing/Example-Act> rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://nze.gov/linktoact/Example1> ] ;\n    prov:wasAttributedTo agents:nz .\n\nthing:Act3 a <https://example.org/aThing/Legislation> ;\n    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://some.gov/linktoact/> ] ;\n    prov:wasAttributedTo agents:nz .\n\nsurveyreg:DP-1-S2 a <http://example.org/myActivityTypes/Registration> ;\n    prov:endedAtTime \"2019-01-01T19:03:15+01:00\"^^xsd:dateTime ;\n    prov:used <https://example.org/aThing/Example-Act> ;\n    prov:wasAssociatedWith agents:bc-3 .\n\nsurveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,\n        prov:Activity ;\n    prov:endedAtTime \"2023-10-05T05:03:15+01:00\"^^xsd:dateTime ;\n    prov:used thing:Act3 ;\n    prov:wasAssociatedWith agents:ah-2344503 .\n\n",
+          "code": "@prefix agents: <https://someagentregister.eg/> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix ns1: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix surveyreg: <https://example.org/surveys/> .\n@prefix thing: <https://example.org/entities/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;\n    dcterms:provenance <https://example.org/aThing/DP-2223>,\n        surveyreg:DP-1-S1 ;\n    prov:wasGeneratedBy surveyreg:DP-1-S1,\n        surveyreg:DP-1-S2 .\n\n<https://example.org/aThing/DP-2223> a <http://example.org/myEntities/Survey>,\n        prov:Entity ;\n    prov:wasGeneratedBy <https://example.org/aThing/DP-1-S1> .\n\n<https://example.org/aThing/Example-Act> rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://nze.gov/linktoact/Example1> ] ;\n    prov:wasAttributedTo agents:nz .\n\nthing:Act3 a <https://example.org/aThing/Legislation> ;\n    rdfs:seeAlso [ ns1:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://some.gov/linktoact/> ] ;\n    prov:wasAttributedTo agents:nz .\n\nsurveyreg:DP-1-S2 a <http://example.org/myActivityTypes/Registration> ;\n    prov:endedAtTime \"2019-01-01T19:03:15+01:00\"^^xsd:dateTime ;\n    prov:used <https://example.org/aThing/Example-Act> ;\n    prov:wasAssociatedWith agents:bc-3 .\n\nsurveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,\n        prov:Activity ;\n    prov:endedAtTime \"2023-10-05T05:03:15+01:00\"^^xsd:dateTime ;\n    prov:used thing:Act3 ;\n    prov:wasAssociatedWith agents:ah-2344503 .\n\n",
           "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-bundled/example_3_1.ttl"
         }
       ]
@@ -128,7 +128,7 @@
         },
         {
           "language": "ttl",
-          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;\n    dcterms:type \"Feature\" ;\n    prov:qualifiedGeneration [ dcterms:type \"Generation\" ;\n            prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;\n            prov:atTime \"2018-10-25T15:46:38.058365\"^^xsd:dateTime ;\n            prov:hadRole <wf:main/sorted/output> ] .\n\n<uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> rdfs:label \"Run of workflow/packed.cwl#main/sorted\" ;\n    dcterms:type \"Activity\",\n        \"wfprov:ProcessRun\" .\n\n",
+          "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;\n    prov:qualifiedGeneration [ prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;\n            prov:atTime \"2018-10-25T15:46:38.058365\"^^xsd:dateTime ;\n            prov:hadRole <wf:main/sorted/output> ] .\n\n<uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> rdfs:label \"Run of workflow/packed.cwl#main/sorted\" .\n\n",
           "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-bundled/example_4_1.ttl"
         }
       ]
@@ -151,7 +151,7 @@
         },
         {
           "language": "ttl",
-          "code": "@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<http://www.example.com/exampleEntity/file> dcterms:type \"Entity\" .\n\n<http://www.example.com/exampleEntity/output> dcterms:type \"Entity\" .\n\n<http://www.example.com/exampleEntity/user_input> dcterms:type \"Entity\" .\n\n[] prov:endedAtTime \"2024-11-19T05:07:34.304708+00:00\"^^xsd:dateTime ;\n    prov:generated <http://www.example.com/exampleEntity/output> ;\n    prov:startedAtTime \"2024-11-19T05:07:22.927913+00:00\"^^xsd:dateTime ;\n    prov:type \"prov:Activity\" ;\n    prov:used <http://www.example.com/exampleEntity/file>,\n        <http://www.example.com/exampleEntity/user_input> .\n\n",
+          "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n[] prov:endedAtTime \"2024-11-19T05:07:34.304708+00:00\"^^xsd:dateTime ;\n    prov:generated <http://www.example.com/exampleEntity/output> ;\n    prov:startedAtTime \"2024-11-19T05:07:22.927913+00:00\"^^xsd:dateTime ;\n    prov:type \"prov:Activity\" ;\n    prov:used <http://www.example.com/exampleEntity/file>,\n        <http://www.example.com/exampleEntity/user_input> .\n\n",
           "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-bundled/example_5_1.ttl"
         }
       ]

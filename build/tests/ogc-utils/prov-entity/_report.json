@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.ogc-utils.prov-entity - Prov Entity",
   "bblockName": "Prov Entity",
   "bblockId": "ogc.ogc-utils.prov-entity",
-  "generated": "2026-01-13T22:12:07.173403+00:00",
+  "generated": "2026-02-12T14:54:57.421710+00:00",
   "result": true,
   "items": [
     {
@@ -23,7 +23,7 @@
           "entries": [
             {
               "isError": false,
-              "message": "Using example_1_1.json from examples"
+              "message": "Using ../prov/examples/simple-rel.json from examples"
             },
             {
               "op": "jsonld-uplift",
@@ -78,7 +78,7 @@
           "entries": [
             {
               "isError": false,
-              "message": "Using example_2_1.json from examples"
+              "message": "Using ../prov/examples/example.json from examples"
             },
             {
               "op": "jsonld-uplift",
@@ -133,7 +133,7 @@
           "entries": [
             {
               "isError": false,
-              "message": "Using example_3_1.json from examples"
+              "message": "Using ../prov/examples/example-activityinfluence.json from examples"
             },
             {
               "op": "jsonld-uplift",

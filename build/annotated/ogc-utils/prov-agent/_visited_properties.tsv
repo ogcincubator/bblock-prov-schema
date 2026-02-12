@@ -6,13 +6,6 @@ path	@id
 /wasInfluencedBy/activityType	@type
 /wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
 /wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
-/wasInfluencedBy/wasAssociatedWith/href	http://www.w3.org/ns/oa#hasTarget
-/wasInfluencedBy/wasAssociatedWith/rel	http://www.iana.org/assignments/relation
-/wasInfluencedBy/wasAssociatedWith/anchor	
-/wasInfluencedBy/wasAssociatedWith/type	http://purl.org/dc/terms/type
-/wasInfluencedBy/wasAssociatedWith/hreflang	http://purl.org/dc/terms/language
-/wasInfluencedBy/wasAssociatedWith/title	http://www.w3.org/2000/01/rdf-schema#label
-/wasInfluencedBy/wasAssociatedWith/length	http://purl.org/dc/terms/extent
 /wasInfluencedBy/wasAssociatedWith/agentType	@type
 /wasInfluencedBy/wasAssociatedWith/provType	@type
 /wasInfluencedBy/wasAssociatedWith/prov:type	

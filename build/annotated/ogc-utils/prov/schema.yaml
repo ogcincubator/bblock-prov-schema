@@ -32,7 +32,6 @@ $defs:
     $anchor: oneOrMoreAgentsOrRefIds
     oneOf:
     - $ref: '#objectref'
-    - $ref: '#externalLink'
     - $ref: '#Agent'
     - type: array
       items:
