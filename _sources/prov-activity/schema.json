@@ -47,6 +47,9 @@
         "activityType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref"
         },
+        "startedAtTime": {
+          "$ref": "#/$defs/dateTime"
+        },
         "endedAtTime": {
           "$ref": "#/$defs/dateTime"
         },
@@ -113,7 +116,7 @@
                     "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
                   },
                   {
-                    "$ref": "#/$defs/Generation"
+                    "$ref": "#/$defs/Communication"
                   }
                 ]
               }
@@ -338,30 +341,14 @@
         }
       ]
     },
-    "Derivation": {
-      "$anchor": "Derivation",
+    "DerivationBase": {
       "type": "object",
       "properties": {
         "id": {
           "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
         },
-        "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "const": "Derivation"
-            },
-            {
-              "type": "array",
-              "contains": {
-                "type": "string",
-                "const": "Derivation"
-              },
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
+        "atTime": {
+          "$ref": "#/$defs/dateTime"
         },
         "hadGeneration": {
           "oneOf": [
@@ -407,6 +394,139 @@
       "required": [
         "atTime",
         "entity"
+      ]
+    },
+    "Derivation": {
+      "$anchor": "Derivation",
+      "allOf": [
+        {
+          "$ref": "#/$defs/DerivationBase"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Derivation"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Derivation"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "PrimarySource": {
+      "$anchor": "PrimarySource",
+      "allOf": [
+        {
+          "$ref": "#/$defs/DerivationBase"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "PrimarySource"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "PrimarySource"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "Quotation": {
+      "$anchor": "Quotation",
+      "allOf": [
+        {
+          "$ref": "#/$defs/DerivationBase"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Quotation"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Quotation"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
+      ]
+    },
+    "Revision": {
+      "$anchor": "Revision",
+      "allOf": [
+        {
+          "$ref": "#/$defs/DerivationBase"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "oneOf": [
+                {
+                  "type": "string",
+                  "const": "Revision"
+                },
+                {
+                  "type": "array",
+                  "contains": {
+                    "type": "string",
+                    "const": "Revision"
+                  },
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              ]
+            }
+          },
+          "required": [
+            "type"
+          ]
+        }
       ]
     },
     "Delegation": {
