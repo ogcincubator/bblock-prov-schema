@@ -23,3 +23,14 @@ examples:
       - language: json
         ref: ../prov/examples/example-activityinfluence.json
         base-uri: http://www.example.com/exampleEntity/
+
+  - title: Entity timeline and derivation qualifiers
+    content: |-
+      An entity with its generation/invalidation timestamps, a literal `value`, and its
+      [qualified primary source](https://www.w3.org/TR/prov-o/#qualifiedPrimarySource),
+      [qualified quotation](https://www.w3.org/TR/prov-o/#qualifiedQuotation) and
+      [qualified revision](https://www.w3.org/TR/prov-o/#qualifiedRevision).
+    snippets:
+      - language: json
+        ref: ../prov/examples/example-entity-timeline.json
+        base-uri: http://www.example.com/exampleEntity/
