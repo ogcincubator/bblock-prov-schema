@@ -1,7 +1,7 @@
 {
   "name": "Prov Agent",
   "highlighted": true ,
-  "abstract": "Agent object in provenance model",
+  "abstract": "Sub-schema for PROV Agents: something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.",
   "status": "under-development",
   "dateTimeAddition": "2023-07-10T00:00:00Z",
   "itemClass": "schema",

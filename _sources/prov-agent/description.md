@@ -1,8 +1,12 @@
-## Provenance chain
+## Agent Object sub-schema
 
-A JSON schema defining objects that may be referenced or nested as a chain of Activities, Entities or Agents (or subclasses thereof)
+An **Agent** is something that bears some form of responsibility for an activity taking place, for
+the existence of an entity, or for another agent's activity. Typical Agents are a person, an
+organization, or a piece of software acting on someone's behalf.
 
-This schema implements the PROV vocabulary semantics (through JSON-LD mapping directly to the PROV-O RDF model.)
+Defines Agents and core subtypes (`Organization`, `Person`, `SoftwareAgent`, `SoftwareDescription`,
+`DirectQueryService`), along with the `Association` object used to qualify an Activity's relation to
+an Agent, and the `qualifiedDelegation` relation between Agents.
 
 ## Object typing
 
@@ -10,11 +14,7 @@ Object typing needs to be explicit to support effective semantic mapping to the 
 
 `provType` may be used to map to the subClasses of the Provenance vocabulary.
 
-Custom application object types are explicit (`activityType`, `agentType`, `entityType` to support schema validation clarity).
+The custom application object type is explicit (`agentType`) to support schema validation clarity.
 
-
-
-Note that entityType is optional and may be replaced by `featureType` for compatibility with the OGC Feature implementation (implicitly always an Entity)
-
-likewise the use of the property `type` is not specified to allow compatibility with GeoJSON features that must have this property with a constant value ("Feature" or "FeatureCollection").
+An Agent object must be identified by either a `name` or an `id`.
 

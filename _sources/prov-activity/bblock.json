@@ -1,7 +1,7 @@
 {
   "name": "Prov Activity",
   "highlighted": true ,
-  "abstract": "Sub-schema for PROV Entities",
+  "abstract": "Sub-schema for PROV Activities: something that occurs over a period of time and acts upon or with entities, and may involve one or more agents.",
   "status": "under-development",
   "dateTimeAddition": "2023-07-10T00:00:00Z",
   "itemClass": "schema",

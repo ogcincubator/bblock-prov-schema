@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "description": "PROV Activity object schema",
+  "description": "PROV Entity object schema",
   "$defs": {
     "EntityType": {
       "type": "string",

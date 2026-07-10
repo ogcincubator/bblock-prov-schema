@@ -1,7 +1,7 @@
 {
   "name": "Prov Entity",
   "highlighted": true ,
-  "abstract": "Provenance Entity",
+  "abstract": "Sub-schema for PROV Entities: physical, digital, conceptual, or other things with some fixed aspects that were generated, used, derived from or otherwise involved in provenance relations.",
   "status": "under-development",
   "dateTimeAddition": "2023-07-10T00:00:00Z",
   "itemClass": "schema",
