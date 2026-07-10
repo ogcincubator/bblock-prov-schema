@@ -1,100 +1,105 @@
-path	@id
-/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy
-/wasInfluencedBy/id	@id
-/wasInfluencedBy/activityType	@type
-/wasInfluencedBy/prov:type	
-/wasInfluencedBy/endedAtTime	http://www.w3.org/ns/prov#endedAtTime
-/wasInfluencedBy/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith
-/wasInfluencedBy/wasAssociatedWith/href	http://www.w3.org/ns/oa#hasTarget
-/wasInfluencedBy/wasAssociatedWith/rel	http://www.iana.org/assignments/relation
-/wasInfluencedBy/wasAssociatedWith/anchor	
-/wasInfluencedBy/wasAssociatedWith/type	http://purl.org/dc/terms/type
-/wasInfluencedBy/wasAssociatedWith/hreflang	http://purl.org/dc/terms/language
-/wasInfluencedBy/wasAssociatedWith/title	http://www.w3.org/2000/01/rdf-schema#label
-/wasInfluencedBy/wasAssociatedWith/length	http://purl.org/dc/terms/extent
-/wasInfluencedBy/wasAssociatedWith/provType	@type
-/wasInfluencedBy/wasAssociatedWith/agentType	@type
-/wasInfluencedBy/wasAssociatedWith/prov:type	
-/wasInfluencedBy/wasAssociatedWith/name	http://www.w3.org/2000/01/rdf-schema#label
-/wasInfluencedBy/wasAssociatedWith/id	@id
-/wasInfluencedBy/wasAssociatedWith/actedOnBehalfOf	http://www.w3.org/ns/prov#actedOnBehalfOf
-/wasInfluencedBy/wasAssociatedWith/atLocation	http://www.w3.org/ns/prov#atLocation
-/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation	http://www.w3.org/ns/prov#qualifiedDelegation
-/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/id	@id
-/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/type	
-/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/agent	http://www.w3.org/ns/prov#agent
-/wasInfluencedBy/wasAssociatedWith/qualifiedDelegation/hadActivity	http://www.w3.org/ns/prov#hadActivity
-/wasInfluencedBy/wasInformedBy	http://www.w3.org/ns/prov#wasInformedBy
-/wasInfluencedBy/used	http://www.w3.org/ns/prov#used
-/wasInfluencedBy/wasStartedBy	http://www.w3.org/ns/prov#wasStartedBy
-/wasInfluencedBy/wasEndedBy	http://www.w3.org/ns/prov#wasEndedBy
-/wasInfluencedBy/invalidated	http://www.w3.org/ns/prov#invalidated
-/wasInfluencedBy/generated	http://www.w3.org/ns/prov#generated
-/wasInfluencedBy/atLocation	http://www.w3.org/ns/prov#atLocation
-/wasInfluencedBy/qualifiedUsage	http://www.w3.org/ns/prov#qualifiedUsage
-/wasInfluencedBy/qualifiedUsage/id	@id
-/wasInfluencedBy/qualifiedUsage/type	
-/wasInfluencedBy/qualifiedUsage/atTime	http://www.w3.org/ns/prov#atTime
-/wasInfluencedBy/qualifiedUsage/entity	http://www.w3.org/ns/prov#entity
-/wasInfluencedBy/qualifiedCommunication	http://www.w3.org/ns/prov#qualifiedCommunication
-/wasInfluencedBy/qualifiedCommunication/id	@id
-/wasInfluencedBy/qualifiedCommunication/atTime	http://www.w3.org/ns/prov#atTime
-/wasInfluencedBy/qualifiedCommunication/hadRole	http://www.w3.org/ns/prov#hadRole
-/wasInfluencedBy/qualifiedCommunication/influencer	http://www.w3.org/ns/prov#influencer
-/wasInfluencedBy/qualifiedCommunication/hadActivity	http://www.w3.org/ns/prov#hadActivity
-/wasInfluencedBy/qualifiedCommunication/activity	http://www.w3.org/ns/prov#activity
-/wasInfluencedBy/qualifiedCommunication/type	
-/wasInfluencedBy/qualifiedStart	http://www.w3.org/ns/prov#qualifiedStart
-/wasInfluencedBy/qualifiedStart/id	@id
-/wasInfluencedBy/qualifiedStart/type	
-/wasInfluencedBy/qualifiedStart/atTime	http://www.w3.org/ns/prov#atTime
-/wasInfluencedBy/qualifiedStart/entity	http://www.w3.org/ns/prov#entity
-/wasInfluencedBy/qualifiedStart/hadActivity	http://www.w3.org/ns/prov#hadActivity
-/wasInfluencedBy/qualifiedEnd	http://www.w3.org/ns/prov#qualifiedEnd
-/wasInfluencedBy/qualifiedEnd/type	
-/wasInfluencedBy/qualifiedAssociation	http://www.w3.org/ns/prov#qualifiedAssociation
-/wasInfluencedBy/qualifiedAssociation/id	@id
-/wasInfluencedBy/qualifiedAssociation/type	
-/wasInfluencedBy/qualifiedAssociation/agent	http://www.w3.org/ns/prov#agent
-/wasInfluencedBy/qualifiedAssociation/hadRole	http://www.w3.org/ns/prov#hadRole
-/wasInfluencedBy/qualifiedAssociation/hadPlan	http://www.w3.org/ns/prov#hadPlan
-/qualifiedInfluence	http://www.w3.org/ns/prov#qualifiedInfluence
-/qualifiedInfluence/id	@id
-/qualifiedInfluence/influencer	http://www.w3.org/ns/prov#influencer
-/qualifiedInfluence/entity	http://www.w3.org/ns/prov#entity
-/qualifiedInfluence/activity	http://www.w3.org/ns/prov#activity
-/qualifiedInfluence/agent	http://www.w3.org/ns/prov#agent
-/provType	@type
-/prov:type	
-/type	
-/hadMember	http://www.w3.org/ns/prov#hadMember
-/id	@id
-/featureType	@type
-/entityType	@type
-/has_provenance	http://purl.org/dc/terms/provenance
-/wasGeneratedBy	http://www.w3.org/ns/prov#wasGeneratedBy
-/wasAttributedTo	http://www.w3.org/ns/prov#wasAttributedTo
-/wasDerivedFrom	http://www.w3.org/ns/prov#wasDerivedFrom
-/alternateOf	http://www.w3.org/ns/prov#alternateOf
-/hadPrimarySource	http://www.w3.org/ns/prov#hadPrimarySource
-/specializationOf	http://www.w3.org/ns/prov#specializationOf
-/wasInvalidatedBy	http://www.w3.org/ns/prov#wasInvalidatedBy
-/wasQuotedFrom	http://www.w3.org/ns/prov#wasQuotedFrom
-/wasRevisionOf	http://www.w3.org/ns/prov#wasRevisionOf
-/atLocation	http://www.w3.org/ns/prov#atLocation
-/links	http://www.w3.org/2000/01/rdf-schema#seeAlso
-/qualifiedGeneration	http://www.w3.org/ns/prov#qualifiedGeneration
-/qualifiedGeneration/type	
-/qualifiedInvalidation	http://www.w3.org/ns/prov#qualifiedInvalidation
-/qualifiedInvalidation/type	
-/qualifiedDerivation	http://www.w3.org/ns/prov#qualifiedDerivation
-/qualifiedDerivation/id	@id
-/qualifiedDerivation/type	
-/qualifiedDerivation/hadGeneration	http://www.w3.org/ns/prov#hadGeneration
-/qualifiedDerivation/hadActivity	http://www.w3.org/ns/prov#hadActivity
-/qualifiedDerivation/hadUsage	http://www.w3.org/ns/prov#hadUsage
-/qualifiedDerivation/entity	http://www.w3.org/ns/prov#entity
-/qualifiedAttribution	http://www.w3.org/ns/prov#qualifiedAttribution
-/qualifiedAttribution/id	@id
-/qualifiedAttribution/type	
-/qualifiedAttribution/agent	http://www.w3.org/ns/prov#agent
+path	@id	schema
+/_anyOf/0/_oneOf/0/wasInfluencedBy	http://www.w3.org/ns/prov#wasInfluencedBy	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/id	@id	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/activityType	@type	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/prov:type	http://www.w3.org/ns/prov#type	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/endedAtTime	http://www.w3.org/ns/prov#endedAtTime	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith	http://www.w3.org/ns/prov#wasAssociatedWith	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/1/href	http://www.w3.org/ns/oa#hasTarget	https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/1/rel	http://www.iana.org/assignments/relation	https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/1/anchor		https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/1/type	http://purl.org/dc/terms/type	https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/1/hreflang	http://purl.org/dc/terms/language	https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/1/title	http://www.w3.org/2000/01/rdf-schema#label	https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/1/length	http://purl.org/dc/terms/extent	https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/2/_anyOf/0/provType	@type	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/2/_anyOf/1/type		/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/2/_anyOf/2/agentType	@type	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/2/_anyOf/3/prov:type	http://www.w3.org/ns/prov#type	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/2/agentType	@type	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/2/name	http://www.w3.org/2000/01/rdf-schema#label	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/2/id	@id	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/2/actedOnBehalfOf	http://www.w3.org/ns/prov#actedOnBehalfOf	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/2/atLocation	http://www.w3.org/ns/prov#atLocation	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/2/qualifiedDelegation	http://www.w3.org/ns/prov#qualifiedDelegation	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/2/qualifiedDelegation/_oneOf/1/id	@id	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/2/qualifiedDelegation/_oneOf/1/type		/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/2/qualifiedDelegation/_oneOf/1/agent	http://www.w3.org/ns/prov#agent	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasAssociatedWith/_oneOf/2/qualifiedDelegation/_oneOf/1/hadActivity	http://www.w3.org/ns/prov#hadActivity	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasInformedBy	http://www.w3.org/ns/prov#wasInformedBy	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/used	http://www.w3.org/ns/prov#used	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasStartedBy	http://www.w3.org/ns/prov#wasStartedBy	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/wasEndedBy	http://www.w3.org/ns/prov#wasEndedBy	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/invalidated	http://www.w3.org/ns/prov#invalidated	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/generated	http://www.w3.org/ns/prov#generated	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/atLocation	http://www.w3.org/ns/prov#atLocation	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedUsage	http://www.w3.org/ns/prov#qualifiedUsage	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedUsage/_oneOf/1/id	@id	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedUsage/_oneOf/1/type		/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedUsage/_oneOf/1/atTime	http://www.w3.org/ns/prov#atTime	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedUsage/_oneOf/1/entity	http://www.w3.org/ns/prov#entity	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedCommunication	http://www.w3.org/ns/prov#qualifiedCommunication	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedCommunication/_oneOf/1/id	@id	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedCommunication/_oneOf/1/atTime	http://www.w3.org/ns/prov#atTime	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedCommunication/_oneOf/1/hadRole	http://www.w3.org/ns/prov#hadRole	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedCommunication/_oneOf/1/influencer	http://www.w3.org/ns/prov#influencer	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedCommunication/_oneOf/1/hadActivity	http://www.w3.org/ns/prov#hadActivity	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedCommunication/_oneOf/1/activity	http://www.w3.org/ns/prov#activity	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedCommunication/_oneOf/1/type		/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedStart	http://www.w3.org/ns/prov#qualifiedStart	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedStart/_oneOf/1/id	@id	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedStart/_oneOf/1/type		/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedStart/_oneOf/1/atTime	http://www.w3.org/ns/prov#atTime	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedStart/_oneOf/1/entity	http://www.w3.org/ns/prov#entity	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedStart/_oneOf/1/hadActivity	http://www.w3.org/ns/prov#hadActivity	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedEnd	http://www.w3.org/ns/prov#qualifiedEnd	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedEnd/_oneOf/1/type		/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedAssociation	http://www.w3.org/ns/prov#qualifiedAssociation	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedAssociation/_oneOf/1/id	@id	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedAssociation/_oneOf/1/type		/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedAssociation/_oneOf/1/agent	http://www.w3.org/ns/prov#agent	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedAssociation/_oneOf/1/hadRole	http://www.w3.org/ns/prov#hadRole	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInfluencedBy/_anyOf/0/_oneOf/1/qualifiedAssociation/_oneOf/1/hadPlan	http://www.w3.org/ns/prov#hadPlan	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedInfluence	http://www.w3.org/ns/prov#qualifiedInfluence	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedInfluence/_oneOf/1/id	@id	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedInfluence/_oneOf/1/influencer	http://www.w3.org/ns/prov#influencer	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedInfluence/_oneOf/1/entity	http://www.w3.org/ns/prov#entity	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedInfluence/_oneOf/1/activity	http://www.w3.org/ns/prov#activity	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedInfluence/_oneOf/1/agent	http://www.w3.org/ns/prov#agent	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/_anyOf/0/provType	@type	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/_anyOf/1/prov:type	http://www.w3.org/ns/prov#type	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/_anyOf/2/type		/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/_anyOf/9/type		/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/_anyOf/9/hadMember	http://www.w3.org/ns/prov#hadMember	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/_anyOf/10/type		/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/_anyOf/10/hadMember	http://www.w3.org/ns/prov#hadMember	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/id	@id	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/featureType	@type	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/entityType	@type	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/has_provenance	http://purl.org/dc/terms/provenance	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasGeneratedBy	http://www.w3.org/ns/prov#wasGeneratedBy	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasAttributedTo	http://www.w3.org/ns/prov#wasAttributedTo	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasDerivedFrom	http://www.w3.org/ns/prov#wasDerivedFrom	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/alternateOf	http://www.w3.org/ns/prov#alternateOf	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/hadPrimarySource	http://www.w3.org/ns/prov#hadPrimarySource	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/specializationOf	http://www.w3.org/ns/prov#specializationOf	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasInvalidatedBy	http://www.w3.org/ns/prov#wasInvalidatedBy	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasQuotedFrom	http://www.w3.org/ns/prov#wasQuotedFrom	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/wasRevisionOf	http://www.w3.org/ns/prov#wasRevisionOf	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/atLocation	http://www.w3.org/ns/prov#atLocation	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/links	http://www.w3.org/2000/01/rdf-schema#seeAlso	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedGeneration	http://www.w3.org/ns/prov#qualifiedGeneration	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedGeneration/_oneOf/1/type		/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedInvalidation	http://www.w3.org/ns/prov#qualifiedInvalidation	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedInvalidation/_oneOf/1/type		/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedDerivation	http://www.w3.org/ns/prov#qualifiedDerivation	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedDerivation/_oneOf/1/id	@id	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedDerivation/_oneOf/1/type		/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedDerivation/_oneOf/1/hadGeneration	http://www.w3.org/ns/prov#hadGeneration	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedDerivation/_oneOf/1/hadActivity	http://www.w3.org/ns/prov#hadActivity	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedDerivation/_oneOf/1/hadUsage	http://www.w3.org/ns/prov#hadUsage	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedDerivation/_oneOf/1/entity	http://www.w3.org/ns/prov#entity	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedAttribution	http://www.w3.org/ns/prov#qualifiedAttribution	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedAttribution/_oneOf/1/id	@id	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedAttribution/_oneOf/1/type		/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml
+/_anyOf/0/_oneOf/0/qualifiedAttribution/_oneOf/1/agent	http://www.w3.org/ns/prov#agent	/github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml

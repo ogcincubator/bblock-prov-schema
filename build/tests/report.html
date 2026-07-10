@@ -46,12 +46,25 @@
                     border-width: var(--bs-accordion-border-width);
                 }
             }
+            .anchor {
+                color: black;
+                opacity: 0;
+                text-decoration: none;
+                margin-left: 0.5em;
+                margin-right: 0.5em;
+            }
+            .anchor-container:hover .anchor {
+                opacity: 60%;
+            }
+            .anchor-container:hover .anchor:hover {
+                opacity: 100%;
+            }
         </style>
     </head>
     <body>
         <div class="container">
             <h1 class="title">Building blocks validation report</h1>
-            <small class="datetime">Generated at 2026-02-12T14:54:57.878923+00:00</small>
+            <small class="datetime">Generated at 2026-07-10T15:37:40.289860+00:00</small>
                 <p class="summary fw-semibold text-success">
                     Number of passing building blocks: 5 / 5 (100%)
                 </p>
@@ -61,13 +74,14 @@
             </div>
                 <div class="accordion mt-2" id="bblock-reports">
                         <div class="accordion-item bblock-report" data-bblock-id="ogc.ogc-utils.prov-activity" id="bblock-ogc.ogc-utils.prov-activity">
-                            <h2 class="accordion-header bblock-title">
+                            <h2 class="accordion-header bblock-title anchor-container">
                                 <button class="accordion-button collapsed" type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#bblock-collapse-ogc\.ogc-utils\.prov-activity">
                                     <div class="flex-fill">
                                         Prov Activity
                                         <small class="ms-2 bblock-id">ogc.ogc-utils.prov-activity</small>
+                                        <a class="anchor" href="#bblock-ogc.ogc-utils.prov-activity">¶</a>
                                     </div>
 
                                     <span class="badge text-bg-success me-2">
@@ -79,11 +93,11 @@
                             <div class="accordion-collapse collapse " id="bblock-collapse-ogc.ogc-utils.prov-activity">
                                 <div class="accordion-body">
                                         <p class="summary fw-semibold text-success">
-                                            Test passed: 3 / 3
+                                            Test passed: 4 / 4
                                         </p>
-                                        <div class="card mb-2 validation-item require-fail">
+                                        <div class="card mb-2 validation-item require-fail" id="item-ogc.ogc-utils.prov-activity-1">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#uid-1"
                                                             aria-expanded="false" aria-controls="uid-1"
@@ -94,6 +108,7 @@
                                                     <a href="../../_sources/prov-activity/tests/entity-fail.json" target="_blank">entity-fail.json</a>
                                                     <span class="badge bg-secondary test_resource">Test resource</span>
                                                         <span class="badge text-bg-info">Requires fail</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-activity-1">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -101,13 +116,22 @@
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-1">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">General</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-general ">Test was expected to fail and it did.</div>
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Using entity-fail.json from test resources</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD entity-fail.jsonld created</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle entity-fail.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema text-danger">ValidationError: &#x27;Entity&#x27; is not one of [&#x27;Activity&#x27;, &#x27;prov:Activity&#x27;]
 
 Failed validating &#x27;enum&#x27; in schema[0]:
@@ -119,9 +143,9 @@ On instance:
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item ">
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-activity-2">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#uid-2"
                                                             aria-expanded="false" aria-controls="uid-2"
@@ -129,8 +153,9 @@ On instance:
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="ogc-utils/prov-activity/example_1_1.json" target="_blank">example_1_1.json</a>
-                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a href="../../_sources/prov-activity/tests/qualified-communication.json" target="_blank">qualified-communication.json</a>
+                                                    <span class="badge bg-secondary test_resource">Test resource</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-activity-2">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -138,20 +163,26 @@ On instance:
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-2">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using ../prov/examples/example-activity.json from examples</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using qualified-communication.json from test resources</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD qualified-communication.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle qualified-communication.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema ">Using the following JSON Schema: #/$defs/Activity</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item ">
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-activity-3">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#uid-3"
                                                             aria-expanded="false" aria-controls="uid-3"
@@ -159,8 +190,9 @@ On instance:
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="ogc-utils/prov-activity/example_2_1.json" target="_blank">example_2_1.json</a>
+                                                    <a href="ogc-utils/prov-activity/example_1_1.json" target="_blank">example_1_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-activity-3">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -168,11 +200,57 @@ On instance:
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-3">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using ../prov/examples/example-llm.json from examples</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using ../prov/examples/example-activity.json from examples</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Using the following JSON Schema: #/$defs/Activity</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-activity-4">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-4"
+                                                            aria-expanded="false" aria-controls="uid-4"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="ogc-utils/prov-activity/example_2_1.json" target="_blank">example_2_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-activity-4">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-4">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using ../prov/examples/example-llm.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
@@ -182,13 +260,14 @@ On instance:
                             </div>
                         </div>
                         <div class="accordion-item bblock-report" data-bblock-id="ogc.ogc-utils.prov-bundled" id="bblock-ogc.ogc-utils.prov-bundled">
-                            <h2 class="accordion-header bblock-title">
+                            <h2 class="accordion-header bblock-title anchor-container">
                                 <button class="accordion-button collapsed" type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#bblock-collapse-ogc\.ogc-utils\.prov-bundled">
                                     <div class="flex-fill">
                                         Single Schema for PROV
                                         <small class="ms-2 bblock-id">ogc.ogc-utils.prov-bundled</small>
+                                        <a class="anchor" href="#bblock-ogc.ogc-utils.prov-bundled">¶</a>
                                     </div>
 
                                     <span class="badge text-bg-success me-2">
@@ -202,12 +281,12 @@ On instance:
                                         <p class="summary fw-semibold text-success">
                                             Test passed: 8 / 8
                                         </p>
-                                        <div class="card mb-2 validation-item require-fail">
+                                        <div class="card mb-2 validation-item require-fail" id="item-ogc.ogc-utils.prov-bundled-1">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-4"
-                                                            aria-expanded="false" aria-controls="uid-4"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-5"
+                                                            aria-expanded="false" aria-controls="uid-5"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
@@ -215,21 +294,31 @@ On instance:
                                                     <a href="../../_sources/prov-bundled/tests/ambiguous-type-fail.json" target="_blank">ambiguous-type-fail.json</a>
                                                     <span class="badge bg-secondary test_resource">Test resource</span>
                                                         <span class="badge text-bg-info">Requires fail</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-bundled-1">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-4">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-5">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">General</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-general ">Test was expected to fail and it did.</div>
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Using ambiguous-type-fail.json from test resources</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON-LD</div>
-                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f8b757ba560&gt;
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f05ebcd7370&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -248,12 +337,12 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item require-fail">
+                                        <div class="card mb-2 validation-item require-fail" id="item-ogc.ogc-utils.prov-bundled-2">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-5"
-                                                            aria-expanded="false" aria-controls="uid-5"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-6"
+                                                            aria-expanded="false" aria-controls="uid-6"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
@@ -261,21 +350,31 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                     <a href="../../_sources/prov-bundled/tests/relationship-fail.json" target="_blank">relationship-fail.json</a>
                                                     <span class="badge bg-secondary test_resource">Test resource</span>
                                                         <span class="badge text-bg-info">Requires fail</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-bundled-2">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-5">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-6">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">General</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-general ">Test was expected to fail and it did.</div>
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Using relationship-fail.json from test resources</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON-LD</div>
-                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f8b757ba560&gt;
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f05ebcd7370&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -294,12 +393,12 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item require-fail">
+                                        <div class="card mb-2 validation-item require-fail" id="item-ogc.ogc-utils.prov-bundled-3">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-6"
-                                                            aria-expanded="false" aria-controls="uid-6"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-7"
+                                                            aria-expanded="false" aria-controls="uid-7"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
@@ -307,21 +406,31 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                     <a href="../../_sources/prov-bundled/tests/sequential-time-fail.json" target="_blank">sequential-time-fail.json</a>
                                                     <span class="badge bg-secondary test_resource">Test resource</span>
                                                         <span class="badge text-bg-info">Requires fail</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-bundled-3">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-6">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-7">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">General</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-general ">Test was expected to fail and it did.</div>
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Using sequential-time-fail.json from test resources</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON-LD</div>
-                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f8b757ba560&gt;
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f05ebcd7370&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -335,7 +444,7 @@ Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 53, in parse_datetime
     raise ISO8601Error(&quot;ISO 8601 time designator &#x27;T&#x27; missing. Unable to&quot;
 isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. Unable to parse datetime string &#x27;2021-01-01&#x27;
-Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f8b757ba560&gt;
+Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f05ebcd7370&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -354,38 +463,9 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item ">
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-bundled-4">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
-                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-7"
-                                                            aria-expanded="false" aria-controls="uid-7"
-                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                                        <i class="bi bi-caret-right-fill caret"></i>
-                                                        Details
-                                                    </button>
-                                                    <a href="ogc-utils/prov-bundled/example_1_1.json" target="_blank">example_1_1.json</a>
-                                                    <span class="badge bg-secondary example">Example</span>
-                                                    <div class="float-end">
-                                                            <span class="badge text-bg-success me-2">Passed</span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-7">
-                                                    <div class="validation-text-inner">
-                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using examples/simple-rel.json from examples</div>
-                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
-                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card mb-2 validation-item ">
-                                            <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#uid-8"
                                                             aria-expanded="false" aria-controls="uid-8"
@@ -393,8 +473,9 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="ogc-utils/prov-bundled/example_2_1.json" target="_blank">example_2_1.json</a>
+                                                    <a href="ogc-utils/prov-bundled/example_1_1.json" target="_blank">example_1_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-bundled-4">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -402,20 +483,26 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-8">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using examples/example-activity.json from examples</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/simple-rel.json from examples</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema ">Using the following JSON Schema: #/$defs/Activity</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item ">
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-bundled-5">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#uid-9"
                                                             aria-expanded="false" aria-controls="uid-9"
@@ -423,8 +510,9 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="ogc-utils/prov-bundled/example_3_1.json" target="_blank">example_3_1.json</a>
+                                                    <a href="ogc-utils/prov-bundled/example_2_1.json" target="_blank">example_2_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-bundled-5">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -432,19 +520,28 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-9">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using examples/example.json from examples</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/example-activity.json from examples</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_3_1.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_3_1.ttl created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Using the following JSON Schema: #/$defs/Activity</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item ">
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-bundled-6">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#uid-10"
                                                             aria-expanded="false" aria-controls="uid-10"
@@ -452,8 +549,9 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="ogc-utils/prov-bundled/example_4_1.json" target="_blank">example_4_1.json</a>
+                                                    <a href="ogc-utils/prov-bundled/example_3_1.json" target="_blank">example_3_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-bundled-6">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -461,19 +559,26 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-10">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using examples/example-activityinfluence.json from examples</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/example.json from examples</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_4_1.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_4_1.ttl created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_3_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_3_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item ">
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-bundled-7">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#uid-11"
                                                             aria-expanded="false" aria-controls="uid-11"
@@ -481,8 +586,9 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="ogc-utils/prov-bundled/example_5_1.json" target="_blank">example_5_1.json</a>
+                                                    <a href="ogc-utils/prov-bundled/example_4_1.json" target="_blank">example_4_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-bundled-7">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -490,11 +596,55 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-11">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using examples/example-llm.json from examples</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/example-activityinfluence.json from examples</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_4_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_4_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-bundled-8">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-12"
+                                                            aria-expanded="false" aria-controls="uid-12"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="ogc-utils/prov-bundled/example_5_1.json" target="_blank">example_5_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-bundled-8">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-12">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/example-llm.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_5_1.jsonld created</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_5_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
@@ -504,13 +654,14 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                             </div>
                         </div>
                         <div class="accordion-item bblock-report" data-bblock-id="ogc.ogc-utils.prov-entity" id="bblock-ogc.ogc-utils.prov-entity">
-                            <h2 class="accordion-header bblock-title">
+                            <h2 class="accordion-header bblock-title anchor-container">
                                 <button class="accordion-button collapsed" type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#bblock-collapse-ogc\.ogc-utils\.prov-entity">
                                     <div class="flex-fill">
                                         Prov Entity
                                         <small class="ms-2 bblock-id">ogc.ogc-utils.prov-entity</small>
+                                        <a class="anchor" href="#bblock-ogc.ogc-utils.prov-entity">¶</a>
                                     </div>
 
                                     <span class="badge text-bg-success me-2">
@@ -522,40 +673,11 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                             <div class="accordion-collapse collapse " id="bblock-collapse-ogc.ogc-utils.prov-entity">
                                 <div class="accordion-body">
                                         <p class="summary fw-semibold text-success">
-                                            Test passed: 3 / 3
+                                            Test passed: 4 / 4
                                         </p>
-                                        <div class="card mb-2 validation-item ">
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-entity-1">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
-                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-12"
-                                                            aria-expanded="false" aria-controls="uid-12"
-                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                                        <i class="bi bi-caret-right-fill caret"></i>
-                                                        Details
-                                                    </button>
-                                                    <a href="ogc-utils/prov-entity/example_1_1.json" target="_blank">example_1_1.json</a>
-                                                    <span class="badge bg-secondary example">Example</span>
-                                                    <div class="float-end">
-                                                            <span class="badge text-bg-success me-2">Passed</span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-12">
-                                                    <div class="validation-text-inner">
-                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using ../prov/examples/simple-rel.json from examples</div>
-                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
-                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card mb-2 validation-item ">
-                                            <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#uid-13"
                                                             aria-expanded="false" aria-controls="uid-13"
@@ -563,8 +685,9 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="ogc-utils/prov-entity/example_2_1.json" target="_blank">example_2_1.json</a>
+                                                    <a href="ogc-utils/prov-entity/example_1_1.json" target="_blank">example_1_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-entity-1">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -572,19 +695,26 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-13">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using ../prov/examples/example.json from examples</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using ../prov/examples/simple-rel.json from examples</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item ">
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-entity-2">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#uid-14"
                                                             aria-expanded="false" aria-controls="uid-14"
@@ -592,8 +722,9 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="ogc-utils/prov-entity/example_3_1.json" target="_blank">example_3_1.json</a>
+                                                    <a href="ogc-utils/prov-entity/example_2_1.json" target="_blank">example_2_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-entity-2">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -601,11 +732,92 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-14">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using ../prov/examples/example-activityinfluence.json from examples</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using ../prov/examples/example.json from examples</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-entity-3">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-15"
+                                                            aria-expanded="false" aria-controls="uid-15"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="ogc-utils/prov-entity/example_3_1.json" target="_blank">example_3_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-entity-3">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-15">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using ../prov/examples/example-activityinfluence.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_3_1.jsonld created</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_3_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-entity-4">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-16"
+                                                            aria-expanded="false" aria-controls="uid-16"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="ogc-utils/prov-entity/example_4_1.json" target="_blank">example_4_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-entity-4">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-16">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using ../prov/examples/example-entity-timeline.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_4_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_4_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
@@ -615,13 +827,14 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                             </div>
                         </div>
                         <div class="accordion-item bblock-report" data-bblock-id="ogc.ogc-utils.prov" id="bblock-ogc.ogc-utils.prov">
-                            <h2 class="accordion-header bblock-title">
+                            <h2 class="accordion-header bblock-title anchor-container">
                                 <button class="accordion-button collapsed" type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#bblock-collapse-ogc\.ogc-utils\.prov">
                                     <div class="flex-fill">
                                         Provenance Chain
                                         <small class="ms-2 bblock-id">ogc.ogc-utils.prov</small>
+                                        <a class="anchor" href="#bblock-ogc.ogc-utils.prov">¶</a>
                                     </div>
 
                                     <span class="badge text-bg-success me-2">
@@ -635,12 +848,12 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                         <p class="summary fw-semibold text-success">
                                             Test passed: 8 / 8
                                         </p>
-                                        <div class="card mb-2 validation-item require-fail">
+                                        <div class="card mb-2 validation-item require-fail" id="item-ogc.ogc-utils.prov-1">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-15"
-                                                            aria-expanded="false" aria-controls="uid-15"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-17"
+                                                            aria-expanded="false" aria-controls="uid-17"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
@@ -648,21 +861,31 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                     <a href="../../_sources/prov/tests/ambiguous-type-fail.json" target="_blank">ambiguous-type-fail.json</a>
                                                     <span class="badge bg-secondary test_resource">Test resource</span>
                                                         <span class="badge text-bg-info">Requires fail</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-1">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-15">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-17">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">General</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-general ">Test was expected to fail and it did.</div>
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Using ambiguous-type-fail.json from test resources</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON-LD</div>
-                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f8b757ba560&gt;
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f05ebcd7370&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -681,12 +904,12 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item require-fail">
+                                        <div class="card mb-2 validation-item require-fail" id="item-ogc.ogc-utils.prov-2">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-16"
-                                                            aria-expanded="false" aria-controls="uid-16"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-18"
+                                                            aria-expanded="false" aria-controls="uid-18"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
@@ -694,21 +917,31 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                     <a href="../../_sources/prov/tests/relationship-fail.json" target="_blank">relationship-fail.json</a>
                                                     <span class="badge bg-secondary test_resource">Test resource</span>
                                                         <span class="badge text-bg-info">Requires fail</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-2">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-16">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-18">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">General</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-general ">Test was expected to fail and it did.</div>
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Using relationship-fail.json from test resources</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON-LD</div>
-                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f8b757ba560&gt;
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f05ebcd7370&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -727,12 +960,12 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item require-fail">
+                                        <div class="card mb-2 validation-item require-fail" id="item-ogc.ogc-utils.prov-3">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-17"
-                                                            aria-expanded="false" aria-controls="uid-17"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-19"
+                                                            aria-expanded="false" aria-controls="uid-19"
                                                             style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
@@ -740,21 +973,31 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                     <a href="../../_sources/prov/tests/sequential-time-fail.json" target="_blank">sequential-time-fail.json</a>
                                                     <span class="badge bg-secondary test_resource">Test resource</span>
                                                         <span class="badge text-bg-info">Requires fail</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-3">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
                                                 </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-17">
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-19">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">General</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-general ">Test was expected to fail and it did.</div>
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Using sequential-time-fail.json from test resources</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON-LD</div>
-                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f8b757ba560&gt;
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_ld text-danger">Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f05ebcd7370&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -768,7 +1011,7 @@ Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 53, in parse_datetime
     raise ISO8601Error(&quot;ISO 8601 time designator &#x27;T&#x27; missing. Unable to&quot;
 isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. Unable to parse datetime string &#x27;2021-01-01&#x27;
-Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f8b757ba560&gt;
+Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=&lt;function parse_datetime at 0x7f05ebcd7370&gt;
 Traceback (most recent call last):
   File &quot;/venv/lib/python3.10/site-packages/isodate/isodatetime.py&quot;, line 51, in parse_datetime
     datestring, timestring = datetimestring.split(&#x27;T&#x27;)
@@ -787,68 +1030,9 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item ">
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-4">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
-                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-18"
-                                                            aria-expanded="false" aria-controls="uid-18"
-                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                                        <i class="bi bi-caret-right-fill caret"></i>
-                                                        Details
-                                                    </button>
-                                                    <a href="ogc-utils/prov/example_1_1.json" target="_blank">example_1_1.json</a>
-                                                    <span class="badge bg-secondary example">Example</span>
-                                                    <div class="float-end">
-                                                            <span class="badge text-bg-success me-2">Passed</span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-18">
-                                                    <div class="validation-text-inner">
-                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using examples/simple-rel.json from examples</div>
-                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
-                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card mb-2 validation-item ">
-                                            <div class="card-body">
-                                                <div class="card-title mb-0">
-                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
-                                                            data-bs-toggle="collapse" data-bs-target="#uid-19"
-                                                            aria-expanded="false" aria-controls="uid-19"
-                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
-                                                        <i class="bi bi-caret-right-fill caret"></i>
-                                                        Details
-                                                    </button>
-                                                    <a href="ogc-utils/prov/example_2_1.json" target="_blank">example_2_1.json</a>
-                                                    <span class="badge bg-secondary example">Example</span>
-                                                    <div class="float-end">
-                                                            <span class="badge text-bg-success me-2">Passed</span>
-                                                    </div>
-                                                </div>
-                                                <div class="card-text mt-2 validation-text collapse" id="uid-19">
-                                                    <div class="validation-text-inner">
-                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using examples/example-activity.json from examples</div>
-                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
-                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
-                                                                    <div class="font-monospace entry-message section-json_schema ">Using the following JSON Schema: #/$defs/Activity</div>
-                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card mb-2 validation-item ">
-                                            <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#uid-20"
                                                             aria-expanded="false" aria-controls="uid-20"
@@ -856,8 +1040,9 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="ogc-utils/prov/example_3_1.json" target="_blank">example_3_1.json</a>
+                                                    <a href="ogc-utils/prov/example_1_1.json" target="_blank">example_1_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-4">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -865,19 +1050,26 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-20">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using examples/example.json from examples</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/simple-rel.json from examples</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_3_1.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_3_1.ttl created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_1_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_1_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item ">
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-5">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#uid-21"
                                                             aria-expanded="false" aria-controls="uid-21"
@@ -885,8 +1077,9 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="ogc-utils/prov/example_4_1.json" target="_blank">example_4_1.json</a>
+                                                    <a href="ogc-utils/prov/example_2_1.json" target="_blank">example_2_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-5">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -894,19 +1087,28 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-21">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using examples/example-activityinfluence.json from examples</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/example-activity.json from examples</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_4_1.jsonld created</div>
-                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_4_1.ttl created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_2_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_2_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Using the following JSON Schema: #/$defs/Activity</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="card mb-2 validation-item ">
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-6">
                                             <div class="card-body">
-                                                <div class="card-title mb-0">
+                                                <div class="card-title mb-0 anchor-container">
                                                     <button type="button" class="btn btn-sm btn-primary collapsed"
                                                             data-bs-toggle="collapse" data-bs-target="#uid-22"
                                                             aria-expanded="false" aria-controls="uid-22"
@@ -914,8 +1116,9 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                         <i class="bi bi-caret-right-fill caret"></i>
                                                         Details
                                                     </button>
-                                                    <a href="ogc-utils/prov/example_5_1.json" target="_blank">example_5_1.json</a>
+                                                    <a href="ogc-utils/prov/example_3_1.json" target="_blank">example_3_1.json</a>
                                                     <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-6">¶</a>
                                                     <div class="float-end">
                                                             <span class="badge text-bg-success me-2">Passed</span>
                                                     </div>
@@ -923,11 +1126,92 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                                                 <div class="card-text mt-2 validation-text collapse" id="uid-22">
                                                     <div class="validation-text-inner">
                                                                     <div class="font-monospace subsection-title mt-2">Files</div>
-                                                                    <div class="font-monospace entry-message section-files ">Using examples/example-llm.json from examples</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/example.json from examples</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_3_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_3_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-7">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-23"
+                                                            aria-expanded="false" aria-controls="uid-23"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="ogc-utils/prov/example_4_1.json" target="_blank">example_4_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-7">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-23">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/example-activityinfluence.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output JSON-LD example_4_1.jsonld created</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Output Turtle example_4_1.ttl created</div>
+                                                                    <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card mb-2 validation-item " id="item-ogc.ogc-utils.prov-8">
+                                            <div class="card-body">
+                                                <div class="card-title mb-0 anchor-container">
+                                                    <button type="button" class="btn btn-sm btn-primary collapsed"
+                                                            data-bs-toggle="collapse" data-bs-target="#uid-24"
+                                                            aria-expanded="false" aria-controls="uid-24"
+                                                            style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                                        <i class="bi bi-caret-right-fill caret"></i>
+                                                        Details
+                                                    </button>
+                                                    <a href="ogc-utils/prov/example_5_1.json" target="_blank">example_5_1.json</a>
+                                                    <span class="badge bg-secondary example">Example</span>
+                                                    <a class="anchor" href="#item-ogc.ogc-utils.prov-8">¶</a>
+                                                    <div class="float-end">
+                                                            <span class="badge text-bg-success me-2">Passed</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-text mt-2 validation-text collapse" id="uid-24">
+                                                    <div class="validation-text-inner">
+                                                                    <div class="font-monospace subsection-title mt-2">Files</div>
+                                                                
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">Using examples/example-llm.json from examples</div>
+                                                                    
+                                                                    <div class="font-monospace entry-message section-files ">JSON-LD context is present - uplifting</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Output JSON-LD example_5_1.jsonld created</div>
+                                                                    
                                                                     <div class="font-monospace entry-message section-files ">Output Turtle example_5_1.ttl created</div>
                                                                     <div class="font-monospace subsection-title mt-2">JSON Schema</div>
+                                                                
+                                                                    
                                                                     <div class="font-monospace entry-message section-json_schema ">Validation passed</div>
                                                     </div>
                                                 </div>
@@ -937,13 +1221,14 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                             </div>
                         </div>
                         <div class="accordion-item bblock-report" data-bblock-id="ogc.ogc-utils.prov-agent" id="bblock-ogc.ogc-utils.prov-agent">
-                            <h2 class="accordion-header bblock-title">
+                            <h2 class="accordion-header bblock-title anchor-container">
                                 <button class="accordion-button collapsed" type="button"
                                     data-bs-toggle="collapse"
                                     data-bs-target="#bblock-collapse-ogc\.ogc-utils\.prov-agent">
                                     <div class="flex-fill">
                                         Prov Agent
                                         <small class="ms-2 bblock-id">ogc.ogc-utils.prov-agent</small>
+                                        <a class="anchor" href="#bblock-ogc.ogc-utils.prov-agent">¶</a>
                                     </div>
 
                                     <span class="badge text-bg-success me-2">
@@ -972,13 +1257,20 @@ isodate.isoerror.ISO8601Error: ISO 8601 time designator &#x27;T&#x27; missing. U
                         accordionEntries.forEach(e => e.classList.remove('show'));
                     }
                 });
-                if (location.hash.startsWith('#bblock-')) {
+                if (/^#(bblock|item)-/.test(location.hash)) {
                     const highlight = document.querySelector(location.hash.replaceAll('.', '\\.'));
                     if (highlight) {
                         highlight.querySelector('.accordion-collapse').classList.add('show');
                         highlight.classList.add('highlighted');
                     }
                 }
+                document.addEventListener('click', ev => {
+                    if (!ev.target.classList.contains('anchor') || !ev.target.href) {
+                      return;
+                    }
+                    ev.stopPropagation();
+                    navigator?.clipboard?.writeText(ev.target.href);
+                });
             });
         </script>
     </body>

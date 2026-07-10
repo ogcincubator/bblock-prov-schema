@@ -2,7 +2,7 @@
   "title": "Validation report for ogc.ogc-utils.prov-activity - Prov Activity",
   "bblockName": "Prov Activity",
   "bblockId": "ogc.ogc-utils.prov-activity",
-  "generated": "2026-02-12T14:54:56.901577+00:00",
+  "generated": "2026-07-10T15:37:38.835961+00:00",
   "result": true,
   "items": [
     {
@@ -66,6 +66,59 @@
               "errorMessage": "'Entity' is not one of ['Activity', 'prov:Activity']",
               "isError": true,
               "message": "ValidationError: 'Entity' is not one of ['Activity', 'prov:Activity']\n\nFailed validating 'enum' in schema[0]:\n    {'enum': ['Activity', 'prov:Activity'], 'type': 'string'}\n\nOn instance:\n    'Entity'"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source": {
+        "type": "TEST_RESOURCE",
+        "requireFail": false,
+        "filename": "_sources/prov-activity/tests/qualified-communication.json",
+        "url": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-activity/tests/qualified-communication.json",
+        "language": "json"
+      },
+      "result": true,
+      "sections": [
+        {
+          "name": "FILES",
+          "title": "Files",
+          "entries": [
+            {
+              "isError": false,
+              "message": "Using qualified-communication.json from test resources"
+            },
+            {
+              "op": "jsonld-uplift",
+              "isError": false,
+              "message": "JSON-LD context is present - uplifting"
+            },
+            {
+              "op": "jsonld-create",
+              "filename": "qualified-communication.jsonld",
+              "isError": false,
+              "message": "Output JSON-LD qualified-communication.jsonld created"
+            },
+            {
+              "op": "ttl-create",
+              "empty": false,
+              "filename": "qualified-communication.ttl",
+              "size": 7,
+              "isError": false,
+              "message": "Output Turtle qualified-communication.ttl created"
+            }
+          ]
+        },
+        {
+          "name": "JSON_SCHEMA",
+          "title": "JSON Schema",
+          "entries": [
+            {
+              "op": "validation",
+              "result": true,
+              "isError": false,
+              "message": "Validation passed"
             }
           ]
         }
@@ -189,8 +242,8 @@
   ],
   "globalErrors": {},
   "counts": {
-    "total": 3,
-    "passed": 3,
+    "total": 4,
+    "passed": 4,
     "failed": 0
   }
 }

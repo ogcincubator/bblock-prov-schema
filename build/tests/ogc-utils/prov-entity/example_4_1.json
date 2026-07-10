@@ -1,0 +1,22 @@
+{
+  "provType": "Entity",
+  "id": "DP-2024-report",
+  "generatedAtTime": "2024-03-01T09:00:00Z",
+  "invalidatedAtTime": "2024-06-15T00:00:00Z",
+  "value": "42.7",
+  "qualifiedPrimarySource": {
+    "type": "PrimarySource",
+    "atTime": "2024-03-01T09:00:00Z",
+    "entity": "DP-2023-survey-raw"
+  },
+  "qualifiedQuotation": {
+    "type": "Quotation",
+    "atTime": "2024-03-01T09:00:00Z",
+    "entity": "DP-2022-methodology-paper"
+  },
+  "qualifiedRevision": {
+    "type": "Revision",
+    "atTime": "2024-03-01T09:00:00Z",
+    "entity": "DP-2024-report-draft"
+  }
+}

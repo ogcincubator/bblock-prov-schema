@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "description": "PROV Activity object schema",
+  "description": "PROV Entity object schema",
   "$defs": {
     "EntityType": {
       "type": "string",
@@ -38,7 +38,8 @@
           "x-jsonld-id": "@type"
         },
         "prov:type": {
-          "$ref": "#/$defs/EntityTypes"
+          "$ref": "#/$defs/EntityTypes",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "featureType": {
           "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#oneOrMoreObjectref",
@@ -96,6 +97,94 @@
         "wasRevisionOf": {
           "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#oneOrMoreEntitiesOrRefIds",
           "x-jsonld-id": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "x-jsonld-type": "@id"
+        },
+        "generatedAtTime": {
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json#/$defs/dateTime",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#generatedAtTime",
+          "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "invalidatedAtTime": {
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json#/$defs/dateTime",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#invalidatedAtTime",
+          "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+        },
+        "value": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#value"
+        },
+        "qualifiedPrimarySource": {
+          "oneOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json#PrimarySource"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref"
+                  },
+                  {
+                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json#PrimarySource"
+                  }
+                ]
+              }
+            }
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedPrimarySource",
+          "x-jsonld-type": "@id"
+        },
+        "qualifiedQuotation": {
+          "oneOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json#Quotation"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref"
+                  },
+                  {
+                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json#Quotation"
+                  }
+                ]
+              }
+            }
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedQuotation",
+          "x-jsonld-type": "@id"
+        },
+        "qualifiedRevision": {
+          "oneOf": [
+            {
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref"
+            },
+            {
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json#Revision"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref"
+                  },
+                  {
+                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json#Revision"
+                  }
+                ]
+              }
+            }
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedRevision",
           "x-jsonld-type": "@id"
         },
         "atLocation": {
@@ -335,19 +424,10 @@
       "x-jsonld-id": "http://www.w3.org/ns/prov#endedAtTime",
       "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
     },
-    "generatedAtTime": {
-      "x-jsonld-id": "http://www.w3.org/ns/prov#generatedAtTime",
-      "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
-    },
-    "invalidatedAtTime": {
-      "x-jsonld-id": "http://www.w3.org/ns/prov#invalidatedAtTime",
-      "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
-    },
     "startedAtTime": {
       "x-jsonld-id": "http://www.w3.org/ns/prov#startedAtTime",
       "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
     },
-    "value": "http://www.w3.org/ns/prov#value",
     "provenanceUriTemplate": "http://www.w3.org/ns/prov#provenanceUriTemplate",
     "pairKey": {
       "x-jsonld-id": "http://www.w3.org/ns/prov#pairKey",
@@ -427,18 +507,6 @@
     },
     "qualifiedInfluence": {
       "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedInfluence",
-      "x-jsonld-type": "@id"
-    },
-    "qualifiedPrimarySource": {
-      "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedPrimarySource",
-      "x-jsonld-type": "@id"
-    },
-    "qualifiedQuotation": {
-      "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedQuotation",
-      "x-jsonld-type": "@id"
-    },
-    "qualifiedRevision": {
-      "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedRevision",
       "x-jsonld-type": "@id"
     },
     "qualifiedStart": {

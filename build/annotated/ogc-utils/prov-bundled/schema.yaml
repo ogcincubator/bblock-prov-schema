@@ -190,6 +190,7 @@ $defs:
     - properties:
         prov:type:
           $ref: '#/$defs/EntityTypes'
+          x-jsonld-id: http://www.w3.org/ns/prov#type
       required:
       - prov:type
     - properties:
@@ -265,6 +266,7 @@ $defs:
         x-jsonld-id: '@type'
       prov:type:
         $ref: '#/$defs/ActivityTypes'
+        x-jsonld-id: http://www.w3.org/ns/prov#type
       endedAtTime:
         $ref: '#/$defs/dateTime'
         x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
@@ -444,6 +446,7 @@ $defs:
     - properties:
         prov:type:
           $ref: '#/$defs/AgentType'
+          x-jsonld-id: http://www.w3.org/ns/prov#type
       required:
       - prov:type
     - required:

@@ -31,9 +31,14 @@ $defs:
         x-jsonld-id: '@type'
       prov:type:
         $ref: '#/$defs/ActivityTypes'
+        x-jsonld-id: http://www.w3.org/ns/prov#type
       activityType:
         $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: '@type'
+      startedAtTime:
+        $ref: '#/$defs/dateTime'
+        x-jsonld-id: http://www.w3.org/ns/prov#startedAtTime
+        x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
       endedAtTime:
         $ref: '#/$defs/dateTime'
         x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
@@ -89,7 +94,7 @@ $defs:
           items:
             oneOf:
             - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-            - $ref: '#/$defs/Generation'
+            - $ref: '#/$defs/Communication'
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedCommunication
         x-jsonld-type: '@id'
       qualifiedStart:
@@ -229,23 +234,16 @@ $defs:
               type: string
       required:
       - type
-  Derivation:
-    $anchor: Derivation
+  DerivationBase:
     type: object
     properties:
       id:
         $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: '@id'
-      type:
-        oneOf:
-        - type: string
-          const: Derivation
-        - type: array
-          contains:
-            type: string
-            const: Derivation
-          items:
-            type: string
+      atTime:
+        $ref: '#/$defs/dateTime'
+        x-jsonld-id: http://www.w3.org/ns/prov#atTime
+        x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
       hadGeneration:
         oneOf:
         - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
@@ -273,6 +271,76 @@ $defs:
     required:
     - atTime
     - entity
+  Derivation:
+    $anchor: Derivation
+    allOf:
+    - $ref: '#/$defs/DerivationBase'
+    - type: object
+      properties:
+        type:
+          oneOf:
+          - type: string
+            const: Derivation
+          - type: array
+            contains:
+              type: string
+              const: Derivation
+            items:
+              type: string
+  PrimarySource:
+    $anchor: PrimarySource
+    allOf:
+    - $ref: '#/$defs/DerivationBase'
+    - type: object
+      properties:
+        type:
+          oneOf:
+          - type: string
+            const: PrimarySource
+          - type: array
+            contains:
+              type: string
+              const: PrimarySource
+            items:
+              type: string
+      required:
+      - type
+  Quotation:
+    $anchor: Quotation
+    allOf:
+    - $ref: '#/$defs/DerivationBase'
+    - type: object
+      properties:
+        type:
+          oneOf:
+          - type: string
+            const: Quotation
+          - type: array
+            contains:
+              type: string
+              const: Quotation
+            items:
+              type: string
+      required:
+      - type
+  Revision:
+    $anchor: Revision
+    allOf:
+    - $ref: '#/$defs/DerivationBase'
+    - type: object
+      properties:
+        type:
+          oneOf:
+          - type: string
+            const: Revision
+          - type: array
+            contains:
+              type: string
+              const: Revision
+            items:
+              type: string
+      required:
+      - type
   Delegation:
     $anchor: Delegation
     type: object
@@ -437,9 +505,6 @@ x-jsonld-extra-terms:
     x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
   invalidatedAtTime:
     x-jsonld-id: http://www.w3.org/ns/prov#invalidatedAtTime
-    x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
-  startedAtTime:
-    x-jsonld-id: http://www.w3.org/ns/prov#startedAtTime
     x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
   value: http://www.w3.org/ns/prov#value
   provenanceUriTemplate: http://www.w3.org/ns/prov#provenanceUriTemplate

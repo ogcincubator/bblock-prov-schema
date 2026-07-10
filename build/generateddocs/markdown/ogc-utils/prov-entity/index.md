@@ -3,17 +3,26 @@
 
 `ogc.ogc-utils.prov-entity` *v0.1*
 
-Provenance Entity
+Sub-schema for PROV Entities: physical, digital, conceptual, or other things with some fixed aspects that were generated, used, derived from or otherwise involved in provenance relations.
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
 ## Description
 
-## Provenance chain
+## Entity Object sub-schema
 
-A JSON schema defining objects that may be referenced or nested as a chain of Activities, Entities or Agents (or subclasses thereof)
+An **Entity** is a physical, digital, conceptual, or other kind of thing with some fixed aspects;
+entities may be real or imaginary. In PROV terms, an Entity is what was generated, used, derived
+from, or otherwise involved in an Activity or attributed to an Agent — for example a dataset, a
+document, a feature, or a plan.
 
-This schema implements the PROV vocabulary semantics (through JSON-LD mapping directly to the PROV-O RDF model.)
+Defines Entities and core subtypes (`Bundle`, `Plan`, `Collection`), along with the qualified
+relations that may be attached to an Entity (`qualifiedGeneration`, `qualifiedInvalidation`,
+`qualifiedDerivation`, `qualifiedAttribution`, `qualifiedPrimarySource`, `qualifiedQuotation`,
+`qualifiedRevision`).
+
+`generatedAtTime` and `invalidatedAtTime` record when the entity became available and when it
+stopped being usable, respectively. `value` may hold a literal value carried directly by the entity.
 
 ## Object typing
 
@@ -21,13 +30,14 @@ Object typing needs to be explicit to support effective semantic mapping to the 
 
 `provType` may be used to map to the subClasses of the Provenance vocabulary.
 
-Custom application object types are explicit (`activityType`, `agentType`, `entityType` to support schema validation clarity).
+The custom application object type is explicit (`entityType`) to support schema validation clarity.
 
-
-
-Note that entityType is optional and may be replaced by `featureType` for compatibility with the OGC Feature implementation (implicitly always an Entity)
+Note that `entityType` is optional and may be replaced by `featureType` for compatibility with the OGC Feature implementation (implicitly always an Entity)
 
 likewise the use of the property `type` is not specified to allow compatibility with GeoJSON features that must have this property with a constant value ("Feature" or "FeatureCollection").
+
+An Entity object requires an `id`. When `type` is set to `Collection`, `hadMember` (an array of
+member Entities) is also required; when set to `EmptyCollection`, `hadMember` must be an empty array.
 
 
 ## Examples
@@ -392,11 +402,95 @@ A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) exam
 
 ```
 
+
+### Entity timeline and derivation qualifiers
+An entity with its generation/invalidation timestamps, a literal `value`, and its
+[qualified primary source](https://www.w3.org/TR/prov-o/#qualifiedPrimarySource),
+[qualified quotation](https://www.w3.org/TR/prov-o/#qualifiedQuotation) and
+[qualified revision](https://www.w3.org/TR/prov-o/#qualifiedRevision).
+#### json
+```json
+{
+  "provType": "Entity",
+  "id": "DP-2024-report",
+  "generatedAtTime": "2024-03-01T09:00:00Z",
+  "invalidatedAtTime": "2024-06-15T00:00:00Z",
+  "value": "42.7",
+  "qualifiedPrimarySource": {
+    "type": "PrimarySource",
+    "atTime": "2024-03-01T09:00:00Z",
+    "entity": "DP-2023-survey-raw"
+  },
+  "qualifiedQuotation": {
+    "type": "Quotation",
+    "atTime": "2024-03-01T09:00:00Z",
+    "entity": "DP-2022-methodology-paper"
+  },
+  "qualifiedRevision": {
+    "type": "Revision",
+    "atTime": "2024-03-01T09:00:00Z",
+    "entity": "DP-2024-report-draft"
+  }
+}
+
+```
+
+#### jsonld
+```jsonld
+{
+  "@context": [
+    {
+      "iana": "http://www.iana.org/assignments/"
+    },
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld"
+  ],
+  "provType": "Entity",
+  "id": "DP-2024-report",
+  "generatedAtTime": "2024-03-01T09:00:00Z",
+  "invalidatedAtTime": "2024-06-15T00:00:00Z",
+  "value": "42.7",
+  "qualifiedPrimarySource": {
+    "type": "PrimarySource",
+    "atTime": "2024-03-01T09:00:00Z",
+    "entity": "DP-2023-survey-raw"
+  },
+  "qualifiedQuotation": {
+    "type": "Quotation",
+    "atTime": "2024-03-01T09:00:00Z",
+    "entity": "DP-2022-methodology-paper"
+  },
+  "qualifiedRevision": {
+    "type": "Revision",
+    "atTime": "2024-03-01T09:00:00Z",
+    "entity": "DP-2024-report-draft"
+  }
+}
+```
+
+#### ttl
+```ttl
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.example.com/exampleEntity/DP-2024-report> a prov:Entity ;
+    prov:generatedAtTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
+    prov:invalidatedAtTime "2024-06-15T00:00:00+00:00"^^xsd:dateTime ;
+    prov:qualifiedPrimarySource [ prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
+            prov:entity <http://www.example.com/exampleEntity/DP-2023-survey-raw> ] ;
+    prov:qualifiedQuotation [ prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
+            prov:entity <http://www.example.com/exampleEntity/DP-2022-methodology-paper> ] ;
+    prov:qualifiedRevision [ prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
+            prov:entity <http://www.example.com/exampleEntity/DP-2024-report-draft> ] ;
+    prov:value "42.7" .
+
+
+```
+
 ## Schema
 
 ```yaml
 $schema: https://json-schema.org/draft/2020-12/schema
-description: PROV Activity object schema
+description: PROV Entity object schema
 $defs:
   EntityType:
     type: string
@@ -424,6 +518,7 @@ $defs:
         x-jsonld-id: '@type'
       prov:type:
         $ref: '#/$defs/EntityTypes'
+        x-jsonld-id: http://www.w3.org/ns/prov#type
       featureType:
         $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: '@type'
@@ -469,6 +564,49 @@ $defs:
       wasRevisionOf:
         $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#wasRevisionOf
+        x-jsonld-type: '@id'
+      generatedAtTime:
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#/$defs/dateTime
+        x-jsonld-id: http://www.w3.org/ns/prov#generatedAtTime
+        x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
+      invalidatedAtTime:
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#/$defs/dateTime
+        x-jsonld-id: http://www.w3.org/ns/prov#invalidatedAtTime
+        x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
+      value:
+        x-jsonld-id: http://www.w3.org/ns/prov#value
+      qualifiedPrimarySource:
+        oneOf:
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#PrimarySource
+        - type: array
+          items:
+            oneOf:
+            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#PrimarySource
+        x-jsonld-id: http://www.w3.org/ns/prov#qualifiedPrimarySource
+        x-jsonld-type: '@id'
+      qualifiedQuotation:
+        oneOf:
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Quotation
+        - type: array
+          items:
+            oneOf:
+            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Quotation
+        x-jsonld-id: http://www.w3.org/ns/prov#qualifiedQuotation
+        x-jsonld-type: '@id'
+      qualifiedRevision:
+        oneOf:
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Revision
+        - type: array
+          items:
+            oneOf:
+            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Revision
+        x-jsonld-id: http://www.w3.org/ns/prov#qualifiedRevision
         x-jsonld-type: '@id'
       atLocation:
         $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
@@ -618,16 +756,9 @@ x-jsonld-extra-terms:
   endedAtTime:
     x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
     x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
-  generatedAtTime:
-    x-jsonld-id: http://www.w3.org/ns/prov#generatedAtTime
-    x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
-  invalidatedAtTime:
-    x-jsonld-id: http://www.w3.org/ns/prov#invalidatedAtTime
-    x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
   startedAtTime:
     x-jsonld-id: http://www.w3.org/ns/prov#startedAtTime
     x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
-  value: http://www.w3.org/ns/prov#value
   provenanceUriTemplate: http://www.w3.org/ns/prov#provenanceUriTemplate
   pairKey:
     x-jsonld-id: http://www.w3.org/ns/prov#pairKey
@@ -688,15 +819,6 @@ x-jsonld-extra-terms:
     x-jsonld-type: '@id'
   qualifiedInfluence:
     x-jsonld-id: http://www.w3.org/ns/prov#qualifiedInfluence
-    x-jsonld-type: '@id'
-  qualifiedPrimarySource:
-    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedPrimarySource
-    x-jsonld-type: '@id'
-  qualifiedQuotation:
-    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedQuotation
-    x-jsonld-type: '@id'
-  qualifiedRevision:
-    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedRevision
     x-jsonld-type: '@id'
   qualifiedStart:
     x-jsonld-id: http://www.w3.org/ns/prov#qualifiedStart
@@ -841,6 +963,27 @@ Links to the schema:
       "@id": "prov:wasRevisionOf",
       "@type": "@id"
     },
+    "generatedAtTime": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "invalidatedAtTime": {
+      "@id": "prov:invalidatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "value": "prov:value",
+    "qualifiedPrimarySource": {
+      "@id": "prov:qualifiedPrimarySource",
+      "@type": "@id"
+    },
+    "qualifiedQuotation": {
+      "@id": "prov:qualifiedQuotation",
+      "@type": "@id"
+    },
+    "qualifiedRevision": {
+      "@id": "prov:qualifiedRevision",
+      "@type": "@id"
+    },
     "atLocation": {
       "@id": "prov:atLocation",
       "@type": "@id"
@@ -941,19 +1084,10 @@ Links to the schema:
       "@id": "prov:endedAtTime",
       "@type": "xsd:dateTime"
     },
-    "generatedAtTime": {
-      "@id": "prov:generatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "invalidatedAtTime": {
-      "@id": "prov:invalidatedAtTime",
-      "@type": "xsd:dateTime"
-    },
     "startedAtTime": {
       "@id": "prov:startedAtTime",
       "@type": "xsd:dateTime"
     },
-    "value": "prov:value",
     "provenanceUriTemplate": "prov:provenanceUriTemplate",
     "pairKey": {
       "@id": "prov:pairKey",
@@ -1029,18 +1163,6 @@ Links to the schema:
     },
     "qualifiedEnd": {
       "@id": "prov:qualifiedEnd",
-      "@type": "@id"
-    },
-    "qualifiedPrimarySource": {
-      "@id": "prov:qualifiedPrimarySource",
-      "@type": "@id"
-    },
-    "qualifiedQuotation": {
-      "@id": "prov:qualifiedQuotation",
-      "@type": "@id"
-    },
-    "qualifiedRevision": {
-      "@id": "prov:qualifiedRevision",
       "@type": "@id"
     },
     "qualifiedStart": {

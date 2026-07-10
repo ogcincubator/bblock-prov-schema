@@ -1,0 +1,9 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<file:///github/workspace/activity-forecast-report> a prov:Activity ;
+    prov:qualifiedCommunication [ prov:activity <file:///github/workspace/activity-source-observation-run> ;
+            prov:atTime "2024-05-01T08:00:00+00:00"^^xsd:dateTime ],
+        [ prov:activity <file:///github/workspace/activity-source-validation-run> ;
+            prov:atTime "2024-05-01T09:30:00+00:00"^^xsd:dateTime ] .
+

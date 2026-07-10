@@ -1,0 +1,14 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.example.com/exampleEntity/DP-2024-report> a prov:Entity ;
+    prov:generatedAtTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
+    prov:invalidatedAtTime "2024-06-15T00:00:00+00:00"^^xsd:dateTime ;
+    prov:qualifiedPrimarySource [ prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
+            prov:entity <http://www.example.com/exampleEntity/DP-2023-survey-raw> ] ;
+    prov:qualifiedQuotation [ prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
+            prov:entity <http://www.example.com/exampleEntity/DP-2022-methodology-paper> ] ;
+    prov:qualifiedRevision [ prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
+            prov:entity <http://www.example.com/exampleEntity/DP-2024-report-draft> ] ;
+    prov:value "42.7" .
+

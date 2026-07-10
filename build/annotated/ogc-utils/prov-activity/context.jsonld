@@ -79,6 +79,32 @@
           },
           "@id": "prov:entity",
           "@type": "@id"
+        },
+        "activity": {
+          "@context": {
+            "links": {
+              "@id": "rdfs:seeAlso",
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              }
+            }
+          },
+          "@id": "prov:activity",
+          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedInfluence",
@@ -87,6 +113,10 @@
     "id": "@id",
     "provType": "@type",
     "activityType": "@type",
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
     "endedAtTime": {
       "@id": "prov:endedAtTime",
       "@type": "xsd:dateTime"
@@ -96,6 +126,28 @@
       "@type": "@id"
     },
     "wasInformedBy": {
+      "@context": {
+        "links": {
+          "@id": "rdfs:seeAlso",
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          }
+        }
+      },
       "@id": "prov:wasInformedBy",
       "@type": "@id"
     },
@@ -266,6 +318,60 @@
       "@type": "@id"
     },
     "qualifiedCommunication": {
+      "@context": {
+        "hadActivity": {
+          "@context": {
+            "links": {
+              "@id": "rdfs:seeAlso",
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              }
+            }
+          },
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        },
+        "activity": {
+          "@context": {
+            "links": {
+              "@id": "rdfs:seeAlso",
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              }
+            }
+          },
+          "@id": "prov:activity",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedCommunication",
       "@type": "@id"
     },
@@ -400,10 +506,6 @@
     },
     "invalidatedAtTime": {
       "@id": "prov:invalidatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "startedAtTime": {
-      "@id": "prov:startedAtTime",
       "@type": "xsd:dateTime"
     },
     "value": "prov:value",

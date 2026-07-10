@@ -3,7 +3,7 @@
 
 `ogc.ogc-utils.prov-activity` *v0.1*
 
-Sub-schema for PROV Entities
+Sub-schema for PROV Activities: something that occurs over a period of time and acts upon or with entities, and may involve one or more agents.
 
 [*Status*](http://www.opengis.net/def/status): Under development
 
@@ -11,7 +11,31 @@ Sub-schema for PROV Entities
 
 ## Activity Object sub-schema
 
-Defines Activities and core subtypes.
+An **Activity** is something that occurs over a period of time and acts upon or with entities; it
+may include consuming, processing, transforming, modifying, relocating, using, or generating
+entities. An Activity typically starts and ends, and is associated with the Agents responsible for
+carrying it out.
+
+Defines Activities, and the qualified relation objects used to describe how an Activity relates to
+Entities and Agents: `Usage`, `Generation`, `Invalidation`, `Communication`, `Derivation`,
+`Delegation`, `Attribution`, `Start` and `End`.
+
+## Object typing
+
+Object typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).
+
+`provType` may be used to map to the subClasses of the Provenance vocabulary (currently only `Activity`
+itself; PROV-O defines no further Activity subclasses).
+
+The custom application object type is explicit (`activityType`) to support schema validation clarity.
+
+## Temporal properties
+
+An Activity may declare `startedAtTime` and `endedAtTime` to record when it began and finished.
+`used`, `generated` and `invalidated` reference the Entities it consumed, produced or invalidated;
+`wasAssociatedWith` and `wasInformedBy` reference the Agents and prior Activities involved. The
+`qualifiedStart` and `qualifiedEnd` relations may be used instead when the start/end needs to be
+qualified further (e.g. attributed to a triggering Entity).
 ## Examples
 
 ### Activity
@@ -256,9 +280,14 @@ $defs:
         x-jsonld-id: '@type'
       prov:type:
         $ref: '#/$defs/ActivityTypes'
+        x-jsonld-id: http://www.w3.org/ns/prov#type
       activityType:
         $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: '@type'
+      startedAtTime:
+        $ref: '#/$defs/dateTime'
+        x-jsonld-id: http://www.w3.org/ns/prov#startedAtTime
+        x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
       endedAtTime:
         $ref: '#/$defs/dateTime'
         x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
@@ -314,7 +343,7 @@ $defs:
           items:
             oneOf:
             - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-            - $ref: '#/$defs/Generation'
+            - $ref: '#/$defs/Communication'
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedCommunication
         x-jsonld-type: '@id'
       qualifiedStart:
@@ -454,23 +483,16 @@ $defs:
               type: string
       required:
       - type
-  Derivation:
-    $anchor: Derivation
+  DerivationBase:
     type: object
     properties:
       id:
         $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: '@id'
-      type:
-        oneOf:
-        - type: string
-          const: Derivation
-        - type: array
-          contains:
-            type: string
-            const: Derivation
-          items:
-            type: string
+      atTime:
+        $ref: '#/$defs/dateTime'
+        x-jsonld-id: http://www.w3.org/ns/prov#atTime
+        x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
       hadGeneration:
         oneOf:
         - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
@@ -498,6 +520,76 @@ $defs:
     required:
     - atTime
     - entity
+  Derivation:
+    $anchor: Derivation
+    allOf:
+    - $ref: '#/$defs/DerivationBase'
+    - type: object
+      properties:
+        type:
+          oneOf:
+          - type: string
+            const: Derivation
+          - type: array
+            contains:
+              type: string
+              const: Derivation
+            items:
+              type: string
+  PrimarySource:
+    $anchor: PrimarySource
+    allOf:
+    - $ref: '#/$defs/DerivationBase'
+    - type: object
+      properties:
+        type:
+          oneOf:
+          - type: string
+            const: PrimarySource
+          - type: array
+            contains:
+              type: string
+              const: PrimarySource
+            items:
+              type: string
+      required:
+      - type
+  Quotation:
+    $anchor: Quotation
+    allOf:
+    - $ref: '#/$defs/DerivationBase'
+    - type: object
+      properties:
+        type:
+          oneOf:
+          - type: string
+            const: Quotation
+          - type: array
+            contains:
+              type: string
+              const: Quotation
+            items:
+              type: string
+      required:
+      - type
+  Revision:
+    $anchor: Revision
+    allOf:
+    - $ref: '#/$defs/DerivationBase'
+    - type: object
+      properties:
+        type:
+          oneOf:
+          - type: string
+            const: Revision
+          - type: array
+            contains:
+              type: string
+              const: Revision
+            items:
+              type: string
+      required:
+      - type
   Delegation:
     $anchor: Delegation
     type: object
@@ -662,9 +754,6 @@ x-jsonld-extra-terms:
     x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
   invalidatedAtTime:
     x-jsonld-id: http://www.w3.org/ns/prov#invalidatedAtTime
-    x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
-  startedAtTime:
-    x-jsonld-id: http://www.w3.org/ns/prov#startedAtTime
     x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
   value: http://www.w3.org/ns/prov#value
   provenanceUriTemplate: http://www.w3.org/ns/prov#provenanceUriTemplate
@@ -913,6 +1002,32 @@ Links to the schema:
           },
           "@id": "prov:entity",
           "@type": "@id"
+        },
+        "activity": {
+          "@context": {
+            "links": {
+              "@id": "rdfs:seeAlso",
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              }
+            }
+          },
+          "@id": "prov:activity",
+          "@type": "@id"
         }
       },
       "@id": "prov:qualifiedInfluence",
@@ -921,6 +1036,10 @@ Links to the schema:
     "id": "@id",
     "provType": "@type",
     "activityType": "@type",
+    "startedAtTime": {
+      "@id": "prov:startedAtTime",
+      "@type": "xsd:dateTime"
+    },
     "endedAtTime": {
       "@id": "prov:endedAtTime",
       "@type": "xsd:dateTime"
@@ -930,6 +1049,28 @@ Links to the schema:
       "@type": "@id"
     },
     "wasInformedBy": {
+      "@context": {
+        "links": {
+          "@id": "rdfs:seeAlso",
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          }
+        }
+      },
       "@id": "prov:wasInformedBy",
       "@type": "@id"
     },
@@ -1100,6 +1241,60 @@ Links to the schema:
       "@type": "@id"
     },
     "qualifiedCommunication": {
+      "@context": {
+        "hadActivity": {
+          "@context": {
+            "links": {
+              "@id": "rdfs:seeAlso",
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              }
+            }
+          },
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        },
+        "activity": {
+          "@context": {
+            "links": {
+              "@id": "rdfs:seeAlso",
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              }
+            }
+          },
+          "@id": "prov:activity",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedCommunication",
       "@type": "@id"
     },
@@ -1234,10 +1429,6 @@ Links to the schema:
     },
     "invalidatedAtTime": {
       "@id": "prov:invalidatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "startedAtTime": {
-      "@id": "prov:startedAtTime",
       "@type": "xsd:dateTime"
     },
     "value": "prov:value",

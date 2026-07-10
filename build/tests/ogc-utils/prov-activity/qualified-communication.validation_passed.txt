@@ -1,0 +1,13 @@
+Validation report for ogc.ogc-utils.prov-activity - Prov Activity
+Generated 2026-07-10T15:37:38.639780+00:00
+=== Files ===
+Using qualified-communication.json from test resources
+JSON-LD context is present - uplifting
+Output JSON-LD qualified-communication.jsonld created
+Output Turtle qualified-communication.ttl created
+=== End Files ===
+
+=== JSON Schema ===
+Validation passed
+=== End JSON Schema ===
+

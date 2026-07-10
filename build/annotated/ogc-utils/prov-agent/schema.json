@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "description": "PROV Activity object schema",
+  "description": "PROV Agent object schema",
   "$defs": {
     "dateTime": {
       "type": "string",
@@ -52,7 +52,8 @@
           "x-jsonld-id": "@type"
         },
         "prov:type": {
-          "$ref": "#/$defs/AgentType"
+          "$ref": "#/$defs/AgentType",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "name": {
           "type": "string",

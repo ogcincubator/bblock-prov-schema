@@ -349,7 +349,8 @@
         {
           "properties": {
             "prov:type": {
-              "$ref": "#/$defs/EntityTypes"
+              "$ref": "#/$defs/EntityTypes",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#type"
             }
           },
           "required": [
@@ -482,7 +483,8 @@
           "x-jsonld-id": "@type"
         },
         "prov:type": {
-          "$ref": "#/$defs/ActivityTypes"
+          "$ref": "#/$defs/ActivityTypes",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "endedAtTime": {
           "$ref": "#/$defs/dateTime",
@@ -808,7 +810,8 @@
         {
           "properties": {
             "prov:type": {
-              "$ref": "#/$defs/AgentType"
+              "$ref": "#/$defs/AgentType",
+              "x-jsonld-id": "http://www.w3.org/ns/prov#type"
             }
           },
           "required": [
