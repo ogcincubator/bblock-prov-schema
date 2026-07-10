@@ -74,6 +74,82 @@
         "wasRevisionOf": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
         },
+        "generatedAtTime": {
+          "$ref": "bblocks://ogc.ogc-utils.prov-activity#/$defs/dateTime"
+        },
+        "invalidatedAtTime": {
+          "$ref": "bblocks://ogc.ogc-utils.prov-activity#/$defs/dateTime"
+        },
+        "value": {},
+        "qualifiedPrimarySource": {
+          "oneOf": [
+            {
+              "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
+            },
+            {
+              "$ref": "bblocks://ogc.ogc-utils.prov-activity#PrimarySource"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
+                  },
+                  {
+                    "$ref": "bblocks://ogc.ogc-utils.prov-activity#PrimarySource"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "qualifiedQuotation": {
+          "oneOf": [
+            {
+              "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
+            },
+            {
+              "$ref": "bblocks://ogc.ogc-utils.prov-activity#Quotation"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
+                  },
+                  {
+                    "$ref": "bblocks://ogc.ogc-utils.prov-activity#Quotation"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "qualifiedRevision": {
+          "oneOf": [
+            {
+              "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
+            },
+            {
+              "$ref": "bblocks://ogc.ogc-utils.prov-activity#Revision"
+            },
+            {
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
+                  },
+                  {
+                    "$ref": "bblocks://ogc.ogc-utils.prov-activity#Revision"
+                  }
+                ]
+              }
+            }
+          ]
+        },
         "atLocation": {
           "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
         },
