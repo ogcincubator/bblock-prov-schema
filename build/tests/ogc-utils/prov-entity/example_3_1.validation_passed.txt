@@ -1,5 +1,5 @@
 Validation report for ogc.ogc-utils.prov-entity - Prov Entity
-Generated 2026-07-10T15:37:39.635977+00:00
+Generated 2026-07-17T09:59:34.436737+00:00
 === Files ===
 Using ../prov/examples/example-activityinfluence.json from examples
 JSON-LD context is present - uplifting

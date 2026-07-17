@@ -99,7 +99,7 @@
           "x-jsonld-type": "@id"
         }
       },
-      "oneOf": [
+      "anyOf": [
         {
           "required": [
             "name"

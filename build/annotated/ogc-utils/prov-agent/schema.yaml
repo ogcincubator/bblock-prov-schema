@@ -65,7 +65,7 @@ $defs:
             - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Delegation
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedDelegation
         x-jsonld-type: '@id'
-    oneOf:
+    anyOf:
     - required:
       - name
     - required:

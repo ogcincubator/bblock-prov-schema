@@ -1,5 +1,5 @@
 Validation report for ogc.ogc-utils.prov-bundled - Single Schema for PROV
-Generated 2026-07-10T15:37:39.262439+00:00
+Generated 2026-07-17T09:59:33.821418+00:00
 === Files ===
 Using examples/example-activityinfluence.json from examples
 JSON-LD context is present - uplifting
