@@ -1,10 +1,10 @@
 Validation report for ogc.ogc-utils.prov-entity - Prov Entity
-Generated 2026-09-04T07:38:01.282283+00:00
+Generated 2026-09-04T07:38:01.383984+00:00
 === Files ===
-Using ../prov/examples/example.json from examples
+Using ../prov/examples/example-entity-timeline.json from examples
 JSON-LD context is present - uplifting
-Output JSON-LD example_2_1.jsonld created
-Output Turtle example_2_1.ttl created
+Output JSON-LD example_4_1.jsonld created
+Output Turtle example_4_1.ttl created
 === End Files ===
 
 === JSON Schema ===
@@ -14,9 +14,33 @@ Validation passed
 === SHACL ===
 Using SHACL closure graph sources (declared closures, ontologies and RDF data resources):
  - https://www.w3.org/ns/prov-o
+
+** Validation error **
 Validation result for https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl:
   Validation Report
-  Conforms: True
+  Conforms: False
+  Results (3):
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: <https://www.ogc.org/rules/prov/#prop-qualifiedPrimarySource>
+  	Focus Node: <http://www.example.com/exampleEntity/DP-2024-report>
+  	Value Node: [ prov:atTime Literal("2024-03-01T09:00:00+00:00" = 2024-03-01 09:00:00+00:00, datatype=xsd:dateTime) ; prov:entity <http://www.example.com/exampleEntity/DP-2023-survey-raw> ]
+  	Result Path: prov:qualifiedPrimarySource
+  	Message: Node [ prov:atTime Literal("2024-03-01T09:00:00+00:00" = 2024-03-01 09:00:00+00:00, datatype=xsd:dateTime) ; prov:entity <http://www.example.com/exampleEntity/DP-2023-survey-raw> ] does not conform to one or more shapes in [ sh:nodeKind sh:BlankNode ; sh:or ( [ sh:class prov:PrimarySource ] ) ] , [ sh:nodeKind sh:IRI ]
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: <https://www.ogc.org/rules/prov/#prop-qualifiedQuotation>
+  	Focus Node: <http://www.example.com/exampleEntity/DP-2024-report>
+  	Value Node: [ prov:atTime Literal("2024-03-01T09:00:00+00:00" = 2024-03-01 09:00:00+00:00, datatype=xsd:dateTime) ; prov:entity <http://www.example.com/exampleEntity/DP-2022-methodology-paper> ]
+  	Result Path: prov:qualifiedQuotation
+  	Message: Node [ prov:atTime Literal("2024-03-01T09:00:00+00:00" = 2024-03-01 09:00:00+00:00, datatype=xsd:dateTime) ; prov:entity <http://www.example.com/exampleEntity/DP-2022-methodology-paper> ] does not conform to one or more shapes in [ sh:nodeKind sh:BlankNode ; sh:or ( [ sh:class prov:Quotation ] ) ] , [ sh:nodeKind sh:IRI ]
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: <https://www.ogc.org/rules/prov/#prop-qualifiedRevision>
+  	Focus Node: <http://www.example.com/exampleEntity/DP-2024-report>
+  	Value Node: [ prov:atTime Literal("2024-03-01T09:00:00+00:00" = 2024-03-01 09:00:00+00:00, datatype=xsd:dateTime) ; prov:entity <http://www.example.com/exampleEntity/DP-2024-report-draft> ]
+  	Result Path: prov:qualifiedRevision
+  	Message: Node [ prov:atTime Literal("2024-03-01T09:00:00+00:00" = 2024-03-01 09:00:00+00:00, datatype=xsd:dateTime) ; prov:entity <http://www.example.com/exampleEntity/DP-2024-report-draft> ] does not conform to one or more shapes in [ sh:nodeKind sh:BlankNode ; sh:or ( [ sh:class prov:Revision ] ) ] , [ sh:nodeKind sh:IRI ]
   
 Focus nodes for https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl:
  - Shape <https://www.ogc.org/rules/prov/#End-shape>: *none*
@@ -56,7 +80,7 @@ Focus nodes for https://ogcincubator.github.io/cross-domain-model/_sources/prov/
  - Shape <https://www.ogc.org/rules/prov/#prop-atLocation>/sh:or/rdf:first: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-hadGeneration>/sh:or/rdf:rest/rdf:first: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInfluence>/sh:or/rdf:rest/rdf:first: *none*
- - Shape <https://www.ogc.org/rules/prov/#Activity-shape>: surveyreg:DP-1-S1
+ - Shape <https://www.ogc.org/rules/prov/#Activity-shape>: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedGeneration>/sh:or/rdf:rest/rdf:first: *none*
  - Shape _:n284f3eb331ce445682ddd5131f1ac805b134: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-used>/sh:or/rdf:first: *none*
@@ -67,7 +91,7 @@ Focus nodes for https://ogcincubator.github.io/cross-domain-model/_sources/prov/
  - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedPrimarySource>/sh:or/rdf:rest/rdf:first: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-wasEndedBy>/sh:or/rdf:first: *none*
  - Shape <https://www.ogc.org/rules/prov/#SoftwareAgent-shape>: *none*
- - Shape <https://www.ogc.org/rules/prov/#Entity-shape>: <https://example.org/aThing/DP-2223>
+ - Shape <https://www.ogc.org/rules/prov/#Entity-shape>: <http://www.example.com/exampleEntity/DP-2024-report>
  - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInvalidation>/sh:or/rdf:rest/rdf:first: *none*
  - Shape <https://www.ogc.org/rules/prov/#Influence-shape>: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-activity>/sh:or/rdf:rest/rdf:first: *none*

@@ -1,23 +1,39 @@
 Validation report for ogc.ogc-utils.prov-activity - Prov Activity
-Generated 2026-09-04T07:38:00.643959+00:00
+Generated 2026-09-04T07:38:00.490025+00:00
 === Files ===
-Using ../prov/examples/example-activity.json from examples
+Using qualified-communication.json from test resources
 JSON-LD context is present - uplifting
-Output JSON-LD example_1_1.jsonld created
-Output Turtle example_1_1.ttl created
+Output JSON-LD qualified-communication.jsonld created
+Output Turtle qualified-communication.ttl created
 === End Files ===
 
 === JSON Schema ===
-Using the following JSON Schema: #/$defs/Activity
 Validation passed
 === End JSON Schema ===
 
 === SHACL ===
 Using SHACL closure graph sources (declared closures, ontologies and RDF data resources):
  - https://www.w3.org/ns/prov-o
+
+** Validation error **
 Validation result for https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl:
   Validation Report
-  Conforms: True
+  Conforms: False
+  Results (2):
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: <https://www.ogc.org/rules/prov/#prop-qualifiedCommunication>
+  	Focus Node: <file:///github/workspace/activity-forecast-report>
+  	Value Node: [ prov:activity <file:///github/workspace/activity-source-observation-run> ; prov:atTime Literal("2024-05-01T08:00:00+00:00" = 2024-05-01 08:00:00+00:00, datatype=xsd:dateTime) ]
+  	Result Path: prov:qualifiedCommunication
+  	Message: Node [ prov:activity <file:///github/workspace/activity-source-observation-run> ; prov:atTime Literal("2024-05-01T08:00:00+00:00" = 2024-05-01 08:00:00+00:00, datatype=xsd:dateTime) ] does not conform to one or more shapes in [ sh:nodeKind sh:BlankNode ; sh:or ( [ sh:class prov:Communication ] ) ] , [ sh:nodeKind sh:IRI ]
+  Constraint Violation in OrConstraintComponent (http://www.w3.org/ns/shacl#OrConstraintComponent):
+  	Severity: sh:Violation
+  	Source Shape: <https://www.ogc.org/rules/prov/#prop-qualifiedCommunication>
+  	Focus Node: <file:///github/workspace/activity-forecast-report>
+  	Value Node: [ prov:activity <file:///github/workspace/activity-source-validation-run> ; prov:atTime Literal("2024-05-01T09:30:00+00:00" = 2024-05-01 09:30:00+00:00, datatype=xsd:dateTime) ]
+  	Result Path: prov:qualifiedCommunication
+  	Message: Node [ prov:activity <file:///github/workspace/activity-source-validation-run> ; prov:atTime Literal("2024-05-01T09:30:00+00:00" = 2024-05-01 09:30:00+00:00, datatype=xsd:dateTime) ] does not conform to one or more shapes in [ sh:nodeKind sh:BlankNode ; sh:or ( [ sh:class prov:Communication ] ) ] , [ sh:nodeKind sh:IRI ]
   
 Focus nodes for https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl:
  - Shape <https://www.ogc.org/rules/prov/#prop-wasInformedBy>/sh:or/rdf:rest/rdf:first: *none*
@@ -63,7 +79,7 @@ Focus nodes for https://ogcincubator.github.io/cross-domain-model/_sources/prov/
  - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedQuotation>/sh:or/rdf:rest/rdf:first: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedInfluence>/sh:or/rdf:first: *none*
  - Shape _:nc3bba58d1f4443dd94117bb7e6297dd1b122: *none*
- - Shape <https://www.ogc.org/rules/prov/#Activity-shape>: <http://www.example.com/exampleActivity/someActivity_1>
+ - Shape <https://www.ogc.org/rules/prov/#Activity-shape>: <file:///github/workspace/activity-forecast-report>
  - Shape _:nc3bba58d1f4443dd94117bb7e6297dd1b56: *none*
  - Shape _:nc3bba58d1f4443dd94117bb7e6297dd1b206: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedDerivation>/sh:or/rdf:first: *none*
@@ -79,7 +95,7 @@ Focus nodes for https://ogcincubator.github.io/cross-domain-model/_sources/prov/
  - Shape _:nc3bba58d1f4443dd94117bb7e6297dd1b200: *none*
  - Shape <https://www.ogc.org/rules/prov/#SoftwareAgent-shape>: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedQuotation>/sh:or/rdf:first: *none*
- - Shape <https://www.ogc.org/rules/prov/#Entity-shape>: <http://www.example.com/exampleActivity/Act3>
+ - Shape <https://www.ogc.org/rules/prov/#Entity-shape>: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedEnd>/sh:or/rdf:rest/rdf:first: *none*
  - Shape <https://www.ogc.org/rules/prov/#Influence-shape>: *none*
  - Shape _:nc3bba58d1f4443dd94117bb7e6297dd1b152: *none*

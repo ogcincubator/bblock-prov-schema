@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "ogc-utils",
   "version": "0.1",
-  "dateOfLastChange": "2026-07-17",
+  "dateOfLastChange": "2026-09-04",
   "sources": [
     {
       "link": "https://www.w3.org/TR/prov-o/",
@@ -24,10 +24,14 @@
     "prov",
     "utils"
   ],
-  "shaclShapes": {},
+  "shaclShapes": {
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ]
+  },
   "dependsOn": [
-    "ogc.ogc-utils.prov",
-    "ogc.ogc-utils.prov-activity"
+    "ogc.ogc-utils.prov-activity",
+    "ogc.ogc-utils.prov"
   ],
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml",
@@ -37,7 +41,7 @@
   "sourceLdContext": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/context.jsonld",
   "resolvedSchemaProperties": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/resolvedProperties.json",
   "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-entity/",
-  "validationPassed": true,
+  "validationPassed": false,
   "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov-entity/",
   "description": "## Entity Object sub-schema\n\nAn **Entity** is a physical, digital, conceptual, or other kind of thing with some fixed aspects;\nentities may be real or imaginary. In PROV terms, an Entity is what was generated, used, derived\nfrom, or otherwise involved in an Activity or attributed to an Agent \u2014 for example a dataset, a\ndocument, a feature, or a plan.\n\nDefines Entities and core subtypes (`Bundle`, `Plan`, `Collection`), along with the qualified\nrelations that may be attached to an Entity (`qualifiedGeneration`, `qualifiedInvalidation`,\n`qualifiedDerivation`, `qualifiedAttribution`, `qualifiedPrimarySource`, `qualifiedQuotation`,\n`qualifiedRevision`).\n\n`generatedAtTime` and `invalidatedAtTime` record when the entity became available and when it\nstopped being usable, respectively. `value` may hold a literal value carried directly by the entity.\n\n## Object typing\n\nObject typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).\n\n`provType` may be used to map to the subClasses of the Provenance vocabulary.\n\nThe custom application object type is explicit (`entityType`) to support schema validation clarity.\n\nNote that `entityType` is optional and may be replaced by `featureType` for compatibility with the OGC Feature implementation (implicitly always an Entity)\n\nlikewise the use of the property `type` is not specified to allow compatibility with GeoJSON features that must have this property with a constant value (\"Feature\" or \"FeatureCollection\").\n\nAn Entity object requires an `id`. When `type` is set to `Collection`, `hadMember` (an array of\nmember Entities) is also required; when set to `EmptyCollection`, `hadMember` must be an empty array.\n\n",
   "examples": [

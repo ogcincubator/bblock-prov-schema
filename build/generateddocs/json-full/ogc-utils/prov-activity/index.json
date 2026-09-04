@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "ogc-utils",
   "version": "0.1",
-  "dateOfLastChange": "2026-07-17",
+  "dateOfLastChange": "2026-09-04",
   "sources": [
     {
       "link": "https://www.w3.org/TR/prov-o/",
@@ -24,7 +24,11 @@
     "prov",
     "utils"
   ],
-  "shaclShapes": {},
+  "shaclShapes": {
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ]
+  },
   "dependsOn": [
     "ogc.ogc-utils.prov"
   ],
@@ -36,7 +40,7 @@
   "sourceLdContext": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/context.jsonld",
   "resolvedSchemaProperties": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/resolvedProperties.json",
   "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-activity/",
-  "validationPassed": true,
+  "validationPassed": false,
   "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov-activity/",
   "description": "## Activity Object sub-schema\n\nAn **Activity** is something that occurs over a period of time and acts upon or with entities; it\nmay include consuming, processing, transforming, modifying, relocating, using, or generating\nentities. An Activity typically starts and ends, and is associated with the Agents responsible for\ncarrying it out.\n\nDefines Activities, and the qualified relation objects used to describe how an Activity relates to\nEntities and Agents: `Usage`, `Generation`, `Invalidation`, `Communication`, `Derivation`,\n`Delegation`, `Attribution`, `Start` and `End`.\n\n## Object typing\n\nObject typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).\n\n`provType` may be used to map to the subClasses of the Provenance vocabulary (currently only `Activity`\nitself; PROV-O defines no further Activity subclasses).\n\nThe custom application object type is explicit (`activityType`) to support schema validation clarity.\n\n## Temporal properties\n\nAn Activity may declare `startedAtTime` and `endedAtTime` to record when it began and finished.\n`used`, `generated` and `invalidated` reference the Entities it consumed, produced or invalidated;\n`wasAssociatedWith` and `wasInformedBy` reference the Agents and prior Activities involved. The\n`qualifiedStart` and `qualifiedEnd` relations may be used instead when the start/end needs to be\nqualified further (e.g. attributed to a triggering Entity).",
   "examples": [
@@ -79,20 +83,20 @@
           "ref": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/examples/example-llm.json",
           "base-uri": "http://www.example.com/exampleEntity/",
           "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-activity/example_2_1.json",
-          "sizeBytes": 1465,
-          "code": "{\n    \"prov:type\": \"prov:Activity\",\n    \"generated\": {\n        \"id\": \"output\",\n        \"type\": \"Entity\",\n        \"AgentType\": \"SoftwareAgent\",\n        \"response\": [\n            {\n                \"id\": \"LLM Generated Code\",\n                \"type\": \"Entity\",\n                \"wasGeneratedBy\": \"gemini-1.5-pro-001\",\n                \"data\": \"gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\"\n            },\n            {\n                \"id\": \"Code Output\",\n                \"type\": \"Entity\",\n                \"data\": \"511.8048618048641\"\n            },\n            {\n                \"id\": \"Final Output\",\n                \"type\": \"Entity\",\n                \"wasGeneratedBy\": \"gemini-1.5-flash-001\",\n                \"data\": \"The closest hospital to UNSW Village is approximately 512 meters away.\"\n            }\n        ]\n    },\n    \"startedAtTime\": \"2024-11-19T05:07:22.927913Z\",\n    \"endedAtTime\": \"2024-11-19T05:07:34.304708Z\",\n    \"used\": [\n        {\n            \"id\": \"file\",\n            \"type\": \"Entity\",\n            \"data\": [\n                {\n                    \"id\": \"osmdata.shp\",\n                    \"type\": \"Entity\",\n                    \"records\": 3544\n                }\n            ]\n        },\n        {\n            \"id\": \"user_input\",\n            \"prov:type\": \"Entity\",\n            \"input\": \"How far away is the closest hospital from UNSW village\"\n        }\n    ]\n}"
+          "sizeBytes": 1483,
+          "code": "{\n    \"provType\": \"Activity\",\n    \"generated\": {\n        \"id\": \"output\",\n        \"provType\": \"Entity\",\n        \"agentType\": \"SoftwareAgent\",\n        \"response\": [\n            {\n                \"id\": \"LLM Generated Code\",\n                \"provType\": \"Entity\",\n                \"wasGeneratedBy\": \"gemini-1.5-pro-001\",\n                \"data\": \"gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\"\n            },\n            {\n                \"id\": \"Code Output\",\n                \"provType\": \"Entity\",\n                \"data\": \"511.8048618048641\"\n            },\n            {\n                \"id\": \"Final Output\",\n                \"provType\": \"Entity\",\n                \"wasGeneratedBy\": \"gemini-1.5-flash-001\",\n                \"data\": \"The closest hospital to UNSW Village is approximately 512 meters away.\"\n            }\n        ]\n    },\n    \"startedAtTime\": \"2024-11-19T05:07:22.927913Z\",\n    \"endedAtTime\": \"2024-11-19T05:07:34.304708Z\",\n    \"used\": [\n        {\n            \"id\": \"file\",\n            \"provType\": \"Entity\",\n            \"data\": [\n                {\n                    \"id\": \"osmdata.shp\",\n                    \"provType\": \"Entity\",\n                    \"records\": 3544\n                }\n            ]\n        },\n        {\n            \"id\": \"user_input\",\n            \"provType\": \"Entity\",\n            \"input\": \"How far away is the closest hospital from UNSW village\"\n        }\n    ]\n}\n"
         },
         {
           "language": "jsonld",
           "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-activity/example_2_1.jsonld",
-          "sizeBytes": 1397,
-          "code": "{\n  \"@context\": [\n    {\n      \"iana\": \"http://www.iana.org/assignments/\"\n    },\n    \"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/context.jsonld\"\n  ],\n  \"prov:type\": \"prov:Activity\",\n  \"generated\": {\n    \"id\": \"output\",\n    \"type\": \"Entity\",\n    \"AgentType\": \"SoftwareAgent\",\n    \"response\": [\n      {\n        \"id\": \"LLM Generated Code\",\n        \"type\": \"Entity\",\n        \"wasGeneratedBy\": \"gemini-1.5-pro-001\",\n        \"data\": \"gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\"\n      },\n      {\n        \"id\": \"Code Output\",\n        \"type\": \"Entity\",\n        \"data\": \"511.8048618048641\"\n      },\n      {\n        \"id\": \"Final Output\",\n        \"type\": \"Entity\",\n        \"wasGeneratedBy\": \"gemini-1.5-flash-001\",\n        \"data\": \"The closest hospital to UNSW Village is approximately 512 meters away.\"\n      }\n    ]\n  },\n  \"startedAtTime\": \"2024-11-19T05:07:22.927913Z\",\n  \"endedAtTime\": \"2024-11-19T05:07:34.304708Z\",\n  \"used\": [\n    {\n      \"id\": \"file\",\n      \"type\": \"Entity\",\n      \"data\": [\n        {\n          \"id\": \"osmdata.shp\",\n          \"type\": \"Entity\",\n          \"records\": 3544\n        }\n      ]\n    },\n    {\n      \"id\": \"user_input\",\n      \"prov:type\": \"Entity\",\n      \"input\": \"How far away is the closest hospital from UNSW village\"\n    }\n  ]\n}"
+          "sizeBytes": 1414,
+          "code": "{\n  \"@context\": [\n    {\n      \"iana\": \"http://www.iana.org/assignments/\"\n    },\n    \"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/context.jsonld\"\n  ],\n  \"provType\": \"Activity\",\n  \"generated\": {\n    \"id\": \"output\",\n    \"provType\": \"Entity\",\n    \"agentType\": \"SoftwareAgent\",\n    \"response\": [\n      {\n        \"id\": \"LLM Generated Code\",\n        \"provType\": \"Entity\",\n        \"wasGeneratedBy\": \"gemini-1.5-pro-001\",\n        \"data\": \"gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\"\n      },\n      {\n        \"id\": \"Code Output\",\n        \"provType\": \"Entity\",\n        \"data\": \"511.8048618048641\"\n      },\n      {\n        \"id\": \"Final Output\",\n        \"provType\": \"Entity\",\n        \"wasGeneratedBy\": \"gemini-1.5-flash-001\",\n        \"data\": \"The closest hospital to UNSW Village is approximately 512 meters away.\"\n      }\n    ]\n  },\n  \"startedAtTime\": \"2024-11-19T05:07:22.927913Z\",\n  \"endedAtTime\": \"2024-11-19T05:07:34.304708Z\",\n  \"used\": [\n    {\n      \"id\": \"file\",\n      \"provType\": \"Entity\",\n      \"data\": [\n        {\n          \"id\": \"osmdata.shp\",\n          \"provType\": \"Entity\",\n          \"records\": 3544\n        }\n      ]\n    },\n    {\n      \"id\": \"user_input\",\n      \"provType\": \"Entity\",\n      \"input\": \"How far away is the closest hospital from UNSW village\"\n    }\n  ]\n}"
         },
         {
           "language": "ttl",
           "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov-activity/example_2_1.ttl",
-          "sizeBytes": 533,
-          "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<http://www.example.com/exampleEntity/user_input> prov:type \"Entity\" .\n\n[] prov:endedAtTime \"2024-11-19T05:07:34.304708+00:00\"^^xsd:dateTime ;\n    prov:generated <http://www.example.com/exampleEntity/output> ;\n    prov:startedAtTime \"2024-11-19T05:07:22.927913+00:00\"^^xsd:dateTime ;\n    prov:type \"prov:Activity\" ;\n    prov:used <http://www.example.com/exampleEntity/file>,\n        <http://www.example.com/exampleEntity/user_input> .\n\n"
+          "sizeBytes": 670,
+          "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<http://www.example.com/exampleEntity/file> a prov:Entity .\n\n<http://www.example.com/exampleEntity/output> a prov:Entity,\n        prov:SoftwareAgent .\n\n<http://www.example.com/exampleEntity/user_input> a prov:Entity .\n\n[] a prov:Activity ;\n    prov:endedAtTime \"2024-11-19T05:07:34.304708+00:00\"^^xsd:dateTime ;\n    prov:generated <http://www.example.com/exampleEntity/output> ;\n    prov:startedAtTime \"2024-11-19T05:07:22.927913+00:00\"^^xsd:dateTime ;\n    prov:used <http://www.example.com/exampleEntity/file>,\n        <http://www.example.com/exampleEntity/user_input> .\n\n"
         }
       ],
       "prefixes": {

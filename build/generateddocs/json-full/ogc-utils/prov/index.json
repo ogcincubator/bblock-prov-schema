@@ -10,14 +10,14 @@
   "itemClass": "schema",
   "register": "ogc-utils",
   "version": "0.1",
-  "dateOfLastChange": "2026-07-17",
+  "dateOfLastChange": "2026-09-04",
   "dependsOn": [
     "ogc.ogc-utils.iri-or-curie",
-    "ogc.ogc-utils.prov-agent",
     "ogc.ogc-utils.prov-entity",
     "ogc.ogc-utils.prov-activity",
     "ogc.ogc-utils.json-link",
-    "ogc.model.cross-domain.prov"
+    "ogc.model.cross-domain.prov",
+    "ogc.ogc-utils.prov-agent"
   ],
   "sources": [
     {
@@ -31,7 +31,11 @@
     "prov",
     "utils"
   ],
-  "shaclShapes": {},
+  "shaclShapes": {
+    "ogc.model.cross-domain.prov": [
+      "https://ogcincubator.github.io/cross-domain-model/_sources/prov/shapes.shacl"
+    ]
+  },
   "ldContext": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
   "schema": {
     "application/yaml": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml",
@@ -47,24 +51,25 @@
   "examples": [
     {
       "title": "Simple relationships",
+      "base-output-filename": "simple-rel",
       "snippets": [
         {
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/examples/simple-rel.json",
           "base-uri": "http://www.example.com/exampleEntities/",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.json",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/simple-rel.json",
           "sizeBytes": 57,
           "code": "{\n  \"id\": \"Object2\",\n  \"wasDerivedFrom\": \"Object1\"\n}\n\n\n\n\n"
         },
         {
           "language": "jsonld",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.jsonld",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/simple-rel.jsonld",
           "sizeBytes": 237,
           "code": "{\n  \"@context\": [\n    {\n      \"iana\": \"http://www.iana.org/assignments/\"\n    },\n    \"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld\"\n  ],\n  \"id\": \"Object2\",\n  \"wasDerivedFrom\": \"Object1\"\n}"
         },
         {
           "language": "ttl",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_1_1.ttl",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/simple-rel.ttl",
           "sizeBytes": 167,
           "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n\n<http://www.example.com/exampleEntities/Object2> prov:wasDerivedFrom <http://www.example.com/exampleEntities/Object1> .\n\n"
         }
@@ -75,6 +80,7 @@
     },
     {
       "title": "Activity",
+      "base-output-filename": "example-activity",
       "content": "this is a simple activity referencing some relevant document",
       "snippets": [
         {
@@ -82,19 +88,19 @@
           "ref": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/examples/example-activity.json",
           "base-uri": "http://www.example.com/exampleActivity/",
           "schema-ref": "#/$defs/Activity",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.json",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example-activity.json",
           "sizeBytes": 357,
           "code": "{\n  \"provType\": \"Activity\",\n  \"id\": \"someActivity_1\",\n  \"endedAtTime\": \"2029-01-01T22:05:19+02:00\",\n  \"wasAssociatedWith\": \"eg_agents:bc-3\",\n  \"used\": {\n    \"provType\": \"Entity\",\n    \"id\": \"Act3\",\n    \"wasAttributedTo\": \"eg_agents:Gov1\",\n    \"links\": [\n      {\n        \"href\": \"https://some.gov/linktoact/\",\n        \"rel\": \"related\"\n      }\n    ]\n  }\n}\n\n\n\n\n"
         },
         {
           "language": "jsonld",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.jsonld",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example-activity.jsonld",
           "sizeBytes": 537,
           "code": "{\n  \"@context\": [\n    {\n      \"iana\": \"http://www.iana.org/assignments/\"\n    },\n    \"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld\"\n  ],\n  \"provType\": \"Activity\",\n  \"id\": \"someActivity_1\",\n  \"endedAtTime\": \"2029-01-01T22:05:19+02:00\",\n  \"wasAssociatedWith\": \"eg_agents:bc-3\",\n  \"used\": {\n    \"provType\": \"Entity\",\n    \"id\": \"Act3\",\n    \"wasAttributedTo\": \"eg_agents:Gov1\",\n    \"links\": [\n      {\n        \"href\": \"https://some.gov/linktoact/\",\n        \"rel\": \"related\"\n      }\n    ]\n  }\n}"
         },
         {
           "language": "ttl",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_2_1.ttl",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example-activity.ttl",
           "sizeBytes": 823,
           "code": "@prefix iana: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<http://www.example.com/exampleActivity/someActivity_1> a prov:Activity ;\n    prov:endedAtTime \"2029-01-01T22:05:19+02:00\"^^xsd:dateTime ;\n    prov:used <http://www.example.com/exampleActivity/Act3> ;\n    prov:wasAssociatedWith <http://www.example.com/exampleActivity/eg_agents:bc-3> .\n\n<http://www.example.com/exampleActivity/Act3> a prov:Entity ;\n    rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://some.gov/linktoact/> ] ;\n    prov:wasAttributedTo <http://www.example.com/exampleActivity/eg_agents:Gov1> .\n\n"
         }
@@ -105,25 +111,26 @@
     },
     {
       "title": "Provenance Chain",
+      "base-output-filename": "example",
       "content": "DAG defined by an object list.",
       "snippets": [
         {
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/examples/example.json",
           "base-uri": "http://www.example.com/exampleEntity/",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_3_1.json",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example.json",
           "sizeBytes": 1723,
           "code": "{\n  \"@context\": {\n    \"@base\": \"https://example.org/aThing/\",\n    \"agents\": \"https://someagentregister.eg/\",\n    \"thing\": \"https://example.org/entities/\",\n    \"foaf\": \"http://xmlns.com/foaf/0.1/\",\n    \"survtypes\": \"https://example.org/surveytypes/\",\n    \"surveyreg\": \"https://example.org/surveys/\",\n    \"featureType\": {\n      \"@id\": \"@type\",\n      \"@context\": {\n        \"@base\": \"http://example.org/myEntities/\"\n      }\n    },\n    \"activityType\": {\n      \"@id\": \"@type\",\n      \"@context\": {\n        \"@base\": \"http://example.org/myActivityTypes/\"\n      }\n    }\n  },\n  \"id\": \"DP-1\",\n  \"type\": \"Feature\",\n  \"featureType\": \"Survey\",\n  \"wasGeneratedBy\": [\n    \"surveyreg:DP-1-S1\",\n    {\n      \"activityType\": \"Registration\",\n      \"id\": \"surveyreg:DP-1-S2\",\n      \"endedAtTime\": \"2019-01-01T19:03:15+01:00\",\n      \"wasAssociatedWith\": \"agents:bc-3\",\n      \"used\": {\n        \"id\": \"Example-Act\",\n        \"wasAttributedTo\": \"agents:nz\",\n        \"links\": [\n          {\n            \"href\": \"https://nze.gov/linktoact/Example1\",\n            \"rel\": \"related\"\n          }\n        ]\n      }\n    }\n  ],\n  \"has_provenance\": [\n    {\n      \"id\": \"DP-2223\",\n      \"provType\": \"Entity\",\n      \"featureType\": \"Survey\",\n      \"wasGeneratedBy\": \"DP-1-S1\"\n    },\n    {\n      \"provType\": \"Activity\",\n      \"id\": \"surveyreg:DP-1-S1\",\n      \"activityType\": \"InitialSurvey\",\n      \"endedAtTime\": \"2023-10-05T05:03:15+01:00\",\n      \"wasAssociatedWith\": \"agents:ah-2344503\",\n      \"used\": {\n        \"id\": \"thing:Act3\",\n        \"entityType\": \"Legislation\",\n        \"wasAttributedTo\": \"agents:nz\",\n        \"links\": [\n          {\n            \"href\": \"https://some.gov/linktoact/\",\n            \"rel\": \"related\"\n          }\n        ]\n      }\n    }\n  ]\n}\n\n\n\n"
         },
         {
           "language": "jsonld",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_3_1.jsonld",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example.jsonld",
           "sizeBytes": 1932,
           "code": "{\n  \"@context\": [\n    {\n      \"iana\": \"http://www.iana.org/assignments/\"\n    },\n    \"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld\",\n    {\n      \"@base\": \"https://example.org/aThing/\",\n      \"agents\": \"https://someagentregister.eg/\",\n      \"thing\": \"https://example.org/entities/\",\n      \"foaf\": \"http://xmlns.com/foaf/0.1/\",\n      \"survtypes\": \"https://example.org/surveytypes/\",\n      \"surveyreg\": \"https://example.org/surveys/\",\n      \"featureType\": {\n        \"@id\": \"@type\",\n        \"@context\": {\n          \"@base\": \"http://example.org/myEntities/\"\n        }\n      },\n      \"activityType\": {\n        \"@id\": \"@type\",\n        \"@context\": {\n          \"@base\": \"http://example.org/myActivityTypes/\"\n        }\n      }\n    }\n  ],\n  \"id\": \"DP-1\",\n  \"type\": \"Feature\",\n  \"featureType\": \"Survey\",\n  \"wasGeneratedBy\": [\n    \"surveyreg:DP-1-S1\",\n    {\n      \"activityType\": \"Registration\",\n      \"id\": \"surveyreg:DP-1-S2\",\n      \"endedAtTime\": \"2019-01-01T19:03:15+01:00\",\n      \"wasAssociatedWith\": \"agents:bc-3\",\n      \"used\": {\n        \"id\": \"Example-Act\",\n        \"wasAttributedTo\": \"agents:nz\",\n        \"links\": [\n          {\n            \"href\": \"https://nze.gov/linktoact/Example1\",\n            \"rel\": \"related\"\n          }\n        ]\n      }\n    }\n  ],\n  \"has_provenance\": [\n    {\n      \"id\": \"DP-2223\",\n      \"provType\": \"Entity\",\n      \"featureType\": \"Survey\",\n      \"wasGeneratedBy\": \"DP-1-S1\"\n    },\n    {\n      \"provType\": \"Activity\",\n      \"id\": \"surveyreg:DP-1-S1\",\n      \"activityType\": \"InitialSurvey\",\n      \"endedAtTime\": \"2023-10-05T05:03:15+01:00\",\n      \"wasAssociatedWith\": \"agents:ah-2344503\",\n      \"used\": {\n        \"id\": \"thing:Act3\",\n        \"entityType\": \"Legislation\",\n        \"wasAttributedTo\": \"agents:nz\",\n        \"links\": [\n          {\n            \"href\": \"https://some.gov/linktoact/\",\n            \"rel\": \"related\"\n          }\n        ]\n      }\n    }\n  ]\n}"
         },
         {
           "language": "ttl",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_3_1.ttl",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example.ttl",
           "sizeBytes": 1784,
           "code": "@prefix agents: <https://someagentregister.eg/> .\n@prefix dcterms: <http://purl.org/dc/terms/> .\n@prefix iana: <http://www.iana.org/assignments/> .\n@prefix oa: <http://www.w3.org/ns/oa#> .\n@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix surveyreg: <https://example.org/surveys/> .\n@prefix thing: <https://example.org/entities/> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;\n    dcterms:provenance <https://example.org/aThing/DP-2223>,\n        surveyreg:DP-1-S1 ;\n    prov:wasGeneratedBy surveyreg:DP-1-S1,\n        surveyreg:DP-1-S2 .\n\n<https://example.org/aThing/DP-2223> a <http://example.org/myEntities/Survey>,\n        prov:Entity ;\n    prov:wasGeneratedBy <https://example.org/aThing/DP-1-S1> .\n\n<https://example.org/aThing/Example-Act> rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://nze.gov/linktoact/Example1> ] ;\n    prov:wasAttributedTo agents:nz .\n\nthing:Act3 a <https://example.org/aThing/Legislation> ;\n    rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;\n            oa:hasTarget <https://some.gov/linktoact/> ] ;\n    prov:wasAttributedTo agents:nz .\n\nsurveyreg:DP-1-S2 a <http://example.org/myActivityTypes/Registration> ;\n    prov:endedAtTime \"2019-01-01T19:03:15+01:00\"^^xsd:dateTime ;\n    prov:used <https://example.org/aThing/Example-Act> ;\n    prov:wasAssociatedWith agents:bc-3 .\n\nsurveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,\n        prov:Activity ;\n    prov:endedAtTime \"2023-10-05T05:03:15+01:00\"^^xsd:dateTime ;\n    prov:used thing:Act3 ;\n    prov:wasAssociatedWith agents:ah-2344503 .\n\n"
         }
@@ -134,25 +141,26 @@
     },
     {
       "title": "Qualified Generation",
+      "base-output-filename": "example-activityinfluence",
       "content": "A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) example.",
       "snippets": [
         {
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/examples/example-activityinfluence.json",
           "base-uri": "http://www.example.com/exampleEntity/",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_4_1.json",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example-activityinfluence.json",
           "sizeBytes": 1018,
           "code": "{\n  \"@context\": {\n    \"@base\": \"https://example.org/aThing/\",\n    \"agents\": \"https://someagentregister.eg/\",\n    \"thing\": \"https://example.org/entities/\",\n    \"foaf\": \"http://xmlns.com/foaf/0.1/\",\n    \"survtypes\": \"https://example.org/surveytypes/\",\n    \"surveyreg\": \"https://example.org/surveys/\",\n    \"featureType\": {\n      \"@id\": \"@type\",\n      \"@context\": {\n        \"@base\": \"http://example.org/myEntities/\"\n      }\n    },\n    \"activityType\": {\n      \"@id\": \"@type\",\n      \"@context\": {\n        \"@base\": \"http://example.org/myActivityTypes/\"\n      }\n    }\n  },\n  \"id\": \"DP-1\",\n  \"type\": \"Feature\",\n  \"featureType\": \"Survey\",\n  \"qualifiedGeneration\": [\n    {\n      \"type\": \"Generation\",\n      \"activity\": {\n        \"id\": \"uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44\",\n        \"type\": [\n          \"wfprov:ProcessRun\",\n          \"Activity\"\n        ],\n        \"name\": \"Run of workflow/packed.cwl#main/sorted\"\n      },\n      \"atTime\": \"2018-10-25T15:46:38.058365\",\n      \"hadRole\": \"wf:main/sorted/output\"\n    }\n  ]\n}\n\n\n\n"
         },
         {
           "language": "jsonld",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_4_1.jsonld",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example-activityinfluence.jsonld",
           "sizeBytes": 1227,
           "code": "{\n  \"@context\": [\n    {\n      \"iana\": \"http://www.iana.org/assignments/\"\n    },\n    \"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld\",\n    {\n      \"@base\": \"https://example.org/aThing/\",\n      \"agents\": \"https://someagentregister.eg/\",\n      \"thing\": \"https://example.org/entities/\",\n      \"foaf\": \"http://xmlns.com/foaf/0.1/\",\n      \"survtypes\": \"https://example.org/surveytypes/\",\n      \"surveyreg\": \"https://example.org/surveys/\",\n      \"featureType\": {\n        \"@id\": \"@type\",\n        \"@context\": {\n          \"@base\": \"http://example.org/myEntities/\"\n        }\n      },\n      \"activityType\": {\n        \"@id\": \"@type\",\n        \"@context\": {\n          \"@base\": \"http://example.org/myActivityTypes/\"\n        }\n      }\n    }\n  ],\n  \"id\": \"DP-1\",\n  \"type\": \"Feature\",\n  \"featureType\": \"Survey\",\n  \"qualifiedGeneration\": [\n    {\n      \"type\": \"Generation\",\n      \"activity\": {\n        \"id\": \"uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44\",\n        \"type\": [\n          \"wfprov:ProcessRun\",\n          \"Activity\"\n        ],\n        \"name\": \"Run of workflow/packed.cwl#main/sorted\"\n      },\n      \"atTime\": \"2018-10-25T15:46:38.058365\",\n      \"hadRole\": \"wf:main/sorted/output\"\n    }\n  ]\n}"
         },
         {
           "language": "ttl",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_4_1.ttl",
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example-activityinfluence.ttl",
           "sizeBytes": 543,
           "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;\n    prov:qualifiedGeneration [ prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;\n            prov:atTime \"2018-10-25T15:46:38.058365\"^^xsd:dateTime ;\n            prov:hadRole <wf:main/sorted/output> ] .\n\n<uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> rdfs:label \"Run of workflow/packed.cwl#main/sorted\" .\n\n"
         }
@@ -163,27 +171,28 @@
     },
     {
       "title": "Workflow (using LLM) Example",
+      "base-output-filename": "example-llm",
       "content": "A provenance chain for a workflow using a Large Language Model to interpret a query and and a geospatial data source.\n\nThis is a fairly trivial example not attempting to standardise descriptions of such workflows, which would be an obvious profile for this model.",
       "snippets": [
         {
           "language": "json",
           "ref": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/examples/example-llm.json",
           "base-uri": "http://www.example.com/exampleEntity/",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_5_1.json",
-          "sizeBytes": 1465,
-          "code": "{\n    \"prov:type\": \"prov:Activity\",\n    \"generated\": {\n        \"id\": \"output\",\n        \"type\": \"Entity\",\n        \"AgentType\": \"SoftwareAgent\",\n        \"response\": [\n            {\n                \"id\": \"LLM Generated Code\",\n                \"type\": \"Entity\",\n                \"wasGeneratedBy\": \"gemini-1.5-pro-001\",\n                \"data\": \"gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\"\n            },\n            {\n                \"id\": \"Code Output\",\n                \"type\": \"Entity\",\n                \"data\": \"511.8048618048641\"\n            },\n            {\n                \"id\": \"Final Output\",\n                \"type\": \"Entity\",\n                \"wasGeneratedBy\": \"gemini-1.5-flash-001\",\n                \"data\": \"The closest hospital to UNSW Village is approximately 512 meters away.\"\n            }\n        ]\n    },\n    \"startedAtTime\": \"2024-11-19T05:07:22.927913Z\",\n    \"endedAtTime\": \"2024-11-19T05:07:34.304708Z\",\n    \"used\": [\n        {\n            \"id\": \"file\",\n            \"type\": \"Entity\",\n            \"data\": [\n                {\n                    \"id\": \"osmdata.shp\",\n                    \"type\": \"Entity\",\n                    \"records\": 3544\n                }\n            ]\n        },\n        {\n            \"id\": \"user_input\",\n            \"prov:type\": \"Entity\",\n            \"input\": \"How far away is the closest hospital from UNSW village\"\n        }\n    ]\n}"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example-llm.json",
+          "sizeBytes": 1483,
+          "code": "{\n    \"provType\": \"Activity\",\n    \"generated\": {\n        \"id\": \"output\",\n        \"provType\": \"Entity\",\n        \"agentType\": \"SoftwareAgent\",\n        \"response\": [\n            {\n                \"id\": \"LLM Generated Code\",\n                \"provType\": \"Entity\",\n                \"wasGeneratedBy\": \"gemini-1.5-pro-001\",\n                \"data\": \"gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\"\n            },\n            {\n                \"id\": \"Code Output\",\n                \"provType\": \"Entity\",\n                \"data\": \"511.8048618048641\"\n            },\n            {\n                \"id\": \"Final Output\",\n                \"provType\": \"Entity\",\n                \"wasGeneratedBy\": \"gemini-1.5-flash-001\",\n                \"data\": \"The closest hospital to UNSW Village is approximately 512 meters away.\"\n            }\n        ]\n    },\n    \"startedAtTime\": \"2024-11-19T05:07:22.927913Z\",\n    \"endedAtTime\": \"2024-11-19T05:07:34.304708Z\",\n    \"used\": [\n        {\n            \"id\": \"file\",\n            \"provType\": \"Entity\",\n            \"data\": [\n                {\n                    \"id\": \"osmdata.shp\",\n                    \"provType\": \"Entity\",\n                    \"records\": 3544\n                }\n            ]\n        },\n        {\n            \"id\": \"user_input\",\n            \"provType\": \"Entity\",\n            \"input\": \"How far away is the closest hospital from UNSW village\"\n        }\n    ]\n}\n"
         },
         {
           "language": "jsonld",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_5_1.jsonld",
-          "sizeBytes": 1388,
-          "code": "{\n  \"@context\": [\n    {\n      \"iana\": \"http://www.iana.org/assignments/\"\n    },\n    \"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld\"\n  ],\n  \"prov:type\": \"prov:Activity\",\n  \"generated\": {\n    \"id\": \"output\",\n    \"type\": \"Entity\",\n    \"AgentType\": \"SoftwareAgent\",\n    \"response\": [\n      {\n        \"id\": \"LLM Generated Code\",\n        \"type\": \"Entity\",\n        \"wasGeneratedBy\": \"gemini-1.5-pro-001\",\n        \"data\": \"gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\"\n      },\n      {\n        \"id\": \"Code Output\",\n        \"type\": \"Entity\",\n        \"data\": \"511.8048618048641\"\n      },\n      {\n        \"id\": \"Final Output\",\n        \"type\": \"Entity\",\n        \"wasGeneratedBy\": \"gemini-1.5-flash-001\",\n        \"data\": \"The closest hospital to UNSW Village is approximately 512 meters away.\"\n      }\n    ]\n  },\n  \"startedAtTime\": \"2024-11-19T05:07:22.927913Z\",\n  \"endedAtTime\": \"2024-11-19T05:07:34.304708Z\",\n  \"used\": [\n    {\n      \"id\": \"file\",\n      \"type\": \"Entity\",\n      \"data\": [\n        {\n          \"id\": \"osmdata.shp\",\n          \"type\": \"Entity\",\n          \"records\": 3544\n        }\n      ]\n    },\n    {\n      \"id\": \"user_input\",\n      \"prov:type\": \"Entity\",\n      \"input\": \"How far away is the closest hospital from UNSW village\"\n    }\n  ]\n}"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example-llm.jsonld",
+          "sizeBytes": 1405,
+          "code": "{\n  \"@context\": [\n    {\n      \"iana\": \"http://www.iana.org/assignments/\"\n    },\n    \"https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld\"\n  ],\n  \"provType\": \"Activity\",\n  \"generated\": {\n    \"id\": \"output\",\n    \"provType\": \"Entity\",\n    \"agentType\": \"SoftwareAgent\",\n    \"response\": [\n      {\n        \"id\": \"LLM Generated Code\",\n        \"provType\": \"Entity\",\n        \"wasGeneratedBy\": \"gemini-1.5-pro-001\",\n        \"data\": \"gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()\"\n      },\n      {\n        \"id\": \"Code Output\",\n        \"provType\": \"Entity\",\n        \"data\": \"511.8048618048641\"\n      },\n      {\n        \"id\": \"Final Output\",\n        \"provType\": \"Entity\",\n        \"wasGeneratedBy\": \"gemini-1.5-flash-001\",\n        \"data\": \"The closest hospital to UNSW Village is approximately 512 meters away.\"\n      }\n    ]\n  },\n  \"startedAtTime\": \"2024-11-19T05:07:22.927913Z\",\n  \"endedAtTime\": \"2024-11-19T05:07:34.304708Z\",\n  \"used\": [\n    {\n      \"id\": \"file\",\n      \"provType\": \"Entity\",\n      \"data\": [\n        {\n          \"id\": \"osmdata.shp\",\n          \"provType\": \"Entity\",\n          \"records\": 3544\n        }\n      ]\n    },\n    {\n      \"id\": \"user_input\",\n      \"provType\": \"Entity\",\n      \"input\": \"How far away is the closest hospital from UNSW village\"\n    }\n  ]\n}"
         },
         {
           "language": "ttl",
-          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example_5_1.ttl",
-          "sizeBytes": 533,
-          "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<http://www.example.com/exampleEntity/user_input> prov:type \"Entity\" .\n\n[] prov:endedAtTime \"2024-11-19T05:07:34.304708+00:00\"^^xsd:dateTime ;\n    prov:generated <http://www.example.com/exampleEntity/output> ;\n    prov:startedAtTime \"2024-11-19T05:07:22.927913+00:00\"^^xsd:dateTime ;\n    prov:type \"prov:Activity\" ;\n    prov:used <http://www.example.com/exampleEntity/file>,\n        <http://www.example.com/exampleEntity/user_input> .\n\n"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/ogc-utils/prov/example-llm.ttl",
+          "sizeBytes": 670,
+          "code": "@prefix prov: <http://www.w3.org/ns/prov#> .\n@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .\n\n<http://www.example.com/exampleEntity/file> a prov:Entity .\n\n<http://www.example.com/exampleEntity/output> a prov:Entity,\n        prov:SoftwareAgent .\n\n<http://www.example.com/exampleEntity/user_input> a prov:Entity .\n\n[] a prov:Activity ;\n    prov:endedAtTime \"2024-11-19T05:07:34.304708+00:00\"^^xsd:dateTime ;\n    prov:generated <http://www.example.com/exampleEntity/output> ;\n    prov:startedAtTime \"2024-11-19T05:07:22.927913+00:00\"^^xsd:dateTime ;\n    prov:used <http://www.example.com/exampleEntity/file>,\n        <http://www.example.com/exampleEntity/user_input> .\n\n"
         }
       ],
       "prefixes": {

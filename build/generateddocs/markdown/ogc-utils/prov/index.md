@@ -491,26 +491,26 @@ This is a fairly trivial example not attempting to standardise descriptions of s
 #### json
 ```json
 {
-    "prov:type": "prov:Activity",
+    "provType": "Activity",
     "generated": {
         "id": "output",
-        "type": "Entity",
-        "AgentType": "SoftwareAgent",
+        "provType": "Entity",
+        "agentType": "SoftwareAgent",
         "response": [
             {
                 "id": "LLM Generated Code",
-                "type": "Entity",
+                "provType": "Entity",
                 "wasGeneratedBy": "gemini-1.5-pro-001",
                 "data": "gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()"
             },
             {
                 "id": "Code Output",
-                "type": "Entity",
+                "provType": "Entity",
                 "data": "511.8048618048641"
             },
             {
                 "id": "Final Output",
-                "type": "Entity",
+                "provType": "Entity",
                 "wasGeneratedBy": "gemini-1.5-flash-001",
                 "data": "The closest hospital to UNSW Village is approximately 512 meters away."
             }
@@ -521,22 +521,23 @@ This is a fairly trivial example not attempting to standardise descriptions of s
     "used": [
         {
             "id": "file",
-            "type": "Entity",
+            "provType": "Entity",
             "data": [
                 {
                     "id": "osmdata.shp",
-                    "type": "Entity",
+                    "provType": "Entity",
                     "records": 3544
                 }
             ]
         },
         {
             "id": "user_input",
-            "prov:type": "Entity",
+            "provType": "Entity",
             "input": "How far away is the closest hospital from UNSW village"
         }
     ]
 }
+
 ```
 
 #### jsonld
@@ -548,26 +549,26 @@ This is a fairly trivial example not attempting to standardise descriptions of s
     },
     "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld"
   ],
-  "prov:type": "prov:Activity",
+  "provType": "Activity",
   "generated": {
     "id": "output",
-    "type": "Entity",
-    "AgentType": "SoftwareAgent",
+    "provType": "Entity",
+    "agentType": "SoftwareAgent",
     "response": [
       {
         "id": "LLM Generated Code",
-        "type": "Entity",
+        "provType": "Entity",
         "wasGeneratedBy": "gemini-1.5-pro-001",
         "data": "gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()"
       },
       {
         "id": "Code Output",
-        "type": "Entity",
+        "provType": "Entity",
         "data": "511.8048618048641"
       },
       {
         "id": "Final Output",
-        "type": "Entity",
+        "provType": "Entity",
         "wasGeneratedBy": "gemini-1.5-flash-001",
         "data": "The closest hospital to UNSW Village is approximately 512 meters away."
       }
@@ -578,18 +579,18 @@ This is a fairly trivial example not attempting to standardise descriptions of s
   "used": [
     {
       "id": "file",
-      "type": "Entity",
+      "provType": "Entity",
       "data": [
         {
           "id": "osmdata.shp",
-          "type": "Entity",
+          "provType": "Entity",
           "records": 3544
         }
       ]
     },
     {
       "id": "user_input",
-      "prov:type": "Entity",
+      "provType": "Entity",
       "input": "How far away is the closest hospital from UNSW village"
     }
   ]
@@ -601,12 +602,17 @@ This is a fairly trivial example not attempting to standardise descriptions of s
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://www.example.com/exampleEntity/user_input> prov:type "Entity" .
+<http://www.example.com/exampleEntity/file> a prov:Entity .
 
-[] prov:endedAtTime "2024-11-19T05:07:34.304708+00:00"^^xsd:dateTime ;
+<http://www.example.com/exampleEntity/output> a prov:Entity,
+        prov:SoftwareAgent .
+
+<http://www.example.com/exampleEntity/user_input> a prov:Entity .
+
+[] a prov:Activity ;
+    prov:endedAtTime "2024-11-19T05:07:34.304708+00:00"^^xsd:dateTime ;
     prov:generated <http://www.example.com/exampleEntity/output> ;
     prov:startedAtTime "2024-11-19T05:07:22.927913+00:00"^^xsd:dateTime ;
-    prov:type "prov:Activity" ;
     prov:used <http://www.example.com/exampleEntity/file>,
         <http://www.example.com/exampleEntity/user_input> .
 
