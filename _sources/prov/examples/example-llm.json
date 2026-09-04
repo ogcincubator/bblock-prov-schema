@@ -1,24 +1,24 @@
 {
-    "prov:type": "prov:Activity",
+    "provType": "Activity",
     "generated": {
         "id": "output",
-        "type": "Entity",
-        "AgentType": "SoftwareAgent",
+        "provType": "Entity",
+        "agentType": "SoftwareAgent",
         "response": [
             {
                 "id": "LLM Generated Code",
-                "type": "Entity",
+                "provType": "Entity",
                 "wasGeneratedBy": "gemini-1.5-pro-001",
                 "data": "gdf.to_crs(epsg=7856).set_index('name').loc['UNSW Village'].geometry.distance(gdf.to_crs(epsg=7856)[gdf.amenity == 'hospital'].geometry).min()"
             },
             {
                 "id": "Code Output",
-                "type": "Entity",
+                "provType": "Entity",
                 "data": "511.8048618048641"
             },
             {
                 "id": "Final Output",
-                "type": "Entity",
+                "provType": "Entity",
                 "wasGeneratedBy": "gemini-1.5-flash-001",
                 "data": "The closest hospital to UNSW Village is approximately 512 meters away."
             }
@@ -29,18 +29,18 @@
     "used": [
         {
             "id": "file",
-            "type": "Entity",
+            "provType": "Entity",
             "data": [
                 {
                     "id": "osmdata.shp",
-                    "type": "Entity",
+                    "provType": "Entity",
                     "records": 3544
                 }
             ]
         },
         {
             "id": "user_input",
-            "prov:type": "Entity",
+            "provType": "Entity",
             "input": "How far away is the closest hospital from UNSW village"
         }
     ]
