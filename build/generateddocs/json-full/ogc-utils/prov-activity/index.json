@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "ogc-utils",
   "version": "0.1",
-  "dateOfLastChange": "2026-09-04",
+  "dateOfLastChange": "2026-09-16",
   "sources": [
     {
       "link": "https://www.w3.org/TR/prov-o/",
@@ -40,7 +40,7 @@
   "sourceLdContext": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/context.jsonld",
   "resolvedSchemaProperties": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/resolvedProperties.json",
   "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-activity/",
-  "validationPassed": false,
+  "validationPassed": true,
   "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov-activity/",
   "description": "## Activity Object sub-schema\n\nAn **Activity** is something that occurs over a period of time and acts upon or with entities; it\nmay include consuming, processing, transforming, modifying, relocating, using, or generating\nentities. An Activity typically starts and ends, and is associated with the Agents responsible for\ncarrying it out.\n\nDefines Activities, and the qualified relation objects used to describe how an Activity relates to\nEntities and Agents: `Usage`, `Generation`, `Invalidation`, `Communication`, `Derivation`,\n`Delegation`, `Attribution`, `Start` and `End`.\n\n## Object typing\n\nObject typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).\n\n`provType` may be used to map to the subClasses of the Provenance vocabulary (currently only `Activity`\nitself; PROV-O defines no further Activity subclasses).\n\nThe custom application object type is explicit (`activityType`) to support schema validation clarity.\n\n## Temporal properties\n\nAn Activity may declare `startedAtTime` and `endedAtTime` to record when it began and finished.\n`used`, `generated` and `invalidated` reference the Entities it consumed, produced or invalidated;\n`wasAssociatedWith` and `wasInformedBy` reference the Agents and prior Activities involved. The\n`qualifiedStart` and `qualifiedEnd` relations may be used instead when the start/end needs to be\nqualified further (e.g. attributed to a triggering Entity).",
   "examples": [

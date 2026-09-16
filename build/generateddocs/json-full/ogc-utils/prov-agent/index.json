@@ -10,7 +10,7 @@
   "itemClass": "schema",
   "register": "ogc-utils",
   "version": "0.1",
-  "dateOfLastChange": "2026-09-04",
+  "dateOfLastChange": "2026-09-16",
   "sources": [
     {
       "link": "https://www.w3.org/TR/prov-o/",

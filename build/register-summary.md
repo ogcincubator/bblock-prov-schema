@@ -51,15 +51,15 @@ Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activi
 
 Sub-schema for PROV Activities: something that occurs over a period of time and acts upon or with entities, and may involve one or more agents.
 
-### `ogc.ogc-utils.prov-agent` — Prov Agent
-
-**Type:** schema
-
-Sub-schema for PROV Agents: something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.
-
 ### `ogc.ogc-utils.prov-entity` — Prov Entity
 
 **Type:** schema
 
 Sub-schema for PROV Entities: physical, digital, conceptual, or other things with some fixed aspects that were generated, used, derived from or otherwise involved in provenance relations.
+
+### `ogc.ogc-utils.prov-agent` — Prov Agent
+
+**Type:** schema
+
+Sub-schema for PROV Agents: something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.
 

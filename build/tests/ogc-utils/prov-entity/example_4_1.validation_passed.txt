@@ -1,26 +1,14 @@
-Validation report for ogc.ogc-utils.prov-activity - Prov Activity
-Generated 2026-09-16T22:20:02.672290+00:00
-=== General ===
-Test was expected to fail and it did.
-=== End General ===
-
+Validation report for ogc.ogc-utils.prov-entity - Prov Entity
+Generated 2026-09-16T22:20:04.933942+00:00
 === Files ===
-Using entity-fail.json from test resources
+Using ../prov/examples/example-entity-timeline.json from examples
 JSON-LD context is present - uplifting
-Output JSON-LD entity-fail.jsonld created
-Output Turtle entity-fail.ttl created
+Output JSON-LD example_4_1.jsonld created
+Output Turtle example_4_1.ttl created
 === End Files ===
 
 === JSON Schema ===
-
-** Validation error **
-ValidationError: 'Entity' is not one of ['Activity', 'prov:Activity']
-
-Failed validating 'enum' in schema[0]:
-    {'enum': ['Activity', 'prov:Activity'], 'type': 'string'}
-
-On instance:
-    'Entity'
+Validation passed
 === End JSON Schema ===
 
 === SHACL ===
@@ -68,7 +56,7 @@ Focus nodes for https://ogcincubator.github.io/cross-domain-model/_sources/prov/
  - Shape <https://www.ogc.org/rules/prov/#prop-qualifiedDerivation>: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-used>: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-generated>: *none*
- - Shape <https://www.ogc.org/rules/prov/#Entity-shape>: <file:///github/workspace/DP-2223>
+ - Shape <https://www.ogc.org/rules/prov/#Entity-shape>: <http://www.example.com/exampleEntity/DP-2024-report>
  - Shape <https://www.ogc.org/rules/prov/#prop-wasAssociatedWith>: *none*
  - Shape <https://www.ogc.org/rules/prov/#InstantaneousEvent-shape>: *none*
  - Shape <https://www.ogc.org/rules/prov/#prop-hadPlan>: *none*
