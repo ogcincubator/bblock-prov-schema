@@ -33,7 +33,7 @@ description: |
 
 imports:
   - default
-  - https://ogcincubator.github.io/cross-domain-model
+  - '@ogc/cross-domain-model'
 
 sparql:
   push: https://defs-dev.opengis.net/fuseki/data
