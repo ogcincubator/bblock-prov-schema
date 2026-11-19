@@ -2,67 +2,35 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "PROV Agent object schema",
   "$defs": {
-    "dateTime": {
-      "type": "string",
-      "format": "date-time",
-      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(?:\\.\\d+)?(?:Z|[+-]\\d{2}:\\d{2})?$"
-    },
-    "AgentTypes": {
-      "type": "string",
-      "enum": [
-        "Agent",
-        "Organization",
-        "Person",
-        "SoftwareAgent",
-        "SoftwareDescription",
-        "DirectQueryService",
-        "prov:Agent",
-        "prov:Organization",
-        "prov:Person",
-        "prov:SoftwareAgent",
-        "prov:SoftwareDescription",
-        "prov:DirectQueryService"
-      ]
-    },
-    "AgentType": {
-      "oneOf": [
-        {
-          "$ref": "#/$defs/AgentTypes"
-        },
-        {
-          "type": "array",
-          "items": {
-            "contains": {
-              "$ref": "#/$defs/AgentTypes"
-            }
-          }
-        }
-      ]
-    },
     "Agent": {
       "$anchor": "Agent",
       "type": "object",
       "properties": {
-        "agentType": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref"
-        },
         "provType": {
-          "$ref": "#/$defs/AgentType"
+          "const": "Agent",
+          "x-jsonld-id": "@type"
         },
-        "prov:type": {
-          "$ref": "#/$defs/AgentType"
+        "type": {
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
+          "x-jsonld-id": "type"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#label"
         },
         "id": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#objectref",
+          "x-jsonld-id": "@id"
         },
         "actedOnBehalfOf": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreAgentsOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreAgentsOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#actedOnBehalfOf",
+          "x-jsonld-type": "@id"
         },
         "atLocation": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#objectref",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#atLocation",
+          "x-jsonld-type": "@id"
         },
         "qualifiedDelegation": {
           "oneOf": [
@@ -85,20 +53,14 @@
                 ]
               }
             }
-          ]
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedDelegation",
+          "x-jsonld-type": "@id"
         }
       },
-      "anyOf": [
-        {
-          "required": [
-            "name"
-          ]
-        },
-        {
-          "required": [
-            "id"
-          ]
-        }
+      "required": [
+        "id",
+        "provType"
       ],
       "allOf": [
         {
@@ -111,25 +73,16 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#objectref",
+          "x-jsonld-id": "@id"
+        },
+        "provType": {
+          "const": "Association",
+          "x-jsonld-id": "@type"
         },
         "type": {
-          "oneOf": [
-            {
-              "type": "string",
-              "const": "Association"
-            },
-            {
-              "type": "array",
-              "contains": {
-                "type": "string",
-                "const": "Association"
-              },
-              "items": {
-                "type": "string"
-              }
-            }
-          ]
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
+          "x-jsonld-id": "type"
         },
         "agent": {
           "oneOf": [
@@ -139,13 +92,19 @@
             {
               "$ref": "#/$defs/Agent"
             }
-          ]
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#agent",
+          "x-jsonld-type": "@id"
         },
         "hadRole": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#hadRole",
+          "x-jsonld-type": "@id"
         },
         "hadPlan": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#hadPlan",
+          "x-jsonld-type": "@id"
         }
       }
     }
