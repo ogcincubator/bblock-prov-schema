@@ -1,6 +1,6 @@
 {
   "id": "DP-2223",
   "provType": "Entity",
-  "featureType": "Survey",
+  "type": "Survey",
   "wasGeneratedBy": "DP-1-S1"
 }
