@@ -1,9 +1,9 @@
 [project]
 name = "bblock-prov-schema"
 version = "0.1.0"
-description = "Add your description here"
+description = "JSON Schemas for OGC Provenance Chain"
 readme = "README.md"
-requires-python = ">=3.15"
+requires-python = ">=3.11"
 dependencies = [
     "jsonschema>=4.26.0",
     "pyyaml>=6.0.3",
