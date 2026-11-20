@@ -3,12 +3,12 @@
   "id": "activity-forecast-report",
   "qualifiedCommunication": [
     {
-      "type": "Communication",
+      "provType": "Communication",
       "activity": "activity-source-observation-run",
       "atTime": "2024-05-01T08:00:00Z"
     },
     {
-      "type": "Communication",
+      "provType": "Communication",
       "activity": "activity-source-validation-run",
       "atTime": "2024-05-01T09:30:00Z"
     }

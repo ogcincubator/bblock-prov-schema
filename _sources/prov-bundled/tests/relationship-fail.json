@@ -9,7 +9,7 @@
   },
   "id": "DP-1",
   "provType": "Entity",
-  "type": "Survey",
+  "entityType": "Survey",
   "wasGeneratedBy": {
     "id": "DP-2223",
     "provType": "Entity",
