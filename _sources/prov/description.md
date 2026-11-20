@@ -47,4 +47,3 @@ compatibility with [OGC
 Feature](https://docs.ogc.org/is/21-045r1/21-045r1.html#feature-types) and
 [GeoJSON](https://www.rfc-editor.org/info/rfc7946/#section-3), which use them with
 constant string values.
-

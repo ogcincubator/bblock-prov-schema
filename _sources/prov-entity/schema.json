@@ -280,6 +280,71 @@
       "allOf": [
         {
           "$ref": "bblocks://ogc.ogc-utils.prov#influenced"
+        },
+        {
+          "if": {
+            "properties": {
+              "entityType": {
+                "anyOf": [
+                  {
+                    "const": "Collection"
+                  },
+                  {
+                    "type": "array",
+                    "contains": {
+                      "const": "Collection"
+                    }
+                  }
+                ]
+              }
+            },
+            "required": [
+              "entityType"
+            ]
+          },
+          "then": {
+            "required": [
+              "hadMember"
+            ],
+            "properties": {
+              "hadMember": {
+                "type": "array"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "entityType": {
+                "anyOf": [
+                  {
+                    "const": "EmptyCollection"
+                  },
+                  {
+                    "type": "array",
+                    "contains": {
+                      "const": "EmptyCollection"
+                    }
+                  }
+                ]
+              }
+            },
+            "required": [
+              "entityType"
+            ]
+          },
+          "then": {
+            "required": [
+              "hadMember"
+            ],
+            "properties": {
+              "hadMember": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          }
         }
       ]
     }

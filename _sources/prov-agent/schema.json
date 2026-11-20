@@ -59,8 +59,19 @@
         }
       },
       "required": [
-        "id",
         "provType"
+      ],
+      "anyOf": [
+        {
+          "required": [
+            "name"
+          ]
+        },
+        {
+          "required": [
+            "id"
+          ]
+        }
       ],
       "allOf": [
         {

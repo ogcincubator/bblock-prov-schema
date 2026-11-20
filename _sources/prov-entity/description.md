@@ -31,6 +31,6 @@ with [OGC Feature](https://docs.ogc.org/is/21-045r1/21-045r1.html#feature-types)
 [GeoJSON](https://www.rfc-editor.org/info/rfc7946/#section-3), which use them with constant string
 values.
 
-An Entity object requires an `id`. When `type` is set to `Collection`, `hadMember` (an array of
+An Entity object requires an `id`. When `entityType` is set to `Collection`, `hadMember` (an array of
 member Entities) is also required; when set to `EmptyCollection`, `hadMember` must be an empty array.
 
