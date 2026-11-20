@@ -9,7 +9,8 @@
   },
   "id": "DP-1",
   "provType": "Entity",
-  "entityType": "survtypes:Survey",
+  "type": "Feature",
+  "featureType": "Survey",
   "qualifiedGeneration": [
     {
       "provType": "Generation",
