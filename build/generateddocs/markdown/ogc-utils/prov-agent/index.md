@@ -21,9 +21,14 @@ an Agent, and the `qualifiedDelegation` relation between Agents.
 
 ## Object typing
 
-Object typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).
+Object typing needs to be explicit to support effective semantic mapping to the PROV
+vocabulary, and to support schema validation scope clarity (using the right sub-schema for
+objects in a collection representing the directed graph model of PROV).  Sub-schemas
+should also be efficiently identifiable without structural type inference or the need to
+refer to the PROV-O hierarchy.
 
-`provType` may be used to map to the subClasses of the Provenance vocabulary.
+`provType` for an Agent must be `Agent`. The custom `agentType` field may be used to specify PROV
+subclasses or additional types from external vocabularies (such as Schema.org or Wfprov).
 
 The custom application object type is explicit (`agentType`) to support schema validation clarity.
 
@@ -36,114 +41,91 @@ An Agent object must be identified by either a `name` or an `id`.
 $schema: https://json-schema.org/draft/2020-12/schema
 description: PROV Agent object schema
 $defs:
-  dateTime:
-    type: string
-    format: date-time
-    pattern: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})?$
-  AgentTypes:
-    type: string
-    enum:
-    - Agent
-    - Organization
-    - Person
-    - SoftwareAgent
-    - SoftwareDescription
-    - DirectQueryService
-    - prov:Agent
-    - prov:Organization
-    - prov:Person
-    - prov:SoftwareAgent
-    - prov:SoftwareDescription
-    - prov:DirectQueryService
-  AgentType:
-    oneOf:
-    - $ref: '#/$defs/AgentTypes'
-    - type: array
-      items:
-        contains:
-          $ref: '#/$defs/AgentTypes'
   Agent:
     $anchor: Agent
     type: object
     properties:
-      agentType:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
-        x-jsonld-id: '@type'
       provType:
-        $ref: '#/$defs/AgentType'
+        const: Agent
         x-jsonld-id: '@type'
-      prov:type:
-        $ref: '#/$defs/AgentType'
+      agentType:
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: http://www.w3.org/ns/prov#type
+        x-jsonld-type: '@id'
       name:
         type: string
         x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label
       id:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: '@id'
       actedOnBehalfOf:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#actedOnBehalfOf
         x-jsonld-type: '@id'
       atLocation:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: http://www.w3.org/ns/prov#atLocation
         x-jsonld-type: '@id'
       qualifiedDelegation:
         oneOf:
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Delegation
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Delegation
         - type: array
           items:
             oneOf:
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Delegation
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Delegation
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedDelegation
         x-jsonld-type: '@id'
+    required:
+    - provType
     anyOf:
     - required:
       - name
     - required:
       - id
     allOf:
-    - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#influenced
+    - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#influenced
   Association:
     $anchor: Association
     type: object
     properties:
       id:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: '@id'
-      type:
-        oneOf:
-        - type: string
-          const: Association
-        - type: array
-          contains:
-            type: string
-            const: Association
-          items:
-            type: string
+      provType:
+        const: Association
+        x-jsonld-id: '@type'
+      influenceType:
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+        x-jsonld-id: http://www.w3.org/ns/prov#type
+        x-jsonld-type: '@id'
       agent:
         oneOf:
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
         - $ref: '#/$defs/Agent'
         x-jsonld-id: http://www.w3.org/ns/prov#agent
         x-jsonld-type: '@id'
       hadRole:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: http://www.w3.org/ns/prov#hadRole
         x-jsonld-type: '@id'
       hadPlan:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: http://www.w3.org/ns/prov#hadPlan
         x-jsonld-type: '@id'
 anyOf:
 - $ref: '#/$defs/Agent'
 x-jsonld-extra-terms:
-  activityType: '@type'
-  entityType: '@type'
-  featureType: '@type'
+  activityType:
+    x-jsonld-id: http://www.w3.org/ns/prov#type
+    x-jsonld-type: '@id'
+  entityType:
+    x-jsonld-id: http://www.w3.org/ns/prov#type
+    x-jsonld-type: '@id'
+  influenceType:
+    x-jsonld-id: http://www.w3.org/ns/prov#type
+    x-jsonld-type: '@id'
   Activity: http://www.w3.org/ns/prov#Activity
   ActivityInfluence: http://www.w3.org/ns/prov#ActivityInfluence
   Agent: http://www.w3.org/ns/prov#Agent
@@ -343,9 +325,6 @@ x-jsonld-extra-terms:
   has_anchor:
     x-jsonld-id: http://www.w3.org/ns/prov#has_anchor
     x-jsonld-type: '@id'
-  has_provenance:
-    x-jsonld-id: http://purl.org/dc/terms/provenance
-    x-jsonld-type: '@id'
   has_query_service:
     x-jsonld-id: http://www.w3.org/ns/prov#has_query_service
     x-jsonld-type: '@id'
@@ -390,15 +369,20 @@ x-jsonld-prefixes:
   prov: http://www.w3.org/ns/prov#
   xsd: http://www.w3.org/2001/XMLSchema#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
-  dct: http://purl.org/dc/terms/
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  dct: http://purl.org/dc/terms/
+x-bblocks-metadata:
+  itemIdentifier: ogc.ogc-utils.prov-agent
+  register: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-11-20'
 
 ```
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.json)
-* JSON version: [schema.json](https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml)
+* YAML version: [schema.yaml](https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.json)
+* JSON version: [schema.json](https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.yaml)
 
 
 # JSON-LD Context
@@ -408,8 +392,28 @@ Links to the schema:
   "@context": {
     "wasInfluencedBy": {
       "@context": {
-        "links": {
-          "@id": "rdfs:seeAlso",
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
+      "@id": "prov:wasInfluencedBy",
+      "@type": "@id"
+    },
+    "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
           "@context": {
             "href": {
               "@type": "@id",
@@ -426,36 +430,6 @@ Links to the schema:
             "hreflang": "dct:language",
             "title": "rdfs:label",
             "length": "dct:extent"
-          }
-        }
-      },
-      "@id": "prov:wasInfluencedBy",
-      "@type": "@id"
-    },
-    "qualifiedInfluence": {
-      "@context": {
-        "influencer": {
-          "@context": {
-            "links": {
-              "@id": "rdfs:seeAlso",
-              "@context": {
-                "href": {
-                  "@type": "@id",
-                  "@id": "oa:hasTarget"
-                },
-                "rel": {
-                  "@context": {
-                    "@base": "http://www.iana.org/assignments/relation/"
-                  },
-                  "@id": "http://www.iana.org/assignments/relation",
-                  "@type": "@id"
-                },
-                "type": "dct:type",
-                "hreflang": "dct:language",
-                "title": "rdfs:label",
-                "length": "dct:extent"
-              }
-            }
           },
           "@id": "prov:influencer",
           "@type": "@id"
@@ -488,8 +462,7 @@ Links to the schema:
         },
         "activity": {
           "@context": {
-            "links": {
-              "@id": "rdfs:seeAlso",
+            "wasAssociatedWith": {
               "@context": {
                 "href": {
                   "@type": "@id",
@@ -506,21 +479,194 @@ Links to the schema:
                 "hreflang": "dct:language",
                 "title": "rdfs:label",
                 "length": "dct:extent"
-              }
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            },
+            "used": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:used",
+              "@type": "@id"
+            },
+            "wasStartedBy": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:wasStartedBy",
+              "@type": "@id"
+            },
+            "wasEndedBy": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:wasEndedBy",
+              "@type": "@id"
+            },
+            "invalidated": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:invalidated",
+              "@type": "@id"
+            },
+            "generated": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:generated",
+              "@type": "@id"
             }
           },
           "@id": "prov:activity",
+          "@type": "@id"
+        },
+        "agent": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:agent",
           "@type": "@id"
         }
       },
       "@id": "prov:qualifiedInfluence",
       "@type": "@id"
     },
-    "agentType": "@type",
     "provType": "@type",
+    "agentType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
     "name": "rdfs:label",
     "id": "@id",
     "actedOnBehalfOf": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:actedOnBehalfOf",
       "@type": "@id"
     },
@@ -529,12 +675,223 @@ Links to the schema:
       "@type": "@id"
     },
     "qualifiedDelegation": {
+      "@context": {
+        "hadActivity": {
+          "@context": {
+            "used": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:used",
+              "@type": "@id"
+            },
+            "wasStartedBy": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:wasStartedBy",
+              "@type": "@id"
+            },
+            "wasEndedBy": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:wasEndedBy",
+              "@type": "@id"
+            },
+            "invalidated": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:invalidated",
+              "@type": "@id"
+            },
+            "generated": {
+              "@context": {
+                "links": {
+                  "@context": {
+                    "href": {
+                      "@type": "@id",
+                      "@id": "oa:hasTarget"
+                    },
+                    "rel": {
+                      "@context": {
+                        "@base": "http://www.iana.org/assignments/relation/"
+                      },
+                      "@id": "http://www.iana.org/assignments/relation",
+                      "@type": "@id"
+                    },
+                    "type": "dct:type",
+                    "hreflang": "dct:language",
+                    "title": "rdfs:label",
+                    "length": "dct:extent"
+                  },
+                  "@id": "rdfs:seeAlso"
+                }
+              },
+              "@id": "prov:generated",
+              "@type": "@id"
+            },
+            "qualifiedStart": {
+              "@context": {
+                "entity": {
+                  "@context": {
+                    "links": {
+                      "@context": {
+                        "href": {
+                          "@type": "@id",
+                          "@id": "oa:hasTarget"
+                        },
+                        "rel": {
+                          "@context": {
+                            "@base": "http://www.iana.org/assignments/relation/"
+                          },
+                          "@id": "http://www.iana.org/assignments/relation",
+                          "@type": "@id"
+                        },
+                        "type": "dct:type",
+                        "hreflang": "dct:language",
+                        "title": "rdfs:label",
+                        "length": "dct:extent"
+                      },
+                      "@id": "rdfs:seeAlso"
+                    }
+                  },
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedStart",
+              "@type": "@id"
+            },
+            "qualifiedEnd": {
+              "@context": {
+                "entity": {
+                  "@context": {
+                    "links": {
+                      "@context": {
+                        "href": {
+                          "@type": "@id",
+                          "@id": "oa:hasTarget"
+                        },
+                        "rel": {
+                          "@context": {
+                            "@base": "http://www.iana.org/assignments/relation/"
+                          },
+                          "@id": "http://www.iana.org/assignments/relation",
+                          "@type": "@id"
+                        },
+                        "type": "dct:type",
+                        "hreflang": "dct:language",
+                        "title": "rdfs:label",
+                        "length": "dct:extent"
+                      },
+                      "@id": "rdfs:seeAlso"
+                    }
+                  },
+                  "@id": "prov:entity",
+                  "@type": "@id"
+                }
+              },
+              "@id": "prov:qualifiedEnd",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:hadActivity",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedDelegation",
       "@type": "@id"
     },
-    "activityType": "@type",
-    "entityType": "@type",
-    "featureType": "@type",
+    "activityType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "entityType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "influenceType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -775,10 +1132,6 @@ Links to the schema:
       "@id": "prov:has_anchor",
       "@type": "@id"
     },
-    "has_provenance": {
-      "@id": "dct:provenance",
-      "@type": "@id"
-    },
     "has_query_service": {
       "@id": "prov:has_query_service",
       "@type": "@id"
@@ -837,6 +1190,11 @@ Links to the schema:
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "schema": "https://schema.org/",
+    "wfprov": "http://purl.org/wf4ever/wfprov#",
+    "wfdesc": "http://purl.org/wf4ever/wfdesc#",
+    "wf4ever": "http://purl.org/wf4ever/wf4ever#",
     "oa": "http://www.w3.org/ns/oa#",
     "@version": 1.1
   }
@@ -844,7 +1202,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/context.jsonld)
+[context.jsonld](https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/context.jsonld)
 
 ## Sources
 
@@ -854,6 +1212,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/ogcincubator/bblock-prov-schema](https://github.com/ogcincubator/bblock-prov-schema)
+* URL: [https://github.com/crim-ca/bblock-prov-schema](https://github.com/crim-ca/bblock-prov-schema)
 * Path: `_sources/prov-agent`
 

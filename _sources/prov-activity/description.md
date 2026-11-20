@@ -11,12 +11,18 @@ Entities and Agents: `Usage`, `Generation`, `Invalidation`, `Communication`, `De
 
 ## Object typing
 
-Object typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).
+Object typing needs to be explicit to support effective semantic mapping to the PROV
+vocabulary, and to support schema validation scope clarity (using the right sub-schema for
+objects in a collection representing the directed graph model of PROV).  Sub-schemas
+should also be efficiently identifiable without structural type inference or the need to
+refer to the PROV-O hierarchy.
 
-`provType` may be used to map to the subClasses of the Provenance vocabulary (currently only `Activity`
-itself; PROV-O defines no further Activity subclasses).
+`provType` for an Activity must be `Activity`. The custom `activityType` field may be used to
+specify PROV subclasses (note that PROV-O defines no further Activity subclasses) or additional
+types from external vocabularies (such as Schema.org or Wfprov)
 
-The custom application object type is explicit (`activityType`) to support schema validation clarity.
+The custom application object type is explicit (`activityType`) to support schema validation
+clarity.
 
 ## Temporal properties
 

@@ -8,26 +8,27 @@
     "surveyreg": "https://example.org/surveys/"
   },
   "id": "DP-1",
+  "provType": "Entity",
   "type": "Feature",
   "featureType": "Survey",
   "wasGeneratedBy": [
     "surveyreg:DP-1-S1",
     {
-      "activity": "Registration",
       "id": "surveyreg:DP-1-S2",
+      "provType": "Activity",
+      "activityType": "Registration",
       "endedAtTime": "2021-01-01",
       "wasAssociatedWith": "agents:bc-3",
       "used": {
         "id": "PriorThing",
+        "provType": "Entity",
         "wasGeneratedBy": {
-          "activity": "SomethingImpossiblyAfter",
           "id": "surveyreg:impossible",
+          "provType": "Activity",
+          "activityType": "SomethingImpossiblyAfter",
           "endedAtTime": "2029-01-01"
         }
       }
     }
   ]
 }
-
-
-

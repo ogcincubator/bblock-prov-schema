@@ -1,0 +1,6 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+<file:///github/workspace/surveyset-4> a prov:Entity ;
+    prov:hadMember <file:///github/workspace/survey-1> ;
+    prov:type <file:///github/workspace/EmptyCollection> .
+

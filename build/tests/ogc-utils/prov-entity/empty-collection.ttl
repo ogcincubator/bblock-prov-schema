@@ -1,0 +1,7 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix schema: <https://schema.org/> .
+
+<file:///github/workspace/surveyset-2> a prov:Entity ;
+    prov:type <file:///github/workspace/EmptyCollection>,
+        schema:Dataset .
+

@@ -26,17 +26,23 @@ stopped being usable, respectively. `value` may hold a literal value carried dir
 
 ## Object typing
 
-Object typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).
+Object typing needs to be explicit to support effective semantic mapping to the PROV
+vocabulary, and to support schema validation scope clarity (using the right sub-schema for
+objects in a collection representing the directed graph model of PROV).  Sub-schemas
+should also be efficiently identifiable without structural type inference or the need to
+refer to the PROV-O hierarchy.
 
-`provType` may be used to map to the subClasses of the Provenance vocabulary.
+`provType` for an Entity must be `Entity`. The custom `entityType` field may be used to specify PROV
+subclasses or additional types from external vocabularies (such as Schema.org or Wfprov).
 
 The custom application object type is explicit (`entityType`) to support schema validation clarity.
 
-Note that `entityType` is optional and may be replaced by `featureType` for compatibility with the OGC Feature implementation (implicitly always an Entity)
+The properties `type` and `featureType` are deliberately avoided in order to allow compatibility
+with [OGC Feature](https://docs.ogc.org/is/21-045r1/21-045r1.html#feature-types) and
+[GeoJSON](https://www.rfc-editor.org/info/rfc7946/#section-3), which use them with constant string
+values.
 
-likewise the use of the property `type` is not specified to allow compatibility with GeoJSON features that must have this property with a constant value ("Feature" or "FeatureCollection").
-
-An Entity object requires an `id`. When `type` is set to `Collection`, `hadMember` (an array of
+An Entity object requires an `id`. When `entityType` is set to `Collection`, `hadMember` (an array of
 member Entities) is also required; when set to `EmptyCollection`, `hadMember` must be an empty array.
 
 
@@ -47,12 +53,9 @@ member Entities) is also required; when set to `EmptyCollection`, `hadMember` mu
 ```json
 {
   "id": "Object2",
+  "provType": "Entity",
   "wasDerivedFrom": "Object1"
 }
-
-
-
-
 
 ```
 
@@ -63,9 +66,10 @@ member Entities) is also required; when set to `EmptyCollection`, `hadMember` mu
     {
       "iana": "http://www.iana.org/assignments/"
     },
-    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld"
+    "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/context.jsonld"
   ],
   "id": "Object2",
+  "provType": "Entity",
   "wasDerivedFrom": "Object1"
 }
 ```
@@ -74,7 +78,8 @@ member Entities) is also required; when set to `EmptyCollection`, `hadMember` mu
 ```ttl
 @prefix prov: <http://www.w3.org/ns/prov#> .
 
-<http://www.example.com/exampleEntities/Object2> prov:wasDerivedFrom <http://www.example.com/exampleEntities/Object1> .
+<http://www.example.com/exampleEntities/Object2> a prov:Entity ;
+    prov:wasDerivedFrom <http://www.example.com/exampleEntities/Object1> .
 
 
 ```
@@ -91,32 +96,22 @@ DAG defined by an object list.
     "thing": "https://example.org/entities/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "survtypes": "https://example.org/surveytypes/",
-    "surveyreg": "https://example.org/surveys/",
-    "featureType": {
-      "@id": "@type",
-      "@context": {
-        "@base": "http://example.org/myEntities/"
-      }
-    },
-    "activityType": {
-      "@id": "@type",
-      "@context": {
-        "@base": "http://example.org/myActivityTypes/"
-      }
-    }
+    "surveyreg": "https://example.org/surveys/"
   },
   "id": "DP-1",
-  "type": "Feature",
-  "featureType": "Survey",
+  "provType": "Entity",
+  "entityType": "survtypes:Survey",
   "wasGeneratedBy": [
     "surveyreg:DP-1-S1",
     {
-      "activityType": "Registration",
+      "provType": "Activity",
+      "activityType": "survtypes:Registration",
       "id": "surveyreg:DP-1-S2",
       "endedAtTime": "2019-01-01T19:03:15+01:00",
       "wasAssociatedWith": "agents:bc-3",
       "used": {
         "id": "Example-Act",
+        "provType": "Entity",
         "wasAttributedTo": "agents:nz",
         "links": [
           {
@@ -131,18 +126,19 @@ DAG defined by an object list.
     {
       "id": "DP-2223",
       "provType": "Entity",
-      "featureType": "Survey",
+      "entityType": "survtypes:Survey",
       "wasGeneratedBy": "DP-1-S1"
     },
     {
       "provType": "Activity",
       "id": "surveyreg:DP-1-S1",
-      "activityType": "InitialSurvey",
+      "activityType": "survtypes:InitialSurvey",
       "endedAtTime": "2023-10-05T05:03:15+01:00",
       "wasAssociatedWith": "agents:ah-2344503",
       "used": {
         "id": "thing:Act3",
-        "entityType": "Legislation",
+        "provType": "Entity",
+        "entityType": "survtypes:Legislation",
         "wasAttributedTo": "agents:nz",
         "links": [
           {
@@ -155,9 +151,6 @@ DAG defined by an object list.
   ]
 }
 
-
-
-
 ```
 
 #### jsonld
@@ -167,40 +160,30 @@ DAG defined by an object list.
     {
       "iana": "http://www.iana.org/assignments/"
     },
-    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld",
+    "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/context.jsonld",
     {
       "@base": "https://example.org/aThing/",
       "agents": "https://someagentregister.eg/",
       "thing": "https://example.org/entities/",
       "foaf": "http://xmlns.com/foaf/0.1/",
       "survtypes": "https://example.org/surveytypes/",
-      "surveyreg": "https://example.org/surveys/",
-      "featureType": {
-        "@id": "@type",
-        "@context": {
-          "@base": "http://example.org/myEntities/"
-        }
-      },
-      "activityType": {
-        "@id": "@type",
-        "@context": {
-          "@base": "http://example.org/myActivityTypes/"
-        }
-      }
+      "surveyreg": "https://example.org/surveys/"
     }
   ],
   "id": "DP-1",
-  "type": "Feature",
-  "featureType": "Survey",
+  "provType": "Entity",
+  "entityType": "survtypes:Survey",
   "wasGeneratedBy": [
     "surveyreg:DP-1-S1",
     {
-      "activityType": "Registration",
+      "provType": "Activity",
+      "activityType": "survtypes:Registration",
       "id": "surveyreg:DP-1-S2",
       "endedAtTime": "2019-01-01T19:03:15+01:00",
       "wasAssociatedWith": "agents:bc-3",
       "used": {
         "id": "Example-Act",
+        "provType": "Entity",
         "wasAttributedTo": "agents:nz",
         "links": [
           {
@@ -215,18 +198,19 @@ DAG defined by an object list.
     {
       "id": "DP-2223",
       "provType": "Entity",
-      "featureType": "Survey",
+      "entityType": "survtypes:Survey",
       "wasGeneratedBy": "DP-1-S1"
     },
     {
       "provType": "Activity",
       "id": "surveyreg:DP-1-S1",
-      "activityType": "InitialSurvey",
+      "activityType": "survtypes:InitialSurvey",
       "endedAtTime": "2023-10-05T05:03:15+01:00",
       "wasAssociatedWith": "agents:ah-2344503",
       "used": {
         "id": "thing:Act3",
-        "entityType": "Legislation",
+        "provType": "Entity",
+        "entityType": "survtypes:Legislation",
         "wasAttributedTo": "agents:nz",
         "links": [
           {
@@ -243,44 +227,29 @@ DAG defined by an object list.
 #### ttl
 ```ttl
 @prefix agents: <https://someagentregister.eg/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix iana: <http://www.iana.org/assignments/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix surveyreg: <https://example.org/surveys/> .
-@prefix thing: <https://example.org/entities/> .
+@prefix survtypes: <https://example.org/surveytypes/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
-    dcterms:provenance <https://example.org/aThing/DP-2223>,
-        surveyreg:DP-1-S1 ;
+<https://example.org/aThing/DP-1> a prov:Entity ;
+    prov:type survtypes:Survey ;
     prov:wasGeneratedBy surveyreg:DP-1-S1,
         surveyreg:DP-1-S2 .
 
-<https://example.org/aThing/DP-2223> a <http://example.org/myEntities/Survey>,
-        prov:Entity ;
-    prov:wasGeneratedBy <https://example.org/aThing/DP-1-S1> .
-
-<https://example.org/aThing/Example-Act> rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;
+<https://example.org/aThing/Example-Act> a prov:Entity ;
+    rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;
             oa:hasTarget <https://nze.gov/linktoact/Example1> ] ;
     prov:wasAttributedTo agents:nz .
 
-thing:Act3 a <https://example.org/aThing/Legislation> ;
-    rdfs:seeAlso [ iana:relation <http://www.iana.org/assignments/relation/related> ;
-            oa:hasTarget <https://some.gov/linktoact/> ] ;
-    prov:wasAttributedTo agents:nz .
-
-surveyreg:DP-1-S2 a <http://example.org/myActivityTypes/Registration> ;
+surveyreg:DP-1-S2 a prov:Activity ;
     prov:endedAtTime "2019-01-01T19:03:15+01:00"^^xsd:dateTime ;
+    prov:type survtypes:Registration ;
     prov:used <https://example.org/aThing/Example-Act> ;
     prov:wasAssociatedWith agents:bc-3 .
-
-surveyreg:DP-1-S1 a <http://example.org/myActivityTypes/InitialSurvey>,
-        prov:Activity ;
-    prov:endedAtTime "2023-10-05T05:03:15+01:00"^^xsd:dateTime ;
-    prov:used thing:Act3 ;
-    prov:wasAssociatedWith agents:ah-2344503 .
 
 
 ```
@@ -297,32 +266,18 @@ A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) exam
     "thing": "https://example.org/entities/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "survtypes": "https://example.org/surveytypes/",
-    "surveyreg": "https://example.org/surveys/",
-    "featureType": {
-      "@id": "@type",
-      "@context": {
-        "@base": "http://example.org/myEntities/"
-      }
-    },
-    "activityType": {
-      "@id": "@type",
-      "@context": {
-        "@base": "http://example.org/myActivityTypes/"
-      }
-    }
+    "surveyreg": "https://example.org/surveys/"
   },
   "id": "DP-1",
-  "type": "Feature",
-  "featureType": "Survey",
+  "provType": "Entity",
+  "entityType": "survtypes:Survey",
   "qualifiedGeneration": [
     {
-      "type": "Generation",
+      "provType": "Generation",
       "activity": {
         "id": "uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44",
-        "type": [
-          "wfprov:ProcessRun",
-          "Activity"
-        ],
+        "provType": "Activity",
+        "activityType": "wfprov:ProcessRun",
         "name": "Run of workflow/packed.cwl#main/sorted"
       },
       "atTime": "2018-10-25T15:46:38.058365",
@@ -330,9 +285,6 @@ A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) exam
     }
   ]
 }
-
-
-
 
 ```
 
@@ -343,40 +295,26 @@ A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) exam
     {
       "iana": "http://www.iana.org/assignments/"
     },
-    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld",
+    "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/context.jsonld",
     {
       "@base": "https://example.org/aThing/",
       "agents": "https://someagentregister.eg/",
       "thing": "https://example.org/entities/",
       "foaf": "http://xmlns.com/foaf/0.1/",
       "survtypes": "https://example.org/surveytypes/",
-      "surveyreg": "https://example.org/surveys/",
-      "featureType": {
-        "@id": "@type",
-        "@context": {
-          "@base": "http://example.org/myEntities/"
-        }
-      },
-      "activityType": {
-        "@id": "@type",
-        "@context": {
-          "@base": "http://example.org/myActivityTypes/"
-        }
-      }
+      "surveyreg": "https://example.org/surveys/"
     }
   ],
   "id": "DP-1",
-  "type": "Feature",
-  "featureType": "Survey",
+  "provType": "Entity",
+  "entityType": "survtypes:Survey",
   "qualifiedGeneration": [
     {
-      "type": "Generation",
+      "provType": "Generation",
       "activity": {
         "id": "uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44",
-        "type": [
-          "wfprov:ProcessRun",
-          "Activity"
-        ],
+        "provType": "Activity",
+        "activityType": "wfprov:ProcessRun",
         "name": "Run of workflow/packed.cwl#main/sorted"
       },
       "atTime": "2018-10-25T15:46:38.058365",
@@ -390,14 +328,20 @@ A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) exam
 ```ttl
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix survtypes: <https://example.org/surveytypes/> .
+@prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://example.org/aThing/DP-1> a <http://example.org/myEntities/Survey> ;
-    prov:qualifiedGeneration [ prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;
+<https://example.org/aThing/DP-1> a prov:Entity ;
+    prov:qualifiedGeneration [ a prov:Generation ;
+            prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;
             prov:atTime "2018-10-25T15:46:38.058365"^^xsd:dateTime ;
-            prov:hadRole <wf:main/sorted/output> ] .
+            prov:hadRole <wf:main/sorted/output> ] ;
+    prov:type survtypes:Survey .
 
-<uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> rdfs:label "Run of workflow/packed.cwl#main/sorted" .
+<uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> a prov:Activity ;
+    rdfs:label "Run of workflow/packed.cwl#main/sorted" ;
+    prov:type wfprov:ProcessRun .
 
 
 ```
@@ -417,17 +361,17 @@ An entity with its generation/invalidation timestamps, a literal `value`, and it
   "invalidatedAtTime": "2024-06-15T00:00:00Z",
   "value": "42.7",
   "qualifiedPrimarySource": {
-    "type": "PrimarySource",
+    "provType": "PrimarySource",
     "atTime": "2024-03-01T09:00:00Z",
     "entity": "DP-2023-survey-raw"
   },
   "qualifiedQuotation": {
-    "type": "Quotation",
+    "provType": "Quotation",
     "atTime": "2024-03-01T09:00:00Z",
     "entity": "DP-2022-methodology-paper"
   },
   "qualifiedRevision": {
-    "type": "Revision",
+    "provType": "Revision",
     "atTime": "2024-03-01T09:00:00Z",
     "entity": "DP-2024-report-draft"
   }
@@ -442,7 +386,7 @@ An entity with its generation/invalidation timestamps, a literal `value`, and it
     {
       "iana": "http://www.iana.org/assignments/"
     },
-    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld"
+    "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/context.jsonld"
   ],
   "provType": "Entity",
   "id": "DP-2024-report",
@@ -450,17 +394,17 @@ An entity with its generation/invalidation timestamps, a literal `value`, and it
   "invalidatedAtTime": "2024-06-15T00:00:00Z",
   "value": "42.7",
   "qualifiedPrimarySource": {
-    "type": "PrimarySource",
+    "provType": "PrimarySource",
     "atTime": "2024-03-01T09:00:00Z",
     "entity": "DP-2023-survey-raw"
   },
   "qualifiedQuotation": {
-    "type": "Quotation",
+    "provType": "Quotation",
     "atTime": "2024-03-01T09:00:00Z",
     "entity": "DP-2022-methodology-paper"
   },
   "qualifiedRevision": {
-    "type": "Revision",
+    "provType": "Revision",
     "atTime": "2024-03-01T09:00:00Z",
     "entity": "DP-2024-report-draft"
   }
@@ -475,11 +419,14 @@ An entity with its generation/invalidation timestamps, a literal `value`, and it
 <http://www.example.com/exampleEntity/DP-2024-report> a prov:Entity ;
     prov:generatedAtTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
     prov:invalidatedAtTime "2024-06-15T00:00:00+00:00"^^xsd:dateTime ;
-    prov:qualifiedPrimarySource [ prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
+    prov:qualifiedPrimarySource [ a prov:PrimarySource ;
+            prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
             prov:entity <http://www.example.com/exampleEntity/DP-2023-survey-raw> ] ;
-    prov:qualifiedQuotation [ prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
+    prov:qualifiedQuotation [ a prov:Quotation ;
+            prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
             prov:entity <http://www.example.com/exampleEntity/DP-2022-methodology-paper> ] ;
-    prov:qualifiedRevision [ prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
+    prov:qualifiedRevision [ a prov:Revision ;
+            prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
             prov:entity <http://www.example.com/exampleEntity/DP-2024-report-draft> ] ;
     prov:value "42.7" .
 
@@ -492,214 +439,213 @@ An entity with its generation/invalidation timestamps, a literal `value`, and it
 $schema: https://json-schema.org/draft/2020-12/schema
 description: PROV Entity object schema
 $defs:
-  EntityType:
-    type: string
-    enum:
-    - Entity
-    - Bundle
-    - Plan
-    - prov:Entity
-    - prov:Bundle
-    - prov:Plan
-  EntityTypes:
-    oneOf:
-    - $ref: '#/$defs/EntityType'
-    - type: array
-      contains:
-        $ref: '#/$defs/EntityType'
   Entity:
+    $anchor: Entity
     type: object
     properties:
       id:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: '@id'
       provType:
-        $ref: '#/$defs/EntityTypes'
-        x-jsonld-id: '@type'
-      prov:type:
-        $ref: '#/$defs/EntityTypes'
-        x-jsonld-id: http://www.w3.org/ns/prov#type
-      featureType:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+        const: Entity
         x-jsonld-id: '@type'
       entityType:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
-        x-jsonld-id: '@type'
-      has_provenance:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#Prov
-        x-jsonld-id: http://purl.org/dc/terms/provenance
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+        x-jsonld-id: http://www.w3.org/ns/prov#type
+        x-jsonld-type: '@id'
+      name:
+        type: string
+        x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#label
+      hadMember:
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
+        x-jsonld-id: http://www.w3.org/ns/prov#hadMember
         x-jsonld-type: '@id'
       wasGeneratedBy:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
         x-jsonld-type: '@id'
       wasAttributedTo:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#wasAttributedTo
         x-jsonld-type: '@id'
       wasDerivedFrom:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#wasDerivedFrom
         x-jsonld-type: '@id'
       alternateOf:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#alternateOf
         x-jsonld-type: '@id'
       hadPrimarySource:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#hadPrimarySource
         x-jsonld-type: '@id'
       specializationOf:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#specializationOf
         x-jsonld-type: '@id'
       wasInvalidatedBy:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#wasInvalidatedBy
         x-jsonld-type: '@id'
       wasQuotedFrom:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#wasQuotedFrom
         x-jsonld-type: '@id'
       wasRevisionOf:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#wasRevisionOf
         x-jsonld-type: '@id'
+      atLocation:
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        x-jsonld-id: http://www.w3.org/ns/prov#atLocation
+        x-jsonld-type: '@id'
+      links:
+        type: array
+        items:
+          $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#externalLink
+        x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#seeAlso
       generatedAtTime:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#/$defs/dateTime
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#dateTime
         x-jsonld-id: http://www.w3.org/ns/prov#generatedAtTime
         x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
       invalidatedAtTime:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#/$defs/dateTime
+        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#dateTime
         x-jsonld-id: http://www.w3.org/ns/prov#invalidatedAtTime
         x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
       value:
         x-jsonld-id: http://www.w3.org/ns/prov#value
       qualifiedPrimarySource:
         oneOf:
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#PrimarySource
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#PrimarySource
         - type: array
           items:
             oneOf:
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#PrimarySource
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#PrimarySource
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedPrimarySource
         x-jsonld-type: '@id'
       qualifiedQuotation:
         oneOf:
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Quotation
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Quotation
         - type: array
           items:
             oneOf:
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Quotation
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Quotation
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedQuotation
         x-jsonld-type: '@id'
       qualifiedRevision:
         oneOf:
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Revision
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Revision
         - type: array
           items:
             oneOf:
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Revision
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Revision
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedRevision
         x-jsonld-type: '@id'
-      atLocation:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-        x-jsonld-id: http://www.w3.org/ns/prov#atLocation
-        x-jsonld-type: '@id'
-      links:
-        type: array
-        items:
-          $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#externalLink
-        x-jsonld-id: http://www.w3.org/2000/01/rdf-schema#seeAlso
       qualifiedGeneration:
         oneOf:
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Generation
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Generation
         - type: array
           items:
             oneOf:
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Generation
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Generation
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedGeneration
         x-jsonld-type: '@id'
       qualifiedInvalidation:
         oneOf:
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Invalidation
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Invalidation
         - type: array
           items:
             oneOf:
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Invalidation
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Invalidation
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedInvalidation
         x-jsonld-type: '@id'
       qualifiedDerivation:
         oneOf:
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Derivation
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Derivation
         - type: array
           items:
             oneOf:
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Derivation
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Derivation
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedDerivation
         x-jsonld-type: '@id'
       qualifiedAttribution:
         oneOf:
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Attribution
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Attribution
         - type: array
           items:
             oneOf:
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Attribution
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Attribution
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedAttribution
         x-jsonld-type: '@id'
     required:
     - id
-    anyOf:
-    - properties:
-        type:
-          type: string
-          const: Collection
-        hadMember:
-          type: array
-          items:
-            $ref: '#/$defs/Entity'
-          x-jsonld-id: http://www.w3.org/ns/prov#hadMember
-          x-jsonld-type: '@id'
-      required:
-      - hadMember
-      - type
-    - properties:
-        type:
-          type: string
-          const: EmptyCollection
-        hadMember:
-          type: array
-          maxItems: 0
-          x-jsonld-id: http://www.w3.org/ns/prov#hadMember
-          x-jsonld-type: '@id'
-      required:
-      - hadMember
-      - type
-    - not:
+    - provType
+    allOf:
+    - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#influenced
+    - if:
+        properties:
+          entityType:
+            anyOf:
+            - const: Collection
+            - type: array
+              contains:
+                const: Collection
+        required:
+        - entityType
+      then:
         required:
         - hadMember
-        - type
-    allOf:
-    - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#influenced
+        properties:
+          hadMember:
+            type: array
+            x-jsonld-id: http://www.w3.org/ns/prov#hadMember
+            x-jsonld-type: '@id'
+    - if:
+        properties:
+          entityType:
+            anyOf:
+            - const: EmptyCollection
+            - type: array
+              contains:
+                const: EmptyCollection
+        required:
+        - entityType
+      then:
+        required:
+        - hadMember
+        properties:
+          hadMember:
+            type: array
+            maxItems: 0
+            x-jsonld-id: http://www.w3.org/ns/prov#hadMember
+            x-jsonld-type: '@id'
 anyOf:
 - $ref: '#/$defs/Entity'
 x-jsonld-extra-terms:
-  activityType: '@type'
-  agentType: '@type'
+  activityType:
+    x-jsonld-id: http://www.w3.org/ns/prov#type
+    x-jsonld-type: '@id'
+  agentType:
+    x-jsonld-id: http://www.w3.org/ns/prov#type
+    x-jsonld-type: '@id'
+  influenceType:
+    x-jsonld-id: http://www.w3.org/ns/prov#type
+    x-jsonld-type: '@id'
   Activity: http://www.w3.org/ns/prov#Activity
   ActivityInfluence: http://www.w3.org/ns/prov#ActivityInfluence
   Agent: http://www.w3.org/ns/prov#Agent
@@ -886,20 +832,24 @@ x-jsonld-extra-terms:
   mentionOf:
     x-jsonld-id: http://www.w3.org/ns/prov#mentionOf
     x-jsonld-type: '@id'
-  name: http://www.w3.org/2000/01/rdf-schema#label
 x-jsonld-prefixes:
   prov: http://www.w3.org/ns/prov#
   xsd: http://www.w3.org/2001/XMLSchema#
   rdfs: http://www.w3.org/2000/01/rdf-schema#
-  dct: http://purl.org/dc/terms/
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  dct: http://purl.org/dc/terms/
+x-bblocks-metadata:
+  itemIdentifier: ogc.ogc-utils.prov-entity
+  register: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-11-20'
 
 ```
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.json)
-* JSON version: [schema.json](https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml)
+* YAML version: [schema.yaml](https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/schema.json)
+* JSON version: [schema.json](https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/schema.yaml)
 
 
 # JSON-LD Context
@@ -908,10 +858,98 @@ Links to the schema:
 {
   "@context": {
     "wasInfluencedBy": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:wasInfluencedBy",
       "@type": "@id"
     },
     "qualifiedInfluence": {
+      "@context": {
+        "influencer": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:influencer",
+          "@type": "@id"
+        },
+        "activity": {
+          "@context": {
+            "wasAssociatedWith": {
+              "@context": {
+                "href": {
+                  "@type": "@id",
+                  "@id": "oa:hasTarget"
+                },
+                "rel": {
+                  "@context": {
+                    "@base": "http://www.iana.org/assignments/relation/"
+                  },
+                  "@id": "http://www.iana.org/assignments/relation",
+                  "@type": "@id"
+                },
+                "type": "dct:type",
+                "hreflang": "dct:language",
+                "title": "rdfs:label",
+                "length": "dct:extent"
+              },
+              "@id": "prov:wasAssociatedWith",
+              "@type": "@id"
+            }
+          },
+          "@id": "prov:activity",
+          "@type": "@id"
+        },
+        "agent": {
+          "@context": {
+            "href": {
+              "@type": "@id",
+              "@id": "oa:hasTarget"
+            },
+            "rel": {
+              "@context": {
+                "@base": "http://www.iana.org/assignments/relation/"
+              },
+              "@id": "http://www.iana.org/assignments/relation",
+              "@type": "@id"
+            },
+            "type": "dct:type",
+            "hreflang": "dct:language",
+            "title": "rdfs:label",
+            "length": "dct:extent"
+          },
+          "@id": "prov:agent",
+          "@type": "@id"
+        }
+      },
       "@id": "prov:qualifiedInfluence",
       "@type": "@id"
     },
@@ -921,17 +959,33 @@ Links to the schema:
     },
     "id": "@id",
     "provType": "@type",
-    "featureType": "@type",
-    "entityType": "@type",
-    "has_provenance": {
-      "@id": "dct:provenance",
+    "entityType": {
+      "@id": "prov:type",
       "@type": "@id"
     },
+    "name": "rdfs:label",
     "wasGeneratedBy": {
       "@id": "prov:wasGeneratedBy",
       "@type": "@id"
     },
     "wasAttributedTo": {
+      "@context": {
+        "href": {
+          "@type": "@id",
+          "@id": "oa:hasTarget"
+        },
+        "rel": {
+          "@context": {
+            "@base": "http://www.iana.org/assignments/relation/"
+          },
+          "@id": "http://www.iana.org/assignments/relation",
+          "@type": "@id"
+        },
+        "type": "dct:type",
+        "hreflang": "dct:language",
+        "title": "rdfs:label",
+        "length": "dct:extent"
+      },
       "@id": "prov:wasAttributedTo",
       "@type": "@id"
     },
@@ -963,27 +1017,6 @@ Links to the schema:
       "@id": "prov:wasRevisionOf",
       "@type": "@id"
     },
-    "generatedAtTime": {
-      "@id": "prov:generatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "invalidatedAtTime": {
-      "@id": "prov:invalidatedAtTime",
-      "@type": "xsd:dateTime"
-    },
-    "value": "prov:value",
-    "qualifiedPrimarySource": {
-      "@id": "prov:qualifiedPrimarySource",
-      "@type": "@id"
-    },
-    "qualifiedQuotation": {
-      "@id": "prov:qualifiedQuotation",
-      "@type": "@id"
-    },
-    "qualifiedRevision": {
-      "@id": "prov:qualifiedRevision",
-      "@type": "@id"
-    },
     "atLocation": {
       "@id": "prov:atLocation",
       "@type": "@id"
@@ -1008,6 +1041,27 @@ Links to the schema:
       },
       "@id": "rdfs:seeAlso"
     },
+    "generatedAtTime": {
+      "@id": "prov:generatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "invalidatedAtTime": {
+      "@id": "prov:invalidatedAtTime",
+      "@type": "xsd:dateTime"
+    },
+    "value": "prov:value",
+    "qualifiedPrimarySource": {
+      "@id": "prov:qualifiedPrimarySource",
+      "@type": "@id"
+    },
+    "qualifiedQuotation": {
+      "@id": "prov:qualifiedQuotation",
+      "@type": "@id"
+    },
+    "qualifiedRevision": {
+      "@id": "prov:qualifiedRevision",
+      "@type": "@id"
+    },
     "qualifiedGeneration": {
       "@id": "prov:qualifiedGeneration",
       "@type": "@id"
@@ -1024,8 +1078,18 @@ Links to the schema:
       "@id": "prov:qualifiedAttribution",
       "@type": "@id"
     },
-    "activityType": "@type",
-    "agentType": "@type",
+    "activityType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "agentType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "influenceType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
     "Activity": "prov:Activity",
     "ActivityInfluence": "prov:ActivityInfluence",
     "Agent": "prov:Agent",
@@ -1249,12 +1313,16 @@ Links to the schema:
       "@id": "prov:mentionOf",
       "@type": "@id"
     },
-    "name": "rdfs:label",
     "prov": "http://www.w3.org/ns/prov#",
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "dct": "http://purl.org/dc/terms/",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "schema": "https://schema.org/",
+    "wfprov": "http://purl.org/wf4ever/wfprov#",
+    "wfdesc": "http://purl.org/wf4ever/wfdesc#",
+    "wf4ever": "http://purl.org/wf4ever/wf4ever#",
     "oa": "http://www.w3.org/ns/oa#",
     "@version": 1.1
   }
@@ -1262,7 +1330,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld)
+[context.jsonld](https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/context.jsonld)
 
 ## Sources
 
@@ -1272,6 +1340,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/ogcincubator/bblock-prov-schema](https://github.com/ogcincubator/bblock-prov-schema)
+* URL: [https://github.com/crim-ca/bblock-prov-schema](https://github.com/crim-ca/bblock-prov-schema)
 * Path: `_sources/prov-entity`
 
