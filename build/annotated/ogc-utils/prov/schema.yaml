@@ -11,128 +11,90 @@ $defs:
   oneOrMoreActivitiesOrRefIds:
     $anchor: oneOrMoreActivitiesOrRefIds
     oneOf:
-    - $ref: '#objectref'
-    - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#Activity
+    - $ref: '#/$defs/objectref'
+    - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Activity
     - type: array
       items:
         anyOf:
-        - $ref: '#objectref'
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#Activity
+        - $ref: '#/$defs/objectref'
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Activity
   oneOrMoreEntitiesOrRefIds:
     $anchor: oneOrMoreEntitiesOrRefIds
     oneOf:
-    - $ref: '#objectref'
-    - $ref: '#Entity'
+    - $ref: '#/$defs/objectref'
+    - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/schema.yaml#Entity
     - type: array
       items:
         anyOf:
-        - $ref: '#objectref'
-        - $ref: '#Entity'
+        - $ref: '#/$defs/objectref'
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/schema.yaml#Entity
   oneOrMoreAgentsOrRefIds:
     $anchor: oneOrMoreAgentsOrRefIds
     oneOf:
-    - $ref: '#objectref'
-    - $ref: '#Agent'
+    - $ref: '#/$defs/objectref'
+    - $ref: '#/$defs/externalLink'
+    - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.yaml#Agent
     - type: array
       items:
         anyOf:
-        - $ref: '#objectref'
-        - $ref: '#Agent'
+        - $ref: '#/$defs/objectref'
+        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.yaml#Agent
   externalLink:
     $anchor: externalLink
     $ref: https://opengeospatial.github.io/bblocks/annotated-schemas/ogc-utils/json-link/schema.yaml
-  Entity:
-    $anchor: Entity
-    $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml
-  EntityWithRequirements:
-    allOf:
-    - $ref: '#Entity'
-    - anyOf:
-      - required:
-        - provType
-      - required:
-        - prov:type
-      - required:
-        - type
-      - required:
-        - featureType
-      - required:
-        - entityType
-      - required:
-        - wasGeneratedBy
-      - required:
-        - wasAttributedTo
-      - required:
-        - wasDerivedFrom
-      - required:
-        - has_provenance
-  Activity:
-    $anchor: Activity
-    $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml
-  ActivityWithRequirements:
-    allOf:
-    - $ref: '#Activity'
-    - anyOf:
-      - required:
-        - provType
-      - required:
-        - prov:type
-      - required:
-        - type
-      - required:
-        - used
-      - required:
-        - wasInformedBy
-      - required:
-        - endedAtTime
-      - required:
-        - startedAtTime
-      - required:
-        - wasAssociatedWith
-  Agent:
-    $anchor: Agent
-    $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml
-  AgentWithRequirements:
-    allOf:
-    - $ref: '#Agent'
-    - anyOf:
-      - required:
-        - provType
-      - required:
-        - type
-      - required:
-        - agentType
-      - required:
-        - prov:type
-      - required:
-        - actedOnBehalfOf
-  Association:
-    $anchor: Association
-    $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml#Association
+  influenced:
+    $anchor: influenced
+    type: object
+    properties:
+      wasInfluencedBy:
+        anyOf:
+        - $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
+        - $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
+        - $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
+        x-jsonld-id: http://www.w3.org/ns/prov#wasInfluencedBy
+        x-jsonld-type: '@id'
+      qualifiedInfluence:
+        oneOf:
+        - $ref: '#/$defs/objectref'
+        - $ref: '#/$defs/Influence'
+        - type: array
+          items:
+            oneOf:
+            - $ref: '#/$defs/objectref'
+            - $ref: '#/$defs/Influence'
+        x-jsonld-id: http://www.w3.org/ns/prov#qualifiedInfluence
+        x-jsonld-type: '@id'
   Influence:
     $anchor: Influence
     type: object
     properties:
       id:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        $ref: '#/$defs/objectref'
         x-jsonld-id: '@id'
+      provType:
+        const: Influence
+        x-jsonld-id: '@type'
+      influenceType:
+        $ref: '#/$defs/oneOrMoreObjectref'
+        x-jsonld-id: http://www.w3.org/ns/prov#type
+        x-jsonld-type: '@id'
       influencer:
         anyOf:
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds
+        - $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
+        - $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
+        - $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#influencer
         x-jsonld-type: '@id'
       entity:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
+        $ref: '#/$defs/oneOrMoreEntitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#entity
         x-jsonld-type: '@id'
       activity:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds
+        $ref: '#/$defs/oneOrMoreActivitiesOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#activity
         x-jsonld-type: '@id'
       agent:
-        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds
+        $ref: '#/$defs/oneOrMoreAgentsOrRefIds'
         x-jsonld-id: http://www.w3.org/ns/prov#agent
         x-jsonld-type: '@id'
     anyOf:
@@ -144,28 +106,6 @@ $defs:
       - activity
     - required:
       - agent
-  influenced:
-    $anchor: influenced
-    type: object
-    properties:
-      wasInfluencedBy:
-        anyOf:
-        - $ref: '#oneOrMoreActivitiesOrRefIds'
-        - $ref: '#oneOrMoreEntitiesOrRefIds'
-        - $ref: '#oneOrMoreAgentsOrRefIds'
-        x-jsonld-id: http://www.w3.org/ns/prov#wasInfluencedBy
-        x-jsonld-type: '@id'
-      qualifiedInfluence:
-        oneOf:
-        - $ref: '#objectref'
-        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#Influence
-        - type: array
-          items:
-            oneOf:
-            - $ref: '#objectref'
-            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#Influence
-        x-jsonld-id: http://www.w3.org/ns/prov#qualifiedInfluence
-        x-jsonld-type: '@id'
   Prov:
     $anchor: Prov
     description: An list of provenance objects linked together to form a provenance
@@ -174,19 +114,15 @@ $defs:
     type: array
     items:
       oneOf:
-      - $ref: '#/$defs/EntityWithRequirements'
-      - $ref: '#/$defs/AgentWithRequirements'
-      - $ref: '#/$defs/ActivityWithRequirements'
+      - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/schema.yaml#Entity
+      - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Activity
+      - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.yaml#Agent
 anyOf:
-- $ref: '#Prov'
-- $ref: '#/$defs/EntityWithRequirements'
-- $ref: '#/$defs/ActivityWithRequirements'
+- $ref: '#/$defs/Prov'
+- $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/schema.yaml#Entity
+- $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml#Activity
+- $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.yaml#Agent
 x-jsonld-extra-terms:
-  activityType: '@type'
-  agentType: '@type'
-  entityType: '@type'
-  featureType: '@type'
-  provType: '@type'
   Activity: http://www.w3.org/ns/prov#Activity
   ActivityInfluence: http://www.w3.org/ns/prov#ActivityInfluence
   Agent: http://www.w3.org/ns/prov#Agent
@@ -240,9 +176,6 @@ x-jsonld-extra-terms:
   atTime:
     x-jsonld-id: http://www.w3.org/ns/prov#atTime
     x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
-  endedAtTime:
-    x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
-    x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
   generatedAtTime:
     x-jsonld-id: http://www.w3.org/ns/prov#generatedAtTime
     x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
@@ -266,17 +199,8 @@ x-jsonld-extra-terms:
   agent:
     x-jsonld-id: http://www.w3.org/ns/prov#agent
     x-jsonld-type: '@id'
-  alternateOf:
-    x-jsonld-id: http://www.w3.org/ns/prov#alternateOf
-    x-jsonld-type: '@id'
-  atLocation:
-    x-jsonld-id: http://www.w3.org/ns/prov#atLocation
-    x-jsonld-type: '@id'
   entity:
     x-jsonld-id: http://www.w3.org/ns/prov#entity
-    x-jsonld-type: '@id'
-  generated:
-    x-jsonld-id: http://www.w3.org/ns/prov#generated
     x-jsonld-type: '@id'
   hadActivity:
     x-jsonld-id: http://www.w3.org/ns/prov#hadActivity
@@ -287,14 +211,8 @@ x-jsonld-extra-terms:
   hadGeneration:
     x-jsonld-id: http://www.w3.org/ns/prov#hadGeneration
     x-jsonld-type: '@id'
-  hadMember:
-    x-jsonld-id: http://www.w3.org/ns/prov#hadMember
-    x-jsonld-type: '@id'
   hadPlan:
     x-jsonld-id: http://www.w3.org/ns/prov#hadPlan
-    x-jsonld-type: '@id'
-  hadPrimarySource:
-    x-jsonld-id: http://www.w3.org/ns/prov#hadPrimarySource
     x-jsonld-type: '@id'
   hadRole:
     x-jsonld-id: http://www.w3.org/ns/prov#hadRole
@@ -308,35 +226,11 @@ x-jsonld-extra-terms:
   influencer:
     x-jsonld-id: http://www.w3.org/ns/prov#influencer
     x-jsonld-type: '@id'
-  invalidated:
-    x-jsonld-id: http://www.w3.org/ns/prov#invalidated
-    x-jsonld-type: '@id'
-  qualifiedAssociation:
-    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedAssociation
-    x-jsonld-type: '@id'
-  qualifiedAttribution:
-    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedAttribution
-    x-jsonld-type: '@id'
-  qualifiedCommunication:
-    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedCommunication
-    x-jsonld-type: '@id'
   qualifiedDelegation:
     x-jsonld-id: http://www.w3.org/ns/prov#qualifiedDelegation
     x-jsonld-type: '@id'
-  qualifiedDerivation:
-    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedDerivation
-    x-jsonld-type: '@id'
-  qualifiedEnd:
-    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedEnd
-    x-jsonld-type: '@id'
-  qualifiedGeneration:
-    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedGeneration
-    x-jsonld-type: '@id'
   qualifiedInfluence:
     x-jsonld-id: http://www.w3.org/ns/prov#qualifiedInfluence
-    x-jsonld-type: '@id'
-  qualifiedInvalidation:
-    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedInvalidation
     x-jsonld-type: '@id'
   qualifiedPrimarySource:
     x-jsonld-id: http://www.w3.org/ns/prov#qualifiedPrimarySource
@@ -347,56 +241,11 @@ x-jsonld-extra-terms:
   qualifiedRevision:
     x-jsonld-id: http://www.w3.org/ns/prov#qualifiedRevision
     x-jsonld-type: '@id'
-  qualifiedStart:
-    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedStart
-    x-jsonld-type: '@id'
-  qualifiedUsage:
-    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedUsage
-    x-jsonld-type: '@id'
-  specializationOf:
-    x-jsonld-id: http://www.w3.org/ns/prov#specializationOf
-    x-jsonld-type: '@id'
-  used:
-    x-jsonld-id: http://www.w3.org/ns/prov#used
-    x-jsonld-type: '@id'
-  wasAssociatedWith:
-    x-jsonld-id: http://www.w3.org/ns/prov#wasAssociatedWith
-    x-jsonld-type: '@id'
-  wasAttributedTo:
-    x-jsonld-id: http://www.w3.org/ns/prov#wasAttributedTo
-    x-jsonld-type: '@id'
-  wasDerivedFrom:
-    x-jsonld-id: http://www.w3.org/ns/prov#wasDerivedFrom
-    x-jsonld-type: '@id'
-  wasEndedBy:
-    x-jsonld-id: http://www.w3.org/ns/prov#wasEndedBy
-    x-jsonld-type: '@id'
-  wasGeneratedBy:
-    x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
-    x-jsonld-type: '@id'
   wasInfluencedBy:
     x-jsonld-id: http://www.w3.org/ns/prov#wasInfluencedBy
     x-jsonld-type: '@id'
-  wasInformedBy:
-    x-jsonld-id: http://www.w3.org/ns/prov#wasInformedBy
-    x-jsonld-type: '@id'
-  wasInvalidatedBy:
-    x-jsonld-id: http://www.w3.org/ns/prov#wasInvalidatedBy
-    x-jsonld-type: '@id'
-  wasQuotedFrom:
-    x-jsonld-id: http://www.w3.org/ns/prov#wasQuotedFrom
-    x-jsonld-type: '@id'
-  wasRevisionOf:
-    x-jsonld-id: http://www.w3.org/ns/prov#wasRevisionOf
-    x-jsonld-type: '@id'
-  wasStartedBy:
-    x-jsonld-id: http://www.w3.org/ns/prov#wasStartedBy
-    x-jsonld-type: '@id'
   has_anchor:
     x-jsonld-id: http://www.w3.org/ns/prov#has_anchor
-    x-jsonld-type: '@id'
-  has_provenance:
-    x-jsonld-id: http://purl.org/dc/terms/provenance
     x-jsonld-type: '@id'
   has_query_service:
     x-jsonld-id: http://www.w3.org/ns/prov#has_query_service
@@ -437,8 +286,105 @@ x-jsonld-extra-terms:
   mentionOf:
     x-jsonld-id: http://www.w3.org/ns/prov#mentionOf
     x-jsonld-type: '@id'
-  id: '@id'
   name: http://www.w3.org/2000/01/rdf-schema#label
+  provType: '@type'
+  activityType:
+    x-jsonld-id: http://www.w3.org/ns/prov#type
+    x-jsonld-type: '@id'
+  agentType:
+    x-jsonld-id: http://www.w3.org/ns/prov#type
+    x-jsonld-type: '@id'
+  entityType:
+    x-jsonld-id: http://www.w3.org/ns/prov#type
+    x-jsonld-type: '@id'
+  influenceType:
+    x-jsonld-id: http://www.w3.org/ns/prov#type
+    x-jsonld-type: '@id'
+  endedAtTime:
+    x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
+    x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
+  alternateOf:
+    x-jsonld-id: http://www.w3.org/ns/prov#alternateOf
+    x-jsonld-type: '@id'
+  atLocation:
+    x-jsonld-id: http://www.w3.org/ns/prov#atLocation
+    x-jsonld-type: '@id'
+  generated:
+    x-jsonld-id: http://www.w3.org/ns/prov#generated
+    x-jsonld-type: '@id'
+  hadMember:
+    x-jsonld-id: http://www.w3.org/ns/prov#hadMember
+    x-jsonld-type: '@id'
+  hadPrimarySource:
+    x-jsonld-id: http://www.w3.org/ns/prov#hadPrimarySource
+    x-jsonld-type: '@id'
+  invalidated:
+    x-jsonld-id: http://www.w3.org/ns/prov#invalidated
+    x-jsonld-type: '@id'
+  qualifiedAssociation:
+    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedAssociation
+    x-jsonld-type: '@id'
+  qualifiedAttribution:
+    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedAttribution
+    x-jsonld-type: '@id'
+  qualifiedCommunication:
+    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedCommunication
+    x-jsonld-type: '@id'
+  qualifiedDerivation:
+    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedDerivation
+    x-jsonld-type: '@id'
+  qualifiedEnd:
+    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedEnd
+    x-jsonld-type: '@id'
+  qualifiedGeneration:
+    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedGeneration
+    x-jsonld-type: '@id'
+  qualifiedInvalidation:
+    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedInvalidation
+    x-jsonld-type: '@id'
+  qualifiedStart:
+    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedStart
+    x-jsonld-type: '@id'
+  qualifiedUsage:
+    x-jsonld-id: http://www.w3.org/ns/prov#qualifiedUsage
+    x-jsonld-type: '@id'
+  specializationOf:
+    x-jsonld-id: http://www.w3.org/ns/prov#specializationOf
+    x-jsonld-type: '@id'
+  used:
+    x-jsonld-id: http://www.w3.org/ns/prov#used
+    x-jsonld-type: '@id'
+  wasAssociatedWith:
+    x-jsonld-id: http://www.w3.org/ns/prov#wasAssociatedWith
+    x-jsonld-type: '@id'
+  wasAttributedTo:
+    x-jsonld-id: http://www.w3.org/ns/prov#wasAttributedTo
+    x-jsonld-type: '@id'
+  wasDerivedFrom:
+    x-jsonld-id: http://www.w3.org/ns/prov#wasDerivedFrom
+    x-jsonld-type: '@id'
+  wasEndedBy:
+    x-jsonld-id: http://www.w3.org/ns/prov#wasEndedBy
+    x-jsonld-type: '@id'
+  wasGeneratedBy:
+    x-jsonld-id: http://www.w3.org/ns/prov#wasGeneratedBy
+    x-jsonld-type: '@id'
+  wasInformedBy:
+    x-jsonld-id: http://www.w3.org/ns/prov#wasInformedBy
+    x-jsonld-type: '@id'
+  wasInvalidatedBy:
+    x-jsonld-id: http://www.w3.org/ns/prov#wasInvalidatedBy
+    x-jsonld-type: '@id'
+  wasQuotedFrom:
+    x-jsonld-id: http://www.w3.org/ns/prov#wasQuotedFrom
+    x-jsonld-type: '@id'
+  wasRevisionOf:
+    x-jsonld-id: http://www.w3.org/ns/prov#wasRevisionOf
+    x-jsonld-type: '@id'
+  wasStartedBy:
+    x-jsonld-id: http://www.w3.org/ns/prov#wasStartedBy
+    x-jsonld-type: '@id'
+  id: '@id'
   links: http://www.w3.org/2000/01/rdf-schema#seeAlso
 x-jsonld-prefixes:
   prov: http://www.w3.org/ns/prov#
@@ -446,3 +392,13 @@ x-jsonld-prefixes:
   rdfs: http://www.w3.org/2000/01/rdf-schema#
   dct: http://purl.org/dc/terms/
   rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  foaf: http://xmlns.com/foaf/0.1/
+  schema: https://schema.org/
+  wfprov: http://purl.org/wf4ever/wfprov#
+  wfdesc: http://purl.org/wf4ever/wfdesc#
+  wf4ever: http://purl.org/wf4ever/wf4ever#
+x-bblocks-metadata:
+  itemIdentifier: ogc.ogc-utils.prov
+  register: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/register.json
+  version: '0.1'
+  dateOfLastChange: '2026-11-20'

@@ -3,40 +3,26 @@
     {
       "iana": "http://www.iana.org/assignments/"
     },
-    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld",
+    "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/context.jsonld",
     {
       "@base": "https://example.org/aThing/",
       "agents": "https://someagentregister.eg/",
       "thing": "https://example.org/entities/",
       "foaf": "http://xmlns.com/foaf/0.1/",
       "survtypes": "https://example.org/surveytypes/",
-      "surveyreg": "https://example.org/surveys/",
-      "featureType": {
-        "@id": "@type",
-        "@context": {
-          "@base": "http://example.org/myEntities/"
-        }
-      },
-      "activityType": {
-        "@id": "@type",
-        "@context": {
-          "@base": "http://example.org/myActivityTypes/"
-        }
-      }
+      "surveyreg": "https://example.org/surveys/"
     }
   ],
   "id": "DP-1",
-  "type": "Feature",
-  "featureType": "Survey",
+  "provType": "Entity",
+  "entityType": "survtypes:Survey",
   "qualifiedGeneration": [
     {
-      "type": "Generation",
+      "provType": "Generation",
       "activity": {
         "id": "uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44",
-        "type": [
-          "wfprov:ProcessRun",
-          "Activity"
-        ],
+        "provType": "Activity",
+        "activityType": "wfprov:ProcessRun",
         "name": "Run of workflow/packed.cwl#main/sorted"
       },
       "atTime": "2018-10-25T15:46:38.058365",

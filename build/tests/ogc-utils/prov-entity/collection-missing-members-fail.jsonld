@@ -1,0 +1,6 @@
+{
+  "@context": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/context.jsonld",
+  "provType": "Entity",
+  "id": "surveyset-3",
+  "entityType": "Collection"
+}
