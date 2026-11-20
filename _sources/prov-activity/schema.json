@@ -20,7 +20,7 @@
           "const": "Activity",
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "activityType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -200,7 +200,7 @@
           "$ref": "bblocks://ogc.ogc-utils.prov#objectref",
           "x-jsonld-id": "@id"
         },
-        "type": {
+        "influenceType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -236,7 +236,7 @@
           "$ref": "bblocks://ogc.ogc-utils.prov#objectref",
           "x-jsonld-id": "@id"
         },
-        "type": {
+        "influenceType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -326,7 +326,7 @@
           "$ref": "bblocks://ogc.ogc-utils.prov#objectref",
           "x-jsonld-id": "@id"
         },
-        "type": {
+        "influenceType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -415,7 +415,7 @@
           ],
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "influenceType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -535,7 +535,7 @@
           "const": "Delegation",
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "influenceType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -577,7 +577,7 @@
           "const": "Attribution",
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "influenceType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },

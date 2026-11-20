@@ -10,7 +10,7 @@
           "const": "Agent",
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "agentType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -80,7 +80,7 @@
           "const": "Association",
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "influenceType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },

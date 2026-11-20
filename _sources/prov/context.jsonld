@@ -6,7 +6,19 @@
     "xsd": "http://www.w3.org/2001/XMLSchema#",
     "dct": "http://purl.org/dc/terms/",
     "provType": "@type",
-    "type": {
+    "activityType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "agentType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "entityType": {
+      "@id": "prov:type",
+      "@type": "@id"
+    },
+    "influenceType": {
       "@id": "prov:type",
       "@type": "@id"
     },

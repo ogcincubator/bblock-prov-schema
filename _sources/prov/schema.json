@@ -147,7 +147,7 @@
           "const": "Influence",
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },

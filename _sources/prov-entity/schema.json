@@ -14,7 +14,7 @@
           "const": "Entity",
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "entityType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },

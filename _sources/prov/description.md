@@ -2,7 +2,7 @@
 
 A JSON schema defining objects that may be referenced or nested as a chain of Activities, Entities or Agents (or subclasses thereof)
 
-This schema implements the PROV vocabulary semantics (through JSON-LD mapping directly to the PROV-O RDF model.)
+This schema implements the PROV vocabulary semantics (through JSON mapping directly to the PROV-O RDF model).
 
 ## Core PROV concepts
 
@@ -20,15 +20,31 @@ associated with an Agent, which may itself have acted on behalf of another Agent
 
 ## Object typing
 
-Object typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).
+Object typing needs to be explicit to support effective semantic mapping to the PROV
+vocabulary, and to support schema validation scope clarity (using the right sub-schema for
+objects in a collection representing the directed graph model of PROV).  Sub-schemas
+should also be efficiently identifiable without structural type inference or the need to
+refer to the PROV-O hierarchy.
 
-`provType` may be used to map to the subClasses of the Provenance vocabulary.
+The strategy for typing used is inspired by
+**[PROV-JSONLD](https://www.w3.org/submissions/prov-jsonld/)**, where `provType`
+corresponds to `@type` in JSON-LD and is used to specify a **single** PROV expression,
+either one of the PROV-O [starting point
+terms](https://www.w3.org/TR/prov-o/#description-starting-point-terms) (Agent, Entity,
+Activity) or a [qualified
+influence](https://www.w3.org/TR/prov-o/#description-qualified-terms) class.  Because
+provenance objects will frequently be linked to vocabularies outside the PROV data model
+(Schema.org, Wfprov, FOAF, among others), custom application object types, corresponding to
+`type` in PROV-JSONLD, are provided for this purpose.
 
-Custom application object types are explicit (`activityType`, `agentType`, `entityType` to support schema validation clarity).
+These properties are explicitly linked to the sub-schema (`activityType`, `agentType`,
+`entityType`, `influenceType`) to support schema validation clarity.  Note that all
+qualified influence objects use `influenceType`.  They may contain a single IRI or CURIE
+or a list of IRIs or CURIEs.
 
-
-
-Note that entityType is optional and may be replaced by `featureType` for compatibility with the OGC Feature implementation (implicitly always an Entity)
-
-likewise the use of the property `type` is not specified to allow compatibility with GeoJSON features that must have this property with a constant value ("Feature" or "FeatureCollection").
+The properties `type` and `featureType` are deliberately avoided in order to allow
+compatibility with [OGC
+Feature](https://docs.ogc.org/is/21-045r1/21-045r1.html#feature-types) and
+[GeoJSON](https://www.rfc-editor.org/info/rfc7946/#section-3), which use them with
+constant string values.
 

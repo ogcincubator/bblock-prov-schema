@@ -140,7 +140,7 @@
           "const": "Entity",
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "entityType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -425,7 +425,7 @@
           "const": "Activity",
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "activityType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -600,7 +600,7 @@
           "const": "Agent",
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "agentType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -669,7 +669,7 @@
           "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
-        "type": {
+        "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -704,7 +704,7 @@
           "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
-        "type": {
+        "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -790,7 +790,7 @@
           "$ref": "#/$defs/objectref",
           "x-jsonld-id": "@id"
         },
-        "type": {
+        "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -876,7 +876,7 @@
           ],
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -992,7 +992,7 @@
           "const": "Delegation",
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -1033,7 +1033,7 @@
           "const": "Attribution",
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -1062,7 +1062,7 @@
           "const": "Association",
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },
@@ -1101,7 +1101,7 @@
           "const": "Influence",
           "x-jsonld-id": "@type"
         },
-        "type": {
+        "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
           "x-jsonld-id": "type"
         },

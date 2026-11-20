@@ -8,13 +8,13 @@
   },
   "id": "DP-1",
   "provType": "Entity",
-  "type": "Survey",
+  "entityType": "Survey",
   "wasGeneratedBy": [
     "surveyreg:DP-1-S1",
     {
       "id": "surveyreg:DP-1-S2",
       "provType": "Activity",
-      "type": "Registration",
+      "activityType": "Registration",
       "endedAtTime": "2029-01-01",
       "wasAssociatedWith": "agents:bc-3",
       "wasGeneratedBy": "surveyreg:DP-1-S1",
