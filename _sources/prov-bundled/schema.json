@@ -142,7 +142,7 @@
         },
         "entityType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "name": {
           "type": "string",
@@ -492,7 +492,7 @@
         },
         "activityType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "name": {
           "type": "string",
@@ -667,7 +667,7 @@
         },
         "agentType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "name": {
           "type": "string",
@@ -747,7 +747,7 @@
         },
         "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "atTime": {
           "$ref": "#/$defs/dateTime",
@@ -782,7 +782,7 @@
         },
         "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "atTime": {
           "$ref": "#/$defs/dateTime",
@@ -868,7 +868,7 @@
         },
         "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "atTime": {
           "$ref": "#/$defs/dateTime",
@@ -954,7 +954,7 @@
         },
         "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "hadGeneration": {
           "oneOf": [
@@ -1070,7 +1070,7 @@
         },
         "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "agent": {
           "oneOf": [
@@ -1111,7 +1111,7 @@
         },
         "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "agent": {
           "oneOf": [
@@ -1140,7 +1140,7 @@
         },
         "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "agent": {
           "oneOf": [
@@ -1179,7 +1179,7 @@
         },
         "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "influencer": {
           "anyOf": [

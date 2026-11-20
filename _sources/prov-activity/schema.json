@@ -22,7 +22,7 @@
         },
         "activityType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "name": {
           "type": "string",
@@ -202,7 +202,7 @@
         },
         "influenceType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "atTime": {
           "$ref": "#/$defs/dateTime",
@@ -238,7 +238,7 @@
         },
         "influenceType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "atTime": {
           "$ref": "#/$defs/dateTime",
@@ -328,7 +328,7 @@
         },
         "influenceType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "atTime": {
           "$ref": "#/$defs/dateTime",
@@ -417,7 +417,7 @@
         },
         "influenceType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "hadGeneration": {
           "oneOf": [
@@ -537,7 +537,7 @@
         },
         "influenceType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "agent": {
           "oneOf": [
@@ -579,7 +579,7 @@
         },
         "influenceType": {
           "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "agent": {
           "oneOf": [

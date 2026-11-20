@@ -149,7 +149,7 @@
         },
         "influenceType": {
           "$ref": "#/$defs/oneOrMoreObjectref",
-          "x-jsonld-id": "type"
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "influencer": {
           "anyOf": [
