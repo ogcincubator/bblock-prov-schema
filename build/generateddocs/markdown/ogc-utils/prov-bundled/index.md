@@ -77,7 +77,7 @@ constant string values.
 #### jsonld
 ```jsonld
 {
-  "@context": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-bundled/context.jsonld",
+  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/context.jsonld",
   "id": "Object2",
   "provType": "Entity",
   "wasDerivedFrom": "Object1"
@@ -126,7 +126,7 @@ this is a simple activity referencing some relevant document
 #### jsonld
 ```jsonld
 {
-  "@context": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-bundled/context.jsonld",
+  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/context.jsonld",
   "provType": "Activity",
   "id": "someActivity_1",
   "endedAtTime": "2029-01-01T22:05:19+02:00",
@@ -178,11 +178,17 @@ DAG defined by an object list.
     "thing": "https://example.org/entities/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "survtypes": "https://example.org/surveytypes/",
-    "surveyreg": "https://example.org/surveys/"
+    "surveyreg": "https://example.org/surveys/",
+    "featureType": {
+      "@context": {
+        "@base": "http://example.org/myEntities/"
+      }
+    }
   },
   "id": "DP-1",
   "provType": "Entity",
-  "entityType": "survtypes:Survey",
+  "type": "Feature",
+  "featureType": "Survey",
   "wasGeneratedBy": [
     "surveyreg:DP-1-S1",
     {
@@ -239,19 +245,25 @@ DAG defined by an object list.
 ```jsonld
 {
   "@context": [
-    "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-bundled/context.jsonld",
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/context.jsonld",
     {
       "@base": "https://example.org/aThing/",
       "agents": "https://someagentregister.eg/",
       "thing": "https://example.org/entities/",
       "foaf": "http://xmlns.com/foaf/0.1/",
       "survtypes": "https://example.org/surveytypes/",
-      "surveyreg": "https://example.org/surveys/"
+      "surveyreg": "https://example.org/surveys/",
+      "featureType": {
+        "@context": {
+          "@base": "http://example.org/myEntities/"
+        }
+      }
     }
   ],
   "id": "DP-1",
   "provType": "Entity",
-  "entityType": "survtypes:Survey",
+  "type": "Feature",
+  "featureType": "Survey",
   "wasGeneratedBy": [
     "surveyreg:DP-1-S1",
     {
@@ -315,7 +327,6 @@ DAG defined by an object list.
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.org/aThing/DP-1> a prov:Entity ;
-    prov:type survtypes:Survey ;
     prov:wasGeneratedBy surveyreg:DP-1-S1,
         surveyreg:DP-1-S2 .
 
@@ -345,11 +356,17 @@ A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) exam
     "thing": "https://example.org/entities/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "survtypes": "https://example.org/surveytypes/",
-    "surveyreg": "https://example.org/surveys/"
+    "surveyreg": "https://example.org/surveys/",
+    "featureType": {
+      "@context": {
+        "@base": "http://example.org/myEntities/"
+      }
+    }
   },
   "id": "DP-1",
   "provType": "Entity",
-  "entityType": "survtypes:Survey",
+  "type": "Feature",
+  "featureType": "Survey",
   "qualifiedGeneration": [
     {
       "provType": "Generation",
@@ -371,19 +388,25 @@ A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) exam
 ```jsonld
 {
   "@context": [
-    "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-bundled/context.jsonld",
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/context.jsonld",
     {
       "@base": "https://example.org/aThing/",
       "agents": "https://someagentregister.eg/",
       "thing": "https://example.org/entities/",
       "foaf": "http://xmlns.com/foaf/0.1/",
       "survtypes": "https://example.org/surveytypes/",
-      "surveyreg": "https://example.org/surveys/"
+      "surveyreg": "https://example.org/surveys/",
+      "featureType": {
+        "@context": {
+          "@base": "http://example.org/myEntities/"
+        }
+      }
     }
   ],
   "id": "DP-1",
   "provType": "Entity",
-  "entityType": "survtypes:Survey",
+  "type": "Feature",
+  "featureType": "Survey",
   "qualifiedGeneration": [
     {
       "provType": "Generation",
@@ -404,7 +427,6 @@ A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) exam
 ```ttl
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix survtypes: <https://example.org/surveytypes/> .
 @prefix wfprov: <http://purl.org/wf4ever/wfprov#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -412,8 +434,7 @@ A [qualified generation](https://www.w3.org/TR/prov-o/#qualifiedGeneration) exam
     prov:qualifiedGeneration [ a prov:Generation ;
             prov:activity <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> ;
             prov:atTime "2018-10-25T15:46:38.058365"^^xsd:dateTime ;
-            prov:hadRole <wf:main/sorted/output> ] ;
-    prov:type survtypes:Survey .
+            prov:hadRole <wf:main/sorted/output> ] .
 
 <uuid:d7e8b17e-2d80-4c42-a797-bc3628f52c44> a prov:Activity ;
     rdfs:label "Run of workflow/packed.cwl#main/sorted" ;
@@ -480,7 +501,7 @@ A provenance chain for Large Language Model.
 #### jsonld
 ```jsonld
 {
-  "@context": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-bundled/context.jsonld",
+  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/context.jsonld",
   "id": "llm-workflow-run",
   "provType": "Activity",
   "generated": {
@@ -1464,16 +1485,16 @@ x-jsonld-prefixes:
   wf4ever: http://purl.org/wf4ever/wf4ever#
 x-bblocks-metadata:
   itemIdentifier: ogc.ogc-utils.prov-bundled
-  register: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/register.json
+  register: https://ogcincubator.github.io/bblock-prov-schema/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-20'
+  dateOfLastChange: '2026-11-23'
 
 ```
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-bundled/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-bundled/schema.yaml)
+* YAML version: [schema.yaml](https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/schema.json)
+* JSON version: [schema.json](https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/schema.yaml)
 
 
 # JSON-LD Context
@@ -1944,7 +1965,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-bundled/context.jsonld)
+[context.jsonld](https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/context.jsonld)
 
 ## Sources
 
@@ -1954,6 +1975,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/crim-ca/bblock-prov-schema](https://github.com/crim-ca/bblock-prov-schema)
+* URL: [https://github.com/ogcincubator/bblock-prov-schema](https://github.com/ogcincubator/bblock-prov-schema)
 * Path: `_sources/prov-bundled`
 

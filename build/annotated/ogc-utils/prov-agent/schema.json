@@ -11,7 +11,7 @@
           "x-jsonld-id": "@type"
         },
         "agentType": {
-          "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.json#oneOrMoreObjectref",
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#oneOrMoreObjectref",
           "x-jsonld-id": "http://www.w3.org/ns/prov#type",
           "x-jsonld-type": "@id"
         },
@@ -20,36 +20,36 @@
           "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#label"
         },
         "id": {
-          "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.json#objectref",
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref",
           "x-jsonld-id": "@id"
         },
         "actedOnBehalfOf": {
-          "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.json#oneOrMoreAgentsOrRefIds",
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#oneOrMoreAgentsOrRefIds",
           "x-jsonld-id": "http://www.w3.org/ns/prov#actedOnBehalfOf",
           "x-jsonld-type": "@id"
         },
         "atLocation": {
-          "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.json#objectref",
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref",
           "x-jsonld-id": "http://www.w3.org/ns/prov#atLocation",
           "x-jsonld-type": "@id"
         },
         "qualifiedDelegation": {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.json#objectref"
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref"
             },
             {
-              "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.json#Delegation"
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json#Delegation"
             },
             {
               "type": "array",
               "items": {
                 "oneOf": [
                   {
-                    "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.json#objectref"
+                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref"
                   },
                   {
-                    "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.json#Delegation"
+                    "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json#Delegation"
                   }
                 ]
               }
@@ -76,7 +76,7 @@
       ],
       "allOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.json#influenced"
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#influenced"
         }
       ]
     },
@@ -85,7 +85,7 @@
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.json#objectref",
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref",
           "x-jsonld-id": "@id"
         },
         "provType": {
@@ -93,14 +93,14 @@
           "x-jsonld-id": "@type"
         },
         "influenceType": {
-          "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.json#oneOrMoreObjectref",
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#oneOrMoreObjectref",
           "x-jsonld-id": "http://www.w3.org/ns/prov#type",
           "x-jsonld-type": "@id"
         },
         "agent": {
           "oneOf": [
             {
-              "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.json#objectref"
+              "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#objectref"
             },
             {
               "$ref": "#/$defs/Agent"
@@ -110,12 +110,12 @@
           "x-jsonld-type": "@id"
         },
         "hadRole": {
-          "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.json#oneOrMoreObjectref",
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#oneOrMoreObjectref",
           "x-jsonld-id": "http://www.w3.org/ns/prov#hadRole",
           "x-jsonld-type": "@id"
         },
         "hadPlan": {
-          "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.json#oneOrMoreObjectref",
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json#oneOrMoreObjectref",
           "x-jsonld-id": "http://www.w3.org/ns/prov#hadPlan",
           "x-jsonld-type": "@id"
         }
@@ -451,8 +451,8 @@
   },
   "x-bblocks-metadata": {
     "itemIdentifier": "ogc.ogc-utils.prov-agent",
-    "register": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/register.json",
+    "register": "https://ogcincubator.github.io/bblock-prov-schema/build/register.json",
     "version": "0.1",
-    "dateOfLastChange": "2026-11-20"
+    "dateOfLastChange": "2026-11-23"
   }
 }

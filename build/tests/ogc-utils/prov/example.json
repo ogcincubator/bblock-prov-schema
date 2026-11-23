@@ -5,11 +5,17 @@
     "thing": "https://example.org/entities/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "survtypes": "https://example.org/surveytypes/",
-    "surveyreg": "https://example.org/surveys/"
+    "surveyreg": "https://example.org/surveys/",
+    "featureType": {
+      "@context": {
+        "@base": "http://example.org/myEntities/"
+      }
+    }
   },
   "id": "DP-1",
   "provType": "Entity",
-  "entityType": "survtypes:Survey",
+  "type": "Feature",
+  "featureType": "Survey",
   "wasGeneratedBy": [
     "surveyreg:DP-1-S1",
     {

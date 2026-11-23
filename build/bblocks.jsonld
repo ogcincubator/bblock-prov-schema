@@ -1,7 +1,7 @@
 {
   "@context": [
     {
-      "@base": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas"
+      "@base": "https://ogcincubator.github.io/bblock-prov-schema"
     },
     {
       "bblocks": "https://www.opengis.net/def/bblocks/",
@@ -218,41 +218,41 @@
   "abstract": "Defines a standardised JSON schema for PROV ontology elements - supporting a graph structure based on an array of objects implementing PROV defined classes with object cross references.",
   "description": "Provenance defined using the [W3C PROV-O model](https://www.w3.org/TR/prov-o/) is a DAG (non-cyclic graph) based on three main object types: Entity, Activity and Agent.\n\nThis repository defines a JSON schema and matching JSON-LD context using the [OGC Building Blocks](https://ogcincubator.github.io/bblocks-docs/) methodology, \nfor W3C PROV-O model, using the canonical terminology used in the PROV ontology as element names.\n\nThis schema is made of mutually dependend sub schemas for the key elements of Prov - Entity, Activity and Agent.\n\nIt also defines a context for an optional schema property \"has_provenance\" that can be used to wrap a provenance graph as an array of such objects, to extend the property prov:wasGeneratedBy (whose range is one or more Entity objects) with an explicit schema.\n\n![](https://www.w3.org/TR/prov-o/diagrams/starting-points.svg)\n\nNote that the PROV working group originally defined a number of JSON serialisation options, however these have limited uptake and do no allow PROV-O to annotate other schemas. This implementation uses modern JSON schema and JSON-LD mechanisms to provide a complete mapping from JSON to PROV-O model.\n\nSince the development of this schema another proposal has been submitted as a W3C memberr submission: \n[https://www.w3.org/submissions/prov-jsonld/](https://www.w3.org/submissions/prov-jsonld/)\n\nThe rationale for this is consistent with the design principles:\n\n\" the family of PROV specifications lacks a serialization capable of simultaneously addressing all of the following requirements:\n\n  - **Lightweight** A serialization MUST support lightweight Web applications.\n  - **Natural** A serialization MUST look natural to its targeted community of users.\n  - **Semantic** A serialization MUST allow for semantic markup and integration with linked data applications.\n  - **Efficient** A serialization MUST be efficiently processable.\nIn our view, none of the existing PROV serializations supports all these requirements simultaneously.\"\n\nAn activity to reconcile these approaches and explore formalisation is proposed. \n",
   "sparqlEndpoint": "https://defs-dev.opengis.net/fuseki/query",
-  "modified": "2026-11-20T16:01:24.684978",
+  "modified": "2026-11-23T20:12:33.980339",
   "tooling": {
     "bblocks-postprocess": {
-      "commitId": "\"990affbe72a10408bfed51a6254103fad13752c2",
-      "shortCommitId": "\"990aff",
-      "date": "2026-11-19T17:39:46+00:00\""
+      "commitId": "\"61523b7930e440b7e6e6bc03cb1b104d5d01f3f5",
+      "shortCommitId": "\"61523b",
+      "date": "2026-11-23T13:04:26+00:00\""
     }
   },
-  "gitRepository": "https://github.com/crim-ca/bblock-prov-schema",
-  "gitHubRepository": "https://github.com/crim-ca/bblock-prov-schema/blob/new_schemas/",
-  "baseURL": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/",
-  "viewerURL": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/",
-  "validationReport": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/tests/report.html",
-  "validationReportJson": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/tests/report.json",
+  "gitRepository": "https://github.com/ogcincubator/bblock-prov-schema",
+  "gitHubRepository": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/",
+  "baseURL": "https://ogcincubator.github.io/bblock-prov-schema/",
+  "viewerURL": "https://ogcincubator.github.io/bblock-prov-schema/",
+  "validationReport": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/report.html",
+  "validationReportJson": "https://ogcincubator.github.io/bblock-prov-schema/build/tests/report.json",
   "imports": [
     "https://opengeospatial.github.io/bblocks/register.json",
     "https://ogcincubator.github.io/cross-domain-model/build/register.json"
   ],
-  "remoteCacheDir": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/_cache",
+  "remoteCacheDir": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/_cache",
   "links": [
     {
       "rel": "self",
-      "href": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/register.json",
+      "href": "https://ogcincubator.github.io/bblock-prov-schema/build/register.json",
       "type": "application/json",
       "title": "This Building Blocks Register in JSON format"
     },
     {
       "rel": "self",
-      "href": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/bblocks.ttl",
+      "href": "https://ogcincubator.github.io/bblock-prov-schema/build/bblocks.ttl",
       "type": "text/turtle",
       "title": "This Building Blocks Register in RDF Turtle format"
     },
     {
       "rel": "self",
-      "href": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/bblocks.jsonld",
+      "href": "https://ogcincubator.github.io/bblock-prov-schema/build/bblocks.jsonld",
       "type": "application/ld+json",
       "title": "This Building Blocks Register in JSON-LD format"
     }
@@ -274,7 +274,7 @@
       "itemClass": "schema",
       "register": "ogc-utils",
       "version": "0.1",
-      "dateOfLastChange": "2026-11-20",
+      "dateOfLastChange": "2026-11-23",
       "sources": [
         {
           "link": "https://www.w3.org/TR/prov-o/",
@@ -282,7 +282,7 @@
         }
       ],
       "ldContext": {
-        "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/context.jsonld",
+        "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld",
         "prof:hasRole": "role:mapping",
         "dct:format": "application/ld+json",
         "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
@@ -310,36 +310,36 @@
       ],
       "schema": [
         {
-          "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/schema.yaml",
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml",
           "prof:hasRole": "role:schema",
           "dct:format": "application/yaml",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         },
         {
-          "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/schema.json",
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.json",
           "prof:hasRole": "role:schema",
           "dct:format": "application/json",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         }
       ],
-      "sourceSchema": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov-entity/schema.json",
-      "sourceLdContext": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov/context.jsonld",
-      "resolvedSchemaProperties": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/resolvedProperties.json",
-      "sourceFiles": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov-entity/",
+      "sourceSchema": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-entity/schema.json",
+      "sourceLdContext": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-entity/",
       "validationPassed": true,
-      "testOutputs": "https://github.com/crim-ca/bblock-prov-schema/blob/new_schemas/build/tests/ogc-utils/prov-entity/",
+      "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov-entity/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/generateddocs/markdown/ogc-utils/prov-entity/index.md"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov-entity/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/generateddocs/json-full/ogc-utils/prov-entity/index.json"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov-entity/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/bblock/ogc.ogc-utils.prov-entity"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov-entity"
         }
       },
       "@id": "bblocks://ogc.ogc-utils.prov-entity",
@@ -356,7 +356,7 @@
       "isProfileOf": null,
       "isDescribedBy": null,
       "skos:topConceptOf": {
-        "@id": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/"
+        "@id": "https://ogcincubator.github.io/bblock-prov-schema/"
       }
     },
     {
@@ -369,7 +369,7 @@
       "itemClass": "schema",
       "register": "ogc-utils",
       "version": "0.1",
-      "dateOfLastChange": "2026-11-20",
+      "dateOfLastChange": "2026-11-23",
       "sources": [
         {
           "link": "https://www.w3.org/TR/prov-o/",
@@ -377,7 +377,7 @@
         }
       ],
       "ldContext": {
-        "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/context.jsonld",
+        "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/context.jsonld",
         "prof:hasRole": "role:mapping",
         "dct:format": "application/ld+json",
         "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
@@ -405,35 +405,35 @@
       ],
       "schema": [
         {
-          "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.yaml",
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml",
           "prof:hasRole": "role:schema",
           "dct:format": "application/yaml",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         },
         {
-          "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.json",
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.json",
           "prof:hasRole": "role:schema",
           "dct:format": "application/json",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         }
       ],
-      "sourceSchema": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov-agent/schema.json",
-      "sourceLdContext": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov/context.jsonld",
-      "resolvedSchemaProperties": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/resolvedProperties.json",
-      "sourceFiles": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov-agent/",
+      "sourceSchema": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-agent/schema.json",
+      "sourceLdContext": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-agent/",
       "validationPassed": true,
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/generateddocs/markdown/ogc-utils/prov-agent/index.md"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov-agent/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/generateddocs/json-full/ogc-utils/prov-agent/index.json"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov-agent/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/bblock/ogc.ogc-utils.prov-agent"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov-agent"
         }
       },
       "@id": "bblocks://ogc.ogc-utils.prov-agent",
@@ -450,7 +450,7 @@
       "isProfileOf": null,
       "isDescribedBy": null,
       "skos:topConceptOf": {
-        "@id": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/"
+        "@id": "https://ogcincubator.github.io/bblock-prov-schema/"
       }
     },
     {
@@ -463,7 +463,7 @@
       "itemClass": "schema",
       "register": "ogc-utils",
       "version": "0.1",
-      "dateOfLastChange": "2026-11-20",
+      "dateOfLastChange": "2026-11-23",
       "sources": [
         {
           "link": "https://www.w3.org/TR/prov-o/",
@@ -482,43 +482,43 @@
         "bblocks://ogc.ogc-utils.json-link"
       ],
       "ldContext": {
-        "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-bundled/context.jsonld",
+        "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/context.jsonld",
         "prof:hasRole": "role:mapping",
         "dct:format": "application/ld+json",
         "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
       },
       "schema": [
         {
-          "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-bundled/schema.yaml",
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/schema.yaml",
           "prof:hasRole": "role:schema",
           "dct:format": "application/yaml",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         },
         {
-          "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-bundled/schema.json",
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/schema.json",
           "prof:hasRole": "role:schema",
           "dct:format": "application/json",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         }
       ],
-      "sourceSchema": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov-bundled/schema.json",
-      "sourceLdContext": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov-bundled/context.jsonld",
-      "resolvedSchemaProperties": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-bundled/resolvedProperties.json",
-      "sourceFiles": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov-bundled/",
+      "sourceSchema": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-bundled/schema.json",
+      "sourceLdContext": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-bundled/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-bundled/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-bundled/",
       "validationPassed": true,
-      "testOutputs": "https://github.com/crim-ca/bblock-prov-schema/blob/new_schemas/build/tests/ogc-utils/prov-bundled/",
+      "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov-bundled/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/generateddocs/markdown/ogc-utils/prov-bundled/index.md"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov-bundled/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/generateddocs/json-full/ogc-utils/prov-bundled/index.json"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov-bundled/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/bblock/ogc.ogc-utils.prov-bundled"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov-bundled"
         }
       },
       "@id": "bblocks://ogc.ogc-utils.prov-bundled",
@@ -535,7 +535,7 @@
       "isProfileOf": null,
       "isDescribedBy": null,
       "skos:topConceptOf": {
-        "@id": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/"
+        "@id": "https://ogcincubator.github.io/bblock-prov-schema/"
       }
     },
     {
@@ -548,7 +548,7 @@
       "itemClass": "schema",
       "register": "ogc-utils",
       "version": "0.1",
-      "dateOfLastChange": "2026-11-20",
+      "dateOfLastChange": "2026-11-23",
       "sources": [
         {
           "link": "https://www.w3.org/TR/prov-o/",
@@ -556,7 +556,7 @@
         }
       ],
       "ldContext": {
-        "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/context.jsonld",
+        "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/context.jsonld",
         "prof:hasRole": "role:mapping",
         "dct:format": "application/ld+json",
         "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
@@ -585,36 +585,36 @@
       ],
       "schema": [
         {
-          "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml",
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml",
           "prof:hasRole": "role:schema",
           "dct:format": "application/yaml",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         },
         {
-          "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.json",
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json",
           "prof:hasRole": "role:schema",
           "dct:format": "application/json",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         }
       ],
-      "sourceSchema": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov-activity/schema.json",
-      "sourceLdContext": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov/context.jsonld",
-      "resolvedSchemaProperties": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/resolvedProperties.json",
-      "sourceFiles": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov-activity/",
+      "sourceSchema": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-activity/schema.json",
+      "sourceLdContext": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov-activity/",
       "validationPassed": true,
-      "testOutputs": "https://github.com/crim-ca/bblock-prov-schema/blob/new_schemas/build/tests/ogc-utils/prov-activity/",
+      "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov-activity/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/generateddocs/markdown/ogc-utils/prov-activity/index.md"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov-activity/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/generateddocs/json-full/ogc-utils/prov-activity/index.json"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov-activity/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/bblock/ogc.ogc-utils.prov-activity"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov-activity"
         }
       },
       "@id": "bblocks://ogc.ogc-utils.prov-activity",
@@ -631,7 +631,7 @@
       "isProfileOf": null,
       "isDescribedBy": null,
       "skos:topConceptOf": {
-        "@id": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/"
+        "@id": "https://ogcincubator.github.io/bblock-prov-schema/"
       }
     },
     {
@@ -644,7 +644,7 @@
       "itemClass": "schema",
       "register": "ogc-utils",
       "version": "0.1",
-      "dateOfLastChange": "2026-11-20",
+      "dateOfLastChange": "2026-11-23",
       "dependsOn": [
         "bblocks://ogc.model.cross-domain.prov",
         "bblocks://ogc.ogc-utils.iri-or-curie",
@@ -677,43 +677,43 @@
         }
       ],
       "ldContext": {
-        "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/context.jsonld",
+        "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/context.jsonld",
         "prof:hasRole": "role:mapping",
         "dct:format": "application/ld+json",
         "dct:conformsTo": "https://www.w3.org/TR/json-ld11/"
       },
       "schema": [
         {
-          "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml",
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml",
           "prof:hasRole": "role:schema",
           "dct:format": "application/yaml",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         },
         {
-          "prof:hasArtifact": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.json",
+          "prof:hasArtifact": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.json",
           "prof:hasRole": "role:schema",
           "dct:format": "application/json",
           "dct:conformsTo": "https://json-schema.org/draft/2020-12/schema"
         }
       ],
-      "sourceSchema": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov/schema.json",
-      "sourceLdContext": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov/context.jsonld",
-      "resolvedSchemaProperties": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/resolvedProperties.json",
-      "sourceFiles": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/_sources/prov/",
+      "sourceSchema": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/schema.json",
+      "sourceLdContext": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/context.jsonld",
+      "resolvedSchemaProperties": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/resolvedProperties.json",
+      "sourceFiles": "https://ogcincubator.github.io/bblock-prov-schema/_sources/prov/",
       "validationPassed": true,
-      "testOutputs": "https://github.com/crim-ca/bblock-prov-schema/blob/new_schemas/build/tests/ogc-utils/prov/",
+      "testOutputs": "https://github.com/ogcincubator/bblock-prov-schema/blob/master/build/tests/ogc-utils/prov/",
       "documentation": {
         "markdown": {
           "mediatype": "text/markdown",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/generateddocs/markdown/ogc-utils/prov/index.md"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/markdown/ogc-utils/prov/index.md"
         },
         "json-full": {
           "mediatype": "application/json",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/generateddocs/json-full/ogc-utils/prov/index.json"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/build/generateddocs/json-full/ogc-utils/prov/index.json"
         },
         "bblocks-viewer": {
           "mediatype": "text/html",
-          "url": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/bblock/ogc.ogc-utils.prov"
+          "url": "https://ogcincubator.github.io/bblock-prov-schema/bblock/ogc.ogc-utils.prov"
         }
       },
       "@id": "bblocks://ogc.ogc-utils.prov",
@@ -730,7 +730,7 @@
       "isProfileOf": null,
       "isDescribedBy": null,
       "skos:topConceptOf": {
-        "@id": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/"
+        "@id": "https://ogcincubator.github.io/bblock-prov-schema/"
       }
     }
   ],

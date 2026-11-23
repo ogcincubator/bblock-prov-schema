@@ -1,5 +1,5 @@
 {
-  "@context": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/context.jsonld",
+  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld",
   "provType": "Entity",
   "id": "surveyset-4",
   "entityType": "EmptyCollection",

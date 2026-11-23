@@ -80,7 +80,7 @@ this is a simple activity referencing some relevant document
     {
       "iana": "http://www.iana.org/assignments/"
     },
-    "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/context.jsonld"
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/context.jsonld"
   ],
   "provType": "Activity",
   "id": "someActivity_1",
@@ -185,7 +185,7 @@ This is a fairly trivial example not attempting to standardise descriptions of s
     {
       "iana": "http://www.iana.org/assignments/"
     },
-    "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/context.jsonld"
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/context.jsonld"
   ],
   "id": "llm-workflow-run",
   "provType": "Activity",
@@ -272,13 +272,13 @@ $defs:
     type: object
     properties:
       id:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: '@id'
       provType:
         const: Activity
         x-jsonld-id: '@type'
       activityType:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: http://www.w3.org/ns/prov#type
         x-jsonld-type: '@id'
       name:
@@ -293,87 +293,87 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#endedAtTime
         x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
       wasAssociatedWith:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreAgentsOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#wasAssociatedWith
         x-jsonld-type: '@id'
       wasInformedBy:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#wasInformedBy
         x-jsonld-type: '@id'
       used:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#used
         x-jsonld-type: '@id'
       wasStartedBy:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#wasStartedBy
         x-jsonld-type: '@id'
       wasEndedBy:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#wasEndedBy
         x-jsonld-type: '@id'
       invalidated:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#invalidated
         x-jsonld-type: '@id'
       generated:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#generated
         x-jsonld-type: '@id'
       atLocation:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: http://www.w3.org/ns/prov#atLocation
         x-jsonld-type: '@id'
       qualifiedUsage:
         oneOf:
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         - $ref: '#/$defs/Usage'
         - type: array
           items:
             oneOf:
-            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
             - $ref: '#/$defs/Usage'
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedUsage
         x-jsonld-type: '@id'
       qualifiedCommunication:
         oneOf:
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         - $ref: '#/$defs/Communication'
         - type: array
           items:
             oneOf:
-            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
             - $ref: '#/$defs/Communication'
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedCommunication
         x-jsonld-type: '@id'
       qualifiedStart:
         oneOf:
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         - $ref: '#/$defs/Start'
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedStart
         x-jsonld-type: '@id'
       qualifiedEnd:
         oneOf:
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         - $ref: '#/$defs/End'
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedEnd
         x-jsonld-type: '@id'
       qualifiedAssociation:
         oneOf:
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.yaml#Association
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml#Association
         - type: array
           items:
             oneOf:
-            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
-            - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.yaml#Association
+            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+            - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml#Association
         x-jsonld-id: http://www.w3.org/ns/prov#qualifiedAssociation
         x-jsonld-type: '@id'
     required:
     - id
     - provType
     allOf:
-    - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#influenced
+    - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#influenced
   Usage:
     $anchor: Usage
     type: object
@@ -382,10 +382,10 @@ $defs:
         const: Usage
         x-jsonld-id: '@type'
       id:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: '@id'
       influenceType:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: http://www.w3.org/ns/prov#type
         x-jsonld-type: '@id'
       atTime:
@@ -393,7 +393,7 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#atTime
         x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
       entity:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreEntitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#entity
         x-jsonld-type: '@id'
     required:
@@ -410,10 +410,10 @@ $defs:
         - Communication
         x-jsonld-id: '@type'
       id:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: '@id'
       influenceType:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: http://www.w3.org/ns/prov#type
         x-jsonld-type: '@id'
       atTime:
@@ -421,19 +421,19 @@ $defs:
         x-jsonld-id: http://www.w3.org/ns/prov#atTime
         x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
       hadRole:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: http://www.w3.org/ns/prov#hadRole
         x-jsonld-type: '@id'
       influencer:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: http://www.w3.org/ns/prov#influencer
         x-jsonld-type: '@id'
       hadActivity:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#hadActivity
         x-jsonld-type: '@id'
       activity:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreActivitiesOrRefIds
         x-jsonld-id: http://www.w3.org/ns/prov#activity
         x-jsonld-type: '@id'
   Generation:
@@ -468,10 +468,10 @@ $defs:
     type: object
     properties:
       id:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: '@id'
       influenceType:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: http://www.w3.org/ns/prov#type
         x-jsonld-type: '@id'
       atTime:
@@ -480,13 +480,13 @@ $defs:
         x-jsonld-type: http://www.w3.org/2001/XMLSchema#dateTime
       entity:
         oneOf:
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/schema.yaml#Entity
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml#Entity
         x-jsonld-id: http://www.w3.org/ns/prov#entity
         x-jsonld-type: '@id'
       hadActivity:
         oneOf:
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         - $ref: '#/$defs/Activity'
         x-jsonld-id: http://www.w3.org/ns/prov#hadActivity
         x-jsonld-type: '@id'
@@ -515,7 +515,7 @@ $defs:
     type: object
     properties:
       id:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: '@id'
       provType:
         enum:
@@ -525,31 +525,31 @@ $defs:
         - Revision
         x-jsonld-id: '@type'
       influenceType:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: http://www.w3.org/ns/prov#type
         x-jsonld-type: '@id'
       hadGeneration:
         oneOf:
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         - $ref: '#/$defs/Generation'
         x-jsonld-id: http://www.w3.org/ns/prov#hadGeneration
         x-jsonld-type: '@id'
       hadActivity:
         oneOf:
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         - $ref: '#/$defs/Activity'
         x-jsonld-id: http://www.w3.org/ns/prov#hadActivity
         x-jsonld-type: '@id'
       hadUsage:
         oneOf:
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         - $ref: '#/$defs/Usage'
         x-jsonld-id: http://www.w3.org/ns/prov#hadUsage
         x-jsonld-type: '@id'
       entity:
         oneOf:
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/schema.yaml#Entity
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml#Entity
         x-jsonld-id: http://www.w3.org/ns/prov#entity
         x-jsonld-type: '@id'
     required:
@@ -586,24 +586,24 @@ $defs:
     type: object
     properties:
       id:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: '@id'
       provType:
         const: Delegation
         x-jsonld-id: '@type'
       influenceType:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: http://www.w3.org/ns/prov#type
         x-jsonld-type: '@id'
       agent:
         oneOf:
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.yaml#Agent
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml#Agent
         x-jsonld-id: http://www.w3.org/ns/prov#agent
         x-jsonld-type: '@id'
       hadActivity:
         oneOf:
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         - $ref: '#/$defs/Activity'
         x-jsonld-id: http://www.w3.org/ns/prov#hadActivity
         x-jsonld-type: '@id'
@@ -612,19 +612,19 @@ $defs:
     type: object
     properties:
       id:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
         x-jsonld-id: '@id'
       provType:
         const: Attribution
         x-jsonld-id: '@type'
       influenceType:
-        $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
+        $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#oneOrMoreObjectref
         x-jsonld-id: http://www.w3.org/ns/prov#type
         x-jsonld-type: '@id'
       agent:
         oneOf:
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov/schema.yaml#objectref
-        - $ref: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.yaml#Agent
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov/schema.yaml#objectref
+        - $ref: https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml#Agent
         x-jsonld-id: http://www.w3.org/ns/prov#agent
         x-jsonld-type: '@id'
 anyOf:
@@ -850,16 +850,16 @@ x-jsonld-prefixes:
   dct: http://purl.org/dc/terms/
 x-bblocks-metadata:
   itemIdentifier: ogc.ogc-utils.prov-activity
-  register: https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/register.json
+  register: https://ogcincubator.github.io/bblock-prov-schema/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-20'
+  dateOfLastChange: '2026-11-23'
 
 ```
 
 Links to the schema:
 
-* YAML version: [schema.yaml](https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.json)
-* JSON version: [schema.json](https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.yaml)
+* YAML version: [schema.yaml](https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json)
+* JSON version: [schema.json](https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml)
 
 
 # JSON-LD Context
@@ -1514,7 +1514,7 @@ Links to the schema:
 ```
 
 You can find the full JSON-LD context here:
-[context.jsonld](https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/context.jsonld)
+[context.jsonld](https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/context.jsonld)
 
 ## Sources
 
@@ -1524,6 +1524,6 @@ You can find the full JSON-LD context here:
 
 The source code for this Building Block can be found in the following repository:
 
-* URL: [https://github.com/crim-ca/bblock-prov-schema](https://github.com/crim-ca/bblock-prov-schema)
+* URL: [https://github.com/ogcincubator/bblock-prov-schema](https://github.com/ogcincubator/bblock-prov-schema)
 * Path: `_sources/prov-activity`
 

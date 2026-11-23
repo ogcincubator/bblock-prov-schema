@@ -3,19 +3,25 @@
     {
       "iana": "http://www.iana.org/assignments/"
     },
-    "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/context.jsonld",
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/context.jsonld",
     {
       "@base": "https://example.org/aThing/",
       "agents": "https://someagentregister.eg/",
       "thing": "https://example.org/entities/",
       "foaf": "http://xmlns.com/foaf/0.1/",
       "survtypes": "https://example.org/surveytypes/",
-      "surveyreg": "https://example.org/surveys/"
+      "surveyreg": "https://example.org/surveys/",
+      "featureType": {
+        "@context": {
+          "@base": "http://example.org/myEntities/"
+        }
+      }
     }
   ],
   "id": "DP-1",
   "provType": "Entity",
-  "entityType": "survtypes:Survey",
+  "type": "Feature",
+  "featureType": "Survey",
   "qualifiedGeneration": [
     {
       "provType": "Generation",

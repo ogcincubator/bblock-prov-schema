@@ -17,7 +17,7 @@
           "$ref": "#/$defs/objectref"
         },
         {
-          "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.json#Activity"
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json#Activity"
         },
         {
           "type": "array",
@@ -27,7 +27,7 @@
                 "$ref": "#/$defs/objectref"
               },
               {
-                "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.json#Activity"
+                "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json#Activity"
               }
             ]
           }
@@ -41,7 +41,7 @@
           "$ref": "#/$defs/objectref"
         },
         {
-          "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/schema.json#Entity"
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.json#Entity"
         },
         {
           "type": "array",
@@ -51,7 +51,7 @@
                 "$ref": "#/$defs/objectref"
               },
               {
-                "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/schema.json#Entity"
+                "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.json#Entity"
               }
             ]
           }
@@ -68,7 +68,7 @@
           "$ref": "#/$defs/externalLink"
         },
         {
-          "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.json#Agent"
+          "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.json#Agent"
         },
         {
           "type": "array",
@@ -78,7 +78,7 @@
                 "$ref": "#/$defs/objectref"
               },
               {
-                "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.json#Agent"
+                "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.json#Agent"
               }
             ]
           }
@@ -213,13 +213,13 @@
       "items": {
         "oneOf": [
           {
-            "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/schema.json#Entity"
+            "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.json#Entity"
           },
           {
-            "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.json#Activity"
+            "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json#Activity"
           },
           {
-            "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.json#Agent"
+            "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.json#Agent"
           }
         ]
       }
@@ -230,13 +230,13 @@
       "$ref": "#/$defs/Prov"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-entity/schema.json#Entity"
+      "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.json#Entity"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/schema.json#Activity"
+      "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.json#Activity"
     },
     {
-      "$ref": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-agent/schema.json#Agent"
+      "$ref": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.json#Agent"
     }
   ],
   "x-jsonld-extra-terms": {
@@ -587,8 +587,8 @@
   },
   "x-bblocks-metadata": {
     "itemIdentifier": "ogc.ogc-utils.prov",
-    "register": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/register.json",
+    "register": "https://ogcincubator.github.io/bblock-prov-schema/build/register.json",
     "version": "0.1",
-    "dateOfLastChange": "2026-11-20"
+    "dateOfLastChange": "2026-11-23"
   }
 }

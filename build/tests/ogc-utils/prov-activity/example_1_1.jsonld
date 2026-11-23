@@ -3,7 +3,7 @@
     {
       "iana": "http://www.iana.org/assignments/"
     },
-    "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/context.jsonld"
+    "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/context.jsonld"
   ],
   "provType": "Activity",
   "id": "someActivity_1",
