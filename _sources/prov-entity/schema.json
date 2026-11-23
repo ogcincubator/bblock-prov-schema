@@ -2,85 +2,101 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "description": "PROV Entity object schema",
   "$defs": {
-    "EntityType": {
-      "type": "string",
-      "enum": [
-        "Entity",
-        "Bundle",
-        "Plan",
-        "prov:Entity",
-        "prov:Bundle",
-        "prov:Plan"
-      ]
-    },
-    "EntityTypes": {
-      "oneOf": [
-        {
-          "$ref": "#/$defs/EntityType"
-        },
-        {
-          "type": "array",
-          "contains": {
-            "$ref": "#/$defs/EntityType"
-          }
-        }
-      ]
-    },
     "Entity": {
+      "$anchor": "Entity",
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#objectref",
+          "x-jsonld-id": "@id"
         },
         "provType": {
-          "$ref": "#/$defs/EntityTypes"
-        },
-        "prov:type": {
-          "$ref": "#/$defs/EntityTypes"
-        },
-        "featureType": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref"
+          "const": "Entity",
+          "x-jsonld-id": "@type"
         },
         "entityType": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreObjectref",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
-        "has_provenance": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#Prov"
+        "name": {
+          "type": "string",
+          "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#label"
+        },
+        "hadMember": {
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#hadMember",
+          "x-jsonld-type": "@id"
         },
         "wasGeneratedBy": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreActivitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreActivitiesOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#wasGeneratedBy",
+          "x-jsonld-type": "@id"
         },
         "wasAttributedTo": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreAgentsOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreAgentsOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#wasAttributedTo",
+          "x-jsonld-type": "@id"
         },
         "wasDerivedFrom": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#wasDerivedFrom",
+          "x-jsonld-type": "@id"
         },
         "alternateOf": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#alternateOf",
+          "x-jsonld-type": "@id"
         },
         "hadPrimarySource": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#hadPrimarySource",
+          "x-jsonld-type": "@id"
         },
         "specializationOf": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#specializationOf",
+          "x-jsonld-type": "@id"
         },
         "wasInvalidatedBy": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreActivitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreActivitiesOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#wasInvalidatedBy",
+          "x-jsonld-type": "@id"
         },
         "wasQuotedFrom": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#wasQuotedFrom",
+          "x-jsonld-type": "@id"
         },
         "wasRevisionOf": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
+          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#wasRevisionOf",
+          "x-jsonld-type": "@id"
+        },
+        "atLocation": {
+          "$ref": "bblocks://ogc.ogc-utils.prov#objectref",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#atLocation",
+          "x-jsonld-type": "@id"
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "bblocks://ogc.ogc-utils.prov#externalLink"
+          },
+          "x-jsonld-id": "http://www.w3.org/2000/01/rdf-schema#seeAlso"
         },
         "generatedAtTime": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-activity#/$defs/dateTime"
+          "$ref": "bblocks://ogc.ogc-utils.prov-activity#dateTime",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#generatedAtTime",
+          "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
         },
         "invalidatedAtTime": {
-          "$ref": "bblocks://ogc.ogc-utils.prov-activity#/$defs/dateTime"
+          "$ref": "bblocks://ogc.ogc-utils.prov-activity#dateTime",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#invalidatedAtTime",
+          "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
         },
-        "value": {},
+        "value": {
+          "x-jsonld-id": "http://www.w3.org/ns/prov#value"
+        },
         "qualifiedPrimarySource": {
           "oneOf": [
             {
@@ -102,7 +118,9 @@
                 ]
               }
             }
-          ]
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedPrimarySource",
+          "x-jsonld-type": "@id"
         },
         "qualifiedQuotation": {
           "oneOf": [
@@ -125,7 +143,9 @@
                 ]
               }
             }
-          ]
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedQuotation",
+          "x-jsonld-type": "@id"
         },
         "qualifiedRevision": {
           "oneOf": [
@@ -148,16 +168,9 @@
                 ]
               }
             }
-          ]
-        },
-        "atLocation": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
-        },
-        "links": {
-          "type": "array",
-          "items": {
-            "$ref": "bblocks://ogc.ogc-utils.prov#externalLink"
-          }
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedRevision",
+          "x-jsonld-type": "@id"
         },
         "qualifiedGeneration": {
           "oneOf": [
@@ -180,7 +193,9 @@
                 ]
               }
             }
-          ]
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedGeneration",
+          "x-jsonld-type": "@id"
         },
         "qualifiedInvalidation": {
           "oneOf": [
@@ -203,7 +218,9 @@
                 ]
               }
             }
-          ]
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedInvalidation",
+          "x-jsonld-type": "@id"
         },
         "qualifiedDerivation": {
           "oneOf": [
@@ -226,7 +243,9 @@
                 ]
               }
             }
-          ]
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedDerivation",
+          "x-jsonld-type": "@id"
         },
         "qualifiedAttribution": {
           "oneOf": [
@@ -249,58 +268,83 @@
                 ]
               }
             }
-          ]
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedAttribution",
+          "x-jsonld-type": "@id"
         }
       },
       "required": [
-        "id"
-      ],
-      "anyOf": [
-        {
-          "properties": {
-            "type": {
-              "type": "string",
-              "const": "Collection"
-            },
-            "hadMember": {
-              "type": "array",
-              "items": {
-                "$ref": "#/$defs/Entity"
-              }
-            }
-          },
-          "required": [
-            "hadMember",
-            "type"
-          ]
-        },
-        {
-          "properties": {
-            "type": {
-              "type": "string",
-              "const": "EmptyCollection"
-            },
-            "hadMember": {
-              "type": "array",
-              "maxItems": 0
-            }
-          },
-          "required": [
-            "hadMember",
-            "type"
-          ]
-        },
-        {
-          "not": {
-            "required": [
-              "hadMember", "type"
-            ]
-          }
-        }
+        "id",
+        "provType"
       ],
       "allOf": [
         {
           "$ref": "bblocks://ogc.ogc-utils.prov#influenced"
+        },
+        {
+          "if": {
+            "properties": {
+              "entityType": {
+                "anyOf": [
+                  {
+                    "const": "Collection"
+                  },
+                  {
+                    "type": "array",
+                    "contains": {
+                      "const": "Collection"
+                    }
+                  }
+                ]
+              }
+            },
+            "required": [
+              "entityType"
+            ]
+          },
+          "then": {
+            "required": [
+              "hadMember"
+            ],
+            "properties": {
+              "hadMember": {
+                "type": "array"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "entityType": {
+                "anyOf": [
+                  {
+                    "const": "EmptyCollection"
+                  },
+                  {
+                    "type": "array",
+                    "contains": {
+                      "const": "EmptyCollection"
+                    }
+                  }
+                ]
+              }
+            },
+            "required": [
+              "entityType"
+            ]
+          },
+          "then": {
+            "required": [
+              "hadMember"
+            ],
+            "properties": {
+              "hadMember": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          }
         }
       ]
     }

@@ -33,24 +33,6 @@ An activity to reconcile these approaches and explore formalisation is proposed.
 
 ## Building Blocks
 
-### `ogc.ogc-utils.prov-bundled` — Single Schema for PROV
-
-**Type:** schema
-
-The original version of a single Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way.
-
-### `ogc.ogc-utils.prov` — Provenance Chain
-
-**Type:** schema
-
-Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way.
-
-### `ogc.ogc-utils.prov-activity` — Prov Activity
-
-**Type:** schema
-
-Sub-schema for PROV Activities: something that occurs over a period of time and acts upon or with entities, and may involve one or more agents.
-
 ### `ogc.ogc-utils.prov-entity` — Prov Entity
 
 **Type:** schema
@@ -62,4 +44,22 @@ Sub-schema for PROV Entities: physical, digital, conceptual, or other things wit
 **Type:** schema
 
 Sub-schema for PROV Agents: something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent's activity.
+
+### `ogc.ogc-utils.prov-bundled` — Single Schema for PROV
+
+**Type:** schema
+
+The original version of a single Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way.
+
+### `ogc.ogc-utils.prov-activity` — Prov Activity
+
+**Type:** schema
+
+Sub-schema for PROV Activities: something that occurs over a period of time and acts upon or with entities, and may involve one or more agents.
+
+### `ogc.ogc-utils.prov` — Provenance Chain
+
+**Type:** schema
+
+Schema for a provenance chain based on PROV vocabulary semantics, Agents, Activities and Entities. This schema is designed as a mix-in that can be used to add properties to other objects in a polymorphic way.
 

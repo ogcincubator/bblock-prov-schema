@@ -1,0 +1,12 @@
+{
+  "provType": "Entity",
+  "id": "surveyset-1",
+  "entityType": "Collection",
+  "hadMember": [
+    "survey-1",
+    {
+      "provType": "Entity",
+      "id": "survey-2"
+    }
+  ]
+}

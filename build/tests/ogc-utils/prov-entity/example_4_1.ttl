@@ -4,11 +4,14 @@
 <http://www.example.com/exampleEntity/DP-2024-report> a prov:Entity ;
     prov:generatedAtTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
     prov:invalidatedAtTime "2024-06-15T00:00:00+00:00"^^xsd:dateTime ;
-    prov:qualifiedPrimarySource [ prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
+    prov:qualifiedPrimarySource [ a prov:PrimarySource ;
+            prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
             prov:entity <http://www.example.com/exampleEntity/DP-2023-survey-raw> ] ;
-    prov:qualifiedQuotation [ prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
+    prov:qualifiedQuotation [ a prov:Quotation ;
+            prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
             prov:entity <http://www.example.com/exampleEntity/DP-2022-methodology-paper> ] ;
-    prov:qualifiedRevision [ prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
+    prov:qualifiedRevision [ a prov:Revision ;
+            prov:atTime "2024-03-01T09:00:00+00:00"^^xsd:dateTime ;
             prov:entity <http://www.example.com/exampleEntity/DP-2024-report-draft> ] ;
     prov:value "42.7" .
 

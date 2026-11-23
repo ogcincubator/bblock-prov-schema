@@ -10,9 +10,14 @@ an Agent, and the `qualifiedDelegation` relation between Agents.
 
 ## Object typing
 
-Object typing needs to be explicit to support effective semantic mapping to the PROV vocabulary, and to support schema validation scope clarity (using the right sub-schema for objects in a collection representing the directed graph model of PROV).
+Object typing needs to be explicit to support effective semantic mapping to the PROV
+vocabulary, and to support schema validation scope clarity (using the right sub-schema for
+objects in a collection representing the directed graph model of PROV).  Sub-schemas
+should also be efficiently identifiable without structural type inference or the need to
+refer to the PROV-O hierarchy.
 
-`provType` may be used to map to the subClasses of the Provenance vocabulary.
+`provType` for an Agent must be `Agent`. The custom `agentType` field may be used to specify PROV
+subclasses or additional types from external vocabularies (such as Schema.org or Wfprov).
 
 The custom application object type is explicit (`agentType`) to support schema validation clarity.
 

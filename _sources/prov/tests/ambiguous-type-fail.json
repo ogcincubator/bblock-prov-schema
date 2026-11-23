@@ -7,18 +7,21 @@
     "surveyreg": "https://example.org/surveys/"
   },
   "id": "DP-1",
+  "provType": "Entity",
   "type": "Feature",
   "featureType": "Survey",
   "wasGeneratedBy": [
     "surveyreg:DP-1-S1",
     {
-      "activity": "Registration",
       "id": "surveyreg:DP-1-S2",
+      "provType": "Activity",
+      "activityType": "Registration",
       "endedAtTime": "2029-01-01",
       "wasAssociatedWith": "agents:bc-3",
       "wasGeneratedBy": "surveyreg:DP-1-S1",
       "used": {
         "id": "Example-Act",
+        "provType": "Entity",
         "wasAttributedTo": "agents:nz",
         "links": [
           {
@@ -32,17 +35,17 @@
   "provenance": [
     {
       "id": "DP-2223",
-      "type": "Entity",
+      "provType": "Entity",
       "wasGeneratedBy": "thing:DP-1-S1"
     },
     {
-      "type": "Activity",
+      "provType": "Activity",
       "id": "thing:DP-1-S1",
       "endedAtTime": "2023-10-05",
       "wasAssociatedWith": "agents:ah-2344503",
       "used": {
         "id": "Act3",
-        "type": "Entity",
+        "provType": "Entity",
         "wasAttributedTo": "agents:nz",
         "links": [
           {
@@ -54,6 +57,3 @@
     }
   ]
 }
-
-
-

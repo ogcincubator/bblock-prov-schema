@@ -1,8 +1,5 @@
 {
   "id": "Object2",
+  "provType": "Entity",
   "wasDerivedFrom": "Object1"
 }
-
-
-
-

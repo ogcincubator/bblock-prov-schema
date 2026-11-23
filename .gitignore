@@ -1,2 +1,5 @@
-build-local/
-.idea/
+.python-version
+__pycache__/
+*~
+.gitattributes
+/build-local

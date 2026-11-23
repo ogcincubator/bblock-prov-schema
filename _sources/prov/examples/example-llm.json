@@ -1,9 +1,9 @@
 {
+    "id": "llm-workflow-run",
     "provType": "Activity",
     "generated": {
         "id": "output",
         "provType": "Entity",
-        "agentType": "SoftwareAgent",
         "response": [
             {
                 "id": "LLM Generated Code",

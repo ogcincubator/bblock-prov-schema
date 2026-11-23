@@ -14,20 +14,20 @@
       "$anchor": "oneOrMoreActivitiesOrRefIds",
       "oneOf": [
         {
-          "$ref": "#objectref"
+          "$ref": "#/$defs/objectref"
         },
         {
-          "$ref": "bblocks://ogc.ogc-utils.prov#Activity"
+          "$ref": "bblocks://ogc.ogc-utils.prov-activity#Activity"
         },
         {
           "type": "array",
           "items": {
             "anyOf": [
               {
-                "$ref": "#objectref"
+                "$ref": "#/$defs/objectref"
               },
               {
-                "$ref": "bblocks://ogc.ogc-utils.prov#Activity"
+                "$ref": "bblocks://ogc.ogc-utils.prov-activity#Activity"
               }
             ]
           }
@@ -38,20 +38,20 @@
       "$anchor": "oneOrMoreEntitiesOrRefIds",
       "oneOf": [
         {
-          "$ref": "#objectref"
+          "$ref": "#/$defs/objectref"
         },
         {
-          "$ref": "#Entity"
+          "$ref": "bblocks://ogc.ogc-utils.prov-entity#Entity"
         },
         {
           "type": "array",
           "items": {
             "anyOf": [
               {
-                "$ref": "#objectref"
+                "$ref": "#/$defs/objectref"
               },
               {
-                "$ref": "#Entity"
+                "$ref": "bblocks://ogc.ogc-utils.prov-entity#Entity"
               }
             ]
           }
@@ -62,20 +62,23 @@
       "$anchor": "oneOrMoreAgentsOrRefIds",
       "oneOf": [
         {
-          "$ref": "#objectref"
+          "$ref": "#/$defs/objectref"
         },
         {
-          "$ref": "#Agent"
+          "$ref": "#/$defs/externalLink"
+        },
+        {
+          "$ref": "bblocks://ogc.ogc-utils.prov-agent#Agent"
         },
         {
           "type": "array",
           "items": {
             "anyOf": [
               {
-                "$ref": "#objectref"
+                "$ref": "#/$defs/objectref"
               },
               {
-                "$ref": "#Agent"
+                "$ref": "bblocks://ogc.ogc-utils.prov-agent#Agent"
               }
             ]
           }
@@ -86,193 +89,97 @@
       "$anchor": "externalLink",
       "$ref": "bblocks://ogc.ogc-utils.json-link"
     },
-    "Entity": {
-      "$anchor": "Entity",
-      "$ref": "bblocks://ogc.ogc-utils.prov-entity"
-    },
-    "EntityWithRequirements": {
-      "allOf": [
-        {
-          "$ref": "#Entity"
-        },
-        {
+    "influenced": {
+      "$anchor": "influenced",
+      "type": "object",
+      "properties": {
+        "wasInfluencedBy": {
           "anyOf": [
             {
-              "required": [
-                "provType"
-              ]
+              "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds"
             },
             {
-              "required": [
-                "prov:type"
-              ]
+              "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
             },
             {
-              "required": [
-                "type"
-              ]
-            },
-            {
-              "required": [
-                "featureType"
-              ]
-            },
-            {
-              "required": [
-                "entityType"
-              ]
-            },
-            {
-              "required": [
-                "wasGeneratedBy"
-              ]
-            },
-            {
-              "required": [
-                "wasAttributedTo"
-              ]
-            },
-            {
-              "required": [
-                "wasDerivedFrom"
-              ]
-            },
-            {
-              "required": [
-                "has_provenance"
-              ]
+              "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
             }
-          ]
-        }
-      ]
-    },
-    "Activity": {
-      "$anchor": "Activity",
-      "$ref": "bblocks://ogc.ogc-utils.prov-activity"
-    },
-    "ActivityWithRequirements": {
-      "allOf": [
-        {
-          "$ref": "#Activity"
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#wasInfluencedBy",
+          "x-jsonld-type": "@id"
         },
-        {
-          "anyOf": [
+        "qualifiedInfluence": {
+          "oneOf": [
             {
-              "required": [
-                "provType"
-              ]
+              "$ref": "#/$defs/objectref"
             },
             {
-              "required": [
-                "prov:type"
-              ]
+              "$ref": "#/$defs/Influence"
             },
             {
-              "required": [
-                "type"
-              ]
-            },
-            {
-              "required": [
-                "used"
-              ]
-            },
-            {
-              "required": [
-                "wasInformedBy"
-              ]
-            },
-            {
-              "required": [
-                "endedAtTime"
-              ]
-            },
-            {
-              "required": [
-                "startedAtTime"
-              ]
-            },
-            {
-              "required": [
-                "wasAssociatedWith"
-              ]
+              "type": "array",
+              "items": {
+                "oneOf": [
+                  {
+                    "$ref": "#/$defs/objectref"
+                  },
+                  {
+                    "$ref": "#/$defs/Influence"
+                  }
+                ]
+              }
             }
-          ]
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedInfluence",
+          "x-jsonld-type": "@id"
         }
-      ]
-    },
-    "Agent": {
-      "$anchor": "Agent",
-      "$ref": "bblocks://ogc.ogc-utils.prov-agent"
-    },
-    "AgentWithRequirements": {
-      "allOf": [
-        {
-          "$ref": "#Agent"
-        },
-        {
-          "anyOf": [
-            {
-              "required": [
-                "provType"
-              ]
-            },
-            {
-              "required": [
-                "type"
-              ]
-            },
-            {
-              "required": [
-                "agentType"
-              ]
-            },
-            {
-              "required": [
-                "prov:type"
-              ]
-            },
-            {
-              "required": [
-                "actedOnBehalfOf"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    "Association": {
-      "$anchor": "Association",
-      "$ref": "bblocks://ogc.ogc-utils.prov-agent#Association"
+      }
     },
     "Influence": {
       "$anchor": "Influence",
       "type": "object",
       "properties": {
         "id": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#objectref"
+          "$ref": "#/$defs/objectref",
+          "x-jsonld-id": "@id"
+        },
+        "provType": {
+          "const": "Influence",
+          "x-jsonld-id": "@type"
+        },
+        "influenceType": {
+          "$ref": "#/$defs/oneOrMoreObjectref",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#type"
         },
         "influencer": {
           "anyOf": [
             {
-              "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreActivitiesOrRefIds"
+              "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds"
             },
             {
-              "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
+              "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds"
             },
             {
-              "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreAgentsOrRefIds"
+              "$ref": "#/$defs/oneOrMoreAgentsOrRefIds"
             }
-          ]
+          ],
+          "x-jsonld-id": "http://www.w3.org/ns/prov#influencer",
+          "x-jsonld-type": "@id"
         },
         "entity": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreEntitiesOrRefIds"
+          "$ref": "#/$defs/oneOrMoreEntitiesOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#entity",
+          "x-jsonld-type": "@id"
         },
         "activity": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreActivitiesOrRefIds"
+          "$ref": "#/$defs/oneOrMoreActivitiesOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#activity",
+          "x-jsonld-type": "@id"
         },
         "agent": {
-          "$ref": "bblocks://ogc.ogc-utils.prov#oneOrMoreAgentsOrRefIds"
+          "$ref": "#/$defs/oneOrMoreAgentsOrRefIds",
+          "x-jsonld-id": "http://www.w3.org/ns/prov#agent",
+          "x-jsonld-type": "@id"
         }
       },
       "anyOf": [
@@ -298,48 +205,6 @@
         }
       ]
     },
-    "influenced": {
-      "$anchor": "influenced",
-      "type": "object",
-      "properties": {
-        "wasInfluencedBy": {
-          "anyOf": [
-            {
-              "$ref": "#oneOrMoreActivitiesOrRefIds"
-            },
-            {
-              "$ref": "#oneOrMoreEntitiesOrRefIds"
-            },
-            {
-              "$ref": "#oneOrMoreAgentsOrRefIds"
-            }
-          ]
-        },
-        "qualifiedInfluence": {
-          "oneOf": [
-            {
-              "$ref": "#objectref"
-            },
-            {
-              "$ref": "bblocks://ogc.ogc-utils.prov#Influence"
-            },
-            {
-              "type": "array",
-              "items": {
-                "oneOf": [
-                  {
-                    "$ref": "#objectref"
-                  },
-                  {
-                    "$ref": "bblocks://ogc.ogc-utils.prov#Influence"
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      }
-    },
     "Prov": {
       "$anchor": "Prov",
       "description": "An list of provenance objects linked together to form a provenance chain for the current object. Objects may have nested objects as well, with or without referencable ids",
@@ -347,13 +212,13 @@
       "items": {
         "oneOf": [
           {
-            "$ref": "#/$defs/EntityWithRequirements"
+            "$ref": "bblocks://ogc.ogc-utils.prov-entity#Entity"
           },
           {
-            "$ref": "#/$defs/AgentWithRequirements"
+            "$ref": "bblocks://ogc.ogc-utils.prov-activity#Activity"
           },
           {
-            "$ref": "#/$defs/ActivityWithRequirements"
+            "$ref": "bblocks://ogc.ogc-utils.prov-agent#Agent"
           }
         ]
       }
@@ -361,13 +226,231 @@
   },
   "anyOf": [
     {
-      "$ref": "#Prov"
+      "$ref": "#/$defs/Prov"
     },
     {
-      "$ref": "#/$defs/EntityWithRequirements"
+      "$ref": "bblocks://ogc.ogc-utils.prov-entity#Entity"
     },
     {
-      "$ref": "#/$defs/ActivityWithRequirements"
+      "$ref": "bblocks://ogc.ogc-utils.prov-activity#Activity"
+    },
+    {
+      "$ref": "bblocks://ogc.ogc-utils.prov-agent#Agent"
     }
-  ]
+  ],
+  "x-jsonld-extra-terms": {
+    "Activity": "http://www.w3.org/ns/prov#Activity",
+    "ActivityInfluence": "http://www.w3.org/ns/prov#ActivityInfluence",
+    "Agent": "http://www.w3.org/ns/prov#Agent",
+    "AgentInfluence": "http://www.w3.org/ns/prov#AgentInfluence",
+    "Association": "http://www.w3.org/ns/prov#Association",
+    "Attribution": "http://www.w3.org/ns/prov#Attribution",
+    "Bundle": "http://www.w3.org/ns/prov#Bundle",
+    "Collection": "http://www.w3.org/ns/prov#Collection",
+    "Communication": "http://www.w3.org/ns/prov#Communication",
+    "Delegation": "http://www.w3.org/ns/prov#Delegation",
+    "Derivation": "http://www.w3.org/ns/prov#Derivation",
+    "EmptyCollection": "http://www.w3.org/ns/prov#EmptyCollection",
+    "End": "http://www.w3.org/ns/prov#End",
+    "Entity": "http://www.w3.org/ns/prov#Entity",
+    "EntityInfluence": "http://www.w3.org/ns/prov#EntityInfluence",
+    "Generation": "http://www.w3.org/ns/prov#Generation",
+    "Influence": "http://www.w3.org/ns/prov#Influence",
+    "InstantaneousEvent": "http://www.w3.org/ns/prov#InstantaneousEvent",
+    "Invalidation": "http://www.w3.org/ns/prov#Invalidation",
+    "Location": "http://www.w3.org/ns/prov#Location",
+    "Organization": "http://www.w3.org/ns/prov#Organization",
+    "Person": "http://www.w3.org/ns/prov#Person",
+    "Plan": "http://www.w3.org/ns/prov#Plan",
+    "PrimarySource": "http://www.w3.org/ns/prov#PrimarySource",
+    "Quotation": "http://www.w3.org/ns/prov#Quotation",
+    "Revision": "http://www.w3.org/ns/prov#Revision",
+    "Role": "http://www.w3.org/ns/prov#Role",
+    "SoftwareAgent": "http://www.w3.org/ns/prov#SoftwareAgent",
+    "Start": "http://www.w3.org/ns/prov#Start",
+    "Usage": "http://www.w3.org/ns/prov#Usage",
+    "ServiceDescription": "http://www.w3.org/ns/prov#ServiceDescription",
+    "DirectQueryService": "http://www.w3.org/ns/prov#DirectQueryService",
+    "Accept": "http://www.w3.org/ns/prov#Accept",
+    "Contribute": "http://www.w3.org/ns/prov#Contribute",
+    "Contributor": "http://www.w3.org/ns/prov#Contributor",
+    "Copyright": "http://www.w3.org/ns/prov#Copyright",
+    "Create": "http://www.w3.org/ns/prov#Create",
+    "Creator": "http://www.w3.org/ns/prov#Creator",
+    "Modify": "http://www.w3.org/ns/prov#Modify",
+    "Publish": "http://www.w3.org/ns/prov#Publish",
+    "Publisher": "http://www.w3.org/ns/prov#Publisher",
+    "Replace": "http://www.w3.org/ns/prov#Replace",
+    "RightsAssignment": "http://www.w3.org/ns/prov#RightsAssignment",
+    "RightsHolder": "http://www.w3.org/ns/prov#RightsHolder",
+    "Submit": "http://www.w3.org/ns/prov#Submit",
+    "Dictionary": "http://www.w3.org/ns/prov#Dictionary",
+    "EmptyDictionary": "http://www.w3.org/ns/prov#EmptyDictionary",
+    "KeyEntityPair": "http://www.w3.org/ns/prov#KeyEntityPair",
+    "Insertion": "http://www.w3.org/ns/prov#Insertion",
+    "Removal": "http://www.w3.org/ns/prov#Removal",
+    "atTime": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#atTime",
+      "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "generatedAtTime": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#generatedAtTime",
+      "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "invalidatedAtTime": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#invalidatedAtTime",
+      "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "startedAtTime": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#startedAtTime",
+      "x-jsonld-type": "http://www.w3.org/2001/XMLSchema#dateTime"
+    },
+    "value": "http://www.w3.org/ns/prov#value",
+    "provenanceUriTemplate": "http://www.w3.org/ns/prov#provenanceUriTemplate",
+    "pairKey": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#pairKey",
+      "x-jsonld-type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "removedKey": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#removedKey",
+      "x-jsonld-type": "http://www.w3.org/2000/01/rdf-schema#Literal"
+    },
+    "actedOnBehalfOf": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#actedOnBehalfOf",
+      "x-jsonld-type": "@id"
+    },
+    "agent": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#agent",
+      "x-jsonld-type": "@id"
+    },
+    "entity": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#entity",
+      "x-jsonld-type": "@id"
+    },
+    "hadActivity": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#hadActivity",
+      "x-jsonld-type": "@id"
+    },
+    "activity": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#activity",
+      "x-jsonld-type": "@id"
+    },
+    "hadGeneration": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#hadGeneration",
+      "x-jsonld-type": "@id"
+    },
+    "hadPlan": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#hadPlan",
+      "x-jsonld-type": "@id"
+    },
+    "hadRole": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#hadRole",
+      "x-jsonld-type": "@id"
+    },
+    "hadUsage": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#hadUsage",
+      "x-jsonld-type": "@id"
+    },
+    "influenced": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#influenced",
+      "x-jsonld-type": "@id"
+    },
+    "influencer": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#influencer",
+      "x-jsonld-type": "@id"
+    },
+    "qualifiedDelegation": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedDelegation",
+      "x-jsonld-type": "@id"
+    },
+    "qualifiedInfluence": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedInfluence",
+      "x-jsonld-type": "@id"
+    },
+    "qualifiedPrimarySource": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedPrimarySource",
+      "x-jsonld-type": "@id"
+    },
+    "qualifiedQuotation": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedQuotation",
+      "x-jsonld-type": "@id"
+    },
+    "qualifiedRevision": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedRevision",
+      "x-jsonld-type": "@id"
+    },
+    "wasInfluencedBy": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#wasInfluencedBy",
+      "x-jsonld-type": "@id"
+    },
+    "has_anchor": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#has_anchor",
+      "x-jsonld-type": "@id"
+    },
+    "has_query_service": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#has_query_service",
+      "x-jsonld-type": "@id"
+    },
+    "describesService": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#describesService",
+      "x-jsonld-type": "@id"
+    },
+    "pingback": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#pingback",
+      "x-jsonld-type": "@id"
+    },
+    "dictionary": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#dictionary",
+      "x-jsonld-type": "@id"
+    },
+    "derivedByInsertionFrom": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#derivedByInsertionFrom",
+      "x-jsonld-type": "@id"
+    },
+    "derivedByRemovalFrom": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#derivedByRemovalFrom",
+      "x-jsonld-type": "@id"
+    },
+    "insertedKeyEntityPair": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#insertedKeyEntityPair",
+      "x-jsonld-type": "@id"
+    },
+    "hadDictionaryMember": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#hadDictionaryMember",
+      "x-jsonld-type": "@id"
+    },
+    "pairEntity": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#pairEntity",
+      "x-jsonld-type": "@id"
+    },
+    "qualifiedInsertion": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedInsertion",
+      "x-jsonld-type": "@id"
+    },
+    "qualifiedRemoval": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#qualifiedRemoval",
+      "x-jsonld-type": "@id"
+    },
+    "asInBundle": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#asInBundle",
+      "x-jsonld-type": "@id"
+    },
+    "mentionOf": {
+      "x-jsonld-id": "http://www.w3.org/ns/prov#mentionOf",
+      "x-jsonld-type": "@id"
+    },
+    "name": "http://www.w3.org/2000/01/rdf-schema#label"
+  },
+  "x-jsonld-prefixes": {
+    "prov": "http://www.w3.org/ns/prov#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dct": "http://purl.org/dc/terms/",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "schema": "https://schema.org/",
+    "wfprov": "http://purl.org/wf4ever/wfprov#",
+    "wfdesc": "http://purl.org/wf4ever/wfdesc#",
+    "wf4ever": "http://purl.org/wf4ever/wf4ever#"
+  }
 }

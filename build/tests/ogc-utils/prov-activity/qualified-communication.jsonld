@@ -1,15 +1,15 @@
 {
-  "@context": "https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/context.jsonld",
+  "@context": "https://raw.githubusercontent.com/crim-ca/bblock-prov-schema/new_schemas/build/annotated/ogc-utils/prov-activity/context.jsonld",
   "provType": "Activity",
   "id": "activity-forecast-report",
   "qualifiedCommunication": [
     {
-      "type": "Communication",
+      "provType": "Communication",
       "activity": "activity-source-observation-run",
       "atTime": "2024-05-01T08:00:00Z"
     },
     {
-      "type": "Communication",
+      "provType": "Communication",
       "activity": "activity-source-validation-run",
       "atTime": "2024-05-01T09:30:00Z"
     }

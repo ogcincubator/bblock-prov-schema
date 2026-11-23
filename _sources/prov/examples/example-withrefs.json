@@ -1,7 +1,7 @@
 { "@context": {
     "@base": "https://example.org/"},
   "id": "DP-1",
-  "type": "Entity",
+  "provType": "Entity",
 
   "wasGeneratedBy": [
     "surveyreg-nz:DP-1-S1",
@@ -13,7 +13,7 @@
   [
     {
       "id": "DP-2223",
-      "type": "Entity",
+      "provType": "Entity",
       "wasGeneratedBy": "surveyreg-nz:DP-1-S1"
     },
     {
@@ -21,6 +21,3 @@
     }
   ]
 }
-
-
-
