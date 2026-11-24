@@ -1,5 +1,5 @@
 Validation report for ogc.ogc-utils.prov - Provenance Chain
-Generated 2026-11-23T20:12:52.439703+00:00
+Generated 2026-11-24T00:27:49.933963+00:00
 === General ===
 Test was expected to fail and it did.
 === End General ===
@@ -94,7 +94,99 @@ Failed validating 'anyOf' in schema:
                         'type': 'array',
                         'items': {'oneOf': [{'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml#Entity'},
                                             {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Activity'},
-                                            {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml#Agent'}]}}},
+                                            {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml#Agent'}]}},
+               'Entity': {'$anchor': 'Entity',
+                          'description': 'Deprecated alias, kept for '
+                                         'backwards compatibility with '
+                                         'schemas that reference '
+                                         'prov#/$defs/Entity. Use '
+                                         'bblocks://ogc.ogc-utils.prov-entity '
+                                         'instead.',
+                          'deprecated': True,
+                          '$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml#Entity'},
+               'EntityWithRequirements': {'$anchor': 'EntityWithRequirements',
+                                          'description': 'Deprecated '
+                                                         'alias, kept for '
+                                                         'backwards '
+                                                         'compatibility '
+                                                         'with schemas '
+                                                         'that reference '
+                                                         'prov#/$defs/EntityWithRequirements. '
+                                                         'Use '
+                                                         'bblocks://ogc.ogc-utils.prov-entity '
+                                                         'instead. The '
+                                                         'identification '
+                                                         'requirements are '
+                                                         'now part of the '
+                                                         'referenced '
+                                                         'definition.',
+                                          'deprecated': True,
+                                          '$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml#Entity'},
+               'Activity': {'$anchor': 'Activity',
+                            'description': 'Deprecated alias, kept for '
+                                           'backwards compatibility with '
+                                           'schemas that reference '
+                                           'prov#/$defs/Activity. Use '
+                                           'bblocks://ogc.ogc-utils.prov-activity '
+                                           'instead.',
+                            'deprecated': True,
+                            '$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Activity'},
+               'ActivityWithRequirements': {'$anchor': 'ActivityWithRequirements',
+                                            'description': 'Deprecated '
+                                                           'alias, kept '
+                                                           'for backwards '
+                                                           'compatibility '
+                                                           'with schemas '
+                                                           'that reference '
+                                                           'prov#/$defs/ActivityWithRequirements. '
+                                                           'Use '
+                                                           'bblocks://ogc.ogc-utils.prov-activity '
+                                                           'instead. The '
+                                                           'identification '
+                                                           'requirements '
+                                                           'are now part '
+                                                           'of the '
+                                                           'referenced '
+                                                           'definition.',
+                                            'deprecated': True,
+                                            '$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Activity'},
+               'Agent': {'$anchor': 'Agent',
+                         'description': 'Deprecated alias, kept for '
+                                        'backwards compatibility with '
+                                        'schemas that reference '
+                                        'prov#/$defs/Agent. Use '
+                                        'bblocks://ogc.ogc-utils.prov-agent '
+                                        'instead.',
+                         'deprecated': True,
+                         '$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml#Agent'},
+               'AgentWithRequirements': {'$anchor': 'AgentWithRequirements',
+                                         'description': 'Deprecated alias, '
+                                                        'kept for '
+                                                        'backwards '
+                                                        'compatibility '
+                                                        'with schemas that '
+                                                        'reference '
+                                                        'prov#/$defs/AgentWithRequirements. '
+                                                        'Use '
+                                                        'bblocks://ogc.ogc-utils.prov-agent '
+                                                        'instead. The '
+                                                        'identification '
+                                                        'requirements are '
+                                                        'now part of the '
+                                                        'referenced '
+                                                        'definition.',
+                                         'deprecated': True,
+                                         '$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml#Agent'},
+               'Association': {'$anchor': 'Association',
+                               'description': 'Deprecated alias, kept for '
+                                              'backwards compatibility '
+                                              'with schemas that reference '
+                                              'prov#/$defs/Association. '
+                                              'Use '
+                                              'bblocks://ogc.ogc-utils.prov-agent#Association '
+                                              'instead.',
+                               'deprecated': True,
+                               '$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-agent/schema.yaml#Association'}},
      'anyOf': [{'$ref': '#/$defs/Prov'},
                {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-entity/schema.yaml#Entity'},
                {'$ref': 'https://ogcincubator.github.io/bblock-prov-schema/build/annotated/ogc-utils/prov-activity/schema.yaml#Activity'},
@@ -306,7 +398,7 @@ Failed validating 'anyOf' in schema:
      'x-bblocks-metadata': {'itemIdentifier': 'ogc.ogc-utils.prov',
                             'register': 'https://ogcincubator.github.io/bblock-prov-schema/build/register.json',
                             'version': '0.1',
-                            'dateOfLastChange': '2026-11-23'},
+                            'dateOfLastChange': '2026-11-24'},
      '$id': 'file:///github/workspace/build/annotated/ogc-utils/prov/schema.yaml'}
 
 On instance:
@@ -348,7 +440,7 @@ On instance:
 === JSON-LD ===
 
 ** Validation error **
-Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x763263c4afc0>
+Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7c264624efc0>
 Traceback (most recent call last):
   File "/venv/lib/python3.12/site-packages/isodate/isodatetime.py", line 51, in parse_datetime
     datestring, timestring = datetimestring.split('T')

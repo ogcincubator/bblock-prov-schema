@@ -1,5 +1,5 @@
 Validation report for ogc.ogc-utils.prov-bundled - Single Schema for PROV
-Generated 2026-11-23T20:12:47.421866+00:00
+Generated 2026-11-24T00:27:45.602436+00:00
 === General ===
 Test was expected to fail and it did.
 === End General ===
@@ -620,7 +620,7 @@ Failed validating 'anyOf' in schema:
      'x-bblocks-metadata': {'itemIdentifier': 'ogc.ogc-utils.prov-bundled',
                             'register': 'https://ogcincubator.github.io/bblock-prov-schema/build/register.json',
                             'version': '0.1',
-                            'dateOfLastChange': '2026-11-23'},
+                            'dateOfLastChange': '2026-11-24'},
      '$id': 'file:///github/workspace/build/annotated/ogc-utils/prov-bundled/schema.yaml'}
 
 On instance:
@@ -651,7 +651,7 @@ On instance:
 === JSON-LD ===
 
 ** Validation error **
-Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x763263c4afc0>
+Error found when uplifting JSON-LD: Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7c264624efc0>
 Traceback (most recent call last):
   File "/venv/lib/python3.12/site-packages/isodate/isodatetime.py", line 51, in parse_datetime
     datestring, timestring = datetimestring.split('T')
@@ -667,7 +667,7 @@ Traceback (most recent call last):
   File "/venv/lib/python3.12/site-packages/isodate/isodatetime.py", line 53, in parse_datetime
     raise ISO8601Error("ISO 8601 time designator 'T' missing. Unable to"
 isodate.isoerror.ISO8601Error: ISO 8601 time designator 'T' missing. Unable to parse datetime string '2021-01-01'
-Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x763263c4afc0>
+Failed to convert Literal lexical form to value. Datatype=http://www.w3.org/2001/XMLSchema#dateTime, Converter=<function parse_datetime at 0x7c264624efc0>
 Traceback (most recent call last):
   File "/venv/lib/python3.12/site-packages/isodate/isodatetime.py", line 51, in parse_datetime
     datestring, timestring = datetimestring.split('T')

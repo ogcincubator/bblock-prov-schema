@@ -1,5 +1,5 @@
 Validation report for ogc.ogc-utils.prov-bundled - Single Schema for PROV
-Generated 2026-11-23T20:12:48.369254+00:00
+Generated 2026-11-24T00:27:46.528490+00:00
 === Files ===
 Using examples/example.json from examples
 JSON-LD context is present - uplifting

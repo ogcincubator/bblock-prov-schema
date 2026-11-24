@@ -375,7 +375,7 @@ x-bblocks-metadata:
   itemIdentifier: ogc.ogc-utils.prov-agent
   register: https://ogcincubator.github.io/bblock-prov-schema/build/register.json
   version: '0.1'
-  dateOfLastChange: '2026-11-23'
+  dateOfLastChange: '2026-11-24'
 
 ```
 

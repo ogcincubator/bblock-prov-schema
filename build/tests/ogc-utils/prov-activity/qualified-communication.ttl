@@ -3,9 +3,9 @@
 
 <file:///github/workspace/activity-forecast-report> a prov:Activity ;
     prov:qualifiedCommunication [ a prov:Communication ;
-            prov:activity <file:///github/workspace/activity-source-validation-run> ;
-            prov:atTime "2024-05-01T09:30:00+00:00"^^xsd:dateTime ],
-        [ a prov:Communication ;
             prov:activity <file:///github/workspace/activity-source-observation-run> ;
-            prov:atTime "2024-05-01T08:00:00+00:00"^^xsd:dateTime ] .
+            prov:atTime "2024-05-01T08:00:00+00:00"^^xsd:dateTime ],
+        [ a prov:Communication ;
+            prov:activity <file:///github/workspace/activity-source-validation-run> ;
+            prov:atTime "2024-05-01T09:30:00+00:00"^^xsd:dateTime ] .
 
