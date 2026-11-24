@@ -222,6 +222,48 @@
           }
         ]
       }
+    },
+    "Entity": {
+      "$anchor": "Entity",
+      "description": "Deprecated alias, kept for backwards compatibility with schemas that reference prov#/$defs/Entity. Use bblocks://ogc.ogc-utils.prov-entity instead.",
+      "deprecated": true,
+      "$ref": "bblocks://ogc.ogc-utils.prov-entity#Entity"
+    },
+    "EntityWithRequirements": {
+      "$anchor": "EntityWithRequirements",
+      "description": "Deprecated alias, kept for backwards compatibility with schemas that reference prov#/$defs/EntityWithRequirements. Use bblocks://ogc.ogc-utils.prov-entity instead. The identification requirements are now part of the referenced definition.",
+      "deprecated": true,
+      "$ref": "bblocks://ogc.ogc-utils.prov-entity#Entity"
+    },
+    "Activity": {
+      "$anchor": "Activity",
+      "description": "Deprecated alias, kept for backwards compatibility with schemas that reference prov#/$defs/Activity. Use bblocks://ogc.ogc-utils.prov-activity instead.",
+      "deprecated": true,
+      "$ref": "bblocks://ogc.ogc-utils.prov-activity#Activity"
+    },
+    "ActivityWithRequirements": {
+      "$anchor": "ActivityWithRequirements",
+      "description": "Deprecated alias, kept for backwards compatibility with schemas that reference prov#/$defs/ActivityWithRequirements. Use bblocks://ogc.ogc-utils.prov-activity instead. The identification requirements are now part of the referenced definition.",
+      "deprecated": true,
+      "$ref": "bblocks://ogc.ogc-utils.prov-activity#Activity"
+    },
+    "Agent": {
+      "$anchor": "Agent",
+      "description": "Deprecated alias, kept for backwards compatibility with schemas that reference prov#/$defs/Agent. Use bblocks://ogc.ogc-utils.prov-agent instead.",
+      "deprecated": true,
+      "$ref": "bblocks://ogc.ogc-utils.prov-agent#Agent"
+    },
+    "AgentWithRequirements": {
+      "$anchor": "AgentWithRequirements",
+      "description": "Deprecated alias, kept for backwards compatibility with schemas that reference prov#/$defs/AgentWithRequirements. Use bblocks://ogc.ogc-utils.prov-agent instead. The identification requirements are now part of the referenced definition.",
+      "deprecated": true,
+      "$ref": "bblocks://ogc.ogc-utils.prov-agent#Agent"
+    },
+    "Association": {
+      "$anchor": "Association",
+      "description": "Deprecated alias, kept for backwards compatibility with schemas that reference prov#/$defs/Association. Use bblocks://ogc.ogc-utils.prov-agent#Association instead.",
+      "deprecated": true,
+      "$ref": "bblocks://ogc.ogc-utils.prov-agent#Association"
     }
   },
   "anyOf": [
