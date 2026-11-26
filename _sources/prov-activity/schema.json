@@ -17,7 +17,11 @@
           "x-jsonld-id": "@id"
         },
         "provType": {
-          "const": "Activity",
+          "description": "The PROV-O class of this object, as a term defined in the context or a 'prov:' CURIE.",
+          "enum": [
+            "Activity",
+            "prov:Activity"
+          ],
           "x-jsonld-id": "@type"
         },
         "activityType": {

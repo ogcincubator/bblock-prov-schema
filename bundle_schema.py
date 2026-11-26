@@ -93,12 +93,21 @@ def convert(node):
     return out
 
 
+def is_alias(definition):
+    """A deprecated alias: a definition that only $refs its new home."""
+    return definition.get("deprecated") is True and "$ref" in definition and not (
+        set(definition) - {"$anchor", "$ref", "description", "deprecated"}
+    )
+
+
 def bundle():
     modules = {m: load(SOURCES / m / "schema.json") for m in MODULES}
     defs = {}
     for m in MODULES:
         for name, definition in modules[m]["$defs"].items():
-            if name in defs:
+            if name in defs and not is_alias(defs[name]):
+                # A real definition replaces a deprecated alias of the same name
+                # (the alias would otherwise point at itself in the bundle)
                 raise SystemExit(f"Duplicate definition {name!r} (in {m})")
             definition = convert(definition)
             if name not in KEEP_ANCHOR:

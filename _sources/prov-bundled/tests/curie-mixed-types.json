@@ -1,0 +1,20 @@
+{
+  "@context": {
+    "@base": "https://example.org/"
+  },
+  "id": "output-1",
+  "provType": "Entity",
+  "wasGeneratedBy": {
+    "id": "run-2",
+    "provType": "prov:Activity",
+    "wasAssociatedWith": {
+      "id": "pipeline",
+      "provType": "SoftwareAgent",
+      "name": "Pipeline"
+    },
+    "used": {
+      "id": "plan-2",
+      "provType": "Plan"
+    }
+  }
+}

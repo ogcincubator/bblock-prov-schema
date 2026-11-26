@@ -1,0 +1,54 @@
+{
+  "@context": {
+    "@base": "https://example.org/",
+    "agents": "https://someagentregister.eg/"
+  },
+  "id": "report-1",
+  "provType": "prov:Entity",
+  "wasAttributedTo": [
+    {
+      "id": "agents:jo",
+      "provType": "prov:Person",
+      "name": "Jo Bloggs"
+    },
+    {
+      "id": "agents:ops",
+      "provType": "prov:Agent"
+    }
+  ],
+  "wasInfluencedBy": [
+    {
+      "id": "plan-1",
+      "provType": "prov:Plan",
+      "name": "Report generation procedure"
+    },
+    {
+      "id": "bundle-1",
+      "provType": "prov:Bundle"
+    }
+  ],
+  "wasGeneratedBy": {
+    "id": "run-1",
+    "provType": "prov:Activity",
+    "startedAtTime": "2024-05-01T08:00:00Z",
+    "used": {
+      "id": "input-1",
+      "provType": "prov:Entity"
+    },
+    "wasAssociatedWith": {
+      "id": "agents:report-bot",
+      "provType": "prov:SoftwareAgent",
+      "name": "Report generator",
+      "actedOnBehalfOf": {
+        "id": "agents:acme",
+        "provType": "prov:Organization",
+        "name": "ACME"
+      }
+    },
+    "qualifiedAssociation": {
+      "provType": "Association",
+      "agent": "agents:report-bot",
+      "hadPlan": "plan-1"
+    }
+  }
+}

@@ -7,7 +7,17 @@
       "type": "object",
       "properties": {
         "provType": {
-          "const": "Agent",
+          "description": "The PROV-O class of this object, as a term defined in the context or a 'prov:' CURIE.",
+          "enum": [
+            "Agent",
+            "prov:Agent",
+            "Person",
+            "prov:Person",
+            "Organization",
+            "prov:Organization",
+            "SoftwareAgent",
+            "prov:SoftwareAgent"
+          ],
           "x-jsonld-id": "@type"
         },
         "agentType": {

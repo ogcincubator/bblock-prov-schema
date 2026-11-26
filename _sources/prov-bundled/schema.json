@@ -137,7 +137,15 @@
           "x-jsonld-id": "@id"
         },
         "provType": {
-          "const": "Entity",
+          "description": "The PROV-O class of this object, as a term defined in the context or a 'prov:' CURIE.",
+          "enum": [
+            "Entity",
+            "prov:Entity",
+            "Bundle",
+            "prov:Bundle",
+            "Plan",
+            "prov:Plan"
+          ],
           "x-jsonld-id": "@type"
         },
         "entityType": {
@@ -487,7 +495,11 @@
           "x-jsonld-id": "@id"
         },
         "provType": {
-          "const": "Activity",
+          "description": "The PROV-O class of this object, as a term defined in the context or a 'prov:' CURIE.",
+          "enum": [
+            "Activity",
+            "prov:Activity"
+          ],
           "x-jsonld-id": "@type"
         },
         "activityType": {
@@ -662,7 +674,17 @@
       "type": "object",
       "properties": {
         "provType": {
-          "const": "Agent",
+          "description": "The PROV-O class of this object, as a term defined in the context or a 'prov:' CURIE.",
+          "enum": [
+            "Agent",
+            "prov:Agent",
+            "Person",
+            "prov:Person",
+            "Organization",
+            "prov:Organization",
+            "SoftwareAgent",
+            "prov:SoftwareAgent"
+          ],
           "x-jsonld-id": "@type"
         },
         "agentType": {
@@ -1251,6 +1273,21 @@
           }
         ]
       }
+    },
+    "EntityWithRequirements": {
+      "description": "Deprecated alias, kept for backwards compatibility with schemas that reference prov#/$defs/EntityWithRequirements. Use bblocks://ogc.ogc-utils.prov-entity instead. The identification requirements are now part of the referenced definition.",
+      "deprecated": true,
+      "$ref": "#/$defs/Entity"
+    },
+    "ActivityWithRequirements": {
+      "description": "Deprecated alias, kept for backwards compatibility with schemas that reference prov#/$defs/ActivityWithRequirements. Use bblocks://ogc.ogc-utils.prov-activity instead. The identification requirements are now part of the referenced definition.",
+      "deprecated": true,
+      "$ref": "#/$defs/Activity"
+    },
+    "AgentWithRequirements": {
+      "description": "Deprecated alias, kept for backwards compatibility with schemas that reference prov#/$defs/AgentWithRequirements. Use bblocks://ogc.ogc-utils.prov-agent instead. The identification requirements are now part of the referenced definition.",
+      "deprecated": true,
+      "$ref": "#/$defs/Agent"
     }
   },
   "anyOf": [
