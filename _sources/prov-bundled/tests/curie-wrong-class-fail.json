@@ -1,0 +1,9 @@
+{
+  "id": "run-3",
+  "provType": "prov:Activity",
+  "wasAssociatedWith": {
+    "id": "not-an-agent",
+    "provType": "prov:Plan",
+    "name": "A plan is not an agent"
+  }
+}
